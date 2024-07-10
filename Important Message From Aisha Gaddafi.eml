@@ -1,0 +1,222 @@
+Received: from DS0PR10MB6222.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sun, 7 Jul 2024 19:00:35
+ +0000
+Received: from BN9PR03CA0725.namprd03.prod.outlook.com (2603:10b6:408:110::10)
+ by DS0PR10MB6222.namprd10.prod.outlook.com (2603:10b6:8:c0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.35; Sun, 7 Jul
+ 2024 19:00:33 +0000
+Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
+ (2603:10b6:408:110:cafe::d6) by BN9PR03CA0725.outlook.office365.com
+ (2603:10b6:408:110::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.35 via Frontend
+ Transport; Sun, 7 Jul 2024 19:00:33 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.167.68)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.167.68 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.167.68; helo=mail-lf1-f68.google.com; pr=C
+Received: from mail-lf1-f68.google.com (209.85.167.68) by
+ BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7762.1
+ via Frontend Transport; Sun, 7 Jul 2024 19:00:33 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:CAB3FD128A670494687059C108FEC7F3A86CDBFE956EEC10E2B74CC39AEA2BA8;UpperCasedChecksum:4F0D6D60525247FABBD5CB0AC1F11E3E7337FFB1C36B5EEADB53AA2E63B20885;SizeAsReceived:2563;Count:15
+Received: by mail-lf1-f68.google.com with SMTP id 2adb3069b0e04-52ea0f18500so3122197e87.3
+        for <johndoe@emailaddress.com>; Sun, 07 Jul 2024 12:00:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1720378832; x=1720983632; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Yq2/nTLSnNtCQKZMcV0zQELmVE6oHS/iovQotOnXApo=;
+        b=PXx9ubYeCS2T1c3c3e7dLJ+VmveARHwKkvBg8GLAtn3BKxXC9yGGctNWfgFNXqLH9q
+         lRq/fB8J4y0hFpudCocQg+BQt+ZoE0w5HbQQQzBd918JBVPOzZofduhW56LFrfrurVYd
+         eI6XPx/4DM5VHQh/XcvxPE/MCdubwJT7X16c2ZE5eNpGGhWb4EcwkCbEfhZDYbyHMTIC
+         F2662JzW2ydCQAiypv71jgb431BmNhdGR2ecuqm2xcEyv0Z01L6hPhucSmCMUah6mZtr
+         IqfrGu9p/pbPQlEMLRmVvP96lNi/XlZCUsesxnImpEutYQD8dU3b0MOB5I/vVyRBGVvn
+         g3zQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720378832; x=1720983632;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Yq2/nTLSnNtCQKZMcV0zQELmVE6oHS/iovQotOnXApo=;
+        b=jtNRz7iy8fg2nxJv9fJ4p71/ttWK3xbR7Wbx7iruARw7+M/uoSueOKIFZfrUL6Ibq6
+         tJRJt0xfWF5cSipFBbcktSSNotrunVJlIFyFQJJ7EfBXYp3IOy3JNIPeRU9maRQPL4qs
+         iZXGNV3G8ZEl5gE2WegyBHArnw9+mkFSROJAhvTdQhV2c90Njrgoc4eR0R5yn8ch3H8D
+         10kTvSFthhnEMcWdgsHW0IjqowQCcCuEQt1u8LEddH8H6//EQt/g/4R/dsQ7idvYd9vx
+         gHIR1Uoo8MGdxdPBjsTUCbkwLPCrw/HRbVHcZKS9mJ/W57hW5fZzYyaP5Uml9Vv8jaGV
+         kWKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUbdCvhglqXbQ0OsjsgrtqOlLl4BnZ67QHGxlaQE7GS8GE4Ipt+WSGoh7MRG/X7VU0YkvPAHpu+NB7NWQhCziZWA==
+X-Gm-Message-State: AOJu0Yyl7kvjv1sC2RAeVMYI5ruMXg6gML8a6ML2RwDVj5kXUApI7LDm
+	goP07XOrFEp2TAQwccV99edBJ0mE5shOCKEouVevh8D0AV07RhzkKl+QsO6gTYPphnfg2bTEQTR
+	2rK+hgfEA0Rh53Ezi6U72KAbf4EI=
+X-Google-Smtp-Source: AGHT+IFNw3ImuFpLBSqxVwSQWEfTDpYyRiArP1eG0FG75s8s6f3kW8J4XQyqu+SVVN7DFZ2U1QKY6Z4IkcsjaG4Xha8=
+X-Received: by 2002:a05:6512:3c98:b0:52e:a60e:3a0a with SMTP id
+ 2adb3069b0e04-52ea60e3be2mr6264945e87.2.1720378831071; Sun, 07 Jul 2024
+ 12:00:31 -0700 (PDT)
+From: Mrs Gaddafi <mrsgaddafi2255@gmail.com>
+Date: Sun, 7 Jul 2024 12:00:18 -0700
+Message-ID: <CAHUQbnT7sDo2kMh5n9Vn9YMjq5CVh1x460moNTcjErKPn3WwhQ@mail.gmail.com>
+Subject: Important Message From Aisha Gaddafi
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000001af420061cace99a"
+Bcc: johndoe@emailaddress.com
+X-IncomingHeaderCount: 15
+Return-Path: mrsgaddafi2255@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Jul 2024 19:00:33.3514
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 3704d92d-7e8b-40b3-802d-08dc9eb7141e
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BN3PEPF0000B371:EE_|DS0PR10MB6222:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN3PEPF0000B371.namprd21.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/7/2024 6:50:01 PM
+X-MS-Office365-Filtering-Correlation-Id: 3704d92d-7e8b-40b3-802d-08dc9eb7141e
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.167.68
+X-SID-PRA: MRSGADDAFI2255@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|9800799012|9020799016|2100799027|47200799018|970799054|461199028|58200799015|2700799026|1380799030|1370799030|3412199025|440099028|1360799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2024 19:00:33.3046
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3704d92d-7e8b-40b3-802d-08dc9eb7141e
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN3PEPF0000B371.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6222
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2114219
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7741.016
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0zO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?dE8wZEdUdFdQc2w0c0FnU2hodTR2MXNFR3FEUkVZSTRjNzhiVWxUVzEwdnNw?=
+ =?utf-8?B?Myt0SVBsb01ob1huRFFQZkNJdlVMakt0WEkxaGRsWFBJU2pSNjNrd2dSUm02?=
+ =?utf-8?B?WkUrYW9TYjNNZFV5cG15OTFVUVEwOXQ4a1VnRUcvUysvd1h0WEFCNytnOXVx?=
+ =?utf-8?B?aUZScFBlNGc2L0RCdWhTNzFMZmNnWXFvam5sdWRQNFVQVG9XRzFGTk9zZjF4?=
+ =?utf-8?B?VWYzU1BJN1hhRk1tR0lTempQRkdjRnBMaEZsMWVJTFJSSWNtM0x0OHF4TWtK?=
+ =?utf-8?B?OFpJeW5EbGt1MVVFcFpuRVk3d3YzZ2tXNGU1dkIxZC8wY1BySUxLcjd0Um5W?=
+ =?utf-8?B?OEhLZmJuL3Npcyt5TlZQVU1pRXJHVXJZUGJZQ2YzZ3FXcExISnhIRzlwM3dM?=
+ =?utf-8?B?bVVlZE5ESVNnVE5HU1FKUTAyelRCL1JiQXlldmtSZlZPaUM1U09uTVgrcWY4?=
+ =?utf-8?B?RFU5SFFkNVEwc3lwbXpzS2dTR2lGNnQ5dEY0RDdVK2xBMytKQm9BZ290NEdX?=
+ =?utf-8?B?UnlPS1BQUDlBS0Q0YlU4eTBGUjNJd2xYcGdEQVZtVlNnWW9EeEVuSTlHVFdx?=
+ =?utf-8?B?U0F1MXRqSzVNKzRyUnI2VjU3dmMwQmZicWY1ZVVZZFdjaTRMQm9vQmdmZDFI?=
+ =?utf-8?B?Q2ZUL29tUFY3OU1lM0h6LzZkRkVkUFpYdG5CM01rQmNxYWVEdHZNazJ3ckZs?=
+ =?utf-8?B?bnhWaTZzNkk3anB6bEdzWHRyV2VTTW02Y21xcDEyeXhFU0lJZVphb0oyNFRE?=
+ =?utf-8?B?QmxOTFJkb1Q3QTdLRXlyS0pwS0haQ2N4Zlp4NUlrMHovSDl1ZXcyQXFvZU04?=
+ =?utf-8?B?eDVNRnc4Qm4xaHc4a1Q2YUwxRlVDVkFJbVFxTmlYV3lUbGRMc1NWc3kxSDJO?=
+ =?utf-8?B?S3dNR241KzMzbXY4KzZkbkw3NTBMZXpFNHU3NjdKbVpqV0dNdlhTMGdVSlhu?=
+ =?utf-8?B?ZXZBSjVPMGwxL2lNRHdCNW9vOUc0Tzc0R3FHWUZpRThUTHNabUh0NWgrUDVE?=
+ =?utf-8?B?UjE0ci81UXd6eFd3TmtwaVgrZkhkTnNmTldnRUZjTCt5Rk1Fci9EUG92bU1n?=
+ =?utf-8?B?OFNVY0Myb21OSzNSb2FhQ1gwSlRlYnN2ZVJtVGh5RFFXTWsvVXl4MHpwcFFa?=
+ =?utf-8?B?cVdXVGNtMzVoM0kranNYZzZNZFFyZ041MXhEdjd2aU11RExMZVJpNSt3VHpW?=
+ =?utf-8?B?VytOWDBIYnV1ekZTWGVSb05wdGVJREE5eHd6OUF2UXdrQklWVnpNaC9VbFl4?=
+ =?utf-8?B?NFZMYTNTZ3Zma2NXcmNqVXZQcXdWbjRZbk9uM0FGSDhTcU9SZGxHMXo0Nnd3?=
+ =?utf-8?B?M2N3ZHBWbGhxWlpEdVhLdW5lU0dRY1RTT3ZuaWZ1UWhuRmFmRko1c2RVYTFX?=
+ =?utf-8?B?ZWFmZ1pxNVhjNVAreTdRSUpTM0ozSC9pTS9yemJDUW1CQ3Y3WHV6UjRXdHQ0?=
+ =?utf-8?B?d2VseWJXRnE4V013VEE5OVEySUNRRkFFYUgrcnhTanJ6YTB6bG9aM0Z0eGlQ?=
+ =?utf-8?B?VHpSdVRObGRUK2FqVVpuWFFsVVRwb0F2YXZYZ3V3YlpBaXhXQnhvUnJuaHVN?=
+ =?utf-8?B?K0Qzb0g2UWY4WnEzRm4yUXdoMDJMVzh0YUtWOVlUTTZQRjc5eUZtV1hseUx1?=
+ =?utf-8?B?Z2dKdm9JVjdnc016aWRUdExIQ3p3T2ZlUENwUXJndkI0WGhvYTJRcGJFeFVx?=
+ =?utf-8?B?d0NSNGczWHIyaDIxT2pYYjRmaDVWT0FMSlBIYU9ESTg2NG1JdGlJU0hzSVRE?=
+ =?utf-8?B?U25UMjdoZkY0V2YwdUxLTkRUQUNmSEdYNTlwTGRWSGdwR1JOL0YzS0dJNHdk?=
+ =?utf-8?B?ZG5vR0o2dnFhcVZvQWQ0ZVJaODN2U1ZCVjBXOGN5MURCUzhaSEl5U21pc1Zz?=
+ =?utf-8?B?Y2UwUml2dW01M01pYUNpOURickU3QW9FT3pMYkpqUVZsMnozQi9udTlnQklT?=
+ =?utf-8?B?QlZKbFMxd0ZnREIwOGhDKzFJemx6M05BcVlITm15SG1GNXhiaG1kOWYvWWpS?=
+ =?utf-8?B?dDlIYkYyenBDRUpZbTh6NnVwOTZmV3BHQU9MdEFxNG5tZndiTDlONzcyQXN0?=
+ =?utf-8?B?REFvMjJsb1RIRFJmNWtrR01ZeUR3b1RRS001aXJPUEl5d29yODQxbTdyaFhs?=
+ =?utf-8?B?QkM5eWI3TFVVMkZ4NTYvOFR0WW1UQlhCSGRDZGx1Q2w0RmlvZFRnTWhTTWFV?=
+ =?utf-8?B?NUp6b2F1MUg5S2RCSDVWQ0ZmT0ZtejY3dE41RGt0OVV2TkZXSmx5WTdST1p3?=
+ =?utf-8?B?NVloaTR4T0NGa2l3L05rRjBrNWVjTHJUY0xvZSt2bmtRbkNZcXFsbW9pV0JR?=
+ =?utf-8?B?WXk0b0NtcUovV0FHQkg4dko2anZWOUIzc3FTSFoxWitwKzlZRVcveDBFWXgz?=
+ =?utf-8?B?OGJmaVN6QXB0UWJrRTBINkhuRjl5QVJ4MlpwMWhYVjNsWTg4MUNjWnhXVGU1?=
+ =?utf-8?B?a3IzTzl3S3NpMXpqcXViUnhyOFNkSDZxRElwVytucG1hTW9hVW93R0RUUVRR?=
+ =?utf-8?B?ZGVuV08rb3Zqc1VpemNkR0I5Y2syTWVHV1VheEp5SG9nZnkzeE93T0IraXVJ?=
+ =?utf-8?B?T3VtSW9FU2xWaTA0NUJEZ053MFJJWGMxUXpMVmF1bVAwMFp4dFdFaDdXcG9q?=
+ =?utf-8?B?SXVzUWVSQ3h3WkhpM0xpbldBY21NTEZYUUdhTW9NMnd6bWZYL3NNdEpaYXJC?=
+ =?utf-8?B?a2tIUVRydmRLeWIvbHVSWHBwR2dNWUZLdDFnVkp6cnh4c0xuY2RaS2owR1E1?=
+ =?utf-8?B?SktoUG9XN0tnQXp5cjUwbWE1Q3ZnaHpPZW9PeUlhaVV4OWpDeitIVExqUlg1?=
+ =?utf-8?B?UFBCd2JQNXE0S1VmVVlGYkdJY25iRy9WRlJmOGtXeXl3VjN4d3Q1WWRRalBI?=
+ =?utf-8?B?c29PS1pnUWNNSDJrTGhaTmNlLzhpVUdSY2ZJR3Y2UDlLakJvSnFaWmd1MXpa?=
+ =?utf-8?B?SS9KcGJvcEpOanpodk0wQy9oQzhtVDdSRTJISW80alk1dzlrb3lSU1lRcEtk?=
+ =?utf-8?Q?Ysq+5JOEGIRHjigwcsEyO56wYlSSOMqnfkb?=
+MIME-Version: 1.0
+
+--0000000000001af420061cace99a
+Content-Type: text/plain; charset="UTF-8"
+
+Dearest One,
+
+I came across your e-mail contact prior to a private search while in need
+of your assistance.
+
+Please May I use this medium to open a mutual communication with you, and
+seek your acceptance towards investing in your country under your
+management as my partner.
+
+My name is Aisha Gaddafi and I am presently living in Oman as a refugee, I
+am a Widow and single Mother with One Daughter, the only biological
+Daughter of the late Libyan President (Late Colonel Muammar Gaddafi) . I am
+presently  under political asylum protection by the Omani Government in
+oman.
+
+I have funds ($27.500.000.00 USD) which my late father deposited in Garanti
+bank in Istanbul Turkey which I want to entrust to you for an investment
+project in your country, and  I shall compensate you with 30% of the total
+sum after the funds have been transferred.
+If you are willing to handle this project on my behalf, kindly reply
+urgently to enable me to provide you with more details to start the
+transfer process.
+
+I shall appreciate your urgent response through my private email address
+below:
+(Mrs.aisha-gaddafi1976@politician.com)
+
+Thanks
+Yours Truly
+Aisha Gaddafi
+
+--0000000000001af420061cace99a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Dearest One,<br><br>I came across your e-mail contact prior =
+to a private search while in need of your assistance.<br><br>Please May I u=
+se this medium to open a mutual communication with you, and seek your accep=
+tance towards investing in your country under your management as my partner=
+.<br><br>My name is Aisha Gaddafi and I am presently living in Oman as a re=
+fugee, I am a Widow and single Mother with One Daughter, the only biologica=
+l Daughter of the late Libyan President (Late Colonel Muammar Gaddafi) . I =
+am presently &nbsp;under political asylum protection by the Omani Governmen=
+t in oman.<br><br>I have funds ($27.500.000.00 USD) which my late father de=
+posited in Garanti bank in Istanbul Turkey which I want to entrust to you f=
+or an investment project in your country, and &nbsp;I shall compensate you =
+with 30% of the total sum after the funds have been transferred.<br>If you =
+are willing to handle this project on my behalf, kindly reply urgently to e=
+nable me to provide you with more details to start the transfer process.<br=
+><br>I shall appreciate your urgent response through my private email addre=
+ss below:<br>(<a href=3D"mailto:Mrs.aisha-gaddafi1976@politician.com">Mrs.a=
+isha-gaddafi1976@politician.com</a>)<br><br>Thanks<br>Yours Truly<br>Aisha =
+Gaddafi<br></div>
+
+--0000000000001af420061cace99a--

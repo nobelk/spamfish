@@ -1,0 +1,311 @@
+Received: from DM6PR10MB4313.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sat, 22 Jun 2024 11:25:56
+ +0000
+Received: from YT4PR01CA0191.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:110::24)
+ by DM6PR10MB4313.namprd10.prod.outlook.com (2603:10b6:5:212::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7698.26; Sat, 22 Jun
+ 2024 11:25:55 +0000
+Received: from YT2PR01MB10715.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:110:cafe::38) by YT4PR01CA0191.outlook.office365.com
+ (2603:10b6:b01:110::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.37 via Frontend
+ Transport; Sat, 22 Jun 2024 11:25:54 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=GKmbei7Rh5B9EHX4mBVtKT9vHqteTopeW+c8PeOKUbhtB5ONRy720pVjycNMsyja1jTCe3bbr0o2/HhGaBqQ/k/MT2f74kQesOzcn2WoMeRhGDftlhBxT59t6NLgGZnTOmxrwwUy/Xr+W6gLAgKONkCg83/L9vnAeRdWQUOqjiiTfZS1yCHqJ7HIX6qNmD6prbLhGBk5xIkAzQTVsqzMvGqbIuBvZ4GQLPhFuZjSlckSb0UZxaoxxfn5pHQzyLq1l6mGEv7rlULR+gDR7lx+QCuOMbjKH2CSYIO+ti2RqV/wDrSL6jzzu5MJzdueXiQ/531jePQp4lCgVwncnO6KAg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vUTri3egn3lIISuxXkE408gPde5aCnvyVf9wqmPHhGw=;
+ b=R7joGyybOggsZrNfISKGe/NX3K89wgA7pciDEiheRd2pFNO7LQqkxIq4hXcb6KkQSjOiua4FfVUaB9sOZK7kpwvUBVws7a2OqDgGp5y3QQAKIEFkMoKcMC2RL8KeFOuPLy65ZiyYtKx6jjuvwpRjg1Zaq882ogLcJeUiacD6+8HhOzTjnir2XeXZzJd6vm8em/XlMpXYacCIthNjkFlNd4LIjFDvXtw5NC9utTKvwaTb8y21pv22y/96Yhv12aGA2KhMwnvPsat0XVBJ1zxjpgRXJYB/r3HPg49MBQR9nFFKFemkZtQK7D9FpPmDN19aDeP4LeleMRGUBLr2kpXr9A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 52.100.153.210) smtp.rcpttodomain=outlook.com smtp.mailfrom=salud.pr.gov;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=santarosa.aw;
+ dkim=pass (signature was verified) header.d=dsdepr.onmicrosoft.com; arc=pass
+ (0 oda=0 ltdi=1)
+Received: from AS9PR06CA0010.eurprd06.prod.outlook.com (2603:10a6:20b:462::33)
+ by YT2PR01MB10715.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:f0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7698.26; Sat, 22 Jun
+ 2024 11:25:53 +0000
+Received: from AMS0EPF00000199.eurprd05.prod.outlook.com
+ (2603:10a6:20b:462:cafe::8c) by AS9PR06CA0010.outlook.office365.com
+ (2603:10a6:20b:462::33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.37 via Frontend
+ Transport; Sat, 22 Jun 2024 11:25:52 +0000
+Authentication-Results: spf=pass (sender IP is 52.100.153.210)
+ smtp.mailfrom=salud.pr.gov; dkim=pass (signature was verified)
+ header.d=dsdepr.onmicrosoft.com;dmarc=fail action=none
+ header.from=santarosa.aw;compauth=fail reason=001
+Received-SPF: Pass (protection.outlook.com: domain of salud.pr.gov designates
+ 52.100.153.210 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.100.153.210; helo=GCC02-BL0-obe.outbound.protection.outlook.com;
+ pr=C
+Received: from GCC02-BL0-obe.outbound.protection.outlook.com (52.100.153.210)
+ by AMS0EPF00000199.mail.protection.outlook.com (10.167.16.245) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7677.15 via Frontend Transport; Sat, 22 Jun 2024 11:25:51 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:DA825AC8F758EBE274B77DBADE8C8EEC22CB479947C115B5E9FA2E4B0834269B;UpperCasedChecksum:1B615CFF9F3042533D30232A4196C889A4668A0F91FF89054CC932EA4341FB19;SizeAsReceived:7990;Count:43
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=K+aRbgfqyaUMkgtz3IMn2SrX6pnkcXY8d5Qrne0PeYu6znxqOp6DpLd2CbnbCR2KKdVEA/uk93rjReNlntHq41fCadw6RZSb6SKaoEjMSi8v1Qn2GWYNYF+47GEopVa2qSRo0f4BbbeNuEZOvui4pjOa3um/exLPVNCeXwQZ7OdJMmxJRuyS/3q5ksZZ/cLgZm/4a3kxT9Z4rLRQmIw8jIkdzEwcZs7dajCyHGb0lWtM+TZE6l0mwLwJl/OWvJinRwFA3zHT5Mll+U/75tijH5j8YXeUrTHD1rPFwHRv/ywqscXHd5dqojmvjI9BwfPkcDm2QGlz8cVaBrfvEjfsNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vUTri3egn3lIISuxXkE408gPde5aCnvyVf9wqmPHhGw=;
+ b=HkU1PqWN6E6fWK6W95rEi9UYYp2IOe5Re9HSZjHgn0Kmeus1sWztVBFRvY1TRzceUzj3eaoN2gwz6UXiSdPczdCha5U18NVVCRBChOL2x+poRY7orIh9US7Zg4M/o/WDT3mBa9b3SbOBI2DYkqpDV0dBuG+Ylgrjg9qngJNCDq7HYAmfWZ9uNDIcojGTfldaje86ZjbXPQDpEAbf8R7lg+0VLpDx9JUo250cYvNB3m6kEIOkbuRuH15fAMEMQKSf4W3snp+gsDy/K9rH6jySOxVDMZgYY9df8Bvsj4bBuZTdEx6T3HuHofyUIM2weoShyq2g+ucJICasIuFKo5++HA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 200.5.3.153) smtp.rcpttodomain=aim.com smtp.mailfrom=santarosa.aw; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=santarosa.aw; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dsdepr.onmicrosoft.com; s=selector2-dsdepr-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vUTri3egn3lIISuxXkE408gPde5aCnvyVf9wqmPHhGw=;
+ b=WC+t1+3fpOtPUKzs3w5wHgXv39mkjRAopmgTXHNLkzAtQXjztk0/OWuyps0zhh8X8SqH5rXFM3ZakSSwkpHswUOVKgyhnk0r9atbS6L+XYoQ+cU9v2XGHw4+zAQQ2d6gqUsw0Nt3rF3imIsFBFxON16C/oqATp79V9UWe4zKPp0=
+Received: from CY5PR09CA0018.namprd09.prod.outlook.com (2603:10b6:930:1::7) by
+ SJ0PR09MB11683.namprd09.prod.outlook.com (2603:10b6:a03:50d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7698.26; Sat, 22 Jun
+ 2024 11:10:15 +0000
+Received: from DS4PEPF00000172.namprd09.prod.outlook.com
+ (2603:10b6:930:1:cafe::89) by CY5PR09CA0018.outlook.office365.com
+ (2603:10b6:930:1::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.37 via Frontend
+ Transport; Sat, 22 Jun 2024 11:10:15 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 200.5.3.153)
+ smtp.mailfrom=santarosa.aw; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=santarosa.aw;
+Received-SPF: Fail (protection.outlook.com: domain of santarosa.aw does not
+ designate 200.5.3.153 as permitted sender) receiver=protection.outlook.com;
+ client-ip=200.5.3.153; helo=mail.asem.pr.gov;
+Received: from mail.asem.pr.gov (200.5.3.153) by
+ DS4PEPF00000172.mail.protection.outlook.com (10.167.18.199) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7677.15 via Frontend Transport; Sat, 22 Jun 2024 11:10:14 +0000
+Received: from AEX01V170.asem.org (10.12.31.170) by AEX01V170.asem.org
+ (10.12.31.170) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.28; Sat, 22 Jun
+ 2024 07:10:04 -0400
+Received: from User (10.12.31.254) by aex01v170.asem.org (10.12.31.170) with
+ Microsoft SMTP Server id 15.2.1258.28 via Frontend Transport; Sat, 22 Jun
+ 2024 07:09:55 -0400
+Reply-To: <scottglover@asb-risk.com>
+From: Jeff Bezos Foundation <JeffBezos.Foundations@santarosa.aw>
+Subject: [EXTERNAL]Donation
+Date: Sat, 22 Jun 2024 04:10:04 -0700
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook Express 6.00.2600.0000
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2600.0000
+Message-ID: <79e8287c-9882-43e5-8a54-bf3830f94f37@AEX01V170.asem.org>
+To: Undisclosed recipients:;
+Return-Path: bounces+SRS=jC54y=NY@salud.pr.gov
+X-EOPAttributedMessage: 1
+X-MS-TrafficTypeDiagnostic:
+ DS4PEPF00000172:EE_|SJ0PR09MB11683:EE_|AMS0EPF00000199:EE_|YT2PR01MB10715:EE_|DM6PR10MB4313:EE_|CO1PR10MB4450:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65390ac3-3a53-485d-ef86-08dc92ae12f7
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:200.5.3.153;CTRY:PR;LANG:en;SCL:5;SRV:;IPV:NLI;SFV:SPM;H:mail.asem.pr.gov;PTR:InfoDomainNonexistent;CAT:OSPM;SFS:(13230037)(35950700013)(32650700014)(7416011)(61400799024)(82310400023)(545344009);DIR:OUT;SFP:1501;
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230037|35950700013|32650700014|7416011|61400799024|82310400023|545344009;
+X-Microsoft-Antispam-Message-Info-Original:
+ =?utf-8?B?NXpyK05WSjVsTE9EWUNEMU9hM3dZQlBsM1g3bkN1NUFvbmRkd0NkMVhoSG9S?=
+ =?utf-8?B?Y0pybVFOSjJSWGJMMXJRaGJjZ1pDVGc4djl1Qk8wT2xta3B2SWdWUDZLb3Rh?=
+ =?utf-8?B?UVFhdk1VS0FzTVFxZllrRUE5K3Y5WWw5dE1rK2Z6Njd4c3NLTCt3bUxFU3ZY?=
+ =?utf-8?B?Nk8rU3dySTI3LzBzZkFHMjVQekZEcDJ4bWJZaUdBQWkrbGpaeEU5WklnM0Js?=
+ =?utf-8?B?RmV2dG1aL2lUNnF0dVR4N3hWRHhtTG9HdDhzeVRVc3YvUldSOXh4aGZBQXhu?=
+ =?utf-8?B?NEMzZUZRT21MVUI0a2pIOHV6SlFDQnRVVnM0OTVDMXlQSmtvdkJJRGJ4VGR1?=
+ =?utf-8?B?aE5pd2VQQWtrRFlvSGVZQ01KL0lXL0xPMGNPRXdMYkUxaHdSaktnc1NYVEN5?=
+ =?utf-8?B?aFlYdFJtZGUxK1VDQ3luRnRRK3g0cmtTZ1VQT0o5dmQrV0V5TGlPT3dNQmp1?=
+ =?utf-8?B?QkpHVnBucEY2TGhST2Z1UWtmajlIK3JuUGRQejh3eDBmdzg1TkVZR1hKYUZ4?=
+ =?utf-8?B?ZEdvQTVoWWhZVlJaOFBaRmlXdTJrTVgxd1YrNi9VaW9uVUQ4QUhCcGJ3S2lr?=
+ =?utf-8?B?bkhUYlNLeUxUcXFJNGk5VDcyMXhMeHhWT08vK2RkVUVxc21yRmxuNzVsVHdi?=
+ =?utf-8?B?WjFoVXEvckhrbGJwK1pranhIMGJscEJEU3BXT3FmRXdnSjJuL244WjBHRldm?=
+ =?utf-8?B?WUVpMEcvR0tiVmJ6NCtzV1E4SERneG1xREFGQmdyUWszSGZrSWR0QWhBVGxm?=
+ =?utf-8?B?Y29hdnMvWUx0d0ZJdnQybkJvKy93a1M0R3pLaVl5bzVOb1NobDJqVEY5Z1Ba?=
+ =?utf-8?B?Wkp1Tjc4Wk5JWExFejVwR20rM1U3cG5ON1Y1eWJBTjFFeG5WandYazdVTVg2?=
+ =?utf-8?B?ODBRcWhCVlRUQnNDUjBmRmNkY24vb1BWSTRrVStsMW0rZ0srNVdmY2pCeVZK?=
+ =?utf-8?B?VEI2aXBmc1ZQTXNUMTVtdXpZSTNhbEJtZFd4Zi9ZcU9IdG9FZXpQRnpPWml6?=
+ =?utf-8?B?SGpQekhlSEZsd1hGZmhpVFc0SlRJd0ZDOWpQMTRUZUpWa0IyeDZmcGowVjVZ?=
+ =?utf-8?B?Mzk4c01QdGd1V2xySFhpY1JvWENSTlpJSUp2ZEFhQXJQeWRuZVBtd3BLL0JB?=
+ =?utf-8?B?T295NVlDL05zaElqUjA2MnlTaEFpWTdPbXVVVXM0NkxHelQ5Mzl1TXZ5Q1px?=
+ =?utf-8?B?ZkRURlcrb3ZXUjNKM3ppamQ4REwyb3F1YWdVQzlCYlBSZnlCSmhuWnIzZXZ5?=
+ =?utf-8?B?SGtvZFlSRjhjYUpSUDd0UWxiQlpSZEFVeWFEdXAreDhXaFB5WTgvK2Y4LzJK?=
+ =?utf-8?B?c3NvSGk0NnlGSzV0SVV5aGYvL1ExamwyMXc5QWphd3AyN0JsNVlZUU9XVDcx?=
+ =?utf-8?B?VkhSWmx6RlUybFhMV05SOXNJcVB1L3ZJL3Z1elg3eWd1c3RqZ2Z5RS8zZGRY?=
+ =?utf-8?B?ZThxNkVYNkVQQXQ4Ti9maklhbWJRN2I0bkpTbzdBK2dPVXdVaHZpdWQxMCtv?=
+ =?utf-8?B?NzJEQ0I3QWV3TVN4SEorcUd1aDhZRDBDQ2RKbnM3OU1hSWZRYm5oa1JoZVJm?=
+ =?utf-8?B?WmdsdlpTaWV2V2RFdmhOdUJXR3NtcEVpaE43TUtsTDUySm14RVlZdnlMcEFp?=
+ =?utf-8?B?bTVwL0t4SHErMkR5ZnlKSzcyclhyNWRXK0dPYmJVTTFucnZVV3pObVRnUTNa?=
+ =?utf-8?B?WllzR0NXSzMrUFZiMW5lUElOYTU5bFdrajZ5VVFmaGlWSk9FQWtPOUt3RjJk?=
+ =?utf-8?B?djhwVm5qOGhtc2hOQlhBMHZVSUJXQllvd0tKVmNmNGFCa0RNbmUyT2pHWWFD?=
+ =?utf-8?B?SWVpZ2NqVUtib08xcVdVZ0FUN1c3WGRPblEyOVBaRHlhb1YxQjBRNmNhanU5?=
+ =?utf-8?B?NWR1RkxqV01LUElOSU5wUnd6VGtHY3FqN2pZY29IUEplRUp1eEFuZ0RuTFNp?=
+ =?utf-8?B?WXhGSVhMU0JxcW9Hb2F1N0V4TzZDY0xwZkh1bVhCUVl2U2pZMmo4dHRCaFI1?=
+ =?utf-8?B?Nk1VSXh3OE5raDRLbW5mRXFFeDFCeEoxQzQyZXVuYUlPREI4WjYveTZLU0tO?=
+ =?utf-8?B?RGNFTDdWOGNKZDBabW9CWGlZcTFhbkQyZE1aZVNkK1FHNDdNUHJodWs3c0Rv?=
+ =?utf-8?B?VFR6c3RTVHVMbjNVZmt5dUFVT3Z5NEFGeUpHUjRaQWtFdWdJbE5Yek15T29K?=
+ =?utf-8?B?UFdwMWl2RlNrVlBxTFVhWHp3dzY0andCN0o4di90NnJjOEkxTk94V3VYNzJZ?=
+ =?utf-8?B?Mm5FY2JUS3htbWU3ZUFyYUFlWGJoMFcxUDM4WVJ6QkU5TURRRDdNaEx5QThj?=
+ =?utf-8?B?alFJeWY3YndraXFTYm1UamlaNVJSM3E0aHAyOTY5V1FPcXRtVTdWWkJweU5K?=
+ =?utf-8?B?QnBGVUlmckR1ZUxzQ1F5d09LdGUwWHVFMXdRREdvd0tDOC9RbG82V01aSGYv?=
+ =?utf-8?Q?m5tqgHuUjFRa81ydGVT8QEvRtr8+61PyKIU=3D?=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR09MB11683
+X-IncomingHeaderCount: 43
+X-MS-Exchange-Organization-ExpirationStartTime: 22 Jun 2024 11:25:51.9971
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 65390ac3-3a53-485d-ef86-08dc92ae12f7
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ AMS0EPF00000199.eurprd05.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ AMS0EPF00000199.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ b424e8d6-fd2d-4ee5-4b83-08dc92abe48b
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 52.100.153.210
+X-SID-PRA: JEFFBEZOS.FOUNDATIONS@SANTAROSA.AW
+X-SID-Result: NONE
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|67000799012|3710799009|62400799015|15110799012|70000799012|19402599018|11000799012|58200799012|9400799021|970799051|47200799015|2700799023|45200799015|461199025|3600799015|470799032|3412199022|4302099010|440099025|3960499029|1602099009|460799363;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2024 11:25:51.7158
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65390ac3-3a53-485d-ef86-08dc92ae12f7
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e906065a-f03e-47ad-a4c4-6b139a08445c;Ip=[200.5.3.153];Helo=[mail.asem.pr.gov]
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS0EPF00000199.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB10715
+X-MS-Exchange-Organization-AuthSource:
+ AMS0EPF00000199.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 6/22/2024 11:11:21 AM
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.5930278
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7698.013
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?iso-8859-1?Q?XUXjWce3nVNvOEUqiIqi2HNWjxGknbubutC6XRoPbwxbTSGQciqHSW2Cw4?=
+ =?iso-8859-1?Q?0mRJyfVInicPdI/76UZfWt1hRYgucgywQWWMhbMwQwODbY3D/ZihKHDvUL?=
+ =?iso-8859-1?Q?OHIesIw5ar+oT78VtNvCIHkBThx3HFuyU7zugoDw9+yP/lz5Zo04T/+TH1?=
+ =?iso-8859-1?Q?hDTlM3dUm/54EFkRgfGyNVgVwDevwondDtofNTsVBkLHXys3AI8aB5Auqt?=
+ =?iso-8859-1?Q?0rUq8gjbiT0bBS3unXQkPwJTIVZUyAuCaf4YUrD/6hKN+m4RjqMxUZV6mh?=
+ =?iso-8859-1?Q?4NoTnynWWxDLKOZSbx+0GkWniLaxBMQQznJ2gGdkL1ha8fRNB7m/46o8MI?=
+ =?iso-8859-1?Q?sP9l+4t8T+Sb5gn2QEo42Mh8VXy+6QznX1zxb7RKS6iZyGJ4Mv93FNL/tI?=
+ =?iso-8859-1?Q?F6uHy8/zCRQnmziIYy3dFuyDXnF8CkTWJA6hRsxQjU/Zpw1qaKFaDMJDgQ?=
+ =?iso-8859-1?Q?2m0iCLQBZAf8wlef3r9X0LOG/9kDB1ZvDfF3wlfAn2gPRSs50rWWjK0U6E?=
+ =?iso-8859-1?Q?B7tEDtGO30jMUjTIwiEkmBNg3dCdajJg3tHIGwpgpTeDsECXBnAi/wXVdA?=
+ =?iso-8859-1?Q?m9JPc2j8JLPzQWdZY5vJbmo0Yrzi7WlHAcl0JfvUi/TPRyvdfaA20L/Nbd?=
+ =?iso-8859-1?Q?N04Ne3DTKfHjkCbM6Am9ldO6i+GWu5Z+97qDNuOF4YfnasFoUdwG7bbPIQ?=
+ =?iso-8859-1?Q?Zx7kCl7Anxph2JPSzweHTvTeEnF05JcpV0vsPFDfPMFef/8Uba/nJn8CC8?=
+ =?iso-8859-1?Q?PjfiuiefanIbXVuGjDkyW86bgTWUdd1sTGTQBvIZULaUhkFyIPxYqz42vH?=
+ =?iso-8859-1?Q?H9th35NbrmwmQUYDej7+w/Qvsu17tIe6V+h5y1Ds/eTzSMaiXathYWJmoS?=
+ =?iso-8859-1?Q?zoOn9AUBUDe1AGQ2gZ/6UWisZw1WTSNo84dj0CJFBufQJwoiQ2kwQ2Btgb?=
+ =?iso-8859-1?Q?wC0fZhDoj/WAS8KIveHegyIDpmxcM85UEspuWtSXDCLgAOsjPuT3a2GVVb?=
+ =?iso-8859-1?Q?w+dT549tJBAjLFr1lz6nuaSWYfb+pOvOMVfR43v+wfsEJnpc4parFit+cc?=
+ =?iso-8859-1?Q?sd8/Ch5NUD3jwKFoF770zjcCr7BNIpMAa97YD3vzEEr/Tnce0eTazlrhA4?=
+ =?iso-8859-1?Q?SlaLTzjMFN0/2kHJCCgX/TJrYARVNerAbA6nc5zA3DC3oDQfVPIHQe+P6a?=
+ =?iso-8859-1?Q?mQ2OVz3DEmCKmjh/qOQBmD7VpgkX/3Z5CY+3Xk1ahJjoCtQwQ4dm4eSQ0f?=
+ =?iso-8859-1?Q?0CMnKF7o5XeQpYZuyDb3gXb/cDXHUK+w6rke3PMdND3C4DwpGBBjFCQLQc?=
+ =?iso-8859-1?Q?C/vn7mwr3g/kX0fy/0C851ripra4JiQGPu2eBtyNMKuxAL/jx/1GAXe7MZ?=
+ =?iso-8859-1?Q?ZpVhjZFM1f2a2cTeKD3D1XmmSvdRZR/D+CxsF2MAPaUEe/4Wx86CZLpekb?=
+ =?iso-8859-1?Q?Tgacua1W8K2wmcn217sM7A+waL3caYEWqbHzvO9c61RdF3P72EXYbJeN1y?=
+ =?iso-8859-1?Q?v2dFodomYtXOILPwsSbyHt0iOIvpeQzKQyaz6J1WJY5n0Z2frsptk+46Fn?=
+ =?iso-8859-1?Q?tFgfgzvUoGGJgEHy1VrXSoA0ghir9cr6vIKudDA4qI8wHFvHMTAfTiYxmv?=
+ =?iso-8859-1?Q?JLGSrYxn48idd6SsL7We/WWnp0gIhfk/WbG/QMpzY2pOhtR/k8wQr2krN2?=
+ =?iso-8859-1?Q?NJoui+cEPta3HbzChmYjIqyX5fxlmpafG4pn5Mouavre7u+GGoNMe4bJfS?=
+ =?iso-8859-1?Q?O6BMbe/kR/sLAfLyh3Ik3L39bbhq/LOciCiw+Z9BM4Y2Di9nEwzvaJlTtq?=
+ =?iso-8859-1?Q?l68SjOCnzdD09a1/zMB/Sbm17/181SPiYFVfxVqM72IxCyy6wHHSvnu1YG?=
+ =?iso-8859-1?Q?CKCRMOE6Hpt3bigfLkZpuDPZsudlpopvFtXaZBIVEFUmlvRzBDis/f1MlV?=
+ =?iso-8859-1?Q?o3C7VJlljsKFXVM+e+Trig4yrS+I4xUQGoGek0ScM4APgklZwBzik1Altc?=
+ =?iso-8859-1?Q?KCqBxNfnjbgay0U5jhGXqQ9+/IDnEyQqjKGrFup8A0oaFQz6x5M99uIy3D?=
+ =?iso-8859-1?Q?6u9727Teat9oiLqrs3oohSt1YYARpxYtKA1dxgJvtd+M/raFfSFPTMlllB?=
+ =?iso-8859-1?Q?N5AuwJYGMNWv5dKmCv8FpNPf06vZep/1xG10hUheiHMjccsiiT4aKPHBYb?=
+ =?iso-8859-1?Q?AqKw07ijCLzivsT8Q5/oNJe77BLBjc6WlqZ+nxk1XAe22khgWPpS94/5hp?=
+ =?iso-8859-1?Q?t4cQTdU+KYncoPDMCdtbf0uoju9uxDxARoRffbiDLpMXJzVJ0hhJy15VGd?=
+ =?iso-8859-1?Q?R15fnjw3t5uVDyHMlfsO5gODz2Ed3UF1btIfMZ7lpD+SJl++9owwVsEqLt?=
+ =?iso-8859-1?Q?PSvO4gb9qiJH0/gBYBxqyBAjjbvJtz+fbOFwf5EM1HAGx6TKuRWEfoE8jh?=
+ =?iso-8859-1?Q?bEWs0rS9r5GwPPn6LPN61nmzV9BBfTz+m3DjAiGMhJZm4w6IMNETQAip6p?=
+ =?iso-8859-1?Q?VylrKFvlFOQ1YnZoKPVcMO470IxpG4TFutWaNjHdEscOesE47iNL21jb9m?=
+ =?iso-8859-1?Q?fV+Z+twqUaXoDRl2qEmntW+pTx3dNv4th32NaBFhPUw0GUDUXaYJjxMZbT?=
+ =?iso-8859-1?Q?qK90osZUheQHAoruFz6mSZaNsUklu9NOvATz4ypxNh4BG9EC8D9GeQ+yN/?=
+ =?iso-8859-1?Q?AnJVvHsUPR9lnMJYrfhlhohg5br/c4M8UG8R6pYd8O98i3vFJq56NS4eem?=
+ =?iso-8859-1?Q?jDexh1xe1woU9WgEtM7OYraPqPhmFMOaIkUkF+9cOIORnXLWa3nDklujoy?=
+ =?iso-8859-1?Q?edyqrZ4btYSnwXc8aryHbbp+tDXYqr5yTPvoc2UwH6qK8Qvu3bJ3VXOhRn?=
+ =?iso-8859-1?Q?jw+h7Zw3kG7YAn/fesSW4PXmW9ABLqVMwAdEFKMBerugimZs1XYwc0fd8I?=
+ =?iso-8859-1?Q?/v41ZPoGymQ=3D?=
+MIME-Version: 1.0
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></=
+head>
+<body>
+<p>I'm Jeff Bezos,</p>
+<p>&nbsp;</p>
+<p>The CEO of Amazon, it's on this note that I'm informing the world of my =
+intention to give out my Fortune of $124 Billion of my wealth to<br>
+The lucky ones around the country and the world at large.</p>
+<p>Your email was randomly selected to be a part of the people who will<br>
+As a beneficiary of this charity project, each person would be awarded</p>
+<p><br>
+<span style=3D"color:#283593;"><strong>$10,000,000.00 (Ten Million, United =
+States Dollars Only)</strong>.</span></p>
+<p>&nbsp;</p>
+<p><a target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://na01.sa=
+felinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.cnbc.com%2Famp%2F20=
+22%2F11%2F14%2Fjeff-bezos-says-he-plans-to-give-away-most-of-his-124-billio=
+n-fortune.html&amp;data=3D05%7C02%7C%7C65390ac33a53485def8608dc92ae12f7%7C8=
+4df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638546523565064484%7CUnknown%7CTW=
+FpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3=
+D%7C0%7C%7C%7C&amp;sdata=3D395yFHFUc7Vn7Uo3R1IhMx38Xg5NbpY7VusOPY8ChBw%3D&a=
+mp;reserved=3D0" originalsrc=3D"https://www.cnbc.com/amp/2022/11/14/jeff-be=
+zos-says-he-plans-to-give-away-most-of-his-124-billion-fortune.html" shash=
+=3D"gS39cN0Dw4cZTKb4Ni0vN3FKbL9ONnp+uIt5bmGruoYsVUNXAEPXa+gMU4hOWe9gIimSxVo=
+m4YUdJFEEwNKTOX8yI69dgv/PtYFadLjtBX7s6wmT5xLbGM9RUaZgKSQfokKgt3skG+htsOeLvf=
+u52k8qb4FRSFQ9frHyxWH8ezA=3D">https://www.cnbc.com/amp/2022/11/14/jeff-bezo=
+s-says-he-plans-to-give-away-most-of-his-124-billion-fortune.html</a></p>
+<p>&nbsp;</p>
+<p>Contact my lawyer on how to proceed.<br>
+<strong>E-mail</strong>: <a href=3D"mailto:scottglover@asb-risk.com">scottg=
+lover@asb-risk.com</a><br>
+<strong>Contact Person</strong>: <span style=3D"color:#283593;"><strong>Sco=
+tt Glover (Legal Representative)</strong></span></p>
+<p>&nbsp;</p>
+<p>My Best Regards<br>
+<strong>Jeff Bezos Foundation</strong></p>
+NOTA DE CONFIDENCIALIDAD: La informaci=C3=B3n contenida en esta transmisi=
+=C3=B3n est=C3=A1 destinada =C3=BAnicamente a las personas o entidades a la=
+ que se dirige. Puede contener informaci=C3=B3n privilegiada y confidencial=
+, incluida Informaci=C3=B3n de Salud Protegida (PHI). Si usted no
+ es el destinatario, se le notifica que cualquier revisi=C3=B3n, difusi=C3=
+=B3n, distribuci=C3=B3n o duplicaci=C3=B3n de esta comunicaci=C3=B3n est=C3=
+=A1 estrictamente prohibida. Si recibe esta comunicaci=C3=B3n por error, no=
+tifique al remitente inmediatamente y destruya este mensaje. CONFIDENTIALIT=
+Y
+ NOTE: The information contained in this transmission is intended only for =
+the persons or entities to which it is addressed. It may contain privileged=
+ and confidential information, including Protected Health Information (PHI)=
+. If you are not the recipient,
+ you are hereby notified that any revision, dissemination, distribution or =
+duplication of this communication is strictly prohibited. If you receive th=
+is communication by error, notify the sender immediately and destroy this m=
+essage.
+</body>
+</html>

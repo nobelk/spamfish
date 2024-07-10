@@ -1,0 +1,185 @@
+Received: from DS0PR10MB7272.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Thu, 20 Jun 2024 11:03:13
+ +0000
+Received: from BL0PR02CA0118.namprd02.prod.outlook.com (2603:10b6:208:35::23)
+ by DS0PR10MB7272.namprd10.prod.outlook.com (2603:10b6:8:f7::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7677.33; Thu, 20 Jun 2024 11:03:12 +0000
+Received: from MN1PEPF0000F0E4.namprd04.prod.outlook.com
+ (2603:10b6:208:35:cafe::7c) by BL0PR02CA0118.outlook.office365.com
+ (2603:10b6:208:35::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.33 via Frontend
+ Transport; Thu, 20 Jun 2024 11:03:12 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.193)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.193 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.193; helo=mail-lj1-f193.google.com; pr=C
+Received: from mail-lj1-f193.google.com (209.85.208.193) by
+ MN1PEPF0000F0E4.mail.protection.outlook.com (10.167.242.42) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7677.15
+ via Frontend Transport; Thu, 20 Jun 2024 11:03:12 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:4C12426404DC5E5DA402060932FABF1ACB4545EF5571F877B92E73C7646AF779;UpperCasedChecksum:28CF71CC4B4296A20BE69CC9537E21D0F4C1DABEEF70FCF56C736945DDAE06D6;SizeAsReceived:2600;Count:16
+Received: by mail-lj1-f193.google.com with SMTP id 38308e7fff4ca-2ebd421a931so7132661fa.1
+        for <johndoe@emailaddress.com>; Thu, 20 Jun 2024 04:03:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1718881391; x=1719486191; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HAjrMSHj7j715oBFGgGWVvFcEEFG8uMbZXYLB42WrzQ=;
+        b=TBMZs5o/qs10GX/FJtD2DgLZyT7E/yWalYk3DKWuNJupmB0Byr7PVLuRO5iwdOGGH3
+         080nQsj0NyXTwmdzE1Uqu+ZmQQeBuuaLU6EVT+PpvGBIzUs+fDNIW+PNx5dPoJPfhZzt
+         V6DP9IH8tmIoHkzMr2DxOMwF9x521VwzwOuWnYBrz+HUfanHxaFQKC/VqK3tmmRObiG/
+         5ix2PMuir32vZ31QTvEWUqlasiUOVXNf7LzcwgEVkgs8PZaKel/UO9D8ESAO4o0LN75X
+         +LLk4y7K0+JAldqN+lrpBtO76p6HiBRxgpMetL/n4QESt7YzSmViDKed5Sc0MXIn8dr5
+         NNFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718881391; x=1719486191;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HAjrMSHj7j715oBFGgGWVvFcEEFG8uMbZXYLB42WrzQ=;
+        b=Zcfxv5eJPAGnmVMzirtcVtLYeicaXaJXD1BdZ6Ua7Vy6PNOE7CT6q7W9M31qpUIHNx
+         fXQUgahtl8yPeromU26y0+x04JfmR/2QyYHVWgPtd23Vslm7TgvxyDrFc0F+ze0Btl3K
+         HKjOqwOfc0xUAb4iGOtLKelRH1AC/dPus/ym+k2G3RfLlOhHj3S6tQIxT952mzgwWrap
+         iDdR66lVniKnJUzuPe8y8f5ZXaK8hKbrvikzLdchCLl5MjQ05+m4i7QyDqqPMWnpm81B
+         0lgAlggESU+4/RxUb+GS+po/Syvz3pqL4L3SgWPdKsVSMalmxaicjS1j+4SYCTJXlNxw
+         zLuA==
+X-Forwarded-Encrypted: i=1; AJvYcCV57zjPaR1TMcrNDdoZBJhrQKPOkFrmgPe3iATLPcEWHW/u4O4T76M0W7kQxI2hej70CX5TbVUxXzZSU+NIBELLbw==
+X-Gm-Message-State: AOJu0YwMoK31rNcBUp8WwcbNzDvE8SCCOwpkiIHS/IO194szyNZiusOo
+	wABS0NICaAE8BDAzMqkOulyQqNlTbwlgC7W2C7l0C53FbJJw6HrxLA+eFvQOzFdJ9rI+miO06y+
+	rO/nRO3OeGXMWO3i/Qkk3xs2T6Ig=
+X-Google-Smtp-Source: AGHT+IHRMxlWhi99IhHtdb3L648HUNs4q1y7ZIxxx0jmuEv+oMPyM7YCZiMD3A0QQEbK/8LHOA4d1YUxFjgvqf1kdQM=
+X-Received: by 2002:a2e:3109:0:b0:2eb:ef0f:8699 with SMTP id
+ 38308e7fff4ca-2ec3cea1531mr31563401fa.26.1718881389841; Thu, 20 Jun 2024
+ 04:03:09 -0700 (PDT)
+Reply-To: jasimmohammed836@gmail.com
+From: "Mr.Mohammed Jasim" <rosalynmrrsn@gmail.com>
+Date: Thu, 20 Jun 2024 10:47:07 +0000
+Message-ID: <CAO=q=oPhuOxgHyHO+z8pGaztxR3LC-G_6+GCViQyzPgvw9Ujug@mail.gmail.com>
+Subject: Dear Friend,
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000a71b8d061b50421b"
+Bcc: johndoe@emailaddress.com
+X-IncomingHeaderCount: 16
+Return-Path: rosalynmrrsn@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 20 Jun 2024 11:03:12.3394
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ e21fdaf1-5222-40e1-2544-08dc911893b9
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ MN1PEPF0000F0E4:EE_|DS0PR10MB7272:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ MN1PEPF0000F0E4.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 6/20/2024 10:59:47 AM
+X-MS-Office365-Filtering-Correlation-Id: e21fdaf1-5222-40e1-2544-08dc911893b9
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.193
+X-SID-PRA: ROSALYNMRRSN@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199025|970799051|3600799015|9020799013|2100799024|1370799027|1360799027|1380799027|3412199022|440099025;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jun 2024 11:03:12.2769
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e21fdaf1-5222-40e1-2544-08dc911893b9
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ MN1PEPF0000F0E4.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7272
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.6944132
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7698.013
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0zO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?VWlZdnd2bHdlVnY3NUQ3U2pETlZGSmlhRldFWkY5eHI1WnhtdkhDKzFNTHVK?=
+ =?utf-8?B?ekdNcXVNSUhYdmQrVjR6cWlKQk1YbTAxTmN3TDVORmF2b1BmdS9RQzlvSDV1?=
+ =?utf-8?B?ejE0RDdpT0lIUHNrVnh6M25vVkFWdGdhZmp1NXk3UmQwRERPTEVuQkdvL282?=
+ =?utf-8?B?L0EyMTkzN1VLSUc3WG5xTlpTZVp6dUZsTzV2MXhSVk5OclRuc2NoelkwbSs2?=
+ =?utf-8?B?VmYxdXQyM2ZYaHd3eTh2YUttSk1lRzRBaUN2NEVjVThXRUQyaGx1MkQ4dktP?=
+ =?utf-8?B?aGpzTEpHdnNZMEhoNlhKZ1dIdW5NRjRjYWtIYmQ2Y1pkS1BGanpLQnk2OVNw?=
+ =?utf-8?B?bk9FMndPOVF5ZnJGYkx4QlpGditaeVBZeHZTciswb0VrRzNwdFpSaE5oL0Ri?=
+ =?utf-8?B?YVNrR25rQWhuK0pBbHpBTzdZQ0FQYXR3eXhtSnJpUHJCZzdqOEFZcTEyS0c5?=
+ =?utf-8?B?QlRldmdxN0hBekYrVmErMDN2YVplMEh6ejdoeUw2VjZYY2tLZ2xmd2xsV0p3?=
+ =?utf-8?B?czJTMndDOFBSdTNMOWplMy9hUkVaNittTWdyVnh3dlpTVXd6Qk03RGQ2ekNq?=
+ =?utf-8?B?S2hhWHU0TmJJMlZmNk1aZ09zejVTRzZzOExaQVd3b3dFZXdxRFB3WlYwR21x?=
+ =?utf-8?B?VWVwbjcvdXloMkFKMm9jcDVoaXNjWEZzNkxKOHJXenZQUkhmZENDZVJIV1Jz?=
+ =?utf-8?B?WXRGYmNuQTRtK1o3ME43T1lDd2Z5MEdOTDVoNnpmdTBWSmNxUHBvUVFOSHFE?=
+ =?utf-8?B?N1VCbGxUMWFla082ZGdyTnlLVUx3NC8zTVI3eDNwTzBnNmpJNmdpdWhNZmNz?=
+ =?utf-8?B?Q0ZkNWVNVGQyaUR4c05yazVVTllqTEE2U2k5UVZLUmVUTnNJSVFUc0lINE01?=
+ =?utf-8?B?ek43enR5d25jbjVjTm1EaGhMU1VqVXZ6S2tXSU4zMWZIa3hJQmRJaEpJUC82?=
+ =?utf-8?B?eUFTYm5PTEllM0xxVGFrcFZxeWc1a1V1VC93UjAwWE5yb2ZVRmdhUEZvQk96?=
+ =?utf-8?B?Q0pHaUhkdU0waWRDYW4zS24zc1o2VTRCRWhHbDdFYVNLRlBQUDV1SkxaVEd3?=
+ =?utf-8?B?U2lqY0ZQbGUzMEgvWDlVRU9Jek4xK2Y0WHhzTmZBSkp0cnZZTlNSVy9HcFZK?=
+ =?utf-8?B?ekwzcWZpK3p0V1dmQ0RZK1B3NFNIN3VQanRmK0lqTU5nRzZCZ1ljNTJaTXpy?=
+ =?utf-8?B?M2ZuTWZMbTlYVmJCOFlqaUlHK3VudEZvQTBxWXFsN1VhUjlxRGNYZTVBTllX?=
+ =?utf-8?B?UW1NR2FWVlNHZnVsQkpPWjJwanl2eTFTaDJHMzJBWjUzUmxlNUsxWkkzQ1F0?=
+ =?utf-8?B?QnUvTE95N2lNMTUyY1Qra1d3TkNSWU9kc3dJRit6K29BWlFJS0hQWTlPU3RU?=
+ =?utf-8?B?WFVKWFg2T2NOeUE4QmQwRHFBZnNQVDdiUmFHVU5DZEFtc2hvTFVOYTlMNDF6?=
+ =?utf-8?B?WGpYYmdzNkNiSzZoazJOa0UxSG4rdENMQi81ZnptVjNNZnl1UGh4bFBjcFRo?=
+ =?utf-8?B?Uno5SDlsTlVrOVVQZndvaEpNbnk3WTVrbU1DcldUeFc5WHNZNEQxWmQyS09O?=
+ =?utf-8?B?SjREcENmVFRkZHlGRzZUYzFKOXZ1d3RtVkdTWWN4SzhlVzVWSXo3dTNiYkFN?=
+ =?utf-8?B?cDY0UzVMY1BxOWtWM3l2WnZTYlFRWEpSSU90UkxzdzRVUEhqN3lDZ0M1UUVX?=
+ =?utf-8?B?Nmo3VytiNXBXT1J4aVJ1dTc5WnE5V0JvSmNNckhGVjJHOUVtN09QYnhZaTZu?=
+ =?utf-8?B?dWtxUzdtODEwVzV2M3dUekdHVTZ5anBQeHpURXp3M3k4VTIvVEdpVnJQckJJ?=
+ =?utf-8?B?aTdvbzhDSlhjT1BldVNYVWhqUHM4WnlTZWY1T213dHFaTE5jcWxtL3NzTW92?=
+ =?utf-8?B?M0svVzltRVNiTHhpZVZyeWhlRmRNNldPajkxOHF1UU5Vb3dxNmE5N0lRK3U4?=
+ =?utf-8?B?cWpSY3F1VmdtcHdkZjBjb2IxQUdmSzRlL2N3YWlZdGtaTGRUWi9aTmkvTyth?=
+ =?utf-8?B?aTJuNnU1eHpISnJpWUJOTmFkRFZlbnhTajZMUUtTd1UzdzRMUXlKeXJRaGtQ?=
+ =?utf-8?B?a2JLRGNhZkYyKzROK3hLWURJejNkaG13b1MxYVV0KzFxRjVUVE14WExZUkdy?=
+ =?utf-8?B?cmhKdExtS045R3NONURJQ3J2K1h3dmppSGt5L1Fsdnl0NUpHbE9hdm5WNFdz?=
+ =?utf-8?B?TVNyVU84WTh3TG1PZkx1d0F0bzI1YzAySnZhc1lBUlY4YlozUzAwa1NpTWd4?=
+ =?utf-8?B?WG5YMkg3SEJkMjNtdzRzK3U2T3p2SXpEZ0RMY3lseXNYQTVnMUtHMWVHejVG?=
+ =?utf-8?B?N091ZHdnSDZnL3JOdUdtaVQ3NGJqNlZuK2xmemtFdjdhOWk5TFNLdXl3c1lB?=
+ =?utf-8?B?Qmo1YkN2eUJxQm05SURSclZsUzcvV29KbERSRlRsK3JySVkrbGU3ekhnZmhT?=
+ =?utf-8?B?UEx1L1VFUXZmZHdNaWNtQmRyblhiQmYrTG0wZS9LSkhpN3ZYd0c5bVVFNzF4?=
+ =?utf-8?B?RjFZengraElYeU5qQ0Z5SXFyKyt6SmlVdHBHUU9GbXQzU1V4Z0xXcSsyMmVD?=
+ =?utf-8?B?Q3o1aEFWNHg1MzVkR3d3eGpWWDJVb0RyWGZjN0FWWTZtWGtRSWpuOVFDRkdX?=
+ =?utf-8?B?Vkt3YjcwclRHclo2ZnlmQkplUzk1R0NNSHdFUXJtNFBXaGFNWUZuNjcyanpP?=
+ =?utf-8?Q?0RPK?=
+MIME-Version: 1.0
+
+--000000000000a71b8d061b50421b
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Friend,
+
+
+My Name is Mr.Mohammed Jasim I am working with one of the prime banks
+in Burkina Faso. Here in this bank existed a dormant account for many
+years, which belong to one of our late foreign customer. The amount in
+this account stands at $13,500,000.00 (Thirteen Million Five Hundred
+Thousand USA Dollars).
+
+I want a foreign account where the bank will transfer this fund
+
+--000000000000a71b8d061b50421b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Dear Friend,<br><br><br>My Name is Mr.Mohammed Jasim I am wo=
+rking with one of the prime banks<br>in Burkina Faso. Here in this bank exi=
+sted a dormant account for many<br>years, which belong to one of our late f=
+oreign customer. The amount in<br>this account stands at $13,500,000.00 (Th=
+irteen Million Five Hundred<br>Thousand USA Dollars).<br><br>I want a forei=
+gn account where the bank will transfer this fund<br><br></div>
+
+--000000000000a71b8d061b50421b--

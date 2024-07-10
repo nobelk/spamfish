@@ -1,0 +1,282 @@
+Received: from PH0PR10MB5611.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Thu, 4 Jul 2024 17:54:49
+ +0000
+Received: from SA0PR12CA0027.namprd12.prod.outlook.com (2603:10b6:806:6f::32)
+ by PH0PR10MB5611.namprd10.prod.outlook.com (2603:10b6:510:f9::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.25; Thu, 4 Jul
+ 2024 17:54:47 +0000
+Received: from SN1PEPF00026369.namprd02.prod.outlook.com
+ (2603:10b6:806:6f:cafe::44) by SA0PR12CA0027.outlook.office365.com
+ (2603:10b6:806:6f::32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7741.29 via Frontend
+ Transport; Thu, 4 Jul 2024 17:54:47 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.176)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.176 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.176; helo=mail-lj1-f176.google.com; pr=C
+Received: from mail-lj1-f176.google.com (209.85.208.176) by
+ SN1PEPF00026369.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7741.18
+ via Frontend Transport; Thu, 4 Jul 2024 17:54:47 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:0C38A4BDB38CDEBEE59D7F8612593E0277E156E1D6BE4317360B386A20095EB4;UpperCasedChecksum:87A7EA12A3676F9E6E0686E3895850AFB61A79580128651D9BCE2C683D98EDCC;SizeAsReceived:2557;Count:15
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-2ee7a1ad286so9448531fa.2
+        for <johndoe@emailaddress.com>; Thu, 04 Jul 2024 10:54:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1720115687; x=1720720487; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sQKterPFEmNWLC309idKjL3hu1JLfUDLjwadiZ5mlKk=;
+        b=lxyFi7XMopB3x29BKlt8AoCp23fgRvznvSdHnbN9Wpd2LUK4hFt9qg+7IDbE3NVKaJ
+         twCVcid/ZTSAN96VU1kQ/DbEFFxRFLJhcfFhkuFOfnkQ2q5nV5+YlbNh1djiX6pWa0oL
+         EJaR0uzfHvcY1G/YBk54xk44DpOMz0GRHe+sUdiNFKNdlRv0XGxunM7Uw44SBaVCzoQR
+         LcnfCm2a+4BCnQSkC2j1SdNU8EFw3ijIqvBJzDfesAwhULTnNajIRT3wkPUD06huI0fR
+         oHO1C/JWFzw4qpwM+X5pobDJQIaobabYSThJyQAzfrqwtT177506ENoL4jjYQGVBysyS
+         DBVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720115687; x=1720720487;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sQKterPFEmNWLC309idKjL3hu1JLfUDLjwadiZ5mlKk=;
+        b=cqrwfpSJVz06EnQNmGHoDwQ45yYOOemj1/Q8d/hqOsPIsEQ5PKlVFG3c+mJxSLDXGd
+         eFbtGG5TaT8Wi7D9wL7HXar2XAn49MfvPKGod1/0OLw/qAZOLaae9fvBvvqnSmcLMTJz
+         637oPhnpcsrpXhClmqxG7yGogVkMphwnspX4dpL9CCczo5cVFHiEuuFm1OW1lyw/2xPz
+         Y087VYP3QVA251zgoO0CocjthOgP/sLUdplIQB+1D73Q+JZN+wqQnmZJKFBrd79uue3W
+         Rct5q/wwHGNdBjr6cNNvk4TMDzut8G/tOeEVEQFSmoz1v17CgK+S7qmfAMewPoV7w7Kr
+         p+UA==
+X-Forwarded-Encrypted: i=1; AJvYcCXznCuZZTDHl+7Ki5Kl2Ed+TIIdV8ThNSx6mEwODgSmaunmlxyFQCJw2Pszvui1X4CUpm+vSSbrhbTDzFaZ1lMl/g==
+X-Gm-Message-State: AOJu0YyF1zoZAc2wS/r7ge4PdBUt8YgE/wND5LVnfCXKqMOJn4glk9ru
+	Lj475S7A8kXUEC4vrtopWnmrxyFNNXUUvge7muvOhNVjJty2ZeHtAyHKFvdyKYmY1T2GziNblbM
+	drlnSfH8FpTs9shfO6qS7p7ZKLes=
+X-Google-Smtp-Source: AGHT+IHuJcTW3FhKgyRHT71bWroPEus8Mms/KZFnsuYqaEJ7X8w8aolrHd3SvzGpIIYwN2uTfeEAWgIA/aCBsMJzfFY=
+X-Received: by 2002:a2e:9006:0:b0:2e9:768a:12b0 with SMTP id
+ 38308e7fff4ca-2ee8ee13b14mr15974571fa.50.1720115685979; Thu, 04 Jul 2024
+ 10:54:45 -0700 (PDT)
+From: Elizabeth Edward <edwardelizabeth630@gmail.com>
+Date: Thu, 4 Jul 2024 17:54:25 -0700
+Message-ID: <CA+owC5XK2ESh_Z5AXrYeDhAF=Gm7WbiL3tsb0u3QzWp_nPHF8w@mail.gmail.com>
+Subject: PLEASE RESPOND URGENTLY
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000006f7f8d061c6fa480"
+Bcc: johndoe@emailaddress.com
+X-IncomingHeaderCount: 15
+Return-Path: usmankabore2@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Jul 2024 17:54:47.3379
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 5246d42b-e2f0-4749-5ffd-08dc9c5264df
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SN1PEPF00026369:EE_|PH0PR10MB5611:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SN1PEPF00026369.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/4/2024 5:41:44 PM
+X-MS-Office365-Filtering-Correlation-Id: 5246d42b-e2f0-4749-5ffd-08dc9c5264df
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.176
+X-SID-PRA: EDWARDELIZABETH630@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|9020799016|3600799018|970799054|2100799027|461199028|1380799030|1360799030|1370799030|3412199025|440099028;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jul 2024 17:54:47.3223
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5246d42b-e2f0-4749-5ffd-08dc9c5264df
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SN1PEPF00026369.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5611
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2258385
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7741.016
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?QnVYclVKdVY3QzE1SmVQRHNuQTFJMnMvbVJ1MTg2SEovOU9XRjI1NDEwemkr?=
+ =?utf-8?B?ZmxJWDhROUV4YndJMmRjbDc5VEFmV2VYUjJMV3JWYVJrYk4xOU5ickJlSG1p?=
+ =?utf-8?B?b1JRa1BoMk1ldXBpMlVpKzB6Y0g5Nmg4bDU3VnZ6ZTh1cDZIQ1BUdWJHVEQw?=
+ =?utf-8?B?am42ZkZYRTJoMGlleTBYWi9Dd3NLRVZhVnNjMHZzYkdPak1iT3NtUUZTZlFt?=
+ =?utf-8?B?aVRwdk95cmRONnRFN0twK1hJdXI5ZDVKZmkxTXVhRXpqKy9zQTNUdGd1Q28r?=
+ =?utf-8?B?OUpaYzNNMEs3NlBEbGhEMVJxM3NJK3Ywbjg1aWlMSVE2dDJocTBISGdZL0lU?=
+ =?utf-8?B?My9kdXZxQTRUdDVsSDhFcFhuOFV6MWZ1T0M2UzJMeUI2ZFRRSnlpOTVNWTVH?=
+ =?utf-8?B?N0NNYU9zTVpFc1JIVTNiZEM2cURDSXllSjV5SDM0TWlueCs3NnZMMmcyejli?=
+ =?utf-8?B?VzBWY2dhb1Y0NHJMOHdQL1dIbVgxaVpoWVVaVHIvSEMxODlBUkx4MjRYSTBK?=
+ =?utf-8?B?a3pBN3R2SjJWaWFPMEs0NWdXVTI2NGFrTERldzdydTBrcGpWTExiNUlwRG9I?=
+ =?utf-8?B?ZFM4S216aFRRRHpXL3FyMmE4dHZndFQ0N05BbTUxSnE2ZjFGREdhblRmNzc2?=
+ =?utf-8?B?WVNMdTFkOTVHaHRMaUxJcmJoUHRuWUMvdGozOXVDTEs3aGZicVJmTFByQWVU?=
+ =?utf-8?B?Z0JWaDdTNURxUytpRE9sSzVqVFRrNHd0UWsvNjdhc3pQaUt3Y2J6eDZJOXh1?=
+ =?utf-8?B?MUhmZ0JObnBJa2NXMVVSRW92N0I5c2tPK3MvVnI4SmFLZ01mQUhqZm5WMHRX?=
+ =?utf-8?B?WlBVRVJ6NnNQYWpGck03LzNuQ2tub2RmK01ESmZYYmNNU2c3QVlRWWphVG9Y?=
+ =?utf-8?B?TEhJT1dpMXhwRkl6ZS83bEZMT2NWWmorVDRzT0wzQW90K1hZSWoyWlVWR3Y5?=
+ =?utf-8?B?YVg5eW81cXRDZnRBcHVOeEtESTQzd1J5Uk54Q1J1VzA4c1FmTW5uUWtkL0Rz?=
+ =?utf-8?B?VkVmNVIrckIzdnBhWTM1Zjl4NWQ3a0MxZDlTN0RZVnNsTnBud2tVQ3lVUHlU?=
+ =?utf-8?B?NmpPNEFPTi9RTGRtWXZLaXlsL2xHSE1NWTA5cmM1WkJTRlpZYk9vZ0RTYVdX?=
+ =?utf-8?B?ZWprSXpLU2d3OEdsWHhqeFRhZ2FTVVIveVNNckZ1YkkxSnJuVEIrR1l0a1NY?=
+ =?utf-8?B?c3BJR2ZkN2hON1RIMXdYcDQ5MUFLLytnVXVZMEM4YVcrSWtKaWpKcWdWMEN4?=
+ =?utf-8?B?WW9ocUhmMlo0Q1BJcTRGWE9FSCtlU3pvaFdYT0lkMDhIdTVXVEw0azJXQXVR?=
+ =?utf-8?B?QWViMTNtdUxidFIzaGtZNWtLSFpmaThtdzBwbW5xV0JoTm9yWWlDZkVaSTFP?=
+ =?utf-8?B?RGttN2w0NDc3YU1LS2poajJUdnVObjhOb1VCT0pibGo4NkZ4MWlZYjR2OHVK?=
+ =?utf-8?B?S2E0eXp2NzI3VDJtdHZjclRpTGMrM2txNlZSakdWU0ZpU2pyMWEvRzJiMnU3?=
+ =?utf-8?B?RjUyR1pXTFBDT3U1QmVGM3phdThzNmc5blVROXVKUVVvUDFvTTI3WVNtYWt3?=
+ =?utf-8?B?QkhYdDZEREdGa1ZzRnRVZ25Sc3dOaG9VNlNBVVRsYm8rc0U2ZENubWdpZDJO?=
+ =?utf-8?B?OUpvRlNXWE9WWG1FczhucDVzdmNpVmNhZFozaU1KZnFkaFhXM0orKzRpMGc1?=
+ =?utf-8?B?Mms3UnUvRDZFSWpLaTNpRzMweTVtYXNJSGwzNGhjbVR2V0pFV1NKTFhjTXpI?=
+ =?utf-8?B?YmNHVFo5eEM3NlNPTHkrc29ISitaZFNybWQ1YU5jSW1nbVJERHB1WUhCUHFF?=
+ =?utf-8?B?QlZob01vbTVtRUk5dHVua0RpV044bDdOeE9IbUkvWjlYTUd0TEcxQ0ZMUmlO?=
+ =?utf-8?B?YUthWjh3REozeFdoU1I3RER3MURZdkplclNxRko5d0FualRXeWVVSWZqMnVW?=
+ =?utf-8?B?dVEvMUVrZEZTM1I1RER3WlE2a2VlTGcxMDcxb0xXR0N3MkUwb01pTW11ZndO?=
+ =?utf-8?B?TnRIWWlXRmh5UUY4MFArK2VYa1F4RDNSdTl5MFhjTm13dkRLZTZqSXNQalVO?=
+ =?utf-8?B?MnpFeHlEZjlnSHZRdnJBSGYxZ2FaNlFVeW1PWTFNbGJ1cnVPa0w3RFlseEhw?=
+ =?utf-8?B?ZEZxb250dHExZk5hTmNQdG82VjlkZXN3aTdSS1FEUzJYbEduOERtaThQVnZC?=
+ =?utf-8?B?bUErSnI3bmRJMWFMeTZNaXl5dlAwaEZySlRuamxsYVRWeVZBcFJ5enRsQVJq?=
+ =?utf-8?B?V2Fvbk1EZHRJcVZ1T0VCbklodktNdGw0L2lSaUNiM2drdFlkbkhkU3dpNVZa?=
+ =?utf-8?B?ZVNCUjQzRE9Ya0RCa0MzTlcxQmhUUWp6b2NzU0dQQ1VETElxN01CYUlOcndt?=
+ =?utf-8?B?Mll4ZnY5T2pueU9KWU9WUEZuelBOR250ZjNkN2M0V1J0cS9qRklXOGlKTTNU?=
+ =?utf-8?B?MTh6RTErZ0plOGJEaWlEb0dyTE9meDZSNS9mUnpPQTY3UWErL1k5VDh3M2E0?=
+ =?utf-8?B?aEJEdkl2UmhFWHVLclBqTU10VlVuREExbjZsZndJUXA0Ulhtd242eVhLQWRG?=
+ =?utf-8?B?c3k4ZDJWMmhYNEUzV2RUWnVRMzk1WnVsK2FCdlNKRE5jMjQ1RHdCTjR6ek9a?=
+ =?utf-8?B?NkhJMXZxbTBLaVUxQlNxZkpZSlBuL1dyVVRIZ0RIZ1dLT01sV3JwdTNEbzFS?=
+ =?utf-8?B?SVRPeGs1UFV6NE5oeUduR3JkZVBjUDJMMTVIRmtZUm9HVVc0NHh3cjVSY29H?=
+ =?utf-8?B?V2dncWwvTWw5UnlCb2tJSTA2SHB3UUxUWnRJcC94bGlJQ1BzQVBWeEZLQVFQ?=
+ =?utf-8?Q?6BtXL/Cc0chba+Im5cqQAg5JHj3xBih6JjVtxLyx/a?=
+MIME-Version: 1.0
+
+--0000000000006f7f8d061c6fa480
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Please forgive me for stressing you with my predicaments as I know that
+this letter may come to you as a big surprise Meanwhile, I am Madam
+Elizabeth Edward, 73 years, am from USA, childless.
+
+
+
+I am suffering from adenocarcinoma Cancer of the lungs for the past 8 years
+and from all indication my condition is really deteriorating as my doctors
+have confirmed and courageously advised me that I may not live beyond 4
+weeks from now for the reason that the tumor has reached a critical stage
+which has defiled all forms of medical treatment Since my days are
+numbered, I=E2=80=99ve decided willingly to fulfill my long-time vow to don=
+ate to
+the less privileged in at least 5 countries around the world, the sum of
+($18.5M).
+
+
+
+I planned to handle this project by myself when my health gets better but I
+have seen that my health could not allow me to do so anymore If you are
+interested in running a charity project for the interest of the poor I will
+like you to introduce yourself to me and your project opinion.
+
+
+
+Best Regards!
+
+Elizabeth Edward.
+
+--0000000000006f7f8d061c6fa480
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%">Please
+forgive me for stressing you with my predicaments as I know that this lette=
+r
+may come to you as a big surprise Meanwhile, I am Madam Elizabeth Edward, 7=
+3
+years, am from USA, childless.<span></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%"><span>&nbsp;</span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%">I am
+suffering from adenocarcinoma Cancer of the lungs for the past 8 years and =
+from
+all indication my condition is really deteriorating as my doctors have
+confirmed and courageously advised me that I may not live beyond 4 weeks fr=
+om
+now for the reason that the tumor has reached a critical stage which has
+defiled all forms of medical treatment Since my days are numbered, I=E2=80=
+=99ve decided
+willingly to fulfill my long-time vow to donate to the less privileged in a=
+t
+least 5 countries around the world, the sum of ($18.5M).<span></span></span=
+></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%"><span>&nbsp;</span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%">I planned to
+handle this project by myself when my health gets better but I have seen th=
+at
+my health could not allow me to do so anymore If you are interested in runn=
+ing
+a charity project for the interest of the poor I will like you to introduce
+yourself to me and your project opinion.<span></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%"><span>&nbsp;</span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%">Best
+Regards!<span></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;line-height:115%;font-s=
+ize:11pt;font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span styl=
+e=3D"font-size:12pt;line-height:115%">Elizabeth
+Edward.<span></span></span></p>
+
+
+
+
+
+</div>
+
+--0000000000006f7f8d061c6fa480--

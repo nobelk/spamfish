@@ -1,0 +1,200 @@
+Received: from SJ0PR10MB4734.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Tue, 18 Jun 2024 17:16:31
+ +0000
+Received: from DM6PR11CA0046.namprd11.prod.outlook.com (2603:10b6:5:14c::23)
+ by SJ0PR10MB4734.namprd10.prod.outlook.com (2603:10b6:a03:2d2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.30; Tue, 18 Jun
+ 2024 17:16:23 +0000
+Received: from CY4PEPF0000EE33.namprd05.prod.outlook.com
+ (2603:10b6:5:14c:cafe::a4) by DM6PR11CA0046.outlook.office365.com
+ (2603:10b6:5:14c::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.32 via Frontend
+ Transport; Tue, 18 Jun 2024 17:16:23 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.210.194)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.210.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.210.194; helo=mail-pf1-f194.google.com; pr=C
+Received: from mail-pf1-f194.google.com (209.85.210.194) by
+ CY4PEPF0000EE33.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7677.15
+ via Frontend Transport; Tue, 18 Jun 2024 17:16:22 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:785A47248B44C729609C969E4702760806202297C4BFEE8ED3D5A7C82AE6C474;UpperCasedChecksum:40C5A44CE4A0CF4F413BCF076F4E6DEA0DFB6C45C8BDC64B7118F1937740627F;SizeAsReceived:2595;Count:16
+Received: by mail-pf1-f194.google.com with SMTP id d2e1a72fcca58-7046e87e9afso4583637b3a.0
+        for <johndoe@emailaddress.com>; Tue, 18 Jun 2024 10:16:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1718730982; x=1719335782; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rz++nX92ps3urd0ekT1B6MQsWrT4HIhlwbtBRifYJdE=;
+        b=ErE6eEXzR06UaZRVKgR6ssb3JZGbJjiiL5oFRr6SUozXWOwkSy9pLeKB1kO8zliLxk
+         Q/42kv1bP58Gv1guUBaWxsMINkZxb3qXAJcyE6ksb2T7T+H5hBW8IU08NGsPj3twNFml
+         Aje8ivOqI8nsF0oH7kCwxguN7hw6f05EF+7QnZBJx3QUfroSuXOaaUsX1o77AiNzpwSr
+         uuxDX+GDKuv3OYYe1KgLbv9HCFTQOZEmCM0rIH+ImODzQSJdfhUvxI4gQCdNUYsHYE1d
+         MuQZSYE89gQiDDgci8493QBv+WsIYaxpQCpz00WGFIPaHqZQOq2yE1k0c+rFU4JZI4NN
+         Pp1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718730982; x=1719335782;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rz++nX92ps3urd0ekT1B6MQsWrT4HIhlwbtBRifYJdE=;
+        b=cQIppdRxMK+YrayallCWZYt4anex/Dh3rmj7du1mlUh5tKbhnsx14YF3Xwon6uvmRY
+         5sQljvWnMkR2mXJRTlkPw2lsb65l3TsNMlvkI6RWvV3EwXe5MrHcm+NPn7gU+DdMcAKK
+         VylG+XvkNHnc3OFxlf44aVMwbAFYRHoT464GSxE9juu21TLPovyr2cyijbFjwp8SGktF
+         cv+AzN1WtvHwZaX/VJGHhH/lcpbATaNOuyDC0oTK0p4R5FCuH0JIlwBPtDuG+OH7XNt0
+         1VAa9G0BTkKNBFPljjw7wr7CXjIKzxhzPUaGDlbsHnJtJirtcX/KHC39OxMwjVgF2Ovz
+         n+Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCUTujB1RXtqFs5v2aBkR8+5QpR0jVLKOEMNlAIgjjo2LKMeltNIUbLRqxexoM69SPA0DVifjBn9nlmM7V2+BvqKxQ==
+X-Gm-Message-State: AOJu0YyVd243OEpt0zj/P50ln8zgS2lLSP+ywQWXNqomdx2MtA2qvxri
+	8/J2Ur+sJ0S1zfsOUaO7h8Sx2nm4aJtIm1/yOPWF1P4Am6Y0PY5eoMrOnInnm9ZgE/36f8YJamq
+	c2yy+HL5UCGbAml7arMKyL4HJpgE=
+X-Google-Smtp-Source: AGHT+IFnizRi3FXp0K+6CIhHLb9rqqJvJBQ6UMTVUzg05n7KHDEx0V20jnxDPQAqz5jUDK0Ts2zZrhiRv0e6pbyxx88=
+X-Received: by 2002:a17:90a:fe86:b0:2c7:8c0c:756c with SMTP id
+ 98e67ed59e1d1-2c7b59f8f0fmr370990a91.1.1718730981369; Tue, 18 Jun 2024
+ 10:16:21 -0700 (PDT)
+Reply-To: aminatazongo425@gmail.com
+From: Mrs Aminata Zongo <woo174917@gmail.com>
+Date: Tue, 18 Jun 2024 18:15:37 +0100
+Message-ID: <CAJNbvW0uQDKOAOwh7FVNK_wOR_UuE5af-jN-jYU0BqYO4Q=xZQ@mail.gmail.com>
+Subject: Dear Friend,
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000009bf073061b2d3dce"
+Bcc: johndoe@emailaddress.com
+X-IncomingHeaderCount: 16
+Return-Path: woo174917@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 Jun 2024 17:16:22.9550
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ ea950ae0-e1ce-47aa-7260-08dc8fba60be
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CY4PEPF0000EE33:EE_|SJ0PR10MB4734:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CY4PEPF0000EE33.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 6/18/2024 4:46:59 PM
+X-MS-Office365-Filtering-Correlation-Id: ea950ae0-e1ce-47aa-7260-08dc8fba60be
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.210.194
+X-SID-PRA: WOO174917@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|9020799013|970799051|461199025|2100799024|1380799027|1360799027|1370799027|440099025|3412199022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 17:16:22.9394
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea950ae0-e1ce-47aa-7260-08dc8fba60be
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CY4PEPF0000EE33.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4734
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:08.9380556
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7677.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?WHRZcE1vN0FpZTN3NkxJbGxEeDhURGd4OEJBalNSbnRsc203YzNMZ245QmVZ?=
+ =?utf-8?B?YzhUNW01Wit3a0crMXZkS1RYQjFtQkpkWEpnc1pYUDFOTHFXNjFvcTE3UkVI?=
+ =?utf-8?B?a2FHOXFVVU4xbGJ0NmF2QmdOZlhudlpMa3VRZ1UzbkpVWWtPZk04SnMvamVn?=
+ =?utf-8?B?K2t1K25uMTNsQjBLd0Qrck9DQzArd2dYbVliNjZZalZmejlEN2E1ZE1EaGF1?=
+ =?utf-8?B?T09raUJPWGlyNFlub3ByNTdOVmwzQmpUNDE1K0o2VEJDK1NyN00wNE9zUXA3?=
+ =?utf-8?B?Q3BObE9RM096d0NOV1duM3VRMHE1SXc5dm94NWZTUllveTRjK28rU0cyaWVP?=
+ =?utf-8?B?M2dYNWY1SmxYY2M0Y1J5SWtqMDFVQ1BGSTdKVTNLcWVFcGZydW5xQ2tPU0h3?=
+ =?utf-8?B?ZnUyMTNsNzZFdVRRUnJuSEwwS1pYVlcycVEwWlBsMXRiQzFxSmJYSzFsMVNh?=
+ =?utf-8?B?ZDdSbVBCSHZBNkpCdEFxNXd6Q3BYTW9XbWwvdVp6TEtPMWZjY2JuQzVWeWpS?=
+ =?utf-8?B?L21CaXA4WDFseHVBeDNoZWYzSHlkNFpGR3dkbTNZQWlRMC91Z2RzcEhlMWRJ?=
+ =?utf-8?B?WG1ZNkdJbnFJTTdjamtDZ00wWUJOVERURDd2elA1SkhiR1BlM0dUbkUrVkR4?=
+ =?utf-8?B?dlEvRXE4b3I0Z1QvSWQ5Vmx3V2dsdlM2V1FMTGEvL3hscmlOeWcwNjRuVmVz?=
+ =?utf-8?B?OVNDcmN2ekFZM01yUVFBdVlkWXZTYnZFbFBVbVE1dVNRMDllQXdNNlNvWmpy?=
+ =?utf-8?B?TC8yMzVLK3gzeUE0SkdQU2hWL3hGZXExMFQ3bjgvaGphd3dUSXo4QUNmN05a?=
+ =?utf-8?B?MmNPaXVBRWpNTTIyaXFvLzBrY0RBdjgrRHFtL2xKTHJhNWlaZzFMZm53ZmlT?=
+ =?utf-8?B?WHlYS3F0TmxZVkRycS9pUEVKMDhXOVhLVU9ZRWYvdTRDK1lqT1BRNzZUZnpT?=
+ =?utf-8?B?SlF2b0p2dEEvWWZrb3dDaGkwMm1wMmNjaGt0SzJlS1RPY3h1K0xWNHIwQmN6?=
+ =?utf-8?B?alEweWNFVkZlQlBnY0RpeitzcWJ4Y0dFQ2s0b0YxWlAvb2hvR21aUzlseEt6?=
+ =?utf-8?B?MnkvdzQ2aVIzVDRQRjNCbVdLUHdZNkhKMlpKUDlpaFJNSVRYRXBYZlU0WGVP?=
+ =?utf-8?B?QlQ5a3RlUXlzOFNBNWFBWEVxTVpuazBHaTRzTDJPak83TmduWTJGYlZUZ2hs?=
+ =?utf-8?B?NjlNbE50R2x2OHVIalBCR3ZURWxxL1VFWnZ1dEhYR1MxTnN6bitKRjhrZ0N5?=
+ =?utf-8?B?WFhjSFZTUElia0FNdkl2VGJDTEgySE9lbWZlQzRhbXpzQW5UOVVWejBmaUVa?=
+ =?utf-8?B?NmtYNjFmUnVqR1JPOHVmbEtveGRkNjVSS3FjYUttc0FVdkZjSnIxektwMGNJ?=
+ =?utf-8?B?VThJUXJ3OVVVbnp0ZnV5ZWtCcVZER0kwTFF2S2MzT0MvU2ZVTlpHd2x2Mzdw?=
+ =?utf-8?B?eXVIQ1dyNStGS2h0ZXlOYWxoRXJ0UnJyZklLaUlpTWc4NG5UR09jTWtmMGs4?=
+ =?utf-8?B?L21LR0FwTXhKdS9BR3RhUlhxeE40aDlVdUsvZ2dnVElLNjMzcDdnRUpUSk4w?=
+ =?utf-8?B?L0ZOb3dkMGhwTDNMMUFLdzFwSW1WM0hjT3pVOTRwQ2ZadTE4UEFPdHFxWlp1?=
+ =?utf-8?B?dE94UXNmQTdOYjE4TmdFckk5UHZqcjNPdUhUZHlsR2xJNTduZTRvKzNYVW1w?=
+ =?utf-8?B?cE96aCsrTjJvNlF3d0tqMjJoTk5kdzJmblVvTjR0L3UwQVJPQVFEMngrNDA2?=
+ =?utf-8?B?T1hyVlRpNjViQ0ZzTW1PQ3ZCWmhQMGNiU24yTXluRzZJRVZ2a2VTczV6YURL?=
+ =?utf-8?B?OFlBN2JhYmh3SWhsRC91eEpVQ2RvQnNxWFM5d010b2pYdGhJSS84aHYrL014?=
+ =?utf-8?B?U0pwZ0VXb0VPV0p3QndIWkNOVU05QlZTZnROT254Si9uM1hORW5TMUhJSDVF?=
+ =?utf-8?B?WnRRMmpuWUNhQm9LRWdTRjkzY2sxaWNNckxleEdEcUNFMmtTdjRDNVNzOXBr?=
+ =?utf-8?B?NDRtVSs2akFWbGkwN2gya3c2THBrUUZYNkwxK05HRGlLS2Z5YVp2Y3g3VUpp?=
+ =?utf-8?B?REphUGE5WnptdlRrbzh3NkVJY0hwVWpNbkVJcStJUWJTYUV5TXlYL2pRYjBR?=
+ =?utf-8?B?cStBMDkvSXFFUVVSNDM5MElMd0s3OHpUMTlOUVR0eEhsMTVLQWZNd1dYbUJE?=
+ =?utf-8?B?czBNMDNLYnZaSlJBVjZKWEY4bnBoZjVGc2V0RHVYY3ZxTWxvcE91NWdCVjRS?=
+ =?utf-8?B?dVlXTXgzWFZTZ0RkekZEckdiS1F6TTVWbElJK3c0MnJWb1diVS9kK0NFQlpv?=
+ =?utf-8?B?RnlyV3I0cTNaS3dqdUt2UUZRaW9PdFc5TXpOK1VhV3pYNzNXQ09rbG5xc0Rm?=
+ =?utf-8?B?b1hLa0lHaEVQeTJ4dEphR05jYWcxSXRkeU0weWw1bXlVNXZLa3pzQWV2MVNr?=
+ =?utf-8?B?UUFUYmlNbjU1OVp0MEc2S2VBWHlMSGFETE9pTlFEY1VjU1VCNUZQQ0xiTCtC?=
+ =?utf-8?B?SXYvNEhQWkF2N0lHTkNHSk9sS3AzbTVxaVpwKzFTbTBWQ0hlRGNLMElGU1Zt?=
+ =?utf-8?B?bC8xaysxWHRMNGVodkNSOVVlamxLQW1hcDMvRk4vSVByNDl1S0VMNGw1TGx0?=
+ =?utf-8?Q?x8VLznip7HJeJvSKf53+bKeyurBs=3D?=
+MIME-Version: 1.0
+
+--0000000000009bf073061b2d3dce
+Content-Type: text/plain; charset="UTF-8"
+
+I am Mrs. Aminata , a personal Accountant/Executive board of
+Directors working with United bank for African Burkina Faso (UBA). I
+have an interesting business proposal for you that will be of immense
+benefit to both of us. Although this may be hard for you to believe,
+we stand to gain a huge amount between us in a matter of days. Please
+grant me the benefit of doubt and hear me out. I need you to signify
+your interest by replying to my mail
+
+Honestly, i have business transaction worth the sum of
+(US$8,200,000.00) Eight Million two hundred thousand united state
+dollars to transfer to you through proper documentation in position of
+your own Account Most importantly, I will need you to promise to keep
+whatever you learn from me between us even if you decide not to go
+along with me. I will make more details available to you on receipt of
+a positive response from you.
+Best Regards,
+Mrs Aminata Zongo
+
+--0000000000009bf073061b2d3dce
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">I am Mrs. Aminata , a personal Accountant/Executive board of=
+<br>Directors working with United bank for African Burkina Faso (UBA). I<br=
+>have an interesting business proposal for you that will be of immense<br>b=
+enefit to both of us. Although this may be hard for you to believe,<br>we s=
+tand to gain a huge amount between us in a matter of days. Please<br>grant =
+me the benefit of doubt and hear me out. I need you to signify<br>your inte=
+rest by replying to my mail<br><br>Honestly, i have business transaction wo=
+rth the sum of<br>(US$8,200,000.00) Eight Million two hundred thousand unit=
+ed state<br>dollars to transfer to you through proper documentation in posi=
+tion of<br>your own Account Most importantly, I will need you to promise to=
+ keep<br>whatever you learn from me between us even if you decide not to go=
+<br>along with me. I will make more details available to you on receipt of<=
+br>a positive response from you.<br>Best Regards,<br>Mrs Aminata Zongo</div=
+>
+
+--0000000000009bf073061b2d3dce--

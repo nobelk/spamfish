@@ -1,0 +1,221 @@
+Received: from MW4PR10MB6348.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Tue, 18 Jun 2024 03:28:17
+ +0000
+Received: from MN2PR20CA0065.namprd20.prod.outlook.com (2603:10b6:208:235::34)
+ by MW4PR10MB6348.namprd10.prod.outlook.com (2603:10b6:303:1ea::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.31; Tue, 18 Jun
+ 2024 03:28:16 +0000
+Received: from BL6PEPF0001AB58.namprd02.prod.outlook.com
+ (2603:10b6:208:235:cafe::2d) by MN2PR20CA0065.outlook.office365.com
+ (2603:10b6:208:235::34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7677.30 via Frontend
+ Transport; Tue, 18 Jun 2024 03:28:16 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.219.193)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.219.193 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.219.193; helo=mail-yb1-f193.google.com; pr=C
+Received: from mail-yb1-f193.google.com (209.85.219.193) by
+ BL6PEPF0001AB58.mail.protection.outlook.com (10.167.241.10) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7677.15
+ via Frontend Transport; Tue, 18 Jun 2024 03:28:16 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:3836A32646BB75A767F269ADAE4907A3CA94AF7064910A6E04A8E06993ED0470;UpperCasedChecksum:238800C5D2BA1F6D4171E0A5FBE77B0992C219339D84048F17B8A05389AEB6F5;SizeAsReceived:2611;Count:16
+Received: by mail-yb1-f193.google.com with SMTP id 3f1490d57ef6-e02a6d4bdbeso118571276.2
+        for <johndoe@emailaddress.com>; Mon, 17 Jun 2024 20:28:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1718681296; x=1719286096; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oWyi7zOF8WVddCADxD6FEY0UDbc8Nxp4OAys5Pez1G8=;
+        b=YyS1uu2ZUc+3cJd87UHzEoyL5mvzIpsMyBQeUH+MlQf5mLrytzcgYFZyZh5uXcOAJf
+         8o+Iwww9p6wIZR2l9nDttjKHTa26WPQodHjM4/83za9AUV6s4gYIdFdcVAGDJO9l2pGj
+         4OlzrEsyVyHPMLNNs95NIyzfweEnSkWFUjBMrLQJ/bWfT5ownBsP10H4OevJbE106rNo
+         NJ1BXcWdXnO3rdqZTSt9j4hYseV0Exfsm1yIZ5g+fv+FPXwzhq6qs0dQRzFhq5k1x7JZ
+         4ifOOyb2H1XH7RSLbMnZf9rMvrXyXiIkLSxETnnpiGbaNZqwns61YWXL3/dsz43SshxC
+         LoLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1718681296; x=1719286096;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oWyi7zOF8WVddCADxD6FEY0UDbc8Nxp4OAys5Pez1G8=;
+        b=YN2n8RVdAB5o6RwLDHEu8eM7c0DvLzK7LGc7lEsNXs26TOnp+dYxbxwtiqYWe5KSb6
+         2Q9au91wrjppVGoedLaepWGLUm9OzMBcgzb5COdsD/8HJhmIGQPTBu58jiwO9cQQVVp8
+         hLdINhv/K4vT6m7QWV1PN3AB+JOGyiCi1tEYYCg5gx7HOYsG0UXQkceS2QmkIObC3cFJ
+         gvc3dkdKaHwfnNxtVH/M8CXr02/4YtOJzqIge869etRHMjl6GO9+kL+d13oJvKFmynF8
+         u7uWxKafMNQNlXOT80sj518mwgoTyj7MZEcZPG91HJjynDOTGlGvpeFuvsI5KU3G+Bzf
+         8ahg==
+X-Forwarded-Encrypted: i=1; AJvYcCXz38AICIaBZ6bICW0mhOEh5mqvKwA4X7Fb+G5uPR42dY4pws7ebw1DTXlCKj/KHbbr8qa/XUv29HPdBE46c7Q9RQ==
+X-Gm-Message-State: AOJu0YwYLy+rMZBGCCCk2nbHhyKhfhxn26boptdHrR/kyC9kx7ft9Tbx
+	o0aRi3CLMwYq3Yg0x443Lq/8atpuEXsSh3KfWBbDpv2Dyc4uBnB9lCBY/mh9vTiIyYxJxvsfyNE
+	dkEBY+sP7Gi0QD9rlEJdUv+b7sBg=
+X-Google-Smtp-Source: AGHT+IEY0BProhZhZs4JEXPeJqICkn7ONdfIvle8wt+hI4kyYh91YwdddHnhSorZLj6L86eqWwJEbv/S4mhSKkAHOmU=
+X-Received: by 2002:a25:6b02:0:b0:dfd:d5c4:308c with SMTP id
+ 3f1490d57ef6-dff15391183mr10067800276.19.1718681295437; Mon, 17 Jun 2024
+ 20:28:15 -0700 (PDT)
+Reply-To: mrsharriet120@mail.com
+From: "Mrs. Harriet Bodson" <b.o.u.r.e.i.m.a.n.e@gmail.com>
+Date: Mon, 17 Jun 2024 20:28:03 -0700
+Message-ID: <CADtXsJ4Ps3hyW6xGHGPpt8QrV7HMp=icTqdJqhjsF6k_1vGw-A@mail.gmail.com>
+Subject: Mrs. Harriet Bodson
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000018cb6d061b21acf1"
+Bcc: johndoe@emailaddress.com
+X-IncomingHeaderCount: 16
+Return-Path: b.o.u.r.e.i.m.a.n.e@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 Jun 2024 03:28:16.2575
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d514be27-8b80-4ec2-15df-08dc8f46b12a
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BL6PEPF0001AB58:EE_|MW4PR10MB6348:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BL6PEPF0001AB58.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 6/18/2024 3:18:18 AM
+X-MS-Office365-Filtering-Correlation-Id: d514be27-8b80-4ec2-15df-08dc8f46b12a
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.219.193
+X-SID-PRA: B.O.U.R.E.I.M.A.N.E@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|970799051|461199025|2100799024|9020799013|5912799009;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2024 03:28:16.2107
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d514be27-8b80-4ec2-15df-08dc8f46b12a
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BL6PEPF0001AB58.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6348
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.7368725
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7677.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?V0pEZFBsdWJ1MW5xRDNzd3lpMDg5UXA5d0xhYjRmNVRSU0hkUVQ4UzFDSW00?=
+ =?utf-8?B?LzZXbk5EZms2cHppZjFQcGFPMVdsNlMvc1ozS3RsY25xUkEzWGV1MVFwUHlN?=
+ =?utf-8?B?dWNDcTY4byt3TU9TLy9DQ2s5MXVENllIQ25xcGltRldOQVdKdW5LbVpCTUIw?=
+ =?utf-8?B?K3FaTlZ3Slc5S3lBVjV3bG9kSjFvWHlsaUtCUFFRaU11bERXYzJoOGFiZisv?=
+ =?utf-8?B?U2V3UzBNcTJ2Vm9ERTFraHF3cWJBR3R2R29MaGk1aUFMTTRwYkUzSUtYMVdJ?=
+ =?utf-8?B?ZEVSZ2dSSVpMOUp1cHg0K2E1SE1GN2M1ajN2T2c1Rk9kclZES1ZndDFTSDFK?=
+ =?utf-8?B?TTV3ejRYblFpSjFZUC9rZ2hrOFJlYTNwUTJXZ0lEdk81QUIxcVVOZFZ5d1A1?=
+ =?utf-8?B?dS8vaWlsVm5HWlFVTXNGakRBNm5uanRaeU1LNmplTzBKOUtGM3h3dSt2WjZl?=
+ =?utf-8?B?dE9GNkdCc2JVZi9ndVdjWm9wdkVmVlBycDB5dzRma0RhWTgwdVRCL3dxUk8x?=
+ =?utf-8?B?S2VrY2YwOWlWbnRBb0ZxeFFGaWpZKzQ1OVVzMzB3TlJocDEzcnh5cXJvKytn?=
+ =?utf-8?B?bUdJMExuVktBUzVQVHMrZ2JCK1VVbGhCdDBqdDVrUXR6TEJnRDFlbVR3QXg0?=
+ =?utf-8?B?L2NjSDFEeHNuY2V5YW1lVmduZTlIaXdkRGVCOENrdjRvdnVjM3B3a1hLcmhK?=
+ =?utf-8?B?VmQ5TUE1dzZ3ZTI3c3V2amowSjJWUm5Fc0lwZWtWdm1jTXcvOW1EUjQwa0Jo?=
+ =?utf-8?B?NWJ4VDNiK01yeUNNamVSeDF6a0RhYjNCY2dDY29OekFPZ0FJYWRFaUsweEZ4?=
+ =?utf-8?B?SkNQT0ZCME1pellJQUZxOExncmJ1MzhFMExwV1JOQXU4WklKSGw0eEJCUkpx?=
+ =?utf-8?B?cEVFOEk3czl1ODRreURJUytwTE1JVzNpMkpoTEFySyt5SDJjKzdWOTBsV1N0?=
+ =?utf-8?B?ZUVraDM3VzR4SzBqVEdxOFV6MUNKWUVUaE9KOTl6d1NlZTBBUDU3VHNBRndG?=
+ =?utf-8?B?REhwaTRPMFYxT1B4ek8ycUJXaHZWQ252VVhNMnFTSGxzYkNTbGZUVGJNZGk0?=
+ =?utf-8?B?R3l6UHhvdWpIbU8xSHNieE43Zkk3dnYyZ01CWlRvWllBZ0gyMjlKdGphR2VX?=
+ =?utf-8?B?WHIraE94UEM0Yk0xRUprZHZsRGdOOWR0ODh1dmplTlJrdWNCZ2xMQ2tDdkNP?=
+ =?utf-8?B?UTY4eE1OWERQdXg3SGQ4NUNGS1BNTndTcEpTdVFOczBWcGZYNXFOSmplb0Ru?=
+ =?utf-8?B?WDRqKy8rMVFIYjk2YkpqV2NGN0RZaWVsT3lNWE1LTFNBRzZMbndoclRHTDBT?=
+ =?utf-8?B?V25zLzNtd0tIS3ZlQVFLSEhiN053T3MxY05ZMk9EQnQ2YTkrekR3ODNVcmVh?=
+ =?utf-8?B?VUZ0dzY0ZFU4eml5SnNXYU56MFZMUnhNbzhVVFVuUjFsT293VVdnLzFZbUQ1?=
+ =?utf-8?B?dmF3RzllSEo0S2JGWGR5VmZrOTFGT0dpVlVuWEM5MmhOaEkvNCtGbFJIYmxI?=
+ =?utf-8?B?Qmx0UmYrZUE4S2ZvZE9VWlNzTUZsVHdjYitNQVpMS1RwMkpuZE5iQmdHZm5t?=
+ =?utf-8?B?Z0luUUxOTUkvUkdJdU9KWXk4MmdNSTJzR240MGVQQ09IQW5kaXdvZWlxeGhz?=
+ =?utf-8?B?UjdxVWZxZUhib2N4bzRGMVN4RFNoZXN4QzBzR1lKWUY5dGtIOUVXU1FGM09u?=
+ =?utf-8?B?RllZb1lXQ0JoaElCVHNjVzVKL1U0bW50WDFIZGZGSlR6elNHTU9LZk1HbTQ3?=
+ =?utf-8?B?ZXdiejFxN1Nldjh5aWFiVmRBemJsQ2h4NDdGdjFkNmxGRmo4SjhyTjQrcG5h?=
+ =?utf-8?B?K0plVXVJbGlkN3JoUWpSdDdDWnhSTit1L2Rzbm8vUERYUkorUUNzSUhFWEk4?=
+ =?utf-8?B?WmdUL0F3T3Z2VERGbWgrNndNUEJmMjFLZVFtZ2FjVUpnTmhiVC9ZaFpaam5t?=
+ =?utf-8?B?bW9TLzFHR0h6bEpjTk0xemdqTVAvOXhNR0xPZXZtcVE5SmZDUVhxdzVtYTRq?=
+ =?utf-8?B?NzU1cjd1WFdJcnYrYWx1RHNJSFVtMWNOTFdKN2lqa3l2ekNXZEMwbnI1bW9L?=
+ =?utf-8?B?SUNaQW40UndMc3ltVldiT3JNN0xVaVh1MlFKWDV3eExLRzI0dnl6ZDVQT2Zl?=
+ =?utf-8?B?a1lmU05PODJhNG5neENXVXdxV0Mvc3lPdEhkZXQzRG1XVVRjU1FDcG1kMnp3?=
+ =?utf-8?B?MjhMK09RRElVVnFrODM2SzFDR0x5WExrSGJkbzVpbnBuUWRPd2g2WkRKcTJi?=
+ =?utf-8?B?ZlUvdWRrdXlJQ3BjY1lQVXpkalRnajNpRmZza0c3SXJyc0dGNVdqaThOVFVZ?=
+ =?utf-8?B?RVhSaWEyZEREeWJMeEtUQWhKa3AyZHdualcxQnNsNERBTFF0RjdLUjJqYzYr?=
+ =?utf-8?B?b3BQTGh6NXJ1RHBWRmNORHZiQnlzdFgxc2RIZjNMb3Eyc3M4NUhwbU9JOWxY?=
+ =?utf-8?B?WXJxV1lIdFBPd2RRTmtteTA5SXovNmJleFVLNmNKQlNWMWNBamNUMXJqbktD?=
+ =?utf-8?B?bi9Fbk8wbE83aXZZVHE0cVJCUUtxdmdNZEU5bDRvWG9aU3RDZUE5RE9nRTJ4?=
+ =?utf-8?B?THIwdTg1b3luTlNUejRsZ2Nna2MzU1pBeTRlK2Z2T3VXczlSZFBMekRSNXBx?=
+ =?utf-8?B?aUlYSkhsb1Q1N0dXaVpSZ2Z5VHVHTnVtUUJpWlpSQ2JIU3JQZ3ZMelk4UXdC?=
+ =?utf-8?B?dmd1MHpreG9VQ0luK2J0SXFKNDdxUlFnaFVWZVZ4SDBybnFJQ255dG42WjVZ?=
+ =?utf-8?B?UHJUb1BmZVdSZk52S0RsMURUYU0xQnovRGRWblBRb1VvUFBCUGxDUm54MkZV?=
+ =?utf-8?Q?oAlyi2OwNOPknlGdb9TUOiz28FaizR0/q8FRK7iv6h?=
+MIME-Version: 1.0
+
+--00000000000018cb6d061b21acf1
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+I am  Mrs. Harriet Bodson, international businesswoman and I was married to
+the late Mr. Philippe Bodson, who passed on April 04 2020) was a Belgian
+businessman and politician. He served in the Belgian Senate from 1999 to
+2003. I have a charitable and unfulfilled project that is about to handover
+to you, hope to hear from you. And to check up on me, you can always
+contact the Chief Surgeon Dr. Chasakidis Nikolaos.
+
+Note I was among the accident victims that happened in Belgium As Car
+Hurdles Into Crowd At Carnival, I am here in Louise Medical Centre.
+hospital bed here in Belgium, I want to make a transfer sum of =E2=82=AC5,5=
+00,000
+EUR Only. a wire transfer from my account to your bank account. as to
+assist Humanitarian Ads. awaiting your urgent reply. I'm here in Brussels.
+Louise Medical Centre Hospital,
+
+I am planning to give 70% to the Humanitarian Ads, children suffering from
+societal and economic hardships, typically children that have lost one or
+both of their parents. While you take the total balance for your honest
+kind with understanding of your good faith, Please as soon as you receive
+the total funds in your account. Please don't forget to visit any Orphanage
+motherless babies please. This email is direct to you note I am waiting to
+hear from you and also for you to provide me with your account number.
+awaiit. Many thanks.
+
+Remain blessed,
+
+B regards,
+Mrs. Harriet Bodson
+
+--00000000000018cb6d061b21acf1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">I am &nbsp;Mrs. Harriet Bodson, international businesswoman =
+and I was married to the late Mr. Philippe Bodson, who passed on April 04 2=
+020) was a Belgian businessman and politician. He served in the Belgian Sen=
+ate from 1999 to 2003. I have a charitable and unfulfilled project that is =
+about to handover to you, hope to hear from you. And to check up on me, you=
+ can always contact the Chief Surgeon Dr. Chasakidis Nikolaos.<br><br>Note =
+I was among the accident victims that happened in Belgium As Car Hurdles In=
+to Crowd At Carnival, I am here in Louise Medical Centre. hospital bed here=
+ in Belgium, I want to make a transfer sum of =E2=82=AC5,500,000 EUR Only. =
+a wire transfer from my account to your bank account. as to assist Humanita=
+rian Ads. awaiting your urgent reply. I'm here in Brussels. Louise Medical =
+Centre Hospital,<br><br>I am planning to give 70% to the Humanitarian Ads, =
+children suffering from societal and economic hardships, typically children=
+ that have lost one or both of their parents. While you take the total bala=
+nce for your honest kind with understanding of your good faith, Please as s=
+oon as you receive the total funds in your account. Please don't forget to =
+visit any Orphanage motherless babies please. This email is direct to you n=
+ote I am waiting to hear from you and also for you to provide me with your =
+account number. awaiit. Many thanks.<br><br>Remain blessed,<br><br>B regard=
+s,<br>Mrs. Harriet Bodson<br></div>
+
+--00000000000018cb6d061b21acf1--
