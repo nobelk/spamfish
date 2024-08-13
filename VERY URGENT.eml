@@ -1,0 +1,258 @@
+Received: from SA1PR10MB7555.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sun, 28 Jul 2024 16:04:12
+ +0000
+Received: from AS4P192CA0003.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5da::13)
+ by SA1PR10MB7555.namprd10.prod.outlook.com (2603:10b6:806:378::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.32; Sun, 28 Jul
+ 2024 16:04:10 +0000
+Received: from AMS0EPF000001B1.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5da:cafe::4e) by AS4P192CA0003.outlook.office365.com
+ (2603:10a6:20b:5da::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.34 via Frontend
+ Transport; Sun, 28 Jul 2024 16:04:09 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.44)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.44; helo=mail-ed1-f44.google.com; pr=C
+Received: from mail-ed1-f44.google.com (209.85.208.44) by
+ AMS0EPF000001B1.mail.protection.outlook.com (10.167.16.165) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7784.11
+ via Frontend Transport; Sun, 28 Jul 2024 16:04:08 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:15CA3D4592589E99865ECA369EF5A7BEB30DFB6D6D717653A86F957B88E3D7A0;UpperCasedChecksum:4B1998693807D74E1901962AE60C0DE6004BBED8622D7D5F33F48FEF8F59F911;SizeAsReceived:2608;Count:16
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-5a10835480bso4232775a12.2
+        for <johndoe@emailaddress.com@outlook.com>; Sun, 28 Jul 2024 09:04:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1722182648; x=1722787448; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uKpa3znzvIc0YGDPiqtQyS9teme4LwUQBdXNSJqZ2G8=;
+        b=Cm7E//DfafidtTo71vLdmWP6F9QQgzcckja1ft8IDJctAP36/svHkBoKCm5azKLtAX
+         moCjh/vvNe3SotG7vXtoUPRgqhztEJCzI2Lhr8l6cdX8fFWpOCKEDmW2X74IJUHXNSrH
+         AzI7zd0+2vOeADHQg6Q3U3yDP1A8b8SAoeK+aWyNrZjM8+zrGHmUfBUDMaIVNdjjavLD
+         Zvs02L8gYk7dSC60ZXHz/+YCuh6cSkTtAcrhz2/GH+8axfdqPZUfGrokP0zew7TCzVEm
+         JLFitqdkoL8nyfWd4CPdjZJ6vr7CZ5ABo5aGgooGgBT+5xea5tlkH4eIpldhQ80Z2Xo/
+         GgSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722182648; x=1722787448;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uKpa3znzvIc0YGDPiqtQyS9teme4LwUQBdXNSJqZ2G8=;
+        b=JRqTofru7Vta1c2llOPyEyY80/aCQUkb16o0DEIkQ5dBtMg1WGmRWTR8ilg9bl79mQ
+         aQqaqcp7nuhguLLvddV/2l4IwbR1d+46s08lpFK/bym512W6x9GsUtKx6Nc9p/JOTZfj
+         q8HmipBhJNoUS5lCspuri2DMyrpz+t5eoKsQoWXIWsVso9y8Dee7KaCFm/V4KaAWKh20
+         pV5bTAdwgtAPurSUkxiBYRRLSQoekTzE30TE3W87yqUUrCLcoZHLURfUt2pl6vPg6rRV
+         fYJ+XJEpNtxiGweCboDKTQDB2QeElRZcOXlnFf/JAzsquRSM08n+h0wH/zXVHOBdgwUc
+         hGPA==
+X-Forwarded-Encrypted: i=1; AJvYcCU7l1ItUb+rBxcqVXHuaVfx/4uRY8GhLuV3ZUUSVk4g8LTcDMbp60gzCjsKL3JApyhFX1MP4O6msRQmfteO2vqIbQ==
+X-Gm-Message-State: AOJu0Yyl+g1G7MkWAyrTjPG73oqDRrQ1WZwEhSFiIMDP3HK03UIwQaQE
+	X3qca6bCOE3A58gFXBwIX36gd6II2fHmWeEG31BM62qvLyLDOo2x5z9ka8TDBYUVdKJHaDnFdoJ
+	HRFB/f7yVVg5jGDITOLa3cLLXdFw=
+X-Google-Smtp-Source: AGHT+IFplSB8fzvvA8xgj7ZbjWSfziXdmlG3DeCO28CGrfaovSewgkTc3U0BNBb33GQWXmEx50z4lAwMNmHe+2Xs3Rk=
+X-Received: by 2002:a50:9eac:0:b0:5a1:6198:10bc with SMTP id
+ 4fb4d7f45d1cf-5b022003c5amr3469135a12.28.1722182647875; Sun, 28 Jul 2024
+ 09:04:07 -0700 (PDT)
+Reply-To: mrscarbungcomacrin01@gmail.com
+From: Mrs carbungco Macrin <ifeanyimark530@gmail.com>
+Date: Sun, 28 Jul 2024 16:03:57 +0000
+Message-ID: <CABh9CEEK+CZ+DBb6sbNpdMenRF8qXJWiTfU6d3K-V+MnJA2V9Q@mail.gmail.com>
+Subject: VERY URGENT''
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000f7101b061e50e4df"
+Bcc: johndoe@emailaddress.com@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: ifeanyimark530@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Jul 2024 16:04:09.0387
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 92d728e9-43b7-40f6-4df6-08dcaf1eea0d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AMS0EPF000001B1:EE_|SA1PR10MB7555:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AMS0EPF000001B1.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/28/2024 4:02:27 PM
+X-MS-Office365-Filtering-Correlation-Id: 92d728e9-43b7-40f6-4df6-08dcaf1eea0d
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.44
+X-SID-PRA: IFEANYIMARK530@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|2100799027|9020799016|970799054|440099028|3412199025|1380799030|1360799030|1370799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2024 16:04:08.8981
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92d728e9-43b7-40f6-4df6-08dcaf1eea0d
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS0EPF000001B1.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7555
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.4961553
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7807.009
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OVNRaGtKM3Jkd0kwd01NSWdja0R4NDlmR3NhZC82N0pweFpDNzdhSjBYR1Fo?=
+ =?utf-8?B?ckhLTUlEeFQvcEVhVi9vMkNYMjhzQ0U3b0lVTmJsQk83aHZFZGpRcW9Ga2t3?=
+ =?utf-8?B?RGVsUFBwSzNOVmdBUHRsSDEzemlQcEE0c3dtNDlZWHdLSitlNlg2cytOYXdX?=
+ =?utf-8?B?aFZlRXMzQ2VNZmgyNDVRNlZaaXp2d1BzaVozWU5BNWkxTGhybEJJNEhPN3da?=
+ =?utf-8?B?Z0hla21lY0IxbWQyWWR0MDBQVjN3ckpmM1gvQ3Q0Z2ZFTzJuTnUyMW5BTUNO?=
+ =?utf-8?B?aDdVT2FSOXlOdmx0c0lsdEZIQ0lmL25ScDZyUXY1UVJTUlJZVUFMMld6SDBT?=
+ =?utf-8?B?VEd5UG9IbEtDL3hVODJpcFNMc2p3UHU2UjVOeHRLeU5EV0dSdjZPNWxBZUhq?=
+ =?utf-8?B?ZWVPQ3lnQXVQRDYxanU4bGVWajN3UFBFSW0rVHE5cGRzUVg1OFQ4a0JPd3Mz?=
+ =?utf-8?B?QVpzVDNHU3hHck1VWkh6eHRVZiszR2lNcU02OTFuNmhwSUNKdENVOXg0dk5u?=
+ =?utf-8?B?YWRWWTIvYndLN2NOL0tmQUFYaFZobHFvbXR6SWFybS9FL2ZPQWg1K0tnMDhT?=
+ =?utf-8?B?K2FOQkNjTXQ4NkMvQVhlTDFkVU1KSzRSRk5UMW5Ba0RsSGJadjh5NHZLN0FL?=
+ =?utf-8?B?UCt4aitxTEdma2lEZnBqMHlNbkRrQjRjQkZHeUh5SWFwdmkxbTJrc2UzVXp4?=
+ =?utf-8?B?SGJUTENwOTUzZHVlNDJZcklmdWR2dHVqdE1XK25PUFg3clNweHg4S1duTFRG?=
+ =?utf-8?B?eTNNbUFld2F3Tlo5NGMzMEdZTGlzWExsbjRpd09Gc2Z5dW1RLzYvZVkwdUd0?=
+ =?utf-8?B?cXp4M2lQS2NjMG15ZU9pTEkyNVlSOHV4YW0rOHh3ZDA3QlFkUjlTY2ZDcng2?=
+ =?utf-8?B?bHEvaHQrMXVKL2N4bzdpQnhLZE9RVEdaSFVqaDZMV2U5VldpaFBOcm9uK2ds?=
+ =?utf-8?B?UldvbHVhMHVGdjFtREhrVmY4ZnhxQ0RpbzVxWXcxYmYzVWs0Vis1VzlUUlI0?=
+ =?utf-8?B?aG9xV01JTk5PU1lJOU1DdktXTmxBMTJWQ25MeEtScW1yMGRWK0pZRmFQV05K?=
+ =?utf-8?B?VDFTdzhpekVTaWlwbXZMSWMxMG80bU9Kd3Q2OEw4QzFFQmxwNXIwL1dydUF6?=
+ =?utf-8?B?TVd0T3M1N1FQQVJ2RGtjS2gxcUIvanMrNUI2dmVqWlZTNkdpQmsvQ1huaDh4?=
+ =?utf-8?B?MW1iSUs1NVg0TFhUUEJ4UzFHdUpsMUl6bk5VVWpnSjZyWWl4YlZhRFNRTVc5?=
+ =?utf-8?B?TTBYNlZmdG8yRXhZZFhyNTRxZk1hSHJCOWJZMzM2RXJQd2UyeGJQbjdhM0FG?=
+ =?utf-8?B?OWYwRWI2QkRIdXNWSUprbG9qRC9YWkJYejRua2R1MGc4YXkzZmpiSUpmL2ZL?=
+ =?utf-8?B?UE1NNFlFeEV6M1lkYmI4OEQ3NThFcDFHUUFoVUpITlh1RmpUT0hWMTZqdE1Z?=
+ =?utf-8?B?eHd4T1RZTXhQcWxQZHVkQ0JBNzliZkE3S0lGNmVJTWRTbnhmTW1QcEw5ZlJx?=
+ =?utf-8?B?SjVEcnpXWUd5Zk8zbDhzZjBEQk54aTd2VHF6L0tKQ21maGE1bVl6OFlseUZu?=
+ =?utf-8?B?SkdoZ3VQejd2Qjkwa296NzFqOHBxdmltNzNWd2VlTS95YXNOdWYzVURmVU5q?=
+ =?utf-8?B?Ty9yZUxoN0RyR1czdWxpb1pWeUJRSG5qR3k0TmhUSFNESG9OaWVhaVA5aUE4?=
+ =?utf-8?B?ZnIvWFRGMFBZQUZ5MDlSb1hpa1krUGhZbjlLQmVsMVc5QmFnNldOeVZpK0N1?=
+ =?utf-8?B?WXhXVTNlWE1IaXorSVlBelNzS25YaDJwL0oxVllrcFVNOWVPbCsyU2NCeFpU?=
+ =?utf-8?B?ZWlySUNtWTJBc3oyMEN6Q1lGbUxrd2wrdTFBMG9KN25kbXVOM0lySHN5VHFD?=
+ =?utf-8?B?TkdGcW1lQ0pOYjF2MFRPT3djc0krU3V4ZTh1ZlhsNTRqVW02dDJYS2FEOWhI?=
+ =?utf-8?B?Sm9zMi8yWWVvOGN5aWNTT1ZGb01UOTNGRFhYcUd1Yi9UeDFuaS83TkR6S3ht?=
+ =?utf-8?B?L3BLelBMZVBNL2NaNTIwcy8vRW5jc0FiSGYxK3lsbFVwYXZmUjhETDI2NFpZ?=
+ =?utf-8?B?bDByNzBEbnBEUnNwSDRwNkVERzluU2VvbUtnMFpMZkNOTjd5TW9Ra1ZyWXRt?=
+ =?utf-8?B?WXUyeGRXL0lzNlZSVVFkekp4TW1Sb3k3MzFPZnhUTXZPSGZXbURPWXNZQWh4?=
+ =?utf-8?B?bHR6RzMrVVcvZXp5Mlh0eFdpR3U2M1NLamg1TENCcjBlT1owaVBaV29odTli?=
+ =?utf-8?B?SGg4amJ0YStjTVBMN2xrRktwZHJ2Q0hTbk5vazJIa0RKUFhCVTU4ZEt3eCt6?=
+ =?utf-8?B?d05aaWVoNjl6QXEyMnN6N0M5KzBsK1AyTURORnRzTE5vd1Uyd0tVdUl3cE85?=
+ =?utf-8?B?QTE4RjBqcGljdkFsaVl6QkFEZGNURHZBa2dwNmcrUVNnZ2NuK21XYlFsbEti?=
+ =?utf-8?B?S1ozWU1MOWFENGJsdHhiOFMwK2Z6WjZEbmIzYk5tM29RaWJrL2gxRkt5ZnVF?=
+ =?utf-8?B?M2g3ZXJZV3NJN0ZaVEhVdnpZSzZPK3Z4cDVhNnh2eUlNc2NKcW1BRFltTkJE?=
+ =?utf-8?B?UDlMTGFHYXZheW9FTFZ1ZSt2YkNacWpMSGlEdjlzb1FvekJEcUg3bnZmVzg1?=
+ =?utf-8?B?azBBdjRjRjMxN2wyR0dmM3diMUhmM0NNVGFNSkJjRzFEbFRPVnNsMFlXK0tT?=
+ =?utf-8?B?ZXEzN3h6cG9Pc05Tcmw2MlJpOEtlUDVvQW0xRUdYdWpyM0haQVgrZnNuNzdP?=
+ =?utf-8?Q?+M=3D?=
+MIME-Version: 1.0
+
+--000000000000f7101b061e50e4df
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Greetings,
+
+I hope that this message will reach you in good health! I=E2=80=99m Mrs.
+Carbungco Macrin, the widow of late Dr.Tertius Zongo, I=E2=80=99m from Phil=
+ippines.
+
+Base in Burkina Faso; I=E2=80=99m 56,years old, suffering from  ovarian can=
+cer and
+ from all medical indications my condition has really deteriorated and my
+doctor told me that I may not last long because of my health.
+
+Based on this I have decided to donate the sum of ($4.5 Million US
+
+Dollars) for Charity work,In my next email, I will send you the copy of the
+Certificate of Deposit which will enable you apply to the bank and receive
+the money with no case,but you will assure me that you will take 50% of the
+fund and give 50% to the orphanages home in your country for my soul to
+rest after i have gone,
+
+
+
+Thanks
+
+Mrs Carbungco Macrin
+
+
+
+Salutations DINAMO,
+
+J'esp=C3=A8re que ce message vous parviendra en bonne sant=C3=A9 ! je suis =
+Mme.
+   Carbungco Macrin, la veuve de feu Dr. Tertius Zongo, des Philippines.
+
+Bas=C3=A9 au Burkina Faso; J'ai 56 ans, je souffre d'un cancer de l'ovaire =
+et de
+toutes les indications m=C3=A9dicales, mon =C3=A9tat s'est vraiment aggrav=
+=C3=A9 et mon
+m=C3=A9decin m'a dit que je ne vivrais peut-=C3=AAtre pas longtemps =C3=A0 =
+cause de ma
+sant=C3=A9.
+
+Sur cette base, j'ai d=C3=A9cid=C3=A9 de donner le montant (4,5 millions de=
+ dollars
+am=C3=A9ricains)
+
+dollars) pour une =C5=93uvre caritative, dans mon prochain e-mail, je vous
+enverrai une copie du certificat de d=C3=A9p=C3=B4t qui vous permettra de f=
+aire une
+demande =C3=A0 la banque et de recevoir l'argent sans aucun frais, mais vou=
+s
+m'assurez que vous obtiendrez 50 % du financer et donner 50% aux
+orphelinats de votre pays pour que mon =C3=A2me puisse se reposer apr=C3=A8=
+s mon
+d=C3=A9part,
+
+
+
+MERCI
+Mme Carbungco Macrin
+
+--000000000000f7101b061e50e4df
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">&nbsp;<br>Greetings,<br><br>I hope that this message will re=
+ach you in good health! I=E2=80=99m Mrs.<br>Carbungco Macrin, the widow of =
+late Dr.Tertius Zongo, I=E2=80=99m from Philippines.<br><br>Base in Burkina=
+ Faso; I=E2=80=99m 56,years old, suffering from &nbsp;ovarian cancer and &n=
+bsp;from all medical indications my condition has really deteriorated and m=
+y doctor told me that I may not last long because of my health.<br><br>Base=
+d on this I have decided to donate the sum of ($4.5 Million US<br><br>Dolla=
+rs) for Charity work,In my next email, I will send you the copy of the Cert=
+ificate of Deposit which will enable you apply to the bank and receive the =
+money with no case,but you will assure me that you will take 50% of the fun=
+d and give 50% to the orphanages home in your country for my soul to rest a=
+fter i have gone,<br><br>&nbsp;<br><br>Thanks<br><br>Mrs Carbungco Macrin<b=
+r><br><br><br>Salutations DINAMO,<br><br>J'esp=C3=A8re que ce message vous =
+parviendra en bonne sant=C3=A9 ! je suis Mme.<br>&nbsp; &nbsp;Carbungco Mac=
+rin, la veuve de feu Dr. Tertius Zongo, des Philippines.<br><br>Bas=C3=A9 a=
+u Burkina Faso; J'ai 56 ans, je souffre d'un cancer de l'ovaire et de toute=
+s les indications m=C3=A9dicales, mon =C3=A9tat s'est vraiment aggrav=C3=A9=
+ et mon m=C3=A9decin m'a dit que je ne vivrais peut-=C3=AAtre pas longtemps=
+ =C3=A0 cause de ma sant=C3=A9.<br><br>Sur cette base, j'ai d=C3=A9cid=C3=
+=A9 de donner le montant (4,5 millions de dollars am=C3=A9ricains)<br><br>d=
+ollars) pour une =C5=93uvre caritative, dans mon prochain e-mail, je vous e=
+nverrai une copie du certificat de d=C3=A9p=C3=B4t qui vous permettra de fa=
+ire une demande =C3=A0 la banque et de recevoir l'argent sans aucun frais, =
+mais vous m'assurez que vous obtiendrez 50 % du financer et donner 50% aux =
+orphelinats de votre pays pour que mon =C3=A2me puisse se reposer apr=C3=A8=
+s mon d=C3=A9part,<br><br>&nbsp;<br><br>MERCI<br>Mme Carbungco Macrin<br></=
+div>
+
+--000000000000f7101b061e50e4df--

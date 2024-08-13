@@ -1,0 +1,410 @@
+Received: from IA0PR10MB6889.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sun, 28 Jul 2024 10:21:02
+ +0000
+Received: from CH2PR16CA0005.namprd16.prod.outlook.com (2603:10b6:610:50::15)
+ by IA0PR10MB6889.namprd10.prod.outlook.com (2603:10b6:208:433::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.16; Sun, 28 Jul
+ 2024 10:21:00 +0000
+Received: from CH3PR12MB9171.namprd12.prod.outlook.com
+ (2603:10b6:610:50:cafe::7e) by CH2PR16CA0005.outlook.office365.com
+ (2603:10b6:610:50::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.34 via Frontend
+ Transport; Sun, 28 Jul 2024 10:21:00 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=qDahWX4HzGP2JJEk7leHagosTxQ89tTMxcyVGEwt94Aum5OdlXZlCcsDOmh6gaBuiqaFBc6VYbFRmRL87cAOSmsDY7Gid1uqrdCmWGvKkqI2NyhvniOdnpY6LS5TDmmrkehvLAEwZ7B6JAIZG8rygMY3DNbxRhuDDReP2lorK+UCkdklm8ZT4r8pYDy/s0tX54o/T4IfcB5FOp7ejf/k1MJ1+l8yqm67kn7DbLna286b8Ih35WzNPA0pxUP3mJKjD+1AyK/nNwQ1mhjXzAp6XzptHeNZ1Pqp3s8+UCqFYtZMIPkQi4mhxVkmjn919mmrNZuE0NflM/70Olju1t56nw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V22tmPNX302E4BeEywzKj9u6aocOGAV0EjY9mnqpT1I=;
+ b=seR7QLKoZ/p8rOIIvbbFmvo/jsP3Rze64K6LA8FQySyS5in2cJB6GJDa+SsLgjVZzvopFNtNYyQWdbTRpxolYP2UJyN/t8xHJvvvD/HV6NyIGhJCw2+QsIA1J/+SrpaXmsdzLuMr3wiY2YrQRSxyeSzHk/Hqaztj/d1srHV21ISzmtSD6ABuDeGkfmbXFCqgEDZOHvvKrCEXvlv7gyhD7RdrJSQlCfKpZpikWkZ2Dj/lAgrR3YR5TbttRxgvfS9MrDl+kHxKPrB/1W9vP4oOOs6LnwrofdCzifs/CLrsYbdtUAVnkGGr7dX4hij0gjHmZ1aJ4Ts5VWb+kh54YOgC3A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.92.50.15) smtp.rcpttodomain=outlook.com smtp.mailfrom=outlook.com;
+ dmarc=pass (p=none sp=quarantine pct=100) action=none
+ header.from=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com; arc=pass (0 oda=0 ltdi=1)
+Received: from MN2PR12CA0008.namprd12.prod.outlook.com (2603:10b6:208:a8::21)
+ by CH3PR12MB9171.namprd12.prod.outlook.com (2603:10b6:610:1a2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.27; Sun, 28 Jul
+ 2024 10:20:28 +0000
+Received: from BN2PEPF000044AC.namprd04.prod.outlook.com
+ (2603:10b6:208:a8:cafe::dc) by MN2PR12CA0008.outlook.office365.com
+ (2603:10b6:208:a8::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.20 via Frontend
+ Transport; Sun, 28 Jul 2024 10:20:26 +0000
+Authentication-Results: spf=pass (sender IP is 40.92.50.15)
+ smtp.mailfrom=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com;dmarc=pass action=none
+ header.from=outlook.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of outlook.com designates
+ 40.92.50.15 as permitted sender) receiver=protection.outlook.com;
+ client-ip=40.92.50.15; helo=EUR02-DB5-obe.outbound.protection.outlook.com;
+ pr=C
+Received: from EUR02-DB5-obe.outbound.protection.outlook.com (40.92.50.15) by
+ BN2PEPF000044AC.mail.protection.outlook.com (10.167.243.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7784.11 via Frontend Transport; Sun, 28 Jul 2024 10:20:24 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:B656A83FC08FC5CBCF22E9E94127433958077C71330500A45B73CF690720D8A6;UpperCasedChecksum:F02B35D13D48E3895D1B52BCBF1BC79F8235D7438487E59963B84FF0DE619F29;SizeAsReceived:6673;Count:37
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QqS/al7/TUMMzv1cdcRaqMrapF0fJmRSdqkO6GjS7r+LYprXROxn9s8XpZMpNfTueVDELAGHuEMjezVxFgAfX4jG5Y+hynOj9NSP6z+m32yKb60w8J5S3N9AwBl78E7NATlO94ogbF5tjX8rpDw5nwiBLcbQ1sCn843X4lDg29fXV6YsdZ5X6q/v6sCt4VoPeX4sb2YI6niMaFIpA/DOQNXN04aYikuetmf/0PED7DFWxh4Pt0/7Id43nFymsGzib1UBBibpF2KW4LO42jZzCdMXPnIpwSVgqA3zK6OUbJJxl2rllteomPIukGefC/L5sRnp9TnahbxFXQxXwxDXhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V22tmPNX302E4BeEywzKj9u6aocOGAV0EjY9mnqpT1I=;
+ b=n2o2xDZUyexb+zJi9wNelk12uZihL+qs+4vYj8vdt3OdppHVX2VlTknjK0snpVFb8c97q+4X5Cu550RB1C7TFpeY90MGsT7aMHRfQIH/qUSn0YFkX68wlO2GOtrPmdsyodqZfD1DsU0VLYE9dEufQT1HnhK/5+fffrH4r6Z+TNPmSl1QNMTgA9xSVRXzgA2/uGQh1EKEyxX1xeT2Ay496OT2/FT7tKfx93h3Ll760ym67R3p1aPf0LAPZ/AgJTW8Qwxxbt/9O/Z7PX7/7oCbL+o4sGBbKKMIIDoc58d15yunkWsk4KhmX0UEg26mdWGeGyYrgtUdu4D0wNYmV3OOtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V22tmPNX302E4BeEywzKj9u6aocOGAV0EjY9mnqpT1I=;
+ b=Sv2Slk+0PJtIzzYtEw0d/AybHojgAOh8Wj/4hI8DhIOMzeNmlCOr0GNBGI0ttw8uumilccbx8/Hf5zBu6wm+3FDLE/uwnXUyClcV5vVlhbzKpjgU3f3vYFe8OAs1gUUoDMDtkEXL7CPet+MamzrdwmXAmUseq0YJr2TLmL2aCRUGBLhjJ5sz+A8tg0IgaXHbQgEtItdyxUBl7qZTIbZ07V0lV5wJ09ZPYSbMcWL25n3VVWxU/Ky4Cg0JfCnWDkn/pzodkpZLWawHEHcL3HNBhTw5C/jFKc8J8D9hVoeUaWflNaCRzryGHyoiId5Rj4wEdjqp7n5ax06sKmx+AG2O6Q==
+Received: from GV1P195MB2479.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:1ab::9)
+ by AM8P195MB0979.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:1e9::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.26; Sun, 28 Jul
+ 2024 10:18:44 +0000
+Received: from GV1P195MB2479.EURP195.PROD.OUTLOOK.COM
+ ([fe80::1861:c646:230d:6610]) by GV1P195MB2479.EURP195.PROD.OUTLOOK.COM
+ ([fe80::1861:c646:230d:6610%5]) with mapi id 15.20.7784.020; Sun, 28 Jul 2024
+ 10:18:44 +0000
+From: "Mrs. Jane Roberts" <fgdgfdgf122@outlook.com>
+Subject: Urgent business Proposal
+Thread-Topic: Urgent business Proposal
+Thread-Index: AQHa4NeGoWiDRORxQUa5yh7PnfQFkw==
+Date: Sun, 28 Jul 2024 10:18:44 +0000
+Message-ID:
+ <GV1P195MB2479C24E566A404D703EDF22ECB62@GV1P195MB2479.EURP195.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [IW9HuykltDmdLW45kURly8JqeGFI0C/v]
+x-ms-traffictypediagnostic:
+ GV1P195MB2479:EE_|AM8P195MB0979:EE_|BN2PEPF000044AC:EE_|CH3PR12MB9171:EE_|IA0PR10MB6889:EE_|CO1PR10MB4450:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6061db2f-2b08-4e38-40d9-08dcaeeee5c1
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:14566002|12050799009|8060799006|20110799003|19110799003|9400799024|15030799003|461199028|1602099012|440099028|4302099013|3412199025|102099032;
+X-Microsoft-Antispam-Message-Info-Original:
+ H4+jMCnrqQN1BicGOfPO7y67mzbDtsecSh/TqvYo4vrJI/4Eruh901/5Gy7tfncGi9TwLbrMnu/i29Nnp+wExRWXGH9ZpilGYBF2u4ZZnXZIMtAZFgdDUUlMApyeduYIdlQZDnjldHfRvLdxaJ6Ood686sqjg6BhwHblkOmi5++oZFNr0JgGCYa095wwIKbmc2S3FDIG5uZucqsz1d63Ak5KXRJ/OYnaVCckAJsW4hiNjZgF6IQNN26puwCWxZoDTgsOZ5AeixTLfo7ye6BV0AWApKBB1qcvF3GTJP8SqZCXTmFJebIWe92CRy5FtEBPHWElwyC2fElfR8Li1VCgxdoOE7AkMDu3N7zlbvKyx9PhtCafxeZHovn4xrlWufFH3NvAD3WXcGODibu/AiZKTt7Whi5l8gPIUqVXINpRQ8+KsuWtgkl9mqrzAgDMOydgwJ/+9MGp/8vmGL8tC3rkgN7kxOgvHMos1FXHycNAS+VdrhaA58Kzv6RZovMA0YZEVDgqVg1mWXGGqbS/EesWEFtRVkdAnhUknXI+8HJONMIOYkqwVh+h160kcUL0QOar/fV/9sPYkyLa8GvUa33a+Cocqs7wW292YZYO/qSFO9QCmtB99SBY6gm9kxP+t8pkDFzb9JtDd2E7SbYCWcWVmxePdMRPiUPfW++PRaNio3FKZoTp8tvlw10gEcgxZueW0n7IeFEd25+SO0gpANJWQhosUnJqE5K+fafANWSV24858/M4CHfanttQq4tDMijpx+ZJKWCODlnrLZgzzYwWdnjQaRicS8oQKMquY1Mv21Y3EO14zVf+jsdwsmTjzZcFfVZN/q0GgAGZNLTl3G6ZCqD9Vj7Cs+eIwYgYWT/ZkLj+E/grUYkjMf7LLfKBYyKgyP02emSDti/HoH+NS9rRDw==
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?iso-8859-1?Q?SxhJh41OodN+5pAmROXaClNq2Spn7r4IhCODJhWgazdTr6ZeHl+qHe1HrV?=
+ =?iso-8859-1?Q?Xw55B+WhYr8qosDxX7gyijt4AfxNFHowGrBV3LyCntV6BdYQC3gz3a3Ebj?=
+ =?iso-8859-1?Q?2AaCE+G1+k43UV9YmJ9tdPPsP20qQ3EsQZyaEC2/rNGeNe98NH3lbV+9o3?=
+ =?iso-8859-1?Q?GAG3Ov5f2ud8yrp2bfyEeAFt5tNWfV9zuaMCQY0bSVCvDMgZDV7UoJlx2T?=
+ =?iso-8859-1?Q?NIONHHrxvgvhzOzdTNAD/nWtIvB1uriJQkVNr9v/BgXuzC5gNGQwYn9A6X?=
+ =?iso-8859-1?Q?ZYRgK2dBtOFjoawX2gR2e3u6fMSxdIPdNYpBkSdzsK2wHXr+GkFmnAqBVI?=
+ =?iso-8859-1?Q?2e9aNlUdeBS9ZYoOiKhvzv4dU6V5JpxXVyo3GzPsqM6wYKT9oIJocEToHX?=
+ =?iso-8859-1?Q?a79lauAHJam+PSqaEHxhAMTU2YhMgMiVSU2OqalWDUP4BX4pCGBhCk2Drk?=
+ =?iso-8859-1?Q?0Tz+qURlANvd5QLK69k53XZwenJQblv4NWBALkDeNRPy+IyZSGyfNCgnPF?=
+ =?iso-8859-1?Q?CeRkybEvrpk+DY4uSl6CoBkHXKPPd2Pfu6ADAV2ZYwoZyn4PJt8XVD6E9K?=
+ =?iso-8859-1?Q?FP7ReSwsbNnKUU+3CZJ9lPvL0Np51lUigrJ3rGpbh5ZRPowtYaZwCOai1U?=
+ =?iso-8859-1?Q?KW0bghfWOpY66+2IqW9Zn97jIn+rV1lh7ZXohiLZ8ojco5iUy1pipXxcuF?=
+ =?iso-8859-1?Q?CBflae10iLSSB0DXLX59Yga9lt8hwlwP5dqntWa89HF3U0/dFgqup4nOye?=
+ =?iso-8859-1?Q?+bILKPu6XnRYBAErMe1fbObQ14wkBvJh8dt9HOjNxQ5yfZ0Ny5HWVHkmpE?=
+ =?iso-8859-1?Q?pSvxk1oAwR9k6fyB18YXOKH/mSXKfPluTqLlocg0ueQveB9DjqrllEc/du?=
+ =?iso-8859-1?Q?451weFeU5rmYSygBLUvmnueJ5S71h1xHrTBG2/CktvahCCpqhP3W5If33r?=
+ =?iso-8859-1?Q?eMnPylpo1KU7+BPb9CruTqp1iL8fusZbCWLJ+PrpJdBNVo3PE5OEMY4fwh?=
+ =?iso-8859-1?Q?ZiY6UV0uq92nxkB44KMHuhpAcSVFTbpOMl2FSYarUA9HbhJm5nofzbYAqw?=
+ =?iso-8859-1?Q?LaVYhWPykXUDHoGa2fdYwc5dvqT2IY+1NmwK9LuTRVFeE1JAoNpg1RdgoC?=
+ =?iso-8859-1?Q?k25hxfF0gv7QZedRSuECPcS95hg/ektSv9MfL58tNX09zC0fmcVM76XVBB?=
+ =?iso-8859-1?Q?HsMI5Od5O9VueGBWrc2GBeO8rlcVs2aqI06edsDqqhdH2ZVtx7VyGlIqjq?=
+ =?iso-8859-1?Q?WmvcNf1ddgnLG9g0m3luydwjhf9qKDiwWwYoc/d8k=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_GV1P195MB2479C24E566A404D703EDF22ECB62GV1P195MB2479EURP_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8P195MB0979
+X-IncomingHeaderCount: 37
+To: Undisclosed recipients:;
+Return-Path: fgdgfdgf122@outlook.com
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Jul 2024 10:20:25.9864
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 6061db2f-2b08-4e38-40d9-08dcaeeee5c1
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ BN2PEPF000044AC.namprd04.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ BN2PEPF000044AC.namprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 36052061-d2cd-45cc-c5ed-08dcaeeea972
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 40.92.50.15
+X-SID-PRA: FGDGFDGF122@OUTLOOK.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|19300799018|10300799029|9400799024|970799054|18301999012|17101999012|21101999012|3412199025|440099028|4302099013|4141999018|6111999012|1360799030|1370799030|1380799030|1701999012|1602099012;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2024 10:20:24.0333
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6061db2f-2b08-4e38-40d9-08dcaeeee5c1
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN2PEPF000044AC.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9171
+X-MS-Exchange-Organization-AuthSource:
+ BN2PEPF000044AC.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/28/2024 10:10:59 AM
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:38.4680862
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7807.009
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?iso-8859-1?Q?pnOwXYJkg1kO1AI4RAAsisdBugD/w9b7k3Z2zgO+v4q6FOs982pKwGL2tW?=
+ =?iso-8859-1?Q?bhQjAPSx472Gm6893l3KW3Yvodf3sGhzy5WoLMOwiLzwcu2brZX0+J0x/+?=
+ =?iso-8859-1?Q?Da8fLGSQrlLa8E7i2jelmJrD1ITynESMbuqnZGymqU64Y5Quq4lx5Y0kYd?=
+ =?iso-8859-1?Q?w4lRm6QI5Bvq75maGT2rdGL0SX7wOVAPcKqjppE5tetEPt0zkOgfDH0XD4?=
+ =?iso-8859-1?Q?3QEBOpfuXxHJZGI9BUP8RsJS+ZopPFPkeIELNZhOHJXRpPMJXGYgDIuiiQ?=
+ =?iso-8859-1?Q?vV0pqHrJY2Sa4RrkVONAJGiNSEhoqdgGhhISrcw3LJhYxabORIoy6RsshL?=
+ =?iso-8859-1?Q?bkfdI6Ovv8rgCFpgDKVEHB3eFmGcaZxvELfbXTWpWk0GulRzufMUeimf9D?=
+ =?iso-8859-1?Q?u1uPxltmoK4Y5JjYReuhOg3OnNpkOHepJF0klYEXIYvUuK0dhqGNQITMZL?=
+ =?iso-8859-1?Q?6rF272Y9UbB7DqXjHFH2Fh9jUtNy8oQGhEO8uhM0Z+W2ZxHZqvLfCUb+AU?=
+ =?iso-8859-1?Q?tA33TDL7XTivQJ7jrPbzAi6gTi8pXBddGGgUYv2GQ19HjRgzyB7PJvr2uz?=
+ =?iso-8859-1?Q?QsWa/95Mp6kMp/2qxuEnc1FwxWMaK5CGZnRlNQYPYicdN0lq0v0iehVGGk?=
+ =?iso-8859-1?Q?hU2oI+dnRlEGQwoAxsDponXReCd6oHue+xFnehWGqNGDXu11pdiXFYRYrx?=
+ =?iso-8859-1?Q?XNj4t1hdNC0mUEf3OkPVavm1WdyH8/I3LK5ILUmy25KhW5iedanGm8W9Pp?=
+ =?iso-8859-1?Q?e+HRsniZYWO1hClBNd49VYFUfCcBLBsqwsAwcSbYYRISdfJY1pPm0auBTL?=
+ =?iso-8859-1?Q?02GaOh30+VffcTtfih2RB7yaFJ0dNJRLQ3e5iMWd0OLwmFUIyLYsAakV57?=
+ =?iso-8859-1?Q?9/RdSpOan7E/jpgMNH/mHietSqWAxSMdPAtNbGjLyal1S67RA9qOLm2T+p?=
+ =?iso-8859-1?Q?4SlQ/9ukRYxnSi5atCFEenvXqGu6lpW3eGWMNJ35ziWqjDaEopUzv3pG5q?=
+ =?iso-8859-1?Q?J80NlR1RJ1G30X4/wxjUz9y6NMFPBOVrUrocMW8A5Ol0bN8rsLhXnn8DqR?=
+ =?iso-8859-1?Q?vupfVYGkNxZo8Lo7P173AXWuJyIH5FMV7xLb4GeeRHNxtcXha7XA73p21y?=
+ =?iso-8859-1?Q?Ljh/SArk8id/jj2GJmhly8SqXH8XZioib8EJaN74aV3LYEFCWzS+3seqlZ?=
+ =?iso-8859-1?Q?kH5yLqEiTW0etbqrMcnaRvDbeRigIt7ZqfTszUJHbvpmp4KsR77jEeZ39W?=
+ =?iso-8859-1?Q?jiJj3IAvI8COwVQgiYbc6QFgUHjVUtjhXFOLF9Q1l4k2DK2STot5rXFxmT?=
+ =?iso-8859-1?Q?hBuofI06n89fqE2ZoT9lRqwnSpiRP4F7VrcnIEnmzvLrzeXQIsd3NT6wJO?=
+ =?iso-8859-1?Q?CEoVuD/gjIdx0RhPEUWwqW+bPh1qy9zFdd6fOfnQYAFKX5Yv6NPmqxaBvs?=
+ =?iso-8859-1?Q?wqTpcoYazPRLujj/JKSVJ3U6FNQykckg74yhvoFr8bGYgpdUcNb/Y8sBT5?=
+ =?iso-8859-1?Q?iYVl6gol+NiJwJkv/4+8E6uBpBIGFffVXq809u/Otbs3+iQFeIjkvB0fMK?=
+ =?iso-8859-1?Q?QbacKsecKT+hRBb8UmMv7g7gbFyJhac+T+iTIOvJGe9QLklvafChCqd2kL?=
+ =?iso-8859-1?Q?rJfkRCGL0PyxRhxLbQDIz5ENH0bOIQAC+k0oV3QIrYcR14ocFnm58RuroC?=
+ =?iso-8859-1?Q?68SCm5WLbABOhonjo34up4jyV1s7sIPWl359oHk1DEM6HSbjq8QqT0QJWj?=
+ =?iso-8859-1?Q?itiIXqIMrKWjH/nMJXUJMQL3DpYWuWiR31ET5pzMdMul2xuOXd4KKLp6F3?=
+ =?iso-8859-1?Q?aIn0Jse8Egrhlpv2KcAJmYDHhMwQ1XlBu6y1RhMV7oSkNuOqPJMf07Z5m7?=
+ =?iso-8859-1?Q?PhVg+DE2LzMEGjViTu4FTZTQH3ah6/q/EdCZNuxs+3r7R0B9IgphPvVcg3?=
+ =?iso-8859-1?Q?zIwAIQfulVhSomcRioJwbCI1nozenG6jIueSH7hHEzZ6D2Ozd1dmvd8HAG?=
+ =?iso-8859-1?Q?BmUP3U1V4jgNYG5NIXd07GQ7hxT4PCf+zIFvAu+8ngjihv+UbOtCRaVBBl?=
+ =?iso-8859-1?Q?6nJoOA1HxxQ1Z+kfyMcpkiqeNLgWy7fmBTei+9Q5crFfNjXb3je9lsnxz2?=
+ =?iso-8859-1?Q?rEqSkKnmt4DOB8iOlSCxO1pg/QyH3pE4Sz+LJ756Ii3mj53+jly6QiT6sI?=
+ =?iso-8859-1?Q?vig634/w+ZVwZoD7GGReNeXGTIFvM7/s5n3903fjrf/ehThxKfNAZRZec3?=
+ =?iso-8859-1?Q?T0PVmzslSrRG8tIkDEwk1Rww0/BWfTw0pe7M205w/+ABn6bSHSTMfCJc3H?=
+ =?iso-8859-1?Q?D9CX6H/uyMbXWrW7EwsValQXpbMGxHReCFNWeJxD/XSkk3hAnKmn1XkKEJ?=
+ =?iso-8859-1?Q?8zTG+1ETTvG6SXiBq0uprD5j+uctn2yX66Eww0Gwp8VVN8b5Nsx/qDWyJ3?=
+ =?iso-8859-1?Q?ORDeVjW3wzQFHX+B0d5YklpN1v/yJe7Z+JIq8F5xMmXEjNL+Ig6FTUWnym?=
+ =?iso-8859-1?Q?goQdJdyhU7giurUktGzolmt6R+U+uF5lZSjjiIm3PWxQb6LbT+8IdP+Ylf?=
+ =?iso-8859-1?Q?uQpr7cA1Rcf4M5uPlz3OuhWMFgDJ/qMsWqtz3S05Cg2wiDmjN6AGll2S2Y?=
+ =?iso-8859-1?Q?0E?=
+MIME-Version: 1.0
+
+--_000_GV1P195MB2479C24E566A404D703EDF22ECB62GV1P195MB2479EURP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Sir/Ma
+
+My  name is Dr. William Adams, a broker and I am a South African Citizen.
+
+I contacted you here on behalf of Carlos Manuel De Sao Vicente, a top Angol=
+an businessman whose $900, 000,000. 00 (Nine Hundred Million United States =
+Dollars) was frozen in Switzerland by the Swiss government.
+
+You can easily confirm this information from: https://www.africanews.com/20=
+20/09/10/angola-seizes-assets-linked-to-carlos-sao-vicente//<https://www.af=
+ricanews.com/2020/09/10/angola-seizes-assets-linked-to-carlos-sao-vicente/>
+[X]<https://www.africanews.com/2020/09/10/angola-seizes-assets-linked-to-ca=
+rlos-sao-vicente/>
+Angola Seizes Assets Linked to Carlos Sao Vicente | Africanews<https://www.=
+africanews.com/2020/09/10/angola-seizes-assets-linked-to-carlos-sao-vicente=
+/>
+Angolan businessman Carlos S=E3o Vicente has become the latest target in th=
+e fight against corruption in Angola.
+www.africanews.com
+ .
+
+As a result of this development and to avoid further seizure of his stakes =
+in Europe, he sold off all his fixed assets in the European region, realize=
+d $50,000,000.00 (Fifty Million United State Dollars) and secured it in a b=
+ank vault here in South Africa. My client wants the fund processed in your =
+name as the foreign beneficiary to be remitted to your bank account for a s=
+ecured and sustainable investment. You are to play a very high role to rece=
+ive, secure and safe-guard this fund into your bank account as well as inve=
+stment.
+
+You shall also guide the investor properly in areas of investments for high=
+ ROI. You shall be entitled to 20% of the $50 Million which has to be deduc=
+ted prior to your release of the fund from your bank account for investment=
+ purposes.
+
+For security reasons and to avoid further disclosures, my client pleaded to=
+ remain totally silent in this project.
+
+I look forward to your very urgent response so i can details you with the r=
+equired information needed to proceed.
+
+Please contact me on this my private email: drwiliamadams@gmail.com
+
+Dr. William Adams
+
+
+--_000_GV1P195MB2479C24E566A404D703EDF22ECB62GV1P195MB2479EURP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1"><style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin=
+-bottom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>Dear&nbsp;Sir/Ma<br>
+<br>
+My &nbsp;name is Dr. William Adams,&nbsp;a broker and I am a South African =
+Citizen.<br>
+<br>
+I contacted you here on behalf of Carlos Manuel De Sao Vicente, a top Angol=
+an businessman whose $900, 000,000. 00 (Nine Hundred Million United States =
+Dollars) was frozen in Switzerland by the Swiss government.<br>
+<br>
+You can easily confirm this information from: </b><span style=3D"color: blu=
+e;"><b><a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttp=
+s%3A%2F%2Fwww.africanews.com%2F2020%2F09%2F10%2Fangola-seizes-assets-linked=
+-to-carlos-sao-vicente%2F&amp;data=3D05%7C02%7C%7C6061db2f2b084e3840d908dca=
+eeee5c1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638577588629493514%7CU=
+nknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLC=
+JXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=3DiCmCb5brfx4EuxkXJOCEtgZ3ofivkbs1GUrRX=
+23yj38%3D&amp;reserved=3D0" originalsrc=3D"https://www.africanews.com/2020/=
+09/10/angola-seizes-assets-linked-to-carlos-sao-vicente/" shash=3D"QKU32nkd=
+vf3wt7hZRdp5IgmZ1n5rSThMu4j9PKZ4G/Rk94RhU4eUuqaL9D5dHYTpTImDvy/VuwS094A0mhi=
+WIQ/JiJSykf/+BWCQvN0p6hqEU0SbaxyXggoaAoZnEoy8W18F+q9XhEQiZRvrcovapJ3FML3vIi=
+Hyec2+p1n5+mw=3D" target=3D"_blank" id=3D"OWAe429252d-fcc8-2344-9e96-adc892=
+09322b" class=3D"OWAAutoLink" style=3D"color: blue;">https://www.africanews=
+.com/2020/09/10/angola-seizes-assets-linked-to-carlos-sao-vicente//</a></b>=
+</span></div>
+<table style=3D"border-color: rgb(200, 200, 200); border-style: solid; bord=
+er-width: 1pt; width: 100%; border-collapse: collapse; border-spacing: 0px;=
+ box-sizing: border-box;" class=3D"elementToProof">
+<tbody>
+<tr>
+<td style=3D"border-color: currentcolor; border-style: none; border-width: =
+medium; padding: 9pt; vertical-align: top;">
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);">
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fwww.africanews.com%2F2020%2F09%2F10%2Fangola-seizes-assets-linked-to-car=
+los-sao-vicente%2F&amp;data=3D05%7C02%7C%7C6061db2f2b084e3840d908dcaeeee5c1=
+%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638577588629507647%7CUnknown%=
+7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6M=
+n0%3D%7C0%7C%7C%7C&amp;sdata=3DJN5poEdz0G7jg%2FNvkbuG6r4d2TaKr19sSU03sF6%2F=
+36c%3D&amp;reserved=3D0" originalsrc=3D"https://www.africanews.com/2020/09/=
+10/angola-seizes-assets-linked-to-carlos-sao-vicente/" shash=3D"G096QjccMj4=
+b8HwMhMEqkTPmZTJ43WLPdomgEuqGelam+bkzdqcfRZNBGSsbimu5/fVeO/wcqxdbMKXjPensV0=
+ZJvrsOTM6qgq3o/jAlDaktZFupSpRJZoZpD9mnACMb4DeKj5iu4ayPeoxGOc8oR5Z4Z8a/fhdHD=
+yUQkpMABdU=3D" target=3D"_blank" style=3D"color: blue;" id=3D"OWA1dae560d-6=
+749-d4cb-95e8-5fc5feb9727c" class=3D"OWAAutoLink"><img style=3D"width: 240p=
+x; height: 125px;" width=3D"240" height=3D"125" src=3D"file:///C:/Users/DEL=
+L/AppData/Local/Temp/msohtmlclip1/01/clip_image001.gif"></a></div>
+</td>
+<td style=3D"border-color: currentcolor; border-style: none; border-width: =
+medium; padding: 9pt; vertical-align: top; width: 100%;">
+<div style=3D"line-height: normal; margin: 0in 0in 9pt; font-family: Aptos,=
+ Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; f=
+ont-size: 12pt; color: rgb(0, 0, 0);">
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fwww.africanews.com%2F2020%2F09%2F10%2Fangola-seizes-assets-linked-to-car=
+los-sao-vicente%2F&amp;data=3D05%7C02%7C%7C6061db2f2b084e3840d908dcaeeee5c1=
+%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638577588629518288%7CUnknown%=
+7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6M=
+n0%3D%7C0%7C%7C%7C&amp;sdata=3Dslyh1SPEE5XycIdYHxuVgAIgLOW44mYxXNdNncyqj4g%=
+3D&amp;reserved=3D0" originalsrc=3D"https://www.africanews.com/2020/09/10/a=
+ngola-seizes-assets-linked-to-carlos-sao-vicente/" shash=3D"J/1Vma5z/1FFiBk=
+jGgXCSJC5jVo299ljn4uOlZ+QRX4XmIoc1u5hNDQbJFI5vBJiXTaDVKH1lpbfHCCciCPiRyB7Ic=
+x3iX60N3cczxguwHqdnjBLXu9/BRO53Zpc7yjDlbvNtmFQ03sQmSbwKsRquaCHPBSVaavM0JiRG=
+AmCon4=3D" target=3D"_blank" style=3D"color: blue;" id=3D"OWA6a39d7cc-35cd-=
+9b4c-95fb-b8ef88da67ed" class=3D"OWAAutoLink">Angola Seizes Assets Linked t=
+o Carlos Sao Vicente | Africanews</a></div>
+<div style=3D"line-height: normal; margin: 0in 0in 9pt; font-family: Aptos,=
+ Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; f=
+ont-size: 12pt; color: rgb(0, 0, 0);">
+Angolan businessman Carlos S=E3o Vicente has become the latest target in th=
+e fight against corruption in Angola.</div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);">
+www.africanews.com</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>&nbsp;.</b></div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b><br>
+As a result of this development and to avoid further seizure of his stakes =
+in Europe, he sold off all his fixed assets in the European region, realize=
+d $50,000,000.00 (Fifty Million United State Dollars) and secured it in a b=
+ank vault here in South Africa.
+ My client wants the fund processed in your name as the foreign beneficiary=
+ to be remitted to your bank account for a secured and sustainable investme=
+nt. You are to play a very high role to receive, secure and safe-guard this=
+ fund into your bank account as
+ well as investment.<br>
+<br>
+You shall also guide the investor properly in areas of investments for high=
+ ROI. You shall be entitled to 20% of the $50 Million which has to be deduc=
+ted prior to your release of the fund from your bank account for investment=
+ purposes.</b></div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>&nbsp;</b></div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>For security reasons and to avoid further disclosures, my client pleaded=
+ to remain totally silent in this project.<br>
+<br>
+I look forward to your very urgent response so i can details you with the r=
+equired information needed to proceed.</b></div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>&nbsp;</b></div>
+<div style=3D"line-height: normal; margin: 0in 0in 0.0001pt; font-family: A=
+ptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-ser=
+if; font-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<b>Please contact me on this my private email: drwiliamadams@gmail.com<br>
+<br>
+Dr. William Adams</b></div>
+<div style=3D"line-height: 1.38; margin: 0in 0in 10pt; font-family: Aptos, =
+Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; fo=
+nt-size: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+&nbsp;</div>
+</body>
+</html>
+
+--_000_GV1P195MB2479C24E566A404D703EDF22ECB62GV1P195MB2479EURP_--

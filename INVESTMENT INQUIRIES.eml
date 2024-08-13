@@ -1,0 +1,322 @@
+Received: from BL3PR10MB6163.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Wed, 24 Jul 2024 11:15:02
+ +0000
+Received: from DUZPR01CA0120.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bc::18) by BL3PR10MB6163.namprd10.prod.outlook.com
+ (2603:10b6:208:3be::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.16; Wed, 24 Jul
+ 2024 11:15:01 +0000
+Received: from DB5P195MB2451.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:10:4bc:cafe::c2) by DUZPR01CA0120.outlook.office365.com
+ (2603:10a6:10:4bc::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.20 via Frontend
+ Transport; Wed, 24 Jul 2024 11:15:00 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=MZnhOM9Z2dqZdN44t9FkcQRUxmsnWiDxslkPi/YR/3kI5GO7CqerKC/lkbMKkwUk/Bd+dMGgBj/EMs3jppbBSfIFOCY7jahLKD5rDUWQiMkPWSq2TpYbDfuiuAHmN5+7/sctgeew2H/XM792lmnyiWM1Gwx9pQhfu6qMeDer/uwse33qTf97JeIiPZlv9hLA/qUD1TvqiQ0y4ZjmKJA0ncuWlRJaXxdZSIIG68jEzIZ2x9tZIUeUzqkbCKp8ceO4QFLI+7Q26+N1LHCT8zkt4URe06GXkeinWv9QpCk2qUeVbUBbx8IqHrhuON9YOIGnBAuiiHYtx32Wne4TWtTMDA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QT6gzntHx5oejh43sg1Vj1YNE6X9BPEs4OsFOz6Bpbg=;
+ b=t7JsLA8+MSWY1DmTQq+U4c/xFkXOogTs2UbA6YgmVn0fxIBI3Yy9E7wEWJ88sZ2Qs4oqdDP8UTbAq33kcfPDQ3aUPoIpzt8AI+FH95BmhiqQovMoRD7iaUPtpAOpfdzv7CUCBBfTOGi8OlHLaviGuoiywDYsXSniOkkcrxWziuoapabr+mM3bpJqm465lT3C6S5cS33M3z07awBDcqSbFZ3keIdS+2HnidW+ZNJQL5rmVAsz5pgZ9+a8iCPGaP7IW4LPLc70vW2qqmJUF6tcRVZGtTihGiLhL99d3YvQl8gztX7jcIUIx030gw26pStJuy1ZTI84U3rGk6PmktfwAA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.92.112.83) smtp.rcpttodomain=outlook.com smtp.mailfrom=outlook.com;
+ dmarc=pass (p=none sp=quarantine pct=100) action=none
+ header.from=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com; arc=pass (0 oda=0 ltdi=1)
+Received: from CH2PR18CA0010.namprd18.prod.outlook.com (2603:10b6:610:4f::20)
+ by DB5P195MB2451.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:4a8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.20; Wed, 24 Jul
+ 2024 11:14:57 +0000
+Received: from CH3PEPF0000000D.namprd04.prod.outlook.com
+ (2603:10b6:610:4f:cafe::6f) by CH2PR18CA0010.outlook.office365.com
+ (2603:10b6:610:4f::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7762.28 via Frontend
+ Transport; Wed, 24 Jul 2024 11:14:57 +0000
+Authentication-Results: spf=pass (sender IP is 40.92.112.83)
+ smtp.mailfrom=outlook.com; dkim=pass (signature was verified)
+ header.d=outlook.com;dmarc=pass action=none
+ header.from=outlook.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of outlook.com designates
+ 40.92.112.83 as permitted sender) receiver=protection.outlook.com;
+ client-ip=40.92.112.83; helo=GBR01-CWX-obe.outbound.protection.outlook.com;
+ pr=C
+Received: from GBR01-CWX-obe.outbound.protection.outlook.com (40.92.112.83) by
+ CH3PEPF0000000D.mail.protection.outlook.com (10.167.244.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7784.11 via Frontend Transport; Wed, 24 Jul 2024 11:14:56 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:ED967DCE67D2C5388CDD33FCB3B69087F5F8AA9D729224BAAE38DE3F64DE95E3;UpperCasedChecksum:D848FC0F631C94DA21289C15F5F0A3DE2E517B6183C5E36139E143F54EB9D289;SizeAsReceived:6380;Count:37
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oRZiA5L58pOLf04yIsaQSwQgPwvoCDSD2+IBXpJg0EWpq8M6EXkQnfsC0KuxtEkESUaOnzbHtzmgjxjfFVu+JDOB0TKFcVJ68lXCiuBHwQo2HECi6rs9Y5e8QQ6w/n0uZseu85BwXelTiBRdhVnzleTsr/4Bp+9npXkcYoUubjZ8Wl1iTnzLlMwTZbzPgQN9bLiwEUe6qqActxudWOnq43gjXgktNbNqYXRJPAn4jRaC77HSPcNr9PG8fs6Fxe2tynWfu3JU5BxmMxVqE88PKTucs9VVo12Twu/s+mCGGyOpOjAERucXtQHdZXP8NHecH2KHaPN9rxMWGg9DgJx3bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QT6gzntHx5oejh43sg1Vj1YNE6X9BPEs4OsFOz6Bpbg=;
+ b=LiPlOCuKmgEGGGODfTmGR7ptQpu7r06OtnrfAD4ncurhNBsmFC0Oo3c8D4R13kimDwvVSUYkmNlagJyc6p/gw04+4cNUGw6SKF8IJU9QcXgRZnYQZrUqdZ3eHGaSH8nDOpTcObP+hE3kk4Btr79Q/BR59UytiPlNoRuEoqAMS8qzvK8uItjZXI0R9Q1qW38gR8GtMVcMxibNGTACV2W2Ontg2Lw0xqQfBAWkaGo25cadPrFu+SZZpcE9Fs92ywm21zHz99lKqaxky/oOMuitGUOVRvGxjqRvtnGNiueuwtHFR0DEH76flPalas6Bs0VSQtYtut1VYHJBL8ndZvkRcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QT6gzntHx5oejh43sg1Vj1YNE6X9BPEs4OsFOz6Bpbg=;
+ b=WSY+g0xrnSQXR/WDCombx/FI6E47Nk6/vMcW1n85SrtyteQ1HyhYtFMKi9hr4Qo4bF6ui64lYDKhlWOeI0rtAU8UL/KMRrGftZYmWRIur6l08r9mDsJ6OpPDxjqY0LAlm9nXTqls+WCWkQAkSPC0KC5tC9xczyOLZOl7OhVD7xuVKAS8vH1jZL+pdmZdmMuLRubZf1pXNty4F0zV+D+O+nZl5V4jq+Py9trc57tNqWHOG4oVyirplnFMG9XaJnkjnCjqIjSgwtzmfbRseqXX0/5gkmc7pKk8i7pwhXRWyJqJrVgXx1pRUeUEA24EwDnT/j7JATPerxll0e4pn90eow==
+Received: from CWXP265MB2119.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:84::5) by
+ LO8P265MB7821.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3b3::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7784.18; Wed, 24 Jul 2024 11:00:08 +0000
+Received: from CWXP265MB2119.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::78dd:4c4f:ad01:3074]) by CWXP265MB2119.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::78dd:4c4f:ad01:3074%4]) with mapi id 15.20.7784.017; Wed, 24 Jul 2024
+ 11:00:08 +0000
+From: Stepan CHERNOVETSKYI <grli86@outlook.com>
+Subject: INVESTMENT INQUIRIES
+Thread-Topic: INVESTMENT INQUIRIES
+Thread-Index: AQHa3bihyeSvUXjH2UGpnbdPAC+avg==
+Date: Wed, 24 Jul 2024 11:00:07 +0000
+Message-ID:
+ <CWXP265MB211974FC0342A46133F55E8EC2AA2@CWXP265MB2119.GBRP265.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [v2BvDGDjEEopc/EO150sTXrOfSKR6nst]
+x-ms-traffictypediagnostic:
+ CWXP265MB2119:EE_|LO8P265MB7821:EE_|CH3PEPF0000000D:EE_|DB5P195MB2451:EE_|BL3PR10MB6163:EE_|CO1PR10MB4450:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07aa33dd-7141-4c55-3d85-08dcabd1d9ef
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:14566002|19110799003|8060799006|461199028|3412199025|102099032|440099028;
+X-Microsoft-Antispam-Message-Info-Original:
+ vVoZ1Gt8ciSkL/dsC0qMY7J/Hyob3Y1kDLRsMYuWmb7iNzdtLgcVv8r5/6Rjobp88oz8p8lYaS4xJ0vkjGPAFNsKsKM+/n2TCe8j8vF7Fs9GqlcBocIVE+UcPeqwbNyIFoK9H9lLLoAF1omdgb8XiJNdF3fQx5clNouEZ6RiW9WO6RqVu23XixTDgQg74k7chS9PjXEKr1gsjV3xQbeOn6kGzXR8mcICNzghSzLib4Ak1iv1aXhgWJ+jPhjaeJG0sI2+npz0JoYJofMCbl5ASyLlU50E/ETkj9t5tZi1WX4DR6OU4m2x8sb7jI/bxrxgZ8Q3yATmHmnCibhzp3PQj9tAQryHJTvxtsyhdWClP7XOukdvXX+OToC6iMV83W3MHaLeMWCYlwj8zjvgs3QPMB3Ds6Z4IH1ZrMJq6vFfZc9E68BBhS+G7+pHATe/ZZOmLwu1Tky9Tl9fs8ruOgTTWoWmoaGLNoHTGHEbqValoV2Jk03tX4ZaW6MlQKh7eOvfUtVfFeef6SClPYmxk++O7seE3SGNS25Dd/C4Hk7xT1MAqIWS5HZmHGLVflnrutH2ONrFoRKygT3j1DknKCuMJ0/4p9YnjqX9o7+tTJuAn0DPVxN/I0vQhOxBDC+p2qaBHJcqQM2LJMUxel2izTPdwQ==
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?Windows-1252?Q?qew64SL4/CydXx3xHC1GMPDk5UhE2Z/wmlJ8KgPTCoem0f3DCpqV2yYm?=
+ =?Windows-1252?Q?0QkjHS5C3x6t4S0Ek6QzBJLJSa5/+ZQJOnN47I5Uji8xOgVR8qlfJ4ou?=
+ =?Windows-1252?Q?t4CijgQdu3evposSwjLRiJK0XfIBtv4DI/4aA0MXjWEpWGHK7Mn8PgSm?=
+ =?Windows-1252?Q?IbB6GKkIzX4AD88L6IwbJ9GPNj8zgOlDgP2fYcpDkHN8+NWtjNUjKpLL?=
+ =?Windows-1252?Q?hlEIN1r005W9hbD0SmSdiQvOWSaBUaZilBVvsk6wN2SuWtLQC4K/l/ff?=
+ =?Windows-1252?Q?fQXTSCguBWMswQssWyahsitNleL4AZuyTA2HSteAbS/cH8JpNnByEXVO?=
+ =?Windows-1252?Q?oFOOqC953UNbVHtTRmiCdwAsOhYMuL2xuTF5ZLGg56DxX7ngkJY5skBr?=
+ =?Windows-1252?Q?gOn8L44d+BANoEJzoYZ2q1Qz0x62vOor62GWx+eHOVQpFPfJN6GQ9wE5?=
+ =?Windows-1252?Q?w6ZRKlrUbHR1x1aaWlCqRQvb0MGjgA1NQ6wfsog7zw3iIVJ2aI22P7vJ?=
+ =?Windows-1252?Q?2F0ZnVr3rLO2FZFU+YOqc1cusxBNDO7xjnHqktP80q2IMy3RjHhEYx4M?=
+ =?Windows-1252?Q?xrXniPj0Qr8sbOMrTFwnslLQfSflM9lNPedl86IgHD9xEvJw+M87VKti?=
+ =?Windows-1252?Q?ODhw+cqmwgCWVOZF+XEfvyjgYtMtU0B2yL76B0KIhGKsa6rI/HNPUIVZ?=
+ =?Windows-1252?Q?sxvQ85arXqRrg5y4HXXVgITHKf6rZv6TSw75Zi1D6GXgv7z9V7u42Zsc?=
+ =?Windows-1252?Q?UhhhhzW2dfmcfvIvhj1SI6oY2km9CjNl3VAkVb9SSf8CDyKYJftKkNSE?=
+ =?Windows-1252?Q?wGhym952QZzo1lELlrYfLZ0zQzuh114FTYUdnHzOENkWnAd45daFZ3eN?=
+ =?Windows-1252?Q?hi2T5gGxv/erAhd9ViNusfhG4+yV3LGPEgnvek4VxXj0eRJ8yjAyt+vO?=
+ =?Windows-1252?Q?NxbWQnf1+t84VskANXWWyNBNJ2AQwBeAx+1BaF2lZ11k8SiOwtSXmgeg?=
+ =?Windows-1252?Q?wEtLRoa6q1jxTBKOLEmSHcd0iTeuWOajEdqzsupr8sWVjRtfdoLOp2bQ?=
+ =?Windows-1252?Q?9jPZIAghgd27OLQecRIssCLVwKLrrz3Qikj0ZNPAFgSJSvEYsWtqdlcG?=
+ =?Windows-1252?Q?QF12sD2xbn/TpQNr5P8h1w53PC4AVyg2ZDcOTh9Pv+dJwwx13o3I8YBv?=
+ =?Windows-1252?Q?ctD7J8nQGjc4zxlPawRNFV8t9S07je3gy7hNClRgfgHi4pJ13gk4Qurd?=
+ =?Windows-1252?Q?NsjoV0PmU7rh3JLDxt05BTQpGbqD0UD2oUFmQ3/EfddnbLZ7Z6mJRmuW?=
+ =?Windows-1252?Q?M1xVEQ=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_CWXP265MB211974FC0342A46133F55E8EC2AA2CWXP265MB2119GBRP_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO8P265MB7821
+X-IncomingHeaderCount: 37
+To: Undisclosed recipients:;
+Return-Path: grli86@outlook.com
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Jul 2024 11:14:57.2617
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 07aa33dd-7141-4c55-3d85-08dcabd1d9ef
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ CH3PEPF0000000D.namprd04.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted:
+ CH3PEPF0000000D.namprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 763c5bb2-15b4-4564-38f4-08dcabcfc7db
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 40.92.112.83
+X-SID-PRA: GRLI86@OUTLOOK.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|970799054|461199028|3600799018|19300799018|1370799030|1380799030|1360799030|3412199025|440099028;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2024 11:14:56.6054
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07aa33dd-7141-4c55-3d85-08dcabd1d9ef
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-AuthSource:
+ CH3PEPF0000000D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5P195MB2451
+X-MS-Exchange-Organization-AuthSource:
+ CH3PEPF0000000D.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 7/24/2024 9:58:14 AM
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.0463774
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7784.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?rKmq3v77Eq85IVNcUZU6IR1sCd8euMX8uvVpFH8BtIuqO7N3fCdhkn24?=
+ =?Windows-1252?Q?8KlJPcGJjOzoJ4n56OBiLoS28DqrQJAvhfuDw8K9KFrpXyCct6+Mo7+5?=
+ =?Windows-1252?Q?/JNQI4q0y7CoptxrMRbHRGg6LrzsDw7ZdBs+I1XMvZz1s/0KKbxMg6cF?=
+ =?Windows-1252?Q?G/PjhgV7xbb96OT3h0Yyyr+4WsS3vCMuH9xM0ghw6K/x994iU2vq0OmY?=
+ =?Windows-1252?Q?QLIiX3ySt4pHZ1A+CexN50LpYAyNbvnXClQIOe8+3fg0zcG8Zrf7tL/R?=
+ =?Windows-1252?Q?fpy3AmhCtOs9DKsYp9sQxKquiUaNOqjmOgHZ55fVtyoxtM/wXk401g5G?=
+ =?Windows-1252?Q?Y7zfVVirKT7u0iyp2t/Q5UVQcqU1XqMwlhzv5sfwJ7JlQHr7/WKXzX4e?=
+ =?Windows-1252?Q?LvueYC7g3Tp0evnKIUJyEZUJ0HEL22KI9rRDDyr7VaxyI3c0NxFb8nn1?=
+ =?Windows-1252?Q?4lg+c/7Od/Mb0660gjUmaV0LIi7Qmre97Jvvv/MtbMZZtsSWKv/x7IEO?=
+ =?Windows-1252?Q?azn0wRQ3+M36eIq2QQOqQTDvB3t0pLdD/9E4MmIlEhXmPi1/fRsMx9zj?=
+ =?Windows-1252?Q?QtvQJSXBshxaPfzS+LMtv8de1R8QX6gu1VVD1X/PKVmYh9jUHOESjag6?=
+ =?Windows-1252?Q?2isyMa8s5qit8+p2TlyEyVLHZVtyugZZV2WviAM1ehmrJ/To+rWxCwdk?=
+ =?Windows-1252?Q?SgViMiZSZve3T/n2FaqKO6hX7aU4rV+ZKgAZihGoL3KwiPKcVLX4lY3a?=
+ =?Windows-1252?Q?zxdr197bcv9GZIzZoqeU6tkeoliG9PybXEN3rO1NMDgUiq+hLknCxxYr?=
+ =?Windows-1252?Q?pZfystvc1l0PJWypEBGn7mntu7bktu7oBF4+O3YKwHjC0oNrz93y+a7l?=
+ =?Windows-1252?Q?AxDScNgE6+UcquSlEkcnWbHqVqQlAE61F8farj+7BbDhoNXcIrRupRCl?=
+ =?Windows-1252?Q?hFIbd53BcP3CFqs4LfP62SIoUOTBum89jmOeg7MCdzbwQQtWF+Uiwi2L?=
+ =?Windows-1252?Q?ujiowl9JNxrhulEMlh+hXSxUkLRZgahrLYSEV8B9e7f/QVXh4V0HrmOD?=
+ =?Windows-1252?Q?8qjgZYeFeuRfaqgou9zV29IFOg2kxhXMgmHEwqsgFDHjF2bTmwepMJr7?=
+ =?Windows-1252?Q?e0PLUqrpM4PBAlzF7ozZt7IJWFy8VzAwqAnfDSjz3yY2FwBN3gMP+moh?=
+ =?Windows-1252?Q?INBZSi/DqOmwZoBWXzdyrozStzT50jR8NvW49prwqFRwAQ+6FPBbox9i?=
+ =?Windows-1252?Q?VFaoOVI4kQxE5kvfigRFzktmT8c1/D+l8sZgAerOp3Bc0wTd7AsYbrnP?=
+ =?Windows-1252?Q?6NAeyvJEfQ0Zd5JBFU702F/8HtCz5vd0WHU215R18HpqFELy6B7ESzCm?=
+ =?Windows-1252?Q?BKRd+v0NsujSa4LTX3xLNGCiefdyZ+qvnxvl1wf+xnTrsv+5wymalcSA?=
+ =?Windows-1252?Q?8JnXoKxxwx/ZVy7mfo2Xd+TjgDYqLsMC1RV5aYe2FhRa09CB/6xWILZp?=
+ =?Windows-1252?Q?1q5DaSm3J/AvX+JPU10pB4CNB6tH7xr5MArqM1JVmhLhGHhY59Yz7Afo?=
+ =?Windows-1252?Q?ksNgWQD9fRaPvFh/tYxqRCJT8Xub8Q1H6qGvVuG4J48OvJb8sEiiT8hI?=
+ =?Windows-1252?Q?gALHRlw7DzKjprCWt0zRpq+UASSvRc/WI1YhUAlmFeCXz+2yjcCmrG+4?=
+ =?Windows-1252?Q?u76AZ1vxQ1rvwxVn+EwFCpCTzDTIoZo1v9i1Z666LUNF/6oCjcB5eUeT?=
+ =?Windows-1252?Q?uVP5e5NHj1who2qt9XeEDRdoVjvLNfmICeao5shi0smM9kbIswhcGCrf?=
+ =?Windows-1252?Q?/bHEnqy/IW0/zOhyLSat6/Rmya4dN5A5i753RWCDPDl2YkUXpKcL3w7p?=
+ =?Windows-1252?Q?VHKZN8c9ZH5XdeQW9EuDmb4r3FqoIhPy8hb38oy0E5M+H23tO9Iti3jU?=
+ =?Windows-1252?Q?QctmDIsCKkvc1bkxjIE+6HtzhwQ4XHePHVpmzHbXyD7G8hUChEfiWkSR?=
+ =?Windows-1252?Q?+Q6iZ3ck5rQppwbo+K0wwKkq1SJdXZ9lBmE2IjwEn9L7HDnQY/Qtvkx+?=
+ =?Windows-1252?Q?Pb6IFVqlRs90Lz7DYR5jJqTze8tFmQQoc/4EPGu6FZ4n7aeDTC0LSROz?=
+ =?Windows-1252?Q?FfnPhEaV11Nia3FyZXD400dnScsVEX9APkBsmR+/4DJt4xuInnbxgwzH?=
+ =?Windows-1252?Q?pTOv6KlFHPt5UC9jDjBKJHugS0Ak1wcyDIuLmmjXfdX7Mqj1PmJP9w?=
+ =?Windows-1252?Q?=3D=3D?=
+MIME-Version: 1.0
+
+--_000_CWXP265MB211974FC0342A46133F55E8EC2AA2CWXP265MB2119GBRP_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Friend,
+Please do not be embarrassed for contacting you through this medium; I got =
+your contact from Google people search and then I decided to contact you. M=
+y goal is to establish a viable business relationship with you there in you=
+r country. Please, I want you to understand that your Business Filed doesn'=
+t matter.
+
+I am Mr.  Stepan CHERNOVETSKYI, a Politician and Businessman, Investor and =
+Founder of Chernovetskyi Investment Group (CIG) in Kyiv before Russia=92s I=
+nvasion of my country (Ukraine), since 24 February 2022. My business has be=
+en destroyed by the Russian military troops and there are no meaningful eco=
+nomic activities going on in my country.
+
+Due to the ongoing WAR in my country, the Russian military has killed Milli=
+ons of Ukrainians, destroyed properties and led thousands of Citizens into =
+refugees to neighboring countries. I am looking for an honest and reliable =
+person who will help me to invest my deposited funds in any profitable busi=
+ness venture Such as Construction industry, Real Estate industry, Manufactu=
+ring industries in your country.
+
+ Meanwhile, if you have another  business investment plan or Idea which I m=
+ay be interested in investing in your country, please kindly let me know ab=
+out it for us to discuss further.  I sincerely need your humble suggestions=
+ and ideas to invest in your country, if you can help me.
+
+Yours Sincerely,
+Mr. Stepan CHERNOVETSKYI.
+CEO - Chernovetskyi Investment Group (CIG).
+E-mail: chernovetskyi@chemist.com
+
+--_000_CWXP265MB211974FC0342A46133F55E8EC2AA2CWXP265MB2119GBRP_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+Dear Friend,</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Please do not be embarrassed for contacting you through this medium; I got =
+your contact from Google people search and then I decided to contact you. M=
+y goal is to establish a viable business relationship with you there in you=
+r country. Please, I want you to
+ understand that your Business Filed doesn't matter.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+I am Mr. &nbsp;Stepan CHERNOVETSKYI, a Politician and Businessman, Investor=
+ and Founder of Chernovetskyi Investment Group (CIG) in Kyiv before Russia=
+=92s Invasion of my country (Ukraine), since 24 February 2022. My business =
+has been destroyed by the Russian military
+ troops and there are no meaningful economic activities going on in my coun=
+try.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Due to the ongoing WAR in my country, the Russian military has killed Milli=
+ons of Ukrainians, destroyed properties and led thousands of Citizens into =
+refugees to neighboring countries. I am looking for an honest and reliable =
+person who will help me to invest
+ my deposited funds in any profitable business venture Such as Construction=
+ industry, Real Estate industry, Manufacturing industries in your country.<=
+/div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+&nbsp;Meanwhile, if you have another &nbsp;business investment plan or Idea=
+ which I may be interested in investing in your country, please kindly let =
+me know about it for us to discuss further. &nbsp;I sincerely need your hum=
+ble suggestions and ideas to invest in your country,
+ if you can help me.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Yours Sincerely,</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+Mr. Stepan CHERNOVETSKYI.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+CEO - Chernovetskyi Investment Group (CIG).</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+E-mail: chernovetskyi@chemist.com</div>
+</body>
+</html>
+
+--_000_CWXP265MB211974FC0342A46133F55E8EC2AA2CWXP265MB2119GBRP_--
