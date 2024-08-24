@@ -1,0 +1,231 @@
+Received: from MW5PR10MB5738.namprd10.prod.outlook.com (::1) by
+ SJ0PR10MB4464.namprd10.prod.outlook.com with HTTPS; Thu, 22 Aug 2024 01:20:57
+ +0000
+Received: from BN8PR12CA0018.namprd12.prod.outlook.com (2603:10b6:408:60::31)
+ by MW5PR10MB5738.namprd10.prod.outlook.com (2603:10b6:303:19b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7897.16; Thu, 22 Aug
+ 2024 01:20:55 +0000
+Received: from BL6PEPF0001AB4E.namprd04.prod.outlook.com
+ (2603:10b6:408:60:cafe::7b) by BN8PR12CA0018.outlook.office365.com
+ (2603:10b6:408:60::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7875.21 via Frontend
+ Transport; Thu, 22 Aug 2024 01:20:55 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.210.43)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.210.43 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.210.43; helo=mail-ot1-f43.google.com; pr=C
+Received: from mail-ot1-f43.google.com (209.85.210.43) by
+ BL6PEPF0001AB4E.mail.protection.outlook.com (10.167.242.72) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7897.11
+ via Frontend Transport; Thu, 22 Aug 2024 01:20:54 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:4B7FDEB37F12DD20355C2AF1B3BD2923ED32110AF8F5530FE960A748D2795510;UpperCasedChecksum:9035FE0645668AFA8E06D99D4116D35CA4BA29AE6642B6A3F0D0C5F6C23065EB;SizeAsReceived:2599;Count:16
+Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-7093d565310so248221a34.2
+        for <johndoe@outlook.com>; Wed, 21 Aug 2024 18:20:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1724289654; x=1724894454; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fQfY6ifoV3q2N2o5eVJS2zwmuzf/7NkXEbFjMcxxe+E=;
+        b=RxC0TXrlT0asW2yotupcRIWpeajkIQ/wxs1vrQbYPZegox+MgdW7pp3BI0k3gLcI7+
+         rT32HPw0GVyfPkgBHC1a1YxqYthjeuQDfNtayT3TGUk+LQLRygV7X7NeGevY6rhl2NAY
+         7hPxrg5NB/eznSYVl9PPikSU8IQ88OqGlkB4kHKx0RMbmfMHPqLVYK5amIL9X1rSqmew
+         2Bxmt+A4erZC8BVYSKyBiLTsjKZJR1vZomO+MCdL0p0oDUvLnqookVYPJcbzHWxAPpib
+         ylLJgFt31xGbJ7Hc+JgPr/KxiIEGfExeBWXSP95cbewTqz6b1I5v05zd4bT8WlS+E+Rq
+         AgJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724289654; x=1724894454;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fQfY6ifoV3q2N2o5eVJS2zwmuzf/7NkXEbFjMcxxe+E=;
+        b=tUvPMt85VNWFxm4V8ezhVCALVrQobON9Q6OzEkG3CLLda2/NK+ifiDPH6OkQj8BkB9
+         6Pa0pxK71QbQYPmOJbdsVOAAoUbvWnp2kNfeXCnoSz35K87D9FdosLOfJxuF7hMejiNh
+         xKmgmW2DmSzEOvcCaMAl6A5/0JLkOzI9SUfMvpbvTlWJp0IzyXeuuqr+6lXDeE9NyZEq
+         dKUnLjEdPHId2dhAHJQ+7TXZsxb3uNs1Vl7LO/fTI+9TdTnT2KCPlO+G5YUvC2Y87ZEm
+         fnzyM9scoAcbJ1IPG7k5OL7hymV3+wQWGsVMeFlFC7GknvaVcpU4SidM9Bg6ZLgdepJw
+         +Pew==
+X-Forwarded-Encrypted: i=1; AJvYcCWeBV0AhqY3ecFs7Qq+1bxxZYrFc4DD0Q6obxcs85gqXr/oXqLh+yWVauOwIewDnX41rfTSCQ==@outlook.com
+X-Gm-Message-State: AOJu0Yz4SgYISX3tb+w3yFKa693NSK72tPHht6s4dewcowA8f5rygny1
+	p+0dXW91226ZWzFkMw78XcTn740beGlP68zXKr34flVqB556AMZXjMyYBec8yWCKXy6PP3/8fRF
+	wzKriWMdkiHo5WjVlWSg04taIOAU=
+X-Google-Smtp-Source: AGHT+IEVnTay3QwjuHMydfvmixgLjcAKEoDneRX03kBvwSmJp1wjouam12rhBxDG3A6ccLeZumDYTADYw5Wv5p6kYpY=
+X-Received: by 2002:a05:6830:2684:b0:709:4829:47bd with SMTP id
+ 46e09a7af769-70df8853c8fmr4997163a34.22.1724289654341; Wed, 21 Aug 2024
+ 18:20:54 -0700 (PDT)
+Reply-To: svetlanaputilina3@gmail.com
+From: "Mrs. Svetlana Putilina" <alexanderanthoni944@gmail.com>
+Date: Thu, 22 Aug 2024 03:20:43 +0200
+Message-ID: <CAChsPLdh=V0SGBOQiX1uy5NLQ8_nJ-1zwX2cpXZEb5BFteqPnA@mail.gmail.com>
+Subject: HI
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000056484406203b78b7"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: alexanderanthoni944@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 22 Aug 2024 01:20:55.0184
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 01eda108-1af4-4eff-4824-08dcc248ab7b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BL6PEPF0001AB4E:EE_|MW5PR10MB5738:EE_|SJ0PR10MB4464:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BL6PEPF0001AB4E.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/22/2024 1:08:04 AM
+X-MS-Office365-Filtering-Correlation-Id: 01eda108-1af4-4eff-4824-08dcc248ab7b
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.210.43
+X-SID-PRA: ALEXANDERANTHONI944@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|15080799003|2100799027|970799054|461199028|9020799016|1370799030|1380799030|1360799030|56899033|440099028|3412199025;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2024 01:20:54.9716
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01eda108-1af4-4eff-4824-08dcc248ab7b
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BL6PEPF0001AB4E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5738
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.4119727
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7897.007
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?TVMxOU9sd2RiZFByQVFpMWJzZk9QeHpma1dWMm5RMSs0Uk1HTXAxK0s2RVV5?=
+ =?utf-8?B?SUZUZVlrSGthdkJDYjdVd2JXT0xyeExocWo1N0pueEoyeUtlMWJReHBITkpm?=
+ =?utf-8?B?angwZm5BWmdFOWp2YXVFYVRTWnlQZ25wN0hGN2phTEYxd2Q5aEc3SjNyOXBp?=
+ =?utf-8?B?ZEE4VzVLaDllOTlFQk83YmxkSzE1ZUs5QTlLTmFyVDZEWnRCZXRaaUhhSkpy?=
+ =?utf-8?B?amIwZ3BneitpQ2lWb1UvSU9reW9CMlNmb3ZUcHBtcXU3Sm16bm0wcDZ1a04r?=
+ =?utf-8?B?b2V3b2JTVlk2M053N2VrbWJUUlpaOCtsNm5XZkVoOHR6QlA2VFFrODk4M0I3?=
+ =?utf-8?B?TWMyLzRnc1d6RWt3R1JwNFRsOGFEdnBBdm1LZnBHOEpZVVAyY2NOL1htM3FU?=
+ =?utf-8?B?ZUUwdWwzYWV5bC9TTmI2ZFo1Y3JkelpXQzR4SmhmbTBFOWViQkxLWDI2ZEph?=
+ =?utf-8?B?QVVaYjhCcWx3a3owaG93R0E2TG1BbTU0eWJaUSs5bklpRlpYQ0ErUDJkSEYw?=
+ =?utf-8?B?VVNCVjArR05rTUIxOGNVVHlLS2RsMTdYMEd6THV0VDNPZzFLL0tXSDgrV252?=
+ =?utf-8?B?UEZzTzFJa0FleHdVazd1b2RwOXVuNmNocENnVnIvbWt0bmVvb2E0bjJVVFNk?=
+ =?utf-8?B?aHFWdWRzSFh5TFNka0xVOE94cHVKRk9ISzgyTXdsQXJ4Z0dTRENaL3lWNExn?=
+ =?utf-8?B?bmp4VHVWWFpIOXNoQnVCMHN1b0lBU1Y1aVF2TndlN1FjUGU4blhDYUtnOHkw?=
+ =?utf-8?B?UG5lWnMzSzNGU09IK0dTUFpVS3NkN1J5OGZoTzRxanBVMGxxM2dnWlpoZjhU?=
+ =?utf-8?B?YkppTDNTaHF0eHdkVDF1bTBVcmZRWGhHT0hINkxFMHREeVhwN2lrTEdmVTVr?=
+ =?utf-8?B?aFk5T0ZLN2tJRnY2aFYrOEw3NTV2YmRRdmNTcnBDb0t6emh5STRzUVV2R3dH?=
+ =?utf-8?B?UGhyWDBjdjdIMkNDdjUrSEhPTTdBSHNiYmJONzlSOUdINFozcXlSMENRSndE?=
+ =?utf-8?B?RHdrbzBWK2NvZVNOdjdtMjlUeWprcC81NGJlOVMzS3V5M05lV3RWYVJWZTNr?=
+ =?utf-8?B?OGlnM1ljcmpZZm5MellQcUdhMktVU2s3dzdtOFdzd05DcDFVb09MMjM4NlF4?=
+ =?utf-8?B?T1ZGVmE5YVNxV0dpbS8xdS9Lako4cEFVS25zYzQrU0NjR24wRS9UZVFNS2Rw?=
+ =?utf-8?B?Wm1ZbzhyRWtaWE80SnZBNzRkNU5KNXBDSm41ZlRiVkhnZEtDMnFSOGNNUWZW?=
+ =?utf-8?B?Z09qKzR5ZEs1aDBIbWtnUW9qVVlqd29qMWd6T2EzU2d2c0EyYlpvdHNmcFJz?=
+ =?utf-8?B?U2xqWlR2R2lDdWd0azZGSkhMWFpWZzU2bnF0cUdRa2V3QUpDR01EU2JPaXph?=
+ =?utf-8?B?bmhPRWxmRFpXNFpXc05uTDhJb1hISTRlSHVqUGMzaHZkQmU5S05sZ21lTzVy?=
+ =?utf-8?B?RS9JeWIwTGN2MGtHWjFBZGNtQUk2aTNXSHhrSnJLbGRVb05Mam5iaUUyNWxC?=
+ =?utf-8?B?all0aVIwNnlWN2VuYmN0Ty9mYi9xb25YaEl6dVY3UmZRNzlnQkVCcTUvaWJW?=
+ =?utf-8?B?TnpPWGJLbTJFcTV3czNpSnRJLytYVlFxYXlWYW5OaEJ2ejcyMU13all4T1Vj?=
+ =?utf-8?B?N0VPTFViUzJRQVZNYThxaElVMFZTcnFub3Uzc2d4SUJTNmVGN2JRREErQkVJ?=
+ =?utf-8?B?NE9NQ05zVjNnck0ydW00UTNxQnhKUUtnbmFKS0toU3ZJbThxcERRQnRHYmhG?=
+ =?utf-8?B?Y1o0eTZMd3FSVEVnY2IxUms3ajg5ZkpYbEJaNjk2Z0lPeUltRlVYMUpaWXNo?=
+ =?utf-8?B?MkVQeTUveENwTTlHdFZMcVlLNllTVkVtb2ZjRlJMUWZtY1JKWDBZTnRXanBq?=
+ =?utf-8?B?WDN4K292bDJmYjdqN2tQellCSFBlc0g1L1Q3aEVHMHQrQTBDc3NNd2ZXOXFx?=
+ =?utf-8?B?N21pbWY2U2dhOTdQemdsU2FiK1FUVEx1UGw3NENiUWhmR212K0VPcXFIR3B0?=
+ =?utf-8?B?UzcrVlZHY2Uzc3JGNmtscS9XRGZlWEY5NmVMTE5oYmJSY3FjRlNWSmdkTExj?=
+ =?utf-8?B?cDAyR3RuUitVU25GL3NLM3l2dU5xZndDNTQ3UlFwdnpPdndaaVYyWkNGVWdy?=
+ =?utf-8?B?Q3U2NWZRTTlvak5QR2toYmNveHJjSHVzcU9BZ005c09rL3d1c2dic3ZXOFBw?=
+ =?utf-8?B?MXdleC9NdWs3L09NNWpQaXRNQ2dwNmpMVW1SUUNQWmJRRmdUaXBueU95TGRT?=
+ =?utf-8?B?RWNWWkhrdE1HTVFFc1EwRXRER0NZY1hya0M1TVdUc0llVjVwTUhydXNmWUF2?=
+ =?utf-8?B?MnAwYkpaREk5QlFsc0JUVG9rTDBiK3NZUk9HQ2g5a3JjMFNXcWhQRisrOEpY?=
+ =?utf-8?B?OEJJTUZJQ1ZBc1U1aEsrRXhEUzBwYW1aemJpbGVuUU93VUhVQ1NZL1ExRHd1?=
+ =?utf-8?B?T1pjU3BNc1NDSkNYUEtweFJRb2hQSkxNTjd4VnVNRlU3cVpvZkF5VmlUKzF5?=
+ =?utf-8?B?SlV5L2JpY3B4Z09ncDVVOFZ6ajBmaEFHTGxURGozb0taWTZYWXBqL2VMZE4x?=
+ =?utf-8?B?QTQ5aWM3M3pGT1o0RWhpVTkyME5mdzZTa1k4THlaaGVTR0t2ZWI0RmlhNTRP?=
+ =?utf-8?B?Sis0U3hWYmNic0lSRFFOYndYdUpKek4rNXFoUkJzaTlhSlk5NXZFVmdEOGNa?=
+ =?utf-8?B?TVNGazlXTnpyUDBSUk41RUhXUFJzWHJsZzVuK3J4MHZveGVGNTFrdGhKcDJm?=
+ =?utf-8?Q?DNcJHrh+BTV/uzzBj4CzSVa?=
+MIME-Version: 1.0
+
+--00000000000056484406203b78b7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Greetings dearest,
+I am Mrs.Svetlana Putilina.seventy three years old from ukraine,but i have
+been based in the united state of america for thirteen years now as a
+business woman dealing in gold exportation and cotton sales. I have been
+suffering from this deadly disease called cancer for a long time and the
+doctor just said i have just a few months to live. I know it will be
+difficult for you to believe my story but this is the situation i found
+myself in, it=E2=80=99s not my desire to be on a sick bed today but God kno=
+ws best,
+now that I am about to end the race like this, without any family members
+and no child. I have $15.5 Million dollars in my bank. It's all my life
+savings, so i instructed the Bank to give it to st andrews missionary and
+home kizito orphanage. But my mind is not at rest because i do not trust
+them, i am writing this letter now through the help of my computer beside
+my sick bed. I will instruct the bank to transfer this fund to you as a
+foreigner but you have to promise me that you will take forty percent of
+the total money for your personal use while 60 percent of the money will go
+to charity, orphanage, less privileges, people in the street and helping
+the needy. I grew up as an orphan and i don't have anybody as my family
+member, just to ensure that the house of God is maintained. Am doing this
+so that God will forgive my sins and accept my soul because this sickness
+has suffered me so much.
+
+As soon as i receive your reply i shall give you the contact of the bank
+and i will also instruct my bank manager to issue you an authority letter
+that will prove you the present beneficiary of the money in the bank. That
+is if you assure me you will act accordingly as i Stated herein. I am
+looking forward to hearing from you if you are ready to carry on this
+project.
+
+Remain blessed,
+Mrs.Svetlana Putilina
+
+--00000000000056484406203b78b7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartma=
+il=3D"gmail_signature"><div dir=3D"ltr"><div>Greetings dearest,</div><div>I=
+ am Mrs.Svetlana Putilina.seventy three years old from ukraine,but i have b=
+een based in the united state of america for thirteen years now as a busine=
+ss woman dealing in gold exportation and cotton sales. I have been sufferin=
+g from this deadly disease called cancer for a long time and the doctor jus=
+t said i have just a few months to live. I know it will be difficult for yo=
+u to believe my story but this is the situation i found myself in, it=E2=80=
+=99s not my desire to be on a sick bed today but God knows best, now that I=
+ am about to end the race like this, without any family members and no chil=
+d. I have $15.5 Million dollars in my bank. It's all my life savings, so i =
+instructed the Bank to give it to st andrews missionary and home kizito orp=
+hanage. But my mind is not at rest because i do not trust them, i am writin=
+g this letter now through the help of my computer beside my sick bed. I wil=
+l instruct the bank to transfer this fund to you as a foreigner but you hav=
+e to promise me that you will take forty percent of the total money for you=
+r personal use while 60 percent of the money will go to charity, orphanage,=
+ less privileges, people in the street and helping the needy. I grew up as =
+an orphan and i don't have anybody as my family member, just to ensure that=
+ the house of God is maintained. Am doing this so that God will forgive my =
+sins and accept my soul because this sickness has suffered me so much.</div=
+><div><br></div><div>As soon as i receive your reply i shall give you the c=
+ontact of the bank and i will also instruct my bank manager to issue you an=
+ authority letter that will prove you the present beneficiary of the money =
+in the bank. That is if you assure me you will act accordingly as i Stated =
+herein. I am looking forward to hearing from you if you are ready to carry =
+on this project.</div><div><br></div><div>Remain blessed,</div><div>Mrs.Sve=
+tlana Putilina</div><div><br></div></div></div></div></div>
+
+--00000000000056484406203b78b7--
