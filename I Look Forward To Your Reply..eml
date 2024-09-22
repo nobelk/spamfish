@@ -1,0 +1,209 @@
+Received: from IA0PR10MB7547.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sat, 21 Sep 2024 13:10:25
+ +0000
+Received: from BY3PR10CA0015.namprd10.prod.outlook.com (2603:10b6:a03:255::20)
+ by IA0PR10MB7547.namprd10.prod.outlook.com (2603:10b6:208:493::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8005.9; Sat, 21 Sep
+ 2024 13:10:23 +0000
+Received: from SJ5PEPF000001D2.namprd05.prod.outlook.com
+ (2603:10b6:a03:255:cafe::c9) by BY3PR10CA0015.outlook.office365.com
+ (2603:10b6:a03:255::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.30 via Frontend
+ Transport; Sat, 21 Sep 2024 13:10:22 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.67)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.67 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.67; helo=mail-ed1-f67.google.com; pr=C
+Received: from mail-ed1-f67.google.com (209.85.208.67) by
+ SJ5PEPF000001D2.mail.protection.outlook.com (10.167.242.54) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7918.13
+ via Frontend Transport; Sat, 21 Sep 2024 13:10:22 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:8D53114AC749234443EDF35496D713B3804B4A61689BE7C3BD5A4163DDEDD80D;UpperCasedChecksum:33913B737AEF87E945B518AF7776E241B99E163F5B41BD1DD695070EC00D3240;SizeAsReceived:2615;Count:16
+Received: by mail-ed1-f67.google.com with SMTP id 4fb4d7f45d1cf-5c2561e8041so4009570a12.2
+        for <johndoe@outlook.com>; Sat, 21 Sep 2024 06:10:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1726924221; x=1727529021; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WwAeM8UCCpIQlTzI9F5jbnq03yFiXAN1+Pr/gMYSWEg=;
+        b=XIMoHSk1ImupNDDXgH3Vx5J6R2Y2WP8csvxpi+0f912rjTq8+TBr37XFiFdTNrzJ2C
+         UMPLcC18Zt4YoVm/cf8ZUUYZVgmNM8WNJ3UZgXPhVrXL4a34s6OklyEs1Woerr3rEe82
+         9K2Iy2J3dIeFvtANVIPIx/KHKJJjzAIAPPdrlWsfnIIAruKh7rKr6GppXXZZkbyVDJ21
+         Pc6/3b1C1+au6BOPyUFNltg8nZgbTDUf8O6IhN/7XiFfL9OncRxzYZUUivGKqAtcMHg1
+         8uThBcuaAy1hDDu+r+BqWwSHDdAztoK/r9HGUJIH386gmgd3ufzqGmsbImdtpg30WHdU
+         wk3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726924221; x=1727529021;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WwAeM8UCCpIQlTzI9F5jbnq03yFiXAN1+Pr/gMYSWEg=;
+        b=wHUmy6jbPmwEOqhRxRWNcdK3D523FcGjiIGI/ou6draWRXRkQOZ5dRsTe8Qr09sg7V
+         urR4uPzDzNJtB1FvI4By1tOB/wo3LPhzXxPNUFrQDVFJduFxynZMiPiKTZlDi6RZgq4+
+         +eXfYCF/NE/GeK5JN7PVslGyT9d/jHEeVa099AEpVckgOlI2lu/3c3Ip4St9z+o6xs0L
+         ZaggwgcSiXaBE6mI0GvbzfhkRfOqkRLrrw9eu06xbCNL57COjtjFQZDJu6Ro7ZYKIYaV
+         kTowg7Edt/jHOwEWZXJ7GS5DVTug/oGpR0WV4eWT11LYRjdkEvLwRfBrLX4Kc1NEN4FZ
+         gtww==
+X-Forwarded-Encrypted: i=1; AJvYcCVJ1TqUI3Fg4rqhtmDL9/AYWc98o4zgGOVcPNMlIKMFfYBWmg1hpeGtoy8vVHIjY+4C/oIKGA==@outlook.com
+X-Gm-Message-State: AOJu0Yx2OxOy9O5YhIlPGM008O/dZShOGQFIKnEn6Qu+5CQQGV2vTSDC
+	tTXRUPEm393IEGN2bwQgLgYkF9wukFQLGaIXE6hOzpHuudVAmAFCC3Lvg1i9G6dGgagaxER7067
+	2fnFcEoTomIaTElYsOF8mpozIa4I=
+X-Google-Smtp-Source: AGHT+IG9ETyMoP+cTlVjGZ04owU60rq1XYOpYUZH5Be+lhwEiQduETd+IkAhhP1MAvyGVfaU0bpZYMEdhAj8Qo2Nd3g=
+X-Received: by 2002:a05:6402:13d6:b0:5c4:6568:736c with SMTP id
+ 4fb4d7f45d1cf-5c4656874bcmr6157719a12.0.1726924220578; Sat, 21 Sep 2024
+ 06:10:20 -0700 (PDT)
+Reply-To: fredricktucker23@gmail.com
+From: Fredrick Tucker <fredricktucker23@gmail.com>
+Date: Sat, 21 Sep 2024 13:10:09 +0000
+Message-ID: <CAFv41Wof-9aKJnJbpCa7RiKECSbkhRSCKCpk7G0cv5e9wixEWQ@mail.gmail.com>
+Subject: I Look Forward To Your Reply.
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000b8c5b50622a0e025"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: atinaodo@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 21 Sep 2024 13:10:22.5704
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 2ef587c9-7b3b-48a6-be7e-08dcda3ec01c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SJ5PEPF000001D2:EE_|IA0PR10MB7547:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SJ5PEPF000001D2.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/21/2024 1:00:15 PM
+X-MS-Office365-Filtering-Correlation-Id: 2ef587c9-7b3b-48a6-be7e-08dcda3ec01c
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.67
+X-SID-PRA: FREDRICKTUCKER23@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|2700799026|2100799027|970799054|9020799016|56899033|1360799030|1380799030|1370799030|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2024 13:10:22.5392
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ef587c9-7b3b-48a6-be7e-08dcda3ec01c
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SJ5PEPF000001D2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB7547
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.0287146
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8005.010
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?VGhWRnB2OXNvckxIbEEzSHU3eTJMb3BRUWsrSVRVejNTRFRWV2pyekVJNW5V?=
+ =?utf-8?B?TTg2MFkyemZTRURjYWxNL2tVVzFIemk4ajRYS0NuMmFVdWVKWHNjZDEwbHNv?=
+ =?utf-8?B?VmxpOGJqTDJKa2lqUDJTRG5FN3hrVWJsa2lqWVFWNGErU0tMR2hwMXFQbHE0?=
+ =?utf-8?B?TWFhM1RWczhZejJUTzBVTHRJbXJYZVJMU29uR0c5Wkw5YXEyczdMUUlSemJv?=
+ =?utf-8?B?RjNIQ0l5ZVVqNVJvbmpnbm5rbmE3YnZXeUJHMmlOb2lRNE1OZjlMY0tSbjFM?=
+ =?utf-8?B?dm1nN2pJKzN5TS9IYnFKVU5zM0Y1TkdHdDZ2cElkcjg4OGhHZ21BT1JCcSsr?=
+ =?utf-8?B?OHM0c1B2VFE1T1kxN3M5cXI1cHc0aW1KY2p5VG1KaXIyUzJPdDZwV0Jia1dC?=
+ =?utf-8?B?QnRhS2lBL1JmWTV3dXhFQVRja3hReTVVS25jcTJySFdsblNqNVY2UGlBb2p5?=
+ =?utf-8?B?UkJDL3Y0WUhLS0UrbGpOTUZFYlFIZU9ydzJxejNFMXlUa0RKOHBVQkpmZHF5?=
+ =?utf-8?B?RkMzUk5qdk5nbi9za2ZpK1hYU1BteDI2eHFGTTNpN2c5Slh0ZEZFSmhxNC9C?=
+ =?utf-8?B?RnVYUFQrYkVadzNMUmR3ODJBUGZZbUx6enROSE5NdWlPMnZRSDZyZ1dsd1pS?=
+ =?utf-8?B?aXFpVTVlZ0o4c2Y3VGZ4MU5nUitqbTVlZUN0aCtjN1h1dDBKN1Raa3liNXRl?=
+ =?utf-8?B?R290eVBNSnJ5cW9XblNFbW9yelVPNzI4L0d0MkJWbjRLOW5LVWFpcmV1R2NI?=
+ =?utf-8?B?aDZybmdMS20wUHNNRFpucEpBYldjUHNIU2hyNTJVUmtWdFhMMUhnNkhJdERZ?=
+ =?utf-8?B?Y1ppc3JNMmRRZW5rUjBKQStqWWlPSnpBRS9ocjhXRnM2R3BjR2tCWVUvaGZG?=
+ =?utf-8?B?YlRWNDZ0aTIxcE5HK0VRRzhzRjA0SVQzRUNFNnVDNXRlaTc4aDBYZ2RZL0xH?=
+ =?utf-8?B?ME9DOS95L1I0b0ZwL1R5Rkx2Qzg0ejhDU01QTkVNZDExOERhRlZLYW9paVgv?=
+ =?utf-8?B?aWFPRmsrY29QeWt4VzJrVitUaWNoRkZ6MDI5ZjAxVFgzMDY4SElZWkJWTm90?=
+ =?utf-8?B?MjNhYWU3ZG1VMzdtS01rWEdpM1pUSW16S0JwR1BUdnpuZ045YmQ1Y3FVcXl0?=
+ =?utf-8?B?bWFGS0o4ZytTUG5UelEza1R1RzVYVjFHOXlIek9DUTlyMjJHamQ5eEh3R2FY?=
+ =?utf-8?B?OEhLOTVvK2pIVTg4cWVNSlFFU2hmbUVSMU91V1FLdElJa1lLOWxDa1JaQmMr?=
+ =?utf-8?B?aHZ3N0c5RFczR3pYVDBpNUJDM3lTclVmaFJPZ2wrcGpkMVhJa0RhWVgxR2J2?=
+ =?utf-8?B?Z2RYZHkyVkZTMjJYMEVJTnQwM2VqU2djcWE1aEYxYWk0Y01DUGVZNElnV3U5?=
+ =?utf-8?B?RURvTHh3SS9icHJ5NWJZR2tSSE9DU3RYclRwc2VwZmlocjFFcWxuVDBrK3ZM?=
+ =?utf-8?B?L0ppTGZmdVVQb0FoclBFTnJpaGpRWUtqa200bm1aR3IwVXNielFSWlBwbFNy?=
+ =?utf-8?B?dlgxOHhCTDU3TElEbkNZdjc2dnd5M1I0SmtxVXA1Qi9UUGJ6Z20vYTA1MmpY?=
+ =?utf-8?B?dkJ2a1ZnMHJGV0Z1RFlOZVhmbjBpMHhIZ0poQ3ZFUkMzSXVIOVhkWXpJbE5z?=
+ =?utf-8?B?TXhianF0bmlwT0x1YzdUdVdPbmdIZ3lmeDkyTkF2ZXpQa2N2ajZFUEYrNm1V?=
+ =?utf-8?B?cXppMGErNlRoYXVXQzA1K0xZQmFSM29TNEVweERSOHlyY1ZCczlVRmRETnRw?=
+ =?utf-8?B?QnBLZTFIZUxKNGw1SjZvNjFKaksvVURDVjRUL1F6YjJzQVJTaXZVdlF4b1V3?=
+ =?utf-8?B?NXVwQzdEaTJTMlNMK1RRU283VnlkcnBjdTBoNnJtMk1LOTFQSVhOWVBNeE80?=
+ =?utf-8?B?U2NYeGp3SHBLZzN4bnRsQnc3K0dwdmd2Zlp6L0NRQ0txcVh0UTJEcXhGOGFN?=
+ =?utf-8?B?Uk9seDFKVzFoTEgwWXhYd0FCN2swaUNnb3ZzVzk5QXJIaGp2SGJoWUIvVHM3?=
+ =?utf-8?B?b0Zqc0IvZ2xxZWtHZXBqc1V5Tm5yN0JFMllSeEU2UE52NWs3V1ZTWFBIaTlS?=
+ =?utf-8?B?ZWI3b1diSnpMcldYb211ZTFnaVA3U25yeHArNjN1c0VFblJJeDlyb1dZdXla?=
+ =?utf-8?B?a1JQMGYyUHRlanNYaStyZkRBUEhNV29wQmUrNjF4dGdLcE5wcVFxU05pYVIz?=
+ =?utf-8?B?Ym1rd1lTdk1SNDNmREVxcnNwUFkwWmx5YmxPYkhXNllYNW1yRnJXTDNRRVUz?=
+ =?utf-8?B?NGM0cHNNN2JoWWM0RGdIQlE4eDE0c1ExVkxOQmlaS1Nyc3UxUWpkRG5VMCsx?=
+ =?utf-8?B?R3AxYmxsOEk5cmxiTUFyM3YzUTV5Tlp0MVhjZW8xdjg4ckFzS3dBaXd0NGxi?=
+ =?utf-8?B?UlNYUmk1NmU2YitXMExzTXcxQzVVQ0dBYjFXMWloT2FqNWNEeUYzdVVNdUtn?=
+ =?utf-8?B?S1UwTVgzakNMSEdYTnMxRExhNzBDM3FpV3pWS1AyZ0F5cHh6NFp5TWVST3dY?=
+ =?utf-8?B?MGpyaUNCRW9vTmRvRFdhWVdZNzZRcjROb0xqSFAzQTRKWm8wR3U0akJhUGtX?=
+ =?utf-8?B?a1lWNXp5TUdSREFpaTd1WHZ3VVJPdFVwcHJueWc5UjhDbXgyQTFOQ0p4R2FL?=
+ =?utf-8?B?cEpHV1JqWkh3U2k5SEFRNnNZcjF4em9BTGhvN1ExcVphM2M3Zm5CcktCa05m?=
+ =?utf-8?B?NTM4a3ZBNGhBa0ptN1R1bHM1ekRZSWxNdFUvM054REhKQVdvQk5VM29JSms3?=
+ =?utf-8?B?WjQ1anNUaGFtVlZKQ2t5d3NIOFZmYjFEQ1lBNmEvZmFSVGRRTzVONE51emxH?=
+ =?utf-8?B?anBWanFGNmRPVkNyRTVOa2pxTWJvQjBJUXN2bEVvTmg0R3d3NTNLaThZenFH?=
+ =?utf-8?B?dFU1bU9aSExqbHhQSW9BdXM4KzFXK2ZxeUhGeWRjNHVDWkN0dU4zMHNHT2hR?=
+ =?utf-8?B?UFRGdjJkblJ4LytKK3FnT2JDK211QlZjMFNXNDJYNlBvaXpqZ0E9PQ==?=
+MIME-Version: 1.0
+
+--000000000000b8c5b50622a0e025
+Content-Type: text/plain; charset="UTF-8"
+
+Hello, From Mr Fredrick Tucker,I am a banker by profession. I'm contacting
+independently of my investigation in our bank. In my department in the bank
+I discovered an abandoned sum of $11.3million us dollars,that belongs to
+one of our foreign customers who died with his supposed next of kin on
+October 16th 2005.
+
+I need your urgent assistance in transferring the fund into your private
+bank account. The money has been lying dormant in our bank for years now
+without anybody coming for the claim of it.
+
+I want the bank to release the money to you as the beneficiary and the
+nearest relative to our deceased customer. The banking laws here does not
+allow such money to stay more than 20 years because the money will be
+recalled to the bank treasury account as unclaimed funds.
+
+That is the reason why I contacted you for a business deal where this money
+can be shared between us in the ratio of 60% for me and 40% for you. By
+indicating your interest I will send you the full details on how the
+transfer will be executed.
+
+Best regards.
+
+--000000000000b8c5b50622a0e025
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Hello, From Mr Fredrick Tucker,I am a banker by profession. =
+I'm contacting independently of my investigation in our bank. In my departm=
+ent in the bank I discovered an abandoned sum of $11.3million us dollars,th=
+at belongs to one of our foreign customers who died with his supposed next =
+of kin on October 16th 2005.<br><br>I need your urgent assistance in transf=
+erring the fund into your private bank account. The money has been lying do=
+rmant in our bank for years now without anybody coming for the claim of it.=
+<br><br>I want the bank to release the money to you as the beneficiary and =
+the nearest relative to our deceased customer. The banking laws here does n=
+ot allow such money to stay more than 20 years because the money will be re=
+called to the bank treasury account as unclaimed funds.<br><br>That is the =
+reason why I contacted you for a business deal where this money can be shar=
+ed between us in the ratio of 60% for me and 40% for you. By indicating you=
+r interest I will send you the full details on how the transfer will be exe=
+cuted.<br><br>Best regards.<br></div>
+
+--000000000000b8c5b50622a0e025--

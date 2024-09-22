@@ -1,0 +1,244 @@
+Received: from IA3PR10MB8113.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Tue, 17 Sep 2024 07:24:56
+ +0000
+Received: from CH2PR14CA0011.namprd14.prod.outlook.com (2603:10b6:610:60::21)
+ by IA3PR10MB8113.namprd10.prod.outlook.com (2603:10b6:208:50a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7982.15; Tue, 17 Sep
+ 2024 07:24:54 +0000
+Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
+ (2603:10b6:610:60:cafe::1d) by CH2PR14CA0011.outlook.office365.com
+ (2603:10b6:610:60::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.30 via Frontend
+ Transport; Tue, 17 Sep 2024 07:24:54 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.128.177)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.128.177 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.128.177; helo=mail-yw1-f177.google.com; pr=C
+Received: from mail-yw1-f177.google.com (209.85.128.177) by
+ CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7918.13
+ via Frontend Transport; Tue, 17 Sep 2024 07:24:54 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:EECB4C6A4832DBFB169C9D22D8BE82CC7A285FD4727FDB8F7AF9BC40513A5E04;UpperCasedChecksum:D1F02B52B2C36A8848433CC56A47F350BC5AAFD6456D69241FBF3A74671B1EA7;SizeAsReceived:2624;Count:16
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-6dbbe7e51bbso36451937b3.3
+        for <johndoe@outlook.com>; Tue, 17 Sep 2024 00:24:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1726557894; x=1727162694; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FVNLIfde2FcKW2bMmPA8QeE5d/Yxu8VJZaEQ4cQQGM0=;
+        b=GIa58ArHxf/xSQbWCFPAaYpJ29kh5A5JCiNhzmdAIs9yHkrShKYuSviBuNdxwrCBqD
+         hdX09ZP/2a0/DNOAVDd8tfmTQyXlINejAwyclDdROr2J1WnozLogtgzeDMBktWtPagwT
+         uxG1Rz1Bw8+TEoOeGF2hFaNW4v01sCd1la25fhkYS+LMt4nacSCiJCeyGIKwAEapON4o
+         3eUiVIR3zz+MsUjl6Hoy9GIX05et8HQgWRuIgdZQeDSEcLU29BFBmn+jBKejvOAPgJ3U
+         NGMiiAcfa3hi9QO5ZiP3TAFCvBbZ/oSiF9uCV7b67F1tEonm7PhII4g23zuvmYF/VDwo
+         DXLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726557894; x=1727162694;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FVNLIfde2FcKW2bMmPA8QeE5d/Yxu8VJZaEQ4cQQGM0=;
+        b=g+3QueoLNOJ+3SVyJekCMMrx/XnTKJ7SMV9NV9HZZaPAZZfn2+ENu3dhub6oCn1xNQ
+         XrvVfhqLkH2nDQYpL+RJm58ESJQJlbnG/+Mka1/ra8qXrxurCHl9Df3QT4pN1YWxN8pn
+         ewToIJTGv/kArG1H79amGSPy9fZ3DqvE7XKYrMLJOF6z1HyWAZVArWIvXW5Q2w4ygg27
+         lG8NSD43PJAFZI4qViaeYfpDA+xLylwUzd4M5H7iBdsAykisyMKGeeXPHeqQELoDglXP
+         cWWwkbH+sUdEqI58F0Rd3EZAdpMA1mK7d7qdzDuzqELujETZX7VX63UuyXAz87jYiZv7
+         ctLg==
+X-Forwarded-Encrypted: i=1; AJvYcCVq9Ht1SYapgGAmTxE99taXPWum6o8faJyNsZ0p8rGYFIn56CKU4lA1pWAb0Vx2orTcOCsCew==@outlook.com
+X-Gm-Message-State: AOJu0YxbJeC0FFKivwjbJwKEgpFQe6IvBOaG4i2BvfpHwosI+xf8A7RZ
+	1drR8MsWb/XyBgrIcG6otF3fW41peIhpdPm92l2ivYl/mdS01Ghmwx0DBw4sNf7c31V4zppObjY
+	8s4WEmwxGJ0zHctY4z9cqXaKXYL4=
+X-Google-Smtp-Source: AGHT+IFnaRBPlYD1FDqsg7mjYkV+85971JNlvrpdHsPC9bdRmB/LfCIztxI2+zFEW3FXvv1qvDnb7JKuTCMou3juwu8=
+X-Received: by 2002:a05:690c:10d:b0:6db:b8ff:6846 with SMTP id
+ 00721157ae682-6dbb8ff8d18mr111314457b3.38.1726557893886; Tue, 17 Sep 2024
+ 00:24:53 -0700 (PDT)
+Reply-To: chezakiahchedin@uymail.com
+From: Che Zakiah Binti Din <doreenbogdanmartin@gmail.com>
+Date: Tue, 17 Sep 2024 00:24:43 -0700
+Message-ID: <CAD1M6tsMy+zyjDYhfMVS_q-XBXpNW0w8W-XPfthkutnxFw5x7g@mail.gmail.com>
+Subject: Donation for charity Projects
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000f30bdc06224b9524"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: helpstepan54@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 17 Sep 2024 07:24:54.5404
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 04926871-90dd-4812-5e5a-08dcd6e9d397
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CH1PEPF0000AD76:EE_|IA3PR10MB8113:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CH1PEPF0000AD76.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/17/2024 3:59:11 AM
+X-MS-Office365-Filtering-Correlation-Id: 04926871-90dd-4812-5e5a-08dcd6e9d397
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.128.177
+X-SID-PRA: DOREENBOGDANMARTIN@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|2100799027|9400799024|9020799016|970799054|2700799026|55200799016|56899033|1360799030|1370799030|1380799030|1602099012|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2024 07:24:54.5092
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04926871-90dd-4812-5e5a-08dcd6e9d397
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CH1PEPF0000AD76.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8113
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.0550459
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7982.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?x+hzzuYQ/80qyZgG1/VC8O8NrQ+8n2H1n3UQRT9Qwin6Z33on3dcFW1PZuZ6?=
+ =?us-ascii?Q?JaaTPi9xM6c9vrGv65v6i+hDFD80hvHrZdNniLzKso9wko45doWWtZshTzgm?=
+ =?us-ascii?Q?ph8YkueU9ZInoSv460k5vVI0qs7noXvnF9KJZX6zMQ1X7wpLSsM4ELGsM0il?=
+ =?us-ascii?Q?WxVTB31bUndyEh66nC3YdbL7K5aoepGG7cRijUO6i0s8/Xw+PBcVI7Ix/JTs?=
+ =?us-ascii?Q?rrFRniATsAVDi+Eglhl+v+6+IJFhtEbRfkuvWcdrWxRkGKlY5HRbuKWebm28?=
+ =?us-ascii?Q?kMntMaVAA6ZbIsLF4angaOApQuFZyoD2g/SVFxUDPiKaF4/CTBBvGQQzlAYL?=
+ =?us-ascii?Q?llef/hvDlfATOg8HX9YW/G2uswSYcZclicjfK92rC0kk0z+qU/rCisvChVzq?=
+ =?us-ascii?Q?I8ZDkSsXyB60bUMhEvhOy3pERlFQvhUkkTNMXFgSa+bGM+hj0doLhfU0ZACk?=
+ =?us-ascii?Q?M+VvbNhyWNr1GB/8cmHpS7DPpqrRp1dEzXh71s5Dx3Pn/zrRxRt/VOVan5Cr?=
+ =?us-ascii?Q?PeTee6ZYpOba/AKPMp6ki+lv09xQfN+0Ri2qrW63fAYxdxKxS8FKPq2ibjmK?=
+ =?us-ascii?Q?AZcrv6Vd6gUTxjaB9ZmtpYNUryOhQsj38M5nIIUI/6Xit0SAXL3/BqE9BjfB?=
+ =?us-ascii?Q?cu2NRNb8DEkWJIGW+N1r7zmOSU0Ol582/bVyQe0uDmi/y1tNU65Xos+/l9Wt?=
+ =?us-ascii?Q?Hog16oPLX8p9yoltYMsSnKySwWuoediatZbbOiu7eJSzTmRC+E/s+SrDSr8B?=
+ =?us-ascii?Q?15RbgSE9o5OA6PBbblkT8BUEuPPYxvh0vy5V4dqZ0EE6UpB8dqpXFTz2WnrB?=
+ =?us-ascii?Q?pQUVooSntDyBDg3D2YNBDKuX1wN/rhTxlgEGF1+dmpZGRgtfEHs/SCcBwSXV?=
+ =?us-ascii?Q?9tFpaL8CuXVIH/ysoapOnlVIE/twdXp9D8SuS2mBPbIJjF+2bySdpPjqc9gt?=
+ =?us-ascii?Q?w9Si3+j4F2IXa58qVz5CXfrk86WpUj4f/npgC9rOTFzGXT3irTogD+cnCLbF?=
+ =?us-ascii?Q?CFoOKgXIYD8Z1NEP4W3JYf0xI327kflKIb4LDXoG8EVYb4ncmO/JUSkVAeRx?=
+ =?us-ascii?Q?EAmfeIAjDXqEHeie6GtDg86gh3DYPbVKppG7OMsDM6/P9e0I0ndpANV+qqPx?=
+ =?us-ascii?Q?dtAxPqEbrBbBpU0zQ1KOSsYKZIJDF9ID8RiWV+5WrS98Px9fbWKj2wD398mw?=
+ =?us-ascii?Q?LP2e6gcRgHuADi+xFwxAR/+RWzkBLCA+Ts4BSpq5W3PxY2RR6mqeMRoYkiv4?=
+ =?us-ascii?Q?BUN6zHMnPJJ6XthdjDnKpenmAn2hXR6fGf5atmgzyUvhlN4i6+9JkuimK18c?=
+ =?us-ascii?Q?S/8VzPDQ0ZimaYSsjF4pVbvy+mgm4jfzPOhjpbejlU5/dfH2qLIaHol/F4ba?=
+ =?us-ascii?Q?j1qysKEqRCZTBhMoYwbfKH6YJqxuunepJw8zASIcKp0RbntpjD7SjTqSremu?=
+ =?us-ascii?Q?6HqMlo7G4WT7XJ0inC9e8wXvQr/iGlfWqoYEbc/94HBj+gxmZdtpxOemIwg/?=
+ =?us-ascii?Q?xTVcYHTgmtHwVOl2HW/1aiRFAUDPjJuElg96USvc/y/R7T2VD/RCrCYtXEzH?=
+ =?us-ascii?Q?/DXyhdaJBhYoWst85xerT9a5NtgI1LMFG+FEfFKAt4kG2zjDzQVLzS1rmTJC?=
+ =?us-ascii?Q?sPISN0W82Vn10/7g096V629nDNQQPJCFFmBUdktLIm7mdClJ+OsR/0mBYtw/?=
+ =?us-ascii?Q?5/TWM+sjIzC5u3CjH59VakXna3rasIdjHisbzrb34DamlOhPbyr29jlC927r?=
+ =?us-ascii?Q?hJqa8g5aQ9xnZ2dPCjzgk4LLNukrwlVmTt3WWT6ySeZIUWpKb18g1zP4OcYG?=
+ =?us-ascii?Q?CmX/Oeq5uG5qE+oinzJhovyhwNm/YJtqHWkHdxLI1HGVq6I6e7ARi5N+VjCY?=
+ =?us-ascii?Q?I7gDBb3wHi1UutF+MbQoqMzyl20Jm+jiVr90+DZLaAazjzWsVPT342a9IfFO?=
+ =?us-ascii?Q?NdHMtnQrOb0QIIWTEKF13MhIkQke6IBVFMtDXZiDQMSlKNer8CASannlXjZW?=
+ =?us-ascii?Q?5MbXbcutbRsvC7G2YNjwEROmfn0cDEeJNjQfDTI2FVOfKHt10yPReTqbg7Lf?=
+ =?us-ascii?Q?jLlt3iruo1WlXJsK3+uKOxMzH7UXSgXWTSCjEtZmY+epY2mARe3trD2y5j6F?=
+ =?us-ascii?Q?4b2/VtjFcSHHtHhp/EgdS8d2GdxGCXRi0QdoDSF9UCyVzYOSBqWSB3m/BNvz?=
+ =?us-ascii?Q?nHtgLSnS7xmK2rcNMjT5Et6CH4LtZODAvFf+vjafVaxu/9NZbyms2fexDEmM?=
+ =?us-ascii?Q?faJ2ZsXz5PlMQA4mW24pqJltsjPeY9wEdh5WzJa+eDRNifIwb5I1S8lEacZt?=
+ =?us-ascii?Q?+f2gdo5ZdpOnP9UQ0a7afQslCrbY3LeV3SO627tRQvjQRa/o4Fo+yF0RGyEX?=
+ =?us-ascii?Q?MQU6yErhrHjGyQ1Z1OiGIn+as0Ej?=
+MIME-Version: 1.0
+
+--000000000000f30bdc06224b9524
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Friend,
+  Please forgive me if my request is not acceptable to you.
+
+I am Ms. Che Zakiah Che Din, Working at MAYBANK (Malaysia) as the
+Independent Non-Executive Director  and member of the Auditing Committee
+and Credit Review Committee. During our last banking Audits. We discovered
+an abandoned fund deposited by Late Mr. Wang Jian, The Co-founder and
+Co-chairman of HNA Group, a Chinese conglomerate with significant real
+estate ownerships across the U.S., who died in an accident while on a
+business trip in France on Tuesday.
+
+Please go through this link:
+https://observer.com/2018/07/wang-jian-hna-founder-dies-tragic-fall/
+
+We are asking for your permittion to transfer the abandoned funds into your
+account for the benefit of  Less Privileges, Elderly people, Orphans,
+Disabled and Most needy people and invest into any profitable business
+venture in your country if you can help us.
+
+ However, we took this decision to use this fund to invest and help the
+Less Privileges, Orphans, Disabled and Elderly People who need Care & Meal
+Support, because we don't want this fund to be transferred into our
+Government Treasury Account as an unclaimed fund as the law abiding, since
+nobody has come to claim the funds since the sudden death of Mr. Wang Jian.
+
+We have agreed  to offer you 20% for helping us in transferring the fund
+into your account, while 30% for helping the Less Privileges, Elderly
+people, Orphans, Disabled and Most needy people in the community and 50%
+will be investing into any profitable business in your country.
+
+I would like to bring to your notice that all the necessary arrangements
+have been made with my colleagues to transfer the funds into your nominated
+bank account without any problem.
+
+More information will be forwarded to you to break down explaining how the
+fund will be transferred to you.
+
+Waiting for your positive response.
+Best regards
+Mrs. Che Zakiah Che Din.
+E-mail: chezakiahchedin@uymail.com
+
+--000000000000f30bdc06224b9524
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Dear Friend,<br>&nbsp; Please forgive me if my request is no=
+t acceptable to you.<br><br>I am Ms. Che Zakiah Che Din, Working at MAYBANK=
+ (Malaysia) as the Independent Non-Executive Director &nbsp;and member of t=
+he Auditing Committee and Credit Review Committee. During our last banking =
+Audits. We discovered an abandoned fund deposited by Late Mr. Wang Jian, Th=
+e Co-founder and Co-chairman of HNA Group, a Chinese conglomerate with sign=
+ificant real estate ownerships across the U.S., who died in an accident whi=
+le on a business trip in France on Tuesday.<br><br>Please go through this l=
+ink: <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%=
+3A%2F%2Fobserver.com%2F2018%2F07%2Fwang-jian-hna-founder-dies-tragic-fall%2=
+F&amp;data=3D05%7C02%7C%7C0492687190dd48125e5a08dcd6e9d397%7C84df9e7fe9f640=
+afb435aaaaaaaaaaaa%7C1%7C0%7C638621546968864370%7CUnknown%7CTWFpbGZsb3d8eyJ=
+WIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7=
+C&amp;sdata=3DFaqLvZDoJKTgQsDQzjwPu0NvvU8UTivpCmoU4djnkXM%3D&amp;reserved=
+=3D0" originalsrc=3D"https://observer.com/2018/07/wang-jian-hna-founder-die=
+s-tragic-fall/" shash=3D"HsLsk3OM+hSEQrnWvDdceVJ3CoEDRiMeBNtzampxngZuOKLhSQ=
+uboPoV91PZS8m+y56qG26yi95yZA5c41RzP/4OS1mb7EW3I6FO8YpG6SqR/Nsh3KoWnc/T13I7M=
+M2/bMxqVNDrj/s2QJjmr1EEqqL3ASY5KFa7kdu9E6Y47Z4=3D">https://observer.com/201=
+8/07/wang-jian-hna-founder-dies-tragic-fall/</a><br>&nbsp;<br>We are asking=
+ for your permittion to transfer the abandoned funds into your account for =
+the benefit of &nbsp;Less Privileges, Elderly people, Orphans, Disabled and=
+ Most needy people and invest into any profitable business venture in your =
+country if you can help us.<br>&nbsp;<br>&nbsp;However, we took this decisi=
+on to use this fund to invest and help the Less Privileges, Orphans, Disabl=
+ed and Elderly People who need Care &amp; Meal Support, because we don't wa=
+nt this fund to be transferred into our Government Treasury Account as an u=
+nclaimed fund as the law abiding, since nobody has come to claim the funds =
+since the sudden death of Mr. Wang Jian.<br>&nbsp;<br>We have agreed &nbsp;=
+to offer you 20% for helping us in transferring the fund into your account,=
+ while 30% for helping the Less Privileges, Elderly people, Orphans, Disabl=
+ed and Most needy people in the community and 50% will be investing into an=
+y profitable business in your country.<br><br>I would like to bring to your=
+ notice that all the necessary arrangements have been made with my colleagu=
+es to transfer the funds into your nominated bank account without any probl=
+em.<br><br>More information will be forwarded to you to break down explaini=
+ng how the fund will be transferred to you.<br>&nbsp;<br>Waiting for your p=
+ositive response.<br>Best regards<br>Mrs. Che Zakiah Che Din.<br>E-mail: <a=
+ href=3D"mailto:chezakiahchedin@uymail.com">chezakiahchedin@uymail.com</a><=
+br></div>
+
+--000000000000f30bdc06224b9524--

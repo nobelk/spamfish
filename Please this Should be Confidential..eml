@@ -25,7 +25,7 @@ Received: from mail-vk1-f174.google.com (209.85.221.174) by
 X-IncomingTopHeaderMarker:
  OriginalChecksum:FEDB2625521A05985E270815548C2F327021E5A6BDDADEF63275B6E6DF52B270;UpperCasedChecksum:B684D6844FFA8131BBC29DC1BFF9E0CA9243541AF43F2613CEA56517993AC1A2;SizeAsReceived:2635;Count:16
 Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-4f6c136a947so2223883e0c.1
-        for <nobel@outlook.com>; Mon, 29 Jul 2024 21:02:41 -0700 (PDT)
+        for <johndoe@outlook.com>; Mon, 29 Jul 2024 21:02:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1722312160; x=1722916960; darn=outlook.com;
         h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
@@ -63,7 +63,7 @@ Message-ID: <CALTxDvfc6J_GVvWdc99JC4Jn=XpgJAYszo_S_rmZQQRnb6Xyxw@mail.gmail.com>
 Subject: Please this Should be Confidential.
 To: undisclosed-recipients:;
 Content-Type: multipart/alternative; boundary="000000000000823984061e6f0cb4"
-Bcc: nobel@outlook.com
+Bcc: johndoe@outlook.com
 X-IncomingHeaderCount: 16
 Return-Path: mr.waliahzida@gmail.com
 X-MS-Exchange-Organization-ExpirationStartTime: 30 Jul 2024 04:02:41.6829

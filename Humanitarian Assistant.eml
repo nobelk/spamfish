@@ -1,0 +1,186 @@
+Received: from SN7PR10MB6571.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Wed, 18 Sep 2024 19:22:17
+ +0000
+Received: from SJ0PR13CA0229.namprd13.prod.outlook.com (2603:10b6:a03:2c1::24)
+ by SN7PR10MB6571.namprd10.prod.outlook.com (2603:10b6:806:2aa::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8005.7; Wed, 18 Sep
+ 2024 19:22:15 +0000
+Received: from SN1PEPF0002BA50.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::b0) by SJ0PR13CA0229.outlook.office365.com
+ (2603:10b6:a03:2c1::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.24 via Frontend
+ Transport; Wed, 18 Sep 2024 19:22:15 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.215.177)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.215.177 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.215.177; helo=mail-pg1-f177.google.com; pr=C
+Received: from mail-pg1-f177.google.com (209.85.215.177) by
+ SN1PEPF0002BA50.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7918.13
+ via Frontend Transport; Wed, 18 Sep 2024 19:22:14 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:F31F3EEF828FF63795887701D5E6ED32F9A8BE7AA1336E2BCABD75D6B723A9B6;UpperCasedChecksum:0D7B36B7365F79F72C1C0A1AE30CE777ACE16215BDEC0886A15C0C4195C97518;SizeAsReceived:2630;Count:16
+Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-656d8b346d2so3836560a12.2
+        for <johndoe@outlook.com>; Wed, 18 Sep 2024 12:22:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1726687334; x=1727292134; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=D2q26Aa8eNbmYRe5a5Cs1lSNNS+ZTH5172mRsAqpBSM=;
+        b=FCRDXeLe0/sVXYdTZ/QgzUpYFpNdfgcpfKnujpb5gZmRX7OWdiRyx7nwqyWWXnx4Qt
+         SG5GQJOVQqU/3sxI1sOvIU+41r8JwT9r9U+jA0pAUxA5HcZSVqT/QSoZbBERNb4lACnk
+         FnmL8acb963VgDQZrXqcrUGIt96pOg5cECIKvvUGuIYeTttiy3c7YUzvI3fHKXBC99Dp
+         ldZ/QnF2eeXLai8BzCFHHWBMfpwsC+r/ncsHhllHCVEqumiLkrTIGHfeLewX2g3KgbfT
+         VZewn0dz4T5zbRZactpfgkTuoPfWmGbY4WUstAhutcU6/O0hqyt0JFV7l36oZNbJbQR8
+         tClQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1726687334; x=1727292134;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D2q26Aa8eNbmYRe5a5Cs1lSNNS+ZTH5172mRsAqpBSM=;
+        b=kymw5GJHFtrza904N3XAYRF5N+P9jjROS3WxqPf2fusShWFHOWRZCs3wLZJ08WSX18
+         /IUaC5eOa5MTP8qk7L36he33um4KqgPMHUJv1ZVwEl3chEyvxQM1Ny6/qTwZC2DBKBqQ
+         h40pfX949kUrEEOUstlIcNUx/JuRkQPg4eDm8PgM3avx/Z2bmokeS2fQVI4ERfTx3eYR
+         85yQjGYWc+OHpiHUR8X8FsI5JcUkYa8nKEdgi5JuxqSUygbKJlMB/3eTeneFE2z82FGu
+         mWlMrhjHXN8oj1ciV1OaRSlE0CeB7dfQjBjnVWxY3J9IvycS19bUearmfGBcvjSDFKmo
+         JWHw==
+X-Forwarded-Encrypted: i=1; AJvYcCX16HLurDDPLa1roraVgI4ae/mGf6vuUhDGQpG+SueFMp54ZsRgyK8iKxj5ZUiCBLZ5syD+Yg==@outlook.com
+X-Gm-Message-State: AOJu0YylIMfMGouv0Rm+qdQaY+PutHFvyKKsqDLrs18mjEcfjEatk2Tg
+	iiOc+k0ZPQRFHAAD+FtUpw0ENmqYWvMf/dM3x/I28QpdM/zcnvbHKYZ1b0Cx0LECwHk56haI1/B
+	dEP3KvYRMiGA5bPtupKjWIi5J8HM=
+X-Google-Smtp-Source: AGHT+IGKoBq7KkxmaqISvQ4AepuO4RmGJldYok6I8m1LNk9Jg32JyDMnvP8AYCkqGv87lael643o3U7uOOlvMqWI8Vk=
+X-Received: by 2002:a17:90a:3ea5:b0:2d3:c05c:c51 with SMTP id
+ 98e67ed59e1d1-2dbb9c1d87dmr23685173a91.0.1726687334346; Wed, 18 Sep 2024
+ 12:22:14 -0700 (PDT)
+Reply-To: mrs.margarita60@gmail.com
+From: Mrs Margarita Kirillovna Ulyanova <mkirillovnaulyanova@gmail.com>
+Date: Wed, 18 Sep 2024 21:21:59 +0200
+Message-ID: <CADwoPj-Sv4kLR2gFTvHi8VSB9bvZrmEq+b0Q7L01zmKkjHcmDg@mail.gmail.com>
+Subject: #Humanitarian Assistant#
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000033b795062269b9a4"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: marycynthiaukamaka70@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 Sep 2024 19:22:14.9568
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 4a7c8c5a-6515-4824-76fc-08dcd8173417
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SN1PEPF0002BA50:EE_|SN7PR10MB6571:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SN1PEPF0002BA50.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/18/2024 7:08:20 PM
+X-MS-Office365-Filtering-Correlation-Id: 4a7c8c5a-6515-4824-76fc-08dcd8173417
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.215.177
+X-SID-PRA: MKIRILLOVNAULYANOVA@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|970799054|9020799016|2100799027|461199028|1380799030|1370799030|1360799030|440099028|3412199025;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2024 19:22:14.9255
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a7c8c5a-6515-4824-76fc-08dcd8173417
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SN1PEPF0002BA50.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB6571
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2357820
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7982.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?c0lqUktVNjNJcmE5ZEd0THRIVEVxYkNWWnFBM1ZKOHlGVmc5SEljVzE1dC9Q?=
+ =?utf-8?B?RUkvVU5CWUp3S0tUZS9lZWpMeGM2c3E0Qi90ZUZVZkR4WFpjU2ZWQzRVT0Ro?=
+ =?utf-8?B?Zk0vaUMvTUt4UUI2RmdsWXVuZVJPTWZOcFFSWWtPV1lLclAraEZxWGE2TERH?=
+ =?utf-8?B?TmdGclVVNkpEWHhvbjJqdHdWc2JsdlBQcjNwc29rbVNoclI2RkpERUtBNThW?=
+ =?utf-8?B?N2xiOEhoeWsvalJGdU1ZUUJRSnRNaDZUbFlTWnd6aW9YMkFXUGh3cnBhMjAw?=
+ =?utf-8?B?VFpQNmtvRDE3R3pmTkQxMUFTWmtWQ3ZoWTIxZ1pRS2I4d1EvZHQ4SmlDdWc2?=
+ =?utf-8?B?aDgyN2M4QzR2ZnJ2bHFRTDVvenovbVBLWWJwMU81aWtMdFJHOHo3L2lDWDVV?=
+ =?utf-8?B?Yk5RZVd4OGpBVlpvdnJFelFlVWRWS1Flc1pvRkRNNXE1YVpFR1VMWGFINldV?=
+ =?utf-8?B?dlc0Tyt2UlUxeTdHM2tEaHZBdHpqR0N3ZGdMN0oxUUtYa3A0dW15bmJ6L1ls?=
+ =?utf-8?B?QU02endGS3hlNHZxQUJIRWF3MStSVTJhVld3YmlnclpxZWZsYi82Z3BXMXhN?=
+ =?utf-8?B?Z0dhNmEyeThNZnRHVlVuRFdNalgyWlVOMER0Z0lrZEJtaDdGMnMvZTFZZ2gr?=
+ =?utf-8?B?WDlET2xITzZ5TDFBdG9yRGJpUHBsb1NkU0h1T2cyaklrTTh4SjhENk4rdGFl?=
+ =?utf-8?B?OUYvQTVVQjVFU2pYeHhsb0VGNUk4d3k0Z01PZ21nREZ6b0FGUElkbzJlcDJB?=
+ =?utf-8?B?clBHS1VWbWtxVDNvRGNodDdBU1I0M3kzTXV1alYyNFRla1RqV1p6UjQ0ZFlL?=
+ =?utf-8?B?UXVHeVFmVUliSXhOWXVtWmdGeHB5a2tnTUpGOFYrU2hlQks5cTV4N2ppSUp1?=
+ =?utf-8?B?c0tTWGZNY05ndnJZQ0I0QzdMdDVRL29mWjhlSFZQb1ZsZ0dJam5YMlREdTZr?=
+ =?utf-8?B?cml3b2pRaFIxOGdIQWVIUkluMC9YZzJHTDN4M3J4NnN6c0g0c3dLSUFHRk5J?=
+ =?utf-8?B?bUJDUkEwREJQdFZ3RWtWc0pYRGg0bGxKNVlZSlJyWkxuSkRvNStUNVVqMlpX?=
+ =?utf-8?B?NUdpTGl0L0VEZnM2NG9ac0NKSEhFZ0luTnRGeFBxcnJHNVBhYitIQTlPNkxn?=
+ =?utf-8?B?WlFlS2FTS3EvcjEwZFlnNDMxZUV4MFpOUkZVWUlXUzBQOE0zZlp4U3piRisx?=
+ =?utf-8?B?L0FWY1FhVFNtNjdLdXhGOW12N29XVEJ6cUZlWmRPTFFhbm9iYWFaUERJMHFR?=
+ =?utf-8?B?Z3g5cXp3RU9nbml3ck9MNkVCK1gwSStYZUlHVmovUE9yNFhlSXJCcWdMeHlk?=
+ =?utf-8?B?STVqN1ZwOHZxVWlUR3cxWEt3cTJLc3JwMWdpM0J6TkppZFlGV1F5VkNzQlRr?=
+ =?utf-8?B?bGROQlpSaGZLUWd3Y0FjWXpsWi8yNU84VFJjc2F1OGZzTU5HbEhFdHV6NXR6?=
+ =?utf-8?B?N0ptcjJGVzJMcFJEc2lnUHdXR01HNTNtWERXS25aVmdjWTJTcGZoOEx5MllB?=
+ =?utf-8?B?OURDR2luWGpRU01MUkJTbFAxYmdYKyt6enRqYVBrYTltVUZGalhObmlrNFlS?=
+ =?utf-8?B?cDh5V2RPZlcydnZzekNhb0RWR2ZhcnFKWUtzRzd4S1dncTBhcTlYOFlCV1gz?=
+ =?utf-8?B?ZnVjUHp3ZHpEUk4vZUZBNTJtRTJrOExmWCsvdGhCUkY2UWl2ZmEreUkxY3N2?=
+ =?utf-8?B?cWRWcXVleGtMSnV3UkswaG9iZnN5ZURlWUQzdDhLNURRZEhwVGxTcnN5Y2VN?=
+ =?utf-8?B?Tlc3L0JCeDgxUXdSeTFYRG9ia3AvOUthckx6NGFVdGlJZitUQk9pY0NNaCt4?=
+ =?utf-8?B?aElvY09TQnNZUjhrWW9VZm9saEtXWnVIRXFDTGY5Tm4xMmN1RjkzUC9vU1pn?=
+ =?utf-8?B?MlZ6elROc3VBQkdUQVVLWmhnRkFqT2orODVGbW1STlkrZjN3OW8ycENYcGw1?=
+ =?utf-8?B?MlZvUmJoMloxTXdHd0czSXV4ckpLdnVjN2ZJd0xqOGJSVTdpdkYxWUlGVXVD?=
+ =?utf-8?B?Z0d2SUdkNHZXNXlFNjZnU3dXSDk4bGQxeW9wWTcyUVFjQWJIcXNIUHE2Yloz?=
+ =?utf-8?B?bmVodE5wVFBZNCt3Ukgxc3RCS0YzdnFlV2RNMGZDeGRsNlRNbFFoSDIxUXNs?=
+ =?utf-8?B?QVBGU09YMXE0RVNSWUdZaTlmeVlCL2pNdzE2eWlJaXVsRlVnTHRzaEZTamN3?=
+ =?utf-8?B?UmNrS0pUa3ppNFFtWExVcTRyK0ZVU0tVZ2xaeEcxUXJ0akN4QWk0N3JFMGxr?=
+ =?utf-8?B?MkdqSy9ocmRDQXRsVzJCZnoybzU0WFg4Yzk4d1ZiZ1hUbTBITEVMaTgya3lS?=
+ =?utf-8?B?MVlpLzZZVmk2dE0wczkzRGI5OTFReDJNcnFzWGx2OUM1SE0xajJvNzk4N2Jo?=
+ =?utf-8?B?dWFoRWtDbVc4eHMreC8rMEx6dWYrTEpJdTZZeWVrUzhWc1VkOXo1eHBjK3Vk?=
+ =?utf-8?B?SmEwekRPc2tBQWNVWmRJQXZPWWQyNGdRVDNEZzhQL2NQcFl2S1NQdU8xc3hP?=
+ =?utf-8?B?QXgzQkw3amtJby80cE5hYXV5RlpPNEZoYmx5cVlyUk4rTWkwZFJJRnFhOUFI?=
+ =?utf-8?B?UGtEbEhtdWRyQnlrMUw3WkIvWC81Q1l3WnBKdmFlTXR2WVNLa21RZkl1MGpp?=
+ =?utf-8?B?LzJUNERDUGdKUTlvbmRsbUlyWVlGNERML1pzSUJkYmRGTDJJcHRORThWQXdx?=
+ =?utf-8?B?eHNHR3VIVjVWeHFpZitlY0lDT0RjejFYSE0vOUk1N2VzSVJ6RmRyUHpOWkk5?=
+ =?utf-8?Q?Zw=3D?=
+MIME-Version: 1.0
+
+--00000000000033b795062269b9a4
+Content-Type: text/plain; charset="UTF-8"
+
+-- 
+Hello Dear
+
+    I am Mrs Margarita Kirillovna Ulyanova i have a project  that i will
+like you to help me carry out if you are interested to know more about this
+project please reply me.
+
+With kind Regards
+Mrs Margarita
+
+--00000000000033b795062269b9a4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><br clear=3D"all"><br><span class=3D"gmail_signature_prefix"=
+>-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D=
+"gmail_signature"><div dir=3D"ltr">Hello Dear<br><br>&nbsp;&nbsp;&nbsp; I a=
+m Mrs Margarita Kirillovna Ulyanova i have a project&nbsp; that i will like=
+ you to help me carry out if you are interested to know more about this pro=
+ject please reply me.<br><br>With kind Regards<br>Mrs Margarita<br></div></=
+div></div>
+
+--00000000000033b795062269b9a4--
