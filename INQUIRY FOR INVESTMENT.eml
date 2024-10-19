@@ -1,0 +1,223 @@
+Received: from CH3PR10MB7631.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Tue, 15 Oct 2024 10:50:59
+ +0000
+Received: from SG2PR02CA0023.apcprd02.prod.outlook.com (2603:1096:3:17::35) by
+ CH3PR10MB7631.namprd10.prod.outlook.com (2603:10b6:610:180::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8026.22; Tue, 15 Oct 2024 10:50:58 +0000
+Received: from SG1PEPF000082E8.apcprd02.prod.outlook.com
+ (2603:1096:3:17:cafe::27) by SG2PR02CA0023.outlook.office365.com
+ (2603:1096:3:17::35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7982.34 via Frontend
+ Transport; Tue, 15 Oct 2024 10:50:56 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.161.66)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.161.66 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.161.66; helo=mail-oo1-f66.google.com; pr=C
+Received: from mail-oo1-f66.google.com (209.85.161.66) by
+ SG1PEPF000082E8.mail.protection.outlook.com (10.167.240.11) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7918.13
+ via Frontend Transport; Tue, 15 Oct 2024 10:50:56 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:0D13B846F2ACD41FF960FA2E9C120E9C360B8C9D35ADDA8B7EA66B8A2B4D2393;UpperCasedChecksum:D84BA8D78B9A33E9D483A88FA6D363E013EDE1ECAC67E3F3BF9BE10F9C55693D;SizeAsReceived:2605;Count:16
+Received: by mail-oo1-f66.google.com with SMTP id 006d021491bc7-5e7ae4c504fso2263080eaf.1
+        for <nobel@outlook.com>; Tue, 15 Oct 2024 03:50:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728989454; x=1729594254; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FH82z7LX4pM55NUNYSUgW5jxjOZNnmdrMMUOJwaScGA=;
+        b=eLWhkLTURE/hm8+6LzUJExSFF5tbjhRldmIRi8sVKYbN2vJPiaMa16vptoO50hJXFq
+         tOG8HNSI/03jeKiN4mREuBqBlsfETbAP2xewlNM72x2IWuZbnHfEsBtmvsocyXj7YER5
+         MYBfq3ABtPB9+C5HDLc+2kGYOqwcK49WNtWSjP0GvdD4EwQUQZ9oCeuWnGxdyRn0g+se
+         UuQorGBq/7p10hCD4YToMMmbVxu26kG00uP6+e26GgSX2FHpJZ7c9L4ifL1XEMtOV6+D
+         v1heAgR54Xe3SogYMwrYtlJVLinLskVjmK9YDSd//uzXaJRPOogigRKnTFem8+gzNZl0
+         J+ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728989454; x=1729594254;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FH82z7LX4pM55NUNYSUgW5jxjOZNnmdrMMUOJwaScGA=;
+        b=DqsFqOSEPFcpNZsyW87onKOXkXJUsoDliMV5MShhOp+LQLafs+q3Y5osZrxFpU6ZxD
+         mSU17zxDLHxTk5NM3BglRUdrHLJVcpcNyoHlsmNPrl9Pp+ZAdvGIQHh8jTLOkERmV8cP
+         SDHgaIiw+klfTNQPP4qt4Gc12qBgWgj82QJ31ntmGxYiKWL13n7qpAS5s/IeITYoo/on
+         XWawP8L2Ou/Srt4YfZVBBJW9FMYt1pAUBQ6qZozn+H+ApfwiQH8khvofkCO5qpCsNGCD
+         g4F+M0OUgb1+6sbb8xVKtLnHy+dtmeAAfVOJIs6drpdDeZYyKq0bh55eOBTkw2mPBd4p
+         /GRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDsKnzYwa6ehmHHqET6xLats70XQL7aywTiIdwOLJDth9mV/Zg4gExCvNlfNAhOLqJRXd6qQ==@outlook.com
+X-Gm-Message-State: AOJu0YyAyAccK27TzDT5r7wIN8mpeBIAMC/Grk/xJ0yc9Ed4hmhaXaD+
+	J3EGibR75sChX5mlPN5AhHSnws/QeolOVlQMPE68xWspEYKqyeQCsQ8c/VNyw9nTqPJWJJXDaEm
+	4KdAOMQxYj5eoNKUMEhYAHhu0svQ=
+X-Google-Smtp-Source: AGHT+IHT7kk8BEys/OPDKcpc75jYj71r/nBPoLC2OcTNmimzZvB9GMzhq5aB17bn6/15lUvJr8rxn2TXQUPhLtvrC00=
+X-Received: by 2002:a05:6871:5828:b0:25e:1610:9705 with SMTP id
+ 586e51a60fabf-288872b822cmr5225635fac.2.1728989453954; Tue, 15 Oct 2024
+ 03:50:53 -0700 (PDT)
+Reply-To: chernovetskyi@chemist.com
+From: Stepan CHERNOVETSKYI <dinche750@gmail.com>
+Date: Tue, 15 Oct 2024 03:50:43 -0700
+Message-ID: <CAK7FwDTV+C-Gtp6zPtMpiqMW_0Pc8pFDvA25nsbQ-whD-ffvpA@mail.gmail.com>
+Subject: INQUIRY FOR INVESTMENT
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000003934bf062481baf6"
+Bcc: nobel@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: chedin572@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Oct 2024 10:50:56.2221
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 8feade10-1b9f-463b-4f19-08dced073f4b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SG1PEPF000082E8:EE_|CH3PR10MB7631:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SG1PEPF000082E8.apcprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/15/2024 10:26:18 AM
+X-MS-Office365-Filtering-Correlation-Id: 8feade10-1b9f-463b-4f19-08dced073f4b
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.161.66
+X-SID-PRA: DINCHE750@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|2100799027|461199028|970799054|9020799016|1360799030|1370799030|1380799030|3412199025|440099028|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2024 10:50:56.0190
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8feade10-1b9f-463b-4f19-08dced073f4b
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SG1PEPF000082E8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7631
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.9749687
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8048.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?UDkvWFNCcVlPVHpqc0xtd0RzOG94YU9CQk00L1hSdmY0WE0wRkY3eU5oSE04?=
+ =?utf-8?B?MU5CQWtpQ2hhcnRnWFRvT1pPMGt4eHFnUHRUQjlpaTY4ZERJdzhtWnNCQjNG?=
+ =?utf-8?B?VW42eDd4T2QrZ1hUL2l2UTRFMFY1TGNjaE1lRlFhckpvK0FhbWRvZkdibWI1?=
+ =?utf-8?B?dEFGMmNpRXIxbXVSdzh2NFdsb1lHbHpZOTBiZnBzRXJxQ0RKdVMvaXRuL29T?=
+ =?utf-8?B?UDRJSVk3QjArTnBlRkdRVTNoRGVZWW9NSXFOWXlweUdoSEhvaEZTeXNyU25O?=
+ =?utf-8?B?bjJJa3JyOUwvWGh1czdVZFh4UlJwWmt0U242bS8rQ1IySlc2L1FpUFRaa1BY?=
+ =?utf-8?B?cVFnNmlwVU15TmRCeGl6YmpncEZBZDM4aTBpbUYxNFhJdERxbmIxZWtQUnlw?=
+ =?utf-8?B?WmJmTGxJMGxXT0ZVOFRHN0h4QnNtVXg5NS9yRUV0WlhFa3FiMTdaWHhTYUdm?=
+ =?utf-8?B?bkc4RUw4SnVDdHN5b09rVldxbUx1bzdzclUzMGg3eG8xdUJDcmpLWjZNWmpE?=
+ =?utf-8?B?cHg5Z2JHelpTTDZOMEFqWE1ibEZYckRzeW8wdUxFcWFuUE9DbnQ0TkVSMVRB?=
+ =?utf-8?B?d3l6ZmtaaHBjV09SOXRWMkYzcDR5ZWJTTUxWaG01NjRSOFBYREdYUWw0NUJI?=
+ =?utf-8?B?NmNTQ3JWeFM2UmxiTXo3ZFNVaHJMbW54VnVtRVFTSGZicTQwNndrNTVSZCsr?=
+ =?utf-8?B?TkQzRFRTbUNIMHBQY20vV3VrT0RPYWgyYlJUakRpSHlhVlpWZWZtaHhHMTM0?=
+ =?utf-8?B?NmIxUVlZZFlqRXBydWlLRmhGZ3RIZDc3dEtENDlpR3JMd3c4RGd4VlVXYm5I?=
+ =?utf-8?B?K2JRMW5LSWFxRVZVMjJibWF4WG1uSTNSRG5LMEtMbXo3VUJtVmlXWjBQZml2?=
+ =?utf-8?B?K05qbEpQYzJselNPNzE5bzJKZC8vc1lKMVVzSC85SVB1eDFLVE1ZYnJTMVN6?=
+ =?utf-8?B?ME4rR0VIdThKbUw5TEd1clZnYUVIaDhoU3M4SVZHK1IwQVA5T20xS2dITWhk?=
+ =?utf-8?B?V2tiUXlkVzN3YkdHKy95RXJ3UEZyZ3hrSWZVVjh5Qkh0WEVBM3FDUHVlcENm?=
+ =?utf-8?B?Z0d5cDRSN3ZIcmtRb3czWHJFWFpaSE81cWIwUSs5cXliM0lNVms0NzFpNTFa?=
+ =?utf-8?B?anRBYloxQ0s3RGhHazhUTnVGeDBBZ09MdzBIYWdNSG45TCtvWU1mdXFzaWt5?=
+ =?utf-8?B?c1dETUovQkFLWERMdTJ5STVPd3h3TWFtaDYvS0tjNmRUdTgyRGtaV3EweXY5?=
+ =?utf-8?B?V04zMmhXSExBZ1plcHdyNTBaZjVYRjRzbkcxSmhPeXQxSzZNRjdpTXA4MjFB?=
+ =?utf-8?B?WmMyQUY4Q0xiUEZTQm5QNU9BUlplMUlhc25kZU5qU0FQeWU4SlhxODN6Q1d2?=
+ =?utf-8?B?QU9NeXlkOWZtMHVyNzZEVmZtazdTTGE0TTc0LzFnMVpuWDMvbHF1ZWdhUWN2?=
+ =?utf-8?B?ckQ3RGZFNVltczdYR3FmV2plbFE2TS9VakdQR1hGdlN3S05xQ21uRjZQUkhr?=
+ =?utf-8?B?b05DK2F4eGc4SHNXd0xMc1VRMlFZUDFUSCtjRVFPbTlaVWhNMzdQbG56SGti?=
+ =?utf-8?B?VXJoY0k2YktUV2lyQlJBMGdQL0VYcXVWZXozbTlwWXQ1MlNRVEMzUVhTQUJR?=
+ =?utf-8?B?S25NZWVtSU84SkV2ajdWQ0wvQ2FhUEpNQ2N5K2xrcmZFRnJTRmRFdTZNNjI1?=
+ =?utf-8?B?VHdlV0VYdTNpbDZhWnpXeVFFUEh4aFJYNjRBUnI0blp0OFF1MHVTVU9PODV3?=
+ =?utf-8?B?NythczExT0xXanFJU2wrYVA5UEJzUlR1V0dUUmx5QnJHK3BtMFc5Mjh6aGFp?=
+ =?utf-8?B?NHY1UjExQUlRSGxYc1hxNmtBeWRpaG5uSnJZUzV5b3FJOThTSnAwa2dZNjFk?=
+ =?utf-8?B?SGdNLy8vRG04djFsWmloNy9Ud0tOZ2cwSUZLSnhhVngvV0NXZytTSlAyeHhz?=
+ =?utf-8?B?bk52T0NnNTRaaEc5M09DUDhQVm53L2ovN2NOTlZCdURURThZN2J6ZC8vaTBr?=
+ =?utf-8?B?R3JOY0ZpbDJsb2d3anprZk1YRGJ0WmFFaDREemVhaWJDbHNiZWE4WEgrREZt?=
+ =?utf-8?B?ajhjQklOSU5GVWdUbXNaejFPek9WV0tscFJYdFRpTFJna2lNZGZnQXpEczJq?=
+ =?utf-8?B?dEdFVEJ4enZTWmRTL1ZGSFVHaWowZXV6Z3VoS01OK0FOL1J3MStTdFU2aGcw?=
+ =?utf-8?B?MWpGbnptZ2Z2Q2J2Qm1FZ05LTFBpZ2M3S0NBc2o3Mm4wSUQ5NDZSZ2ZlUm15?=
+ =?utf-8?B?ditBT3lMQjhUbDdQVEhGd1ZDbDhFT2pDUkx0UFBHclVXTXNTQ09BbmJSbVE3?=
+ =?utf-8?B?SG0wQnExQnoyNEpkMy9qNEJ3WGJHUlVDTkZ0R2NuQnhzQ2hXRGM0ODdqdFBj?=
+ =?utf-8?B?bmZ0VlFmZ0xRdER6N3ZCUzR3YVRFQXdwZDFsT25oU3RkaDF4bXRjVkNPYnhV?=
+ =?utf-8?B?MXprT2lKc0JFb1g5TlhqcUd1elFDdytTVitJMjAyWkd1d01Jd0RvaUlmK003?=
+ =?utf-8?B?L2xYbTc0bGYxUmpVMjFtaEZ5UzNXQ3k4UjhlNXQ1MjlROG5yS0RsQ0xyemxs?=
+ =?utf-8?B?N3M4ajVPOEMyTnYyMTJNRmxZODBEa2xMM2xIMkVuYWNBcFR4cXpERm5Jczdx?=
+ =?utf-8?B?VHZNbzhJdm5uK1d5TW5hSlhNVmQzR0ZrM1RnTHhsWGZUL21uWmM3emUzd3Qr?=
+ =?utf-8?B?ZUREajZBK2ZwWkVUaTA0L1Fxa2pTUkVaazc4YzI3c2VYQUhRMVFRSTZHM2VE?=
+ =?utf-8?B?ajhKbjU3S1JmTXJ1Tzl3NiszYm9kd2YwUVhJUVphcVYrcW1zNXJITVR3SUVV?=
+ =?utf-8?B?VVdKNGUzRXlYcGQ2MzFlZXdQcks2STVZU09WVHdGMDlzNnJCcHlpTEVucG5n?=
+ =?utf-8?B?eVRuSGtIWTg2ZllwS2pDZUhSNjBLRGVZRytFYWR2MU5CUDE4MzNpY0RFbG5a?=
+ =?utf-8?Q?zg2kXh6VUEYXQTGf?=
+MIME-Version: 1.0
+
+--0000000000003934bf062481baf6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Attn: Dear Sir/ Madam,
+Please do not be embarrassed for contacting you through this medium; I got
+your contact from Google people search and then I decided to contact you.
+My goal is to establish a viable business relationship with you there in
+your country. Please, I want you to understand that your Business Filed
+doesn't matter.
+
+I am Mr.  Stepan CHERNOVETSKYI, a Politician and Businessman, Investor and
+Founder of Investment Group (CIG) in Kyiv before Russia=E2=80=99s Invasion =
+of my
+country (Ukraine), since 24 February 2022. Due to the ongoing civil WAR in
+my country, I find it necessary to channel my investment project in your
+country, After my business has been destroyed by the Russian military
+troops and there are no meaningful Business activities going on in my
+country.
+
+ I am looking for a reliable and Trustworthy person who will help me in
+investing my deposited funds into any profitable business Such as  Real
+Estate, Agriculture Sectors, Construction Sectors (or any) TRADING Company
+in your country.
+
+ Meanwhile, if you have other  Investment Ideas which I may be interested
+in investing in your country, please reply to me urgently.  If you can help
+me.
+
+I await your reply for more information
+Yours Sincerely,
+Mr. Stepan CHERNOVETSKYI.
+CEO - Chernovetskyi Investment Group (CIG).
+E-mail: chernovetskyi@chemist.com
+
+--0000000000003934bf062481baf6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Attn: Dear Sir/ Madam,<br>Please do not be embarrassed for c=
+ontacting you through this medium; I got your contact from Google people se=
+arch and then I decided to contact you. My goal is to establish a viable bu=
+siness relationship with you there in your country. Please, I want you to u=
+nderstand that your Business Filed doesn't matter.<br><br>I am Mr.&nbsp; St=
+epan CHERNOVETSKYI, a Politician and Businessman, Investor and Founder of I=
+nvestment Group (CIG) in Kyiv before Russia=E2=80=99s Invasion of my countr=
+y (Ukraine), since 24 February 2022. Due to the ongoing civil WAR in my cou=
+ntry, I find it necessary to channel my investment project in your country,=
+ After my business has been destroyed by the Russian military troops and th=
+ere are no meaningful Business activities going on in my country.<br><br>&n=
+bsp;I am looking for a reliable and Trustworthy person who will help me in =
+investing my deposited funds into any profitable business Such as &nbsp;Rea=
+l Estate, Agriculture Sectors, Construction Sectors (or any) TRADING Compan=
+y in your country.<br><br>&nbsp;Meanwhile, if you have other &nbsp;Investme=
+nt Ideas which I may be interested in investing in your country, please rep=
+ly to me urgently.&nbsp; If you can help me.<br><br>I await your reply for =
+more information<br>Yours Sincerely,<br>Mr. Stepan CHERNOVETSKYI.<br>CEO - =
+Chernovetskyi Investment Group (CIG).<br>E-mail: <a href=3D"mailto:chernove=
+tskyi@chemist.com">chernovetskyi@chemist.com</a><br></div>
+
+--0000000000003934bf062481baf6--

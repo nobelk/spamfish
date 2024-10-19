@@ -1,0 +1,192 @@
+Received: from SJ0PR10MB4607.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Tue, 15 Oct 2024 16:47:19
+ +0000
+Received: from BN9PR03CA0928.namprd03.prod.outlook.com (2603:10b6:408:107::33)
+ by SJ0PR10MB4607.namprd10.prod.outlook.com (2603:10b6:a03:2dc::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.26; Tue, 15 Oct
+ 2024 16:47:18 +0000
+Received: from BL6PEPF0001AB74.namprd02.prod.outlook.com
+ (2603:10b6:408:107:cafe::c3) by BN9PR03CA0928.outlook.office365.com
+ (2603:10b6:408:107::33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.17 via Frontend
+ Transport; Tue, 15 Oct 2024 16:47:17 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.46)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.46 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.46; helo=mail-ed1-f46.google.com; pr=C
+Received: from mail-ed1-f46.google.com (209.85.208.46) by
+ BL6PEPF0001AB74.mail.protection.outlook.com (10.167.242.167) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8069.17
+ via Frontend Transport; Tue, 15 Oct 2024 16:47:17 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:F259A00755CA7F3D8F96B05A207FEFE111D5A01694A86691FB4460FA8464E700;UpperCasedChecksum:00BBEEA3248605A3D57515924E0723E82D4AC661571FEDCF2CBF7E9AE49541F8;SizeAsReceived:2540;Count:15
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-5c957d8bce2so2875565a12.2
+        for <johndoe@outlook.com>; Tue, 15 Oct 2024 09:47:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729010837; x=1729615637; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HRvLrcu+xhrhGuadgsXtHNdhBjs5rbpR3cicSQMvBV0=;
+        b=WHxAP1Zc+TcTvGNvQ1aZ1S5zwHwpcaOL9JosSU27olCAqCTGIb1A+1DpaJz40Ollui
+         XUmQT2kDvzdfdACHGvmOTLt3DegcOvCnWv9G2MGSZwE27N8Eo6rJYI6+82//4dDm6GeH
+         nZtSzLQt52eqYwn1SlR1rwQRD5CQ0YpNgqNZa3wJyPBdBH7nZCATHBvzZA3Jfw2U4B/G
+         f0b3kuyE/Y/Ds2j9b8eiX0ILks3OqElv8PJ78pzrGqrdmJ93uAqem992WWolgMsCxuRq
+         qod7Bj5bJd4cXOqfYJoAn/kQZZYPyqArqUFusov/JChyHSYePVAORTgKLA1aIHG9Pb84
+         fB/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729010837; x=1729615637;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HRvLrcu+xhrhGuadgsXtHNdhBjs5rbpR3cicSQMvBV0=;
+        b=BhOMzYfVVb2GrFjm4wC5vc/EMsSDWzYHtHCAoZNJHxSrmAnG92QR8HZZuF7gHI5pTh
+         hAIPa3eoaW+jMvvUVmIhTdj7b3NlY24Qnl2DSG/0tSP0ZN4TUEZnxHI3Mfv5Wj46cwxj
+         92lA1f28yGlQHU7lgeQjfeOhQru7gRbFkLuMq9+faQfMPEoQFJIR9MOs1swEiMV1rFJ2
+         fpqfK/VRvH4Jow2UZRWj88rRS8fgHN0Fxh5Nz9tb77S/OeNCL3N0GgGSXwYgyY5/QxUm
+         YldKNk0+W8WcNq05lGSWvGgI9gQU7X08H5d5gFqnO7tee67SoYZ4Oksn6vR0GHLVBan3
+         teBw==
+X-Forwarded-Encrypted: i=1; AJvYcCV98REf6NViS4Wdge1Q+zf5yXWlK93HBrmyayrhPkuoR9jfRDGdHkk2w13NEylIoIbPp9s1Hg==@outlook.com
+X-Gm-Message-State: AOJu0Yw5Yb/Y42DDgCLvY4CgAx/BWq8fVeyDoW7Q9wzi4VJC1PM45Ogj
+	Kl16dGI0PdQTpC4g28KJb9KHYposMB67DayrTje0GWfhIlhSCAAYKZ5FZby6M+wmsWFQXu0xfpC
+	KGd+bn1upS5zqxvlwCT3YuMaqa5Y=
+X-Google-Smtp-Source: AGHT+IGk8IyCS/wCTzcn3ygptbwrvL+ugIN9wgLeCs5EiJrAa2VhqbEWKS4CO0Uyu72fuuRbx7V382ASmoh9S1Atb+w=
+X-Received: by 2002:a05:6402:520f:b0:5c9:59e6:e929 with SMTP id
+ 4fb4d7f45d1cf-5c95aaf19c5mr20005902a12.0.1729010836431; Tue, 15 Oct 2024
+ 09:47:16 -0700 (PDT)
+From: National Lottery <hassannasiha191@gmail.com>
+Date: Tue, 15 Oct 2024 08:47:03 -0800
+Message-ID: <CAEBs6HRHHQhziwy8NzjtBNPmLMH7VPau4aRR9PtJdSo18phu6w@mail.gmail.com>
+Subject: Good News
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000b7ecef062486b426"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 15
+Return-Path: hassannasiha191@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Oct 2024 16:47:17.8285
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 5363ca7c-6181-4aeb-85aa-08dced3907b9
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BL6PEPF0001AB74:EE_|SJ0PR10MB4607:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BL6PEPF0001AB74.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/15/2024 4:31:40 PM
+X-MS-Office365-Filtering-Correlation-Id: 5363ca7c-6181-4aeb-85aa-08dced3907b9
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.46
+X-SID-PRA: HASSANNASIHA191@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|970799054|9020799016|2100799027|461199028|440099028|1380799030|3412199025|1360799030|1370799030|21101999012;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2024 16:47:17.7816
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5363ca7c-6181-4aeb-85aa-08dced3907b9
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BL6PEPF0001AB74.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4607
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.7796222
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8048.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?dHBCK2UrbUIrdUJCK3N2V2p0eERjOWhZaXJVendYekVGV3E2RnhvaERGTWx5?=
+ =?utf-8?B?N2JmUHEvdHE5MmdOWTZGa1hGVkN5QmtTc3BzdFlTZnFkbCtHOFZWOHBBZmtK?=
+ =?utf-8?B?blNiTklNb3BMUjFsZ1BkN2VzanBIWWdndUJLVmtpcmVHQUFXdENrZ0JjN1d5?=
+ =?utf-8?B?M2gzWk9vRnN0a21RYWRROVF0OEdNL2xaa05VVDBhWjZuUUhpbDVQV3JTZXd4?=
+ =?utf-8?B?MEs3cGp6RHZ0b29MQWRWYWVqYUxCcnpPVXc0TExPdEd4L2VPcktMWEJGQ0hs?=
+ =?utf-8?B?ZldiRGU0aTV3YmlWcTNXYkdRVk1wNndYNnY0MlhobW1TZCtHbXBXZHBubU5u?=
+ =?utf-8?B?ZlZGTEdZd3BBeTNIUW9aUHJRSThBYnhvMzl6L0JyMWtyazVwTE9BUVd6NSt5?=
+ =?utf-8?B?d01ET3E2Z0Z6Q1FweHcwYUVXN3BiaVpkVWNzSUE0Q3pYeGpGQUpiYVNIZkw0?=
+ =?utf-8?B?Uk1NVkdNR1BjUFZKbnZoTFRLY1I5ZFJIRHpWTDJMTEVjQ3Y1d0YrOHRBRnhP?=
+ =?utf-8?B?d0NqMUNnVGJFQWtPR2FwQW9wdWJHbjJPVjZnWm5zektVYUtTUFVLMHp1aVhG?=
+ =?utf-8?B?OXNnTHFvcjBzVUJnM2xndURvL0QwTitMcHJCbWdiOUR1ZkdSMzNldnoyeW9X?=
+ =?utf-8?B?d1hPaGxWNjArSUZQSUs3MDU1NDJnWWYwNDYrVXFPMGpGS0V2dWFSbnhnR3Zv?=
+ =?utf-8?B?SHF1UDFDd3MyNFVkMzlqMlB0NmZXTnhFZmdHcWZ1Tk1kcDIxQWVDR2lXQmtz?=
+ =?utf-8?B?YWhJRDJraXVQL1c4bGhldzI5NTk3SHlicnBKT0R2OXA2RzhGTjdDRkx3ait6?=
+ =?utf-8?B?dC94SFFQV3FtVHBIZE1zY3FRdU4zVTRGYzhET2tPeDV1VkhrV1JQbElTeW9J?=
+ =?utf-8?B?bk5JekdaZEFjWVhacTdOeUNOM2t3QzcwS2hxNXh6RzdoWElFcTdESDVZbVhv?=
+ =?utf-8?B?a3BMU1hCYzlOdHozWjI4UXRzWWlaTHNCR2xEN29OY2ZtaS9aL1ozY2NYRUhF?=
+ =?utf-8?B?MUQ1QVU2UUJzL1ZQakhPRUUwY0NzKy9ZU3Rmc1JLbkp6eFpMOEpzVVFVUmEy?=
+ =?utf-8?B?ZU5IdkF1Z1AvUlZFNkdEWEY3YkdqdWdGVDU4eDFxbThvMHMyY0kxRC9LN3hR?=
+ =?utf-8?B?eXJPM0xNcnVoWXRGQVh3UWdxdzJQWUZjN2V1V1RTeVliYkc2aW0xYm1YdGhI?=
+ =?utf-8?B?dXdtZWd2Ti91eGkxdDVNeHI5SzRMMlBwUkh2NUVNR3lnK0JRWmM1VnVIVmd2?=
+ =?utf-8?B?REJIYWNLQk5lVklTMHdxNTB4RCtUbU9hZFU3NGdkTTV6MVl3UWFzSFc4cHd5?=
+ =?utf-8?B?MmVpQkhISURLQzNqeUFvUUs5bW9adE54NDJZemZYYVlhS29hVWtqenhMcUMv?=
+ =?utf-8?B?MVBFcCtVZUM4UXFkOXY3dU13UjhUb2hrb1ZjTUs0YnlTNWlvVHJwNFpYL3gv?=
+ =?utf-8?B?UVg0bUpsSFhXaWVKTGJoUk5CTEc4NkgvZHFFZy9jdWYvZDFwZlBMRHRRbUZx?=
+ =?utf-8?B?VHFGM2JxVWltL2V0aGhRMUhmbUxPbjhFN1lGM1BESmZ4NUNBdVFGUCtSUTZT?=
+ =?utf-8?B?SnhzRE4wYWcwMTRRTnF4YWJlV1daQm1CSzVQZ0E5Y2xHMW5yODkra1BTQkgw?=
+ =?utf-8?B?NEpGaVRzemxQK2tZK0taa0xkaEtBTVZMWDBycHhobythcVpITTNPcTVST0Qy?=
+ =?utf-8?B?N1ZNQUUvMHF5Ym1IVGUwa2ZSL1NneGJsSjNKYnNVckZSdmFseEFwUTYvajNh?=
+ =?utf-8?B?Q1EyTWhsci9acEkzSlQvcWdrbFN4bmowdjdwYUM3bjF0ajdZUm1XUjM5MVhm?=
+ =?utf-8?B?Sjl1OGNVNXNpNVFzaWVHNURsbnZPT1FpWU5CbUdIcWdyUzJGc25JMFUrSGhH?=
+ =?utf-8?B?VGQxYUdvWUVjOFJ4RWV4b2RoS1FWRjU1a3VZT3RHTCtENzM1YUdXS3FOQWZD?=
+ =?utf-8?B?ZkFjb0dmaDZ5NzJlMy9DZEptQXpKOGc1dTVvZFA0OGZ4eHhFYUo5S2JCZjNS?=
+ =?utf-8?B?dWt1ZVhkZnFZdkZ0QnFRUmdzTnpBN3Y1RXRNMXJHaGRsMGpXY3RQbDZvdCtO?=
+ =?utf-8?B?Y1I5UVd0WkZhNm0yS2JZeUZxY3lQalZNTUErUkdHTEJBd3B1aFlQblpOZUo1?=
+ =?utf-8?B?N1VuWGEyOHJDUVFSTHNwY3Z2UlFXV3JLellQcGd4WVR4MldLcGNGdVdRZVNU?=
+ =?utf-8?B?Q3lWbmo1UHd3WW55Vk9nalREL2tWQk9qOTVUM2JBUUFIZmxxbDl4V0tRN3ph?=
+ =?utf-8?B?ZWhHN1lpaEJudTVsZW1CZFNlNzZFRDMrVGRxaXN3WDR2UjBrNFZ6eHIySWd0?=
+ =?utf-8?B?bmk3UzFBb1lCbXA2Nk9qQjZPUGo0Wkkra205MVlJT3VqL0dNUk8vRm1QNXhB?=
+ =?utf-8?B?YTlpSHhPY01LSzErd2FDcTdrUlBIbkVtNHJKQ09YNWFJZ0VSL2VPSHVERnFu?=
+ =?utf-8?B?UEF0U0YxSVZRaU1VZitnZGh1elB1SnVTMXh6bmkzUVkyVDVYallna2JzRW5p?=
+ =?utf-8?B?cXU2NnZFVVZGK3hvV1FhRm9Qc0RrSjJPQjJFUzBYbnNuMzIvdkVjaTJKbFNC?=
+ =?utf-8?B?WlpBVEs5dzZ5N2ZKbWl1OFdRYy9hZ1ZVanAyaXFnb3FVV2tiZG9GK1haeE84?=
+ =?utf-8?B?TUdVRG9JOVVibzQ3N1o4M1k4WDIvaVV3UFRpLzIwRnorWGFmNFVSMEkzcEZJ?=
+ =?utf-8?B?OGY2dUEyeHZ4ZmdDVlRSQXcwTkJkWFdYUjJPZ3hKR0VUZVZZNnJVZjd5bENk?=
+ =?utf-8?Q?1xi/lAmt9YdPcdLlyWg7d/G?=
+MIME-Version: 1.0
+
+--000000000000b7ecef062486b426
+Content-Type: text/plain; charset="UTF-8"
+
+We are pleased to notify you of the prize of Five hundred thousand pounds
+(500, 000.00) won by your email address in the National Lottery online
+promotion.
+
+No tickets were sold.
+
+Contact claim's Officer via email address below for details of your win:
+
+Contact person:  Andrew N. Halford
+Email address:  claimdepartment-uknl@consultant.com
+
+Sincerely,
+for
+National Lottery Customer Care Team
+
+--000000000000b7ecef062486b426
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:verdana,sa=
+ns-serif;color:#0b5394">We are pleased to notify you of the prize of Five h=
+undred thousand pounds (500, 000.00) won by your email address in the Natio=
+nal Lottery online promotion.<br><br>No tickets were sold.<br><br>Contact c=
+laim's Officer via email address below for details of your win:<br><br>Cont=
+act person: &nbsp;Andrew N. Halford<br>Email address: &nbsp;<a href=3D"mail=
+to:claimdepartment-uknl@consultant.com">claimdepartment-uknl@consultant.com=
+</a><br><br>Sincerely,<br>for<br>National Lottery Customer Care Team</div><=
+/div>
+
+--000000000000b7ecef062486b426--

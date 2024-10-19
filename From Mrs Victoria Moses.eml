@@ -1,0 +1,200 @@
+Received: from BLAPR10MB5204.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Fri, 18 Oct 2024 06:52:25
+ +0000
+Received: from AM8P189CA0029.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:218::34)
+ by BLAPR10MB5204.namprd10.prod.outlook.com (2603:10b6:208:328::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.20; Fri, 18 Oct
+ 2024 06:52:24 +0000
+Received: from AM1PEPF000252DE.eurprd07.prod.outlook.com
+ (2603:10a6:20b:218:cafe::e1) by AM8P189CA0029.outlook.office365.com
+ (2603:10a6:20b:218::34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.21 via Frontend
+ Transport; Fri, 18 Oct 2024 06:52:23 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.217.54)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.217.54 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.217.54; helo=mail-vs1-f54.google.com; pr=C
+Received: from mail-vs1-f54.google.com (209.85.217.54) by
+ AM1PEPF000252DE.mail.protection.outlook.com (10.167.16.56) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8069.17
+ via Frontend Transport; Fri, 18 Oct 2024 06:52:23 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:B9A380A19D14FF583062785FEFFB240B6EF31348EB1306DFAE77CB8690A20C1D;UpperCasedChecksum:23409926179FA4949EDF420CFF03AD340B22BC3FAE9687853F14491E78F58225;SizeAsReceived:2608;Count:16
+Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-4a47d70cd8aso534446137.1
+        for <johndoe@outlook.com>; Thu, 17 Oct 2024 23:52:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1729234342; x=1729839142; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RNbkNBjrE9qD7f3IYMK0aaBw6AYeBq+jSgrFQZAhcwU=;
+        b=Pd+55m4AwEOxLx5EngkIc0G6V6U2bBjN+R4tL/pBhPLkuKI1GqunJQzlehNeK4LOJw
+         bNj+ChDS9XwVCu7l9I/cmclxJyiQBBcaEvnUSPa5kaJzjpRfpplxgmikSpq2gnLZCjGV
+         Yvc78Edcycf9nSooBRusPFhKcM5HFmXfTFkfUpLGpYdRmTlHnunw2xU3YVUeMK8lzp4Q
+         izo1C+REK3PGP51ZKm1OenNudrzJgodnwbCzYX0vhs4tCFJX21gdB3c2cF7/3H+98TdQ
+         GG5rosrZJ7+3A0iPCWst53Zq6lxjb/YbIRe8Afme48VICbeP5ORpRYYVzSm3r3B5709j
+         Sttw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1729234342; x=1729839142;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RNbkNBjrE9qD7f3IYMK0aaBw6AYeBq+jSgrFQZAhcwU=;
+        b=dya5EExBnGXTL1C5Pcgxl6BXTF19oDKqAC48RocIUdn5CfXZ/9RUqQSl/g99oJJsOo
+         nxkLkDpeoIwr1Hh8SKcJRB9XyBZJ5xizMQ2XTeATJyP3lWw54iod9APdKrnGUvIdiG3b
+         PbsVUsOu62HVh7x9z6yvBHf8sWiCj+gvDXamvTLZyUd1Vzk1zgLRwcjjJX+h4lbmmB6O
+         E09EkwB3vi5fdjuQd7GdgdgtBQVJKK8ocvz+3RHiX1eOFw+9vCgDRODec8imnxe4aJz2
+         gaB/m4T9fFxl+zEGYC5fDLNYjnCErOOYKcwXKloB+lOAWvuvlnvArO9QPzNgtaaIXsCy
+         4bMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgLKZ+KY84ac2fd/vPVaDZ8N3hAeAFBQH/EPuutpeJp5OL3Ph18dyQCTbJ2+rmMsvYNszGlg==@outlook.com
+X-Gm-Message-State: AOJu0YxZADRdf9uN8PwsJT3wgDy6j2WCowqjs7kQaIkUtfZAcersItCc
+	Nvu/M2rhVTT/OtU9xT/1GkTFPNpDgS8x0abKcZABnkd9X2H54iF8C9wq6rd2+W4sYWwdnI76svF
+	ybket78J9ktKL48D0KTtIk7XUAUg=
+X-Google-Smtp-Source: AGHT+IGaAlgJcldhjpgEHJrCpET7NJFDF+w2z15AyuHmY8DncZD5NjELoZ4i4Tb7xnN63xnubsZPIvEuhDfd9nVhz6Y=
+X-Received: by 2002:a05:6102:358f:b0:498:ef8d:8368 with SMTP id
+ ada2fe7eead31-4a5d6b15e08mr1563802137.13.1729234341116; Thu, 17 Oct 2024
+ 23:52:21 -0700 (PDT)
+Reply-To: madamvictoriamoses@gmail.com
+From: Victoria Moses <bswissnational@gmail.com>
+Date: Fri, 11 Oct 2024 07:56:23 -0700
+Message-ID: <CAOp_AVX42-oYb=k2E1w4UD7gBXWEV5VF6erjZduS4FiFkAfxcQ@mail.gmail.com>
+Subject: From Mrs Victoria Moses
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000a2cbd60624babe11"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: bswissnational@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 Oct 2024 06:52:23.4009
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 5d971236-e241-43b5-5d2f-08dcef416b6d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM1PEPF000252DE:EE_|BLAPR10MB5204:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM1PEPF000252DE.eurprd07.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/18/2024 6:23:47 AM
+X-MS-Office365-Filtering-Correlation-Id: 5d971236-e241-43b5-5d2f-08dcef416b6d
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.217.54
+X-SID-PRA: BSWISSNATIONAL@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|3600799018|9020799016|461199028|970799054|2100799027|3412199025|440099028|1370799030|1360799030|1380799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Oct 2024 06:52:23.2759
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d971236-e241-43b5-5d2f-08dcef416b6d
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM1PEPF000252DE.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5204
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6427846
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8069.009
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OXNnK1hndmo3bHJMMkRkRVVrVUUvZ3ZoeE9LdUFyajg3cE1pcEs3VDBHcEVk?=
+ =?utf-8?B?eDh2bS9uUExZOHNTK2lZeUtDUW1XSjlPR3JXMFpkejM3Yy9lOXMvZ3pRaENP?=
+ =?utf-8?B?aE40cEg4LzA2dEMwekZYNEkxTTdxNnd6RzBuVlJFMUZqL1IxemE5VHpaa0dk?=
+ =?utf-8?B?bnpFRG5yd1AzaUxiRUd4bVQ4ejVGVFFpa2g2dFlPOEZyYlFhY0JsZndxNE5t?=
+ =?utf-8?B?cVNxL3dvTXFlZlRSdTZmNDROaU5kWDNTeUpkeHF4SGF4cnFpbFhRaGtOOXBB?=
+ =?utf-8?B?ZlFiWXd0TVp4UG54WHpQSTQ2d3pVdUR3YVpHUi90U1o5VU9iWXdETDQvdDk1?=
+ =?utf-8?B?MVNoS1RETEVobm1zd3ZQU0NVM1BJem1QZlo5dk92REU5cVR0MUNPZURCWXJY?=
+ =?utf-8?B?MGZvWkcvWFpFZ0xJY1RwOWhsZ0o2RVRJMm5ja1d1aHVpQnZIZXhNOEtSbWlp?=
+ =?utf-8?B?VFI0ajQvVTIvMG1kVld6Q2ZqRVFCUWtwcW1uWE1rM1VObW5tck9zSytKT1J2?=
+ =?utf-8?B?bk1sSWpYSExzekdnTjlQczdiTXo3SnRTY3pDR3NpRVJYMTFidnprYkJSUjRw?=
+ =?utf-8?B?U094RTRZRzNwc05QbjhKL0Rqb3ZEZ1JaRlpDNFp5dnBYZHcrc2ZEOStwUHBR?=
+ =?utf-8?B?N1d5b1dVa2htdlN4QXJTWEhvNzJrZzFLRi9XZmtZWjR4aTk4UEsvWkN2aGg1?=
+ =?utf-8?B?MzgxRDlsMjlTUk1xUEFMN2VibEdONGV6V0llZlFlZHhGYndGZEgydVFtcGxV?=
+ =?utf-8?B?ZVp6aTkyY2tkQXhIemVHVDB3enl3WmU5QjN1bnRGeCtHZ2k2cGVrOXFTc1R1?=
+ =?utf-8?B?Y1I1QnpRYS9LUm5QQ00vN1hzMjRmTG9BTHlpVTFOQmV6S2FCZnNZbUplM2du?=
+ =?utf-8?B?MUxQclVmU3VnRVlNVkJFUGdZN1V2R0xlV0ttbjlCS1kwSGdWZksvQ05HNEE0?=
+ =?utf-8?B?M01leGUyVjJ3S0FmR0l0WTVIZFFKMWI3Z1JsenFGQnNFaVFCYnpsWWhuZkU1?=
+ =?utf-8?B?dnMzVlQ3N2U3MitWMzRtZDgrNEZJMVpOWkppdzhnS2dLTXYvRHpFL0gvYjI3?=
+ =?utf-8?B?YXhaQnFaN254U29YL1BiNStyT0pqWWxlUG0wNVNDNGJlVndWNXVKeThtVVgw?=
+ =?utf-8?B?L2lPVERtRHBmN2J0KytxL1h5KzZvTXZDbGNmdFNvT0FXdFdWdnVPbmtLVkF1?=
+ =?utf-8?B?ZTl4YUFqY1BDcGtaZ1ZSTU5RRFhjTm9vYUo4ZmtaS3RvUFVyMkZHRElsOTRE?=
+ =?utf-8?B?MDNWWjZLR2l1dUFQdzFBaW0yTjlyODlCbVZBck0zWGlQcVB3WEtBWEpLUGhP?=
+ =?utf-8?B?U3BWTkVMTU92ZHpocTBDS250dW5ISXdQQzNoVmhFQ1AxVGtxNVorMWJQUmFu?=
+ =?utf-8?B?bC83NlNCY2VqWGZWalNhZ3BuM0FIZjVCc1RNZUJQeHZ6YVcrdEJHRXpGWWVX?=
+ =?utf-8?B?QytKallaS3F1NnpGRG16VkVDWndFc0MzVGZPaDlNcjdLUVEzdmlFdXZyVnFp?=
+ =?utf-8?B?L3ZkV1RaNkptMUFMandneUpmZFpwZmFtY2FOZzFRT1ZibGJacXRJZ0FPbVRB?=
+ =?utf-8?B?Z1lUQjhDR3d4RjVqQmFOTjZycmJ1RTloelFTcFd3MTlyMDZSL3doOThSZzI3?=
+ =?utf-8?B?dWR4bW5WVFBqZ29QOURrcTlrdHdqam9VOFBaM1lxRk85WXVLaG54NDZwL3g1?=
+ =?utf-8?B?d1M1QTdOSEUxN3lvZ3dYTlk5MERRaTFuSHpSVTBQSEk2am04dHhVN3A1WXMz?=
+ =?utf-8?B?MDl6VStBWERzd0lZZlc3SGpJUXBIQjMwU1hIM0ZiWjFSSVhCTjErU2pRRHNQ?=
+ =?utf-8?B?VS9hbFAzbzlkb3JvTGdhYnJiTmlaenRZalVCZGRlejE3N09RTHhMRVpFSXRX?=
+ =?utf-8?B?Y0ZENlg3Y3VDbWJuTlZXOWp4U29PNkRkeW5ONW1ZMDNlZmxKeFV1WkxtSjJ0?=
+ =?utf-8?B?UFYxQkF6d0pqTXc1NkFoVitqdnZUQm5TcUdIT3h6LzZFRUlvTVVBTUlVcjRW?=
+ =?utf-8?B?b1F4RmR1eGhCZnBiY2ZHVTBTN0phZ3hIcmlzcUxLcG9rcXVrOGk5MmZaaXNI?=
+ =?utf-8?B?S3orL2ZBcFU2QTFDbGtLdjl0Z3FuMU41MXVPM3I1V2JES2gyU1lDNGNvL1RW?=
+ =?utf-8?B?UmJmMGg0SEFzSXFVcytzOUc5b0RaQVBMeWMyK3RoOTc2RnlxWjhWcnhBSGZN?=
+ =?utf-8?B?K0d5d21pYm90VzJhRktkcmEzeE15a1pla1hpd0FoQW9Fd1VKbnJ0RE9KbC9X?=
+ =?utf-8?B?WjBFRHhnNktxWENOMkJySjlKaGdrTTczQU13L3NDbEtCVkh4eEplc3dkME5D?=
+ =?utf-8?B?U1FsWVR5V3N6d0ZrMENHMnRXRjFHOXRybGlMWVB2ZVphL0gzTDJTblhJaHhl?=
+ =?utf-8?B?eGdoRXQxN3p3UmhvSkNTdHlmQjNsTWtmZzlYQWpJeWJJQ0s0bWZkVmUxK1di?=
+ =?utf-8?B?djRzYUlDTHM5ejRMZmFVQVg0LzFjdVNzODFuSnU1S1ZiNjlVQXYzTzlZTGF1?=
+ =?utf-8?B?S3lqOFhOMlpUUkhqRmpyMThuVXVCRjFkWjNaWmtPZXhrMHA3TWtFUmFjVC9B?=
+ =?utf-8?B?WUhFMTNScjBOQW8xVEY0MStHQW9iQXV0MzZyUS9sNzBHZnlzdDRLMnpuV1dE?=
+ =?utf-8?B?d29uWTl3UUNNa3ZlRUp6b0p2M3pEcUtuVWw5NGk0ZFMrUUNjRk1rbVZlNXVP?=
+ =?utf-8?B?MzV2Y1g0bmNaejRZbXUwejNIaWRDN2FNekRXb3I3bW1CMk9nVVNvb3FQS3Jy?=
+ =?utf-8?Q?lc=3D?=
+MIME-Version: 1.0
+
+--000000000000a2cbd60624babe11
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Greetings to you,
+
+I=E2=80=99m contacting you because I want to be your friend and confide in =
+you
+because I have in my possession now 92 Kilograms of Gold Bars, Quality: 23
+carat, purity 96% that I inherited from my late mother which I want to ship
+to your country and sell for investment in your country because I want to
+leave Cote d'Ivoire and relocate to your country to continue my education
+in your country.
+
+I want you to stand by me as my tutor and ship these Gold Bars to your
+country and sell them for investment in your country. Note that I am
+writing you this email purely on the ground of trust because I don=E2=80=99=
+t know
+you and we have not met before.
+Waiting to hear from you.
+
+Victoria Moses
+
+--000000000000a2cbd60624babe11
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Greetings to you,<br><br>I=E2=80=99m contacting you because =
+I want to be your friend and confide in you because I have in my possession=
+ now 92 Kilograms of Gold Bars, Quality: 23 carat, purity 96% that I inheri=
+ted from my late mother which I want to ship to your country and sell for i=
+nvestment in your country because I want to leave Cote d'Ivoire and relocat=
+e to your country to continue my education in your country.<br><br>I want y=
+ou to stand by me as my tutor and ship these Gold Bars to your country and =
+sell them for investment in your country. Note that I am writing you this e=
+mail purely on the ground of trust because I don=E2=80=99t know you and we =
+have not met before.<br>Waiting to hear from you.<br><br>Victoria Moses</di=
+v>
+
+--000000000000a2cbd60624babe11--

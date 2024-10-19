@@ -1,0 +1,182 @@
+Received: from BY5PR10MB4290.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Wed, 9 Oct 2024 11:57:59
+ +0000
+Received: from CH0PR03CA0373.namprd03.prod.outlook.com (2603:10b6:610:119::7)
+ by BY5PR10MB4290.namprd10.prod.outlook.com (2603:10b6:a03:203::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.16; Wed, 9 Oct
+ 2024 11:57:58 +0000
+Received: from CH2PEPF0000009F.namprd02.prod.outlook.com
+ (2603:10b6:610:119:cafe::ab) by CH0PR03CA0373.outlook.office365.com
+ (2603:10b6:610:119::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.17 via Frontend
+ Transport; Wed, 9 Oct 2024 11:57:58 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.194)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.194; helo=mail-lj1-f194.google.com; pr=C
+Received: from mail-lj1-f194.google.com (209.85.208.194) by
+ CH2PEPF0000009F.mail.protection.outlook.com (10.167.244.21) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8048.13
+ via Frontend Transport; Wed, 9 Oct 2024 11:57:58 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:951F7953D70150D0081ADF939060C511A4CF85C15EB7D875F67A47BC9178D797;UpperCasedChecksum:46F9E5B8F560BE4F57938092F72024093D444B1ADAA9C20706DEAC86D1DE1A87;SizeAsReceived:2521;Count:15
+Received: by mail-lj1-f194.google.com with SMTP id 38308e7fff4ca-2fad75b46a3so65198331fa.2
+        for <johndoe@outlook.com>; Wed, 09 Oct 2024 04:57:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728475077; x=1729079877; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=BhqupiyBr6zYuCjgL1+Zg0zEbXfPpwgFwZfa4NbO/mk=;
+        b=iP6lGQe+HI/qu5Rv5XUJt6qc4Y3vTm3c/BsZKBNDca9A3d1CCxugoVAyVjCooDr+f1
+         abJlqQu62COPy6oV3/lH1IdZX48jPnssZt1w/Af+G2nrzWRqZqqjen/6NgVgxIGm4IHO
+         CIa05OksI6Elh/rAOAbq3aFvne9QMeRCK48v+Mv4SZG4nhps02CKrquRJ+A2jz0VvpO3
+         4e0Xuk3DQfaLLtC95mgNEqjprgIb7I6ZXqd1Mo+Di8LPIOj6mk2ak+sTW17Kb812tw2Y
+         /nzJeeiRzNFJe/tYxOlULvMXypn79Lb104IYq5OZqKFCsqIfhYqRhNLPzla1r8SyPto8
+         XBng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728475077; x=1729079877;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BhqupiyBr6zYuCjgL1+Zg0zEbXfPpwgFwZfa4NbO/mk=;
+        b=OEr8BjNS2GyGB0rOFIpTbzhydR/p/YZHaCSwktRS4sa59cp8ZwSZtVi942WzenCaK7
+         5d0Icjqp9IdjlK1u4butnEYlj4Zbg2Ztqzhsy8lOT9Fp7vbjTV9cV+Zy0mqbBBgRFjO+
+         qp/f7h4LPdwJGISFNotlTuYGLZ3W0qwEuNmUsXesbAtm1iTCpyO2j96ztMzKp1bX5BMQ
+         7Gjowh/tOSA8WdPq8+TpA9Dno+1T5VlclvNQdqX+RKOEJGkhWENCZn203AHaL2y37pjl
+         fZpX0phek1CPPjLqQMHZ7KSzX3VKaXs5oPAzWlQ9BfNMGkqPlZkgg4ej95mZ+B83OLqD
+         6GXA==
+X-Forwarded-Encrypted: i=1; AJvYcCXxfNf6pYMSHjj9SXLj6Ebng1dS9kX/iYU+RWcPc+M17csvzoBcDaYUQPDytVhEKHwVknr/nA==@outlook.com
+X-Gm-Message-State: AOJu0Yza6b5alFo+gkIEOx0vwOlCxmhQpdL/m7ity+i0l7mfcG3g7ram
+	Qgv3rsZJxd3taUN+vxYHQmHcOwnTtTBjsPeqrur1qvfQXNNFKbFH6HWPLCnXGAEWaWw/vHBiUJG
+	el+yCYFP7wXRo6JhZ+6gj8sjIwYo=
+X-Google-Smtp-Source: AGHT+IGrwWAc5eSyxEaNcRoL1V6yTLgmCA3SlPz8NER5B1fgWFk3X38i/1SBsjhw6RzkYuYeSL0BV3Fq7mMhH6I8jSs=
+X-Received: by 2002:a2e:be22:0:b0:2fa:d354:1435 with SMTP id
+ 38308e7fff4ca-2fb186345c4mr13035051fa.0.1728475076158; Wed, 09 Oct 2024
+ 04:57:56 -0700 (PDT)
+From: Mrs Marie  Philips <kossi208emma@gmail.com>
+Date: Wed, 9 Oct 2024 11:57:41 +0000
+Message-ID: <CAAc03mvyUePzOT2Sh96fNE5Mz9vA0tM5t_dYMcjedHAeoj_afA@mail.gmail.com>
+Subject:
+To: ej0128057@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000eaef2d062409f699"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 15
+Return-Path: stephprincess17@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 09 Oct 2024 11:57:58.1742
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 29e467f8-31cf-4592-fe0d-08dce8599e15
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CH2PEPF0000009F:EE_|BY5PR10MB4290:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CH2PEPF0000009F.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/9/2024 10:19:46 AM
+X-MS-Office365-Filtering-Correlation-Id: 29e467f8-31cf-4592-fe0d-08dce8599e15
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.194
+X-SID-PRA: KOSSI208EMMA@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|2100799027|2700799026|970799054|9020799016|461199028|1380799030|1360799030|1370799030|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2024 11:57:58.1430
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29e467f8-31cf-4592-fe0d-08dce8599e15
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CH2PEPF0000009F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4290
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.7201306
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8048.010
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?WmV0eDJDTEhpa0V3ZHRWZFJHWTJra0F0bllEbXZ6SWtoMXE4RzFQcnQyZ1hp?=
+ =?utf-8?B?RXd0RnJBMUNsTWI5WGk2YTA3Rk5YVytTSnROaEtLQ29nSWVjNHAxR25tQVc3?=
+ =?utf-8?B?WktGSENydjhnVG1sa09DWWk4d3A3eFgwVldHWG0wSHJMTjMyUVFYNlJTaW5i?=
+ =?utf-8?B?cUVlMjZxRDg4S2tUUVRDWHZVWndGdzNMNHRqN1k3eVVDeUZrU1luUGE2U0pn?=
+ =?utf-8?B?T0x2VTEyUUFMQ0JhYlZaR1hlN080ZHZXRnEwRVFQMXR0VUN0NGJRWkNvY0pB?=
+ =?utf-8?B?YWoxbDVmNEsvWjE2YXQ3K0dFcVdGZGJEUlRsZVQxVmU1dVRxNG83dDhvankz?=
+ =?utf-8?B?Vk01MGpxWjJPTURvcVN3ZXE4TnFlRzJJcHBldVphcVk4NytuYjVmc1pQeGha?=
+ =?utf-8?B?c2N4eVI0THN2NUNvZWJMU1l1dTJYc0Y1OXR4RFdGVzBxZ25Gd256UmI4bFVD?=
+ =?utf-8?B?UTM0enA2b28xRHh4K3ZPYlJPK0FLcTBJclAzVS9mNFBWcERWaGZuQ2wzQ3Vp?=
+ =?utf-8?B?ZEk5Z1lpNU5Ob0ZsZmVqdFZOQjJDNStqM05yVEhacnRBTTdtT1NkeVY1dXFY?=
+ =?utf-8?B?N2c0Zm9yNTNhOXNWT00zcVQzTk5zTXlmMjg4aU9hdk1TNTVTTDRUaUpTMXJo?=
+ =?utf-8?B?RUhFN2o5U1JHZzFOQTZicnA1eDEvNGpYNktIMnJucU1pSzVEZDROdXRLQ0NS?=
+ =?utf-8?B?UmtaY1FCVmNEUllGSUhUMTJjcXFHcW5vb292VVkvcEd6aWpnRm51NHZaOWd1?=
+ =?utf-8?B?akhqTytIaHFsQ3BGQzFvNGJMVGI0VHFVV25ueGIxS0U0RVpzTCthV3VwWUZt?=
+ =?utf-8?B?T3UwbVJySFpkMWdKcnRCS1BKQkRmUVhNcG52K3FQZjRXdjZXUzhtV2hyMzlN?=
+ =?utf-8?B?SDNmd2lTejJKV0x4UUhIb1A5WkFLbjh4eERFKzl6MDduNzNRR1RCTWpsd2Zq?=
+ =?utf-8?B?aUhNc1NNZ1ZTeHJVUkVaRzROUlpKQXRyck9VRUdtVWVuaVNYREtOaU51UFE0?=
+ =?utf-8?B?SUNObE9BU3hnSXEwRzI5eHZoaDFRQ2s0SCsvQlUwY3pjVTBNZ0dyTXBCbnI4?=
+ =?utf-8?B?V3FHQllGRjZGNGhZdnMyNkJiMXJIMkNDRHYxVmRURXA0YkxNTG56dWJTMmlY?=
+ =?utf-8?B?UXRINjUvRUY5cmdkWGJHRlZZNzVzRWErNTNFSkdVeElFZHFkMGlweEd5NG9F?=
+ =?utf-8?B?bmJPZ0RaYUdFZGJFWEtIMTBpRFViT3YzRGxWM1pocS9vWTdVNTN4VkdPaklU?=
+ =?utf-8?B?STYvMWhaM0JGbkZBNDdDWHBYN2xnZTNnV0t3OVpPZlJCM1l2UUp2NDZEM3hE?=
+ =?utf-8?B?V0dnNmppQVZoNEFYNklFSmhnV1NueWc0WFpJVUV5NUtBcFdBSmVmVzBnbkFl?=
+ =?utf-8?B?WTZaWjR6Ukw2amk2K1paRVVFUEVNci9hWXlES1BEQmYyaHA4cFFMclIyVVpz?=
+ =?utf-8?B?c3ROVm1SRHhPM1dIYnRqeHJveFlUTzZSR3NKcnc2R0ZMN0s1NnlaWXp3Z0hZ?=
+ =?utf-8?B?WEFhMklNNDJhSFVnWmpHRDBOOFo4TkU0ZlZkRzVaUEF0YWl4S3VnMmxoaE1u?=
+ =?utf-8?B?TFFyRTliMU5tZHhjaTIxODJjU2o3K05pNjJXb3JtNXgwZmk2NHhqUVFWRjBF?=
+ =?utf-8?B?d2VaTlNaZ29lK1JacS9zdDRvTmh1a3I0WDNLU2FISFFNNkRpRy9RdGpwYmw3?=
+ =?utf-8?B?cmdXYmd0Q3F1bWYrS0kzSStWVjdjSzVVNkdoZGcwN280cDdURklzQlVrT2d3?=
+ =?utf-8?B?bEd0V0tLU25qc2xHQWY5dVp5bFdxclptMmt1RmtVMmduVkVyN2IxOUZPa0Z2?=
+ =?utf-8?B?Tm9hR0N5NER1VVBhK2xvWmd3YTdzcUF0Z3FybG1ycnZpTWNUTDVackRNYmg0?=
+ =?utf-8?B?TGhneXRGRHhla04xSWFQMU15RWNPbEVDRG04MEYwOHRpbFFmWHN5TUZnQVdQ?=
+ =?utf-8?B?UUVjMWVjZ1VDOGIzTjJSei9STGhsT0dzYkpnWUNSM3JJcDJ2ZTdwUWlwbENS?=
+ =?utf-8?B?UnNNaWduYjhJejVwcmhsblpVRkpVdTRpQktwek1KTHhhRmpPTG4yNHZQZ3VZ?=
+ =?utf-8?B?RUtlZnFIY2QzaGEva1NsTXpMTFpTWmc4S1ZWQzVDS3hLaG41aXNGSDR2MTVt?=
+ =?utf-8?B?M1pBNWgzZDdRV2FPWUZCSGxtNXFsREhPejhHekM5bjhPSlMyYzBoRGRhN2VJ?=
+ =?utf-8?B?Sk81VWU0SG4wU0s0bkdiYUx2cFk2U2J3eWp1dXJWTDJEOUJodUF1U0l0QnR2?=
+ =?utf-8?B?MlNwRVpGSDE0Y1U0VVczeUpaMUhXblJJVmxHT1JjKytGTU9DeEgxc1JyeXpG?=
+ =?utf-8?B?ZzBqSnE4cGRqZWZwTU5abUgySVp1U3Z1SElSVUZoUlZMU2czVWExWFJXOTJG?=
+ =?utf-8?B?WnRYOEZ3YmU0akV6Ty81UkZCMHlBdWpEbTdNTlZSWVRHeExjbndQbjNsOUEv?=
+ =?utf-8?B?L2h3b2Z1NWorcm0zTDJBOEh4VTFmYjMyTFlLbWlzdEZSYkFQQ1EyM0trZnFx?=
+ =?utf-8?B?RG0vSFVoMkEwSkd5VlhJTlFyNU9ZOHlDNGhrOEd5QjlaMGZsbEJkTkVpbzVO?=
+ =?utf-8?B?TTN6MFpnR1ZQOGJabVFCMHJkSlIwenpJR1dMdzlGaC9WcXRuNkRTU3IzN21L?=
+ =?utf-8?B?R1ZnSkFVR0tFL3Z5ZnNML28zR1V6NG96L05pWUkxdmxob0Z6K1RFRFh5OXNH?=
+ =?utf-8?B?eDI3U1NBdWp1N0dEUFN0VWwraG1JVVo2bUxuSFNFVXJxUE01VlduZnQwUXFG?=
+ =?utf-8?B?dytPZzhjQVZVektNWEEwNnhPN2RRUDFsd0VlcGxCeE96TlNmVU5XRHA0QWto?=
+ =?utf-8?B?WVN2YlBTYVZmZmhQUHIxcXlWRU1UNzFPOEdxa3NkdGZZemhrd0pBNzNPdm0w?=
+ =?utf-8?B?RFdDU2twUzZ4by9ZWklwRzlmT1VuUkRma0oxUmRQbjI1QlRuTlVobFVBVElD?=
+ =?utf-8?B?QXZGUUp5RzI5Qklrb2Z1eW9JbHI4S2hsRTRVTDAydDBXZStCUnRNbTlQNnp1?=
+ =?utf-8?Q?66w+T/q+CdMvRc=3D?=
+MIME-Version: 1.0
+
+--000000000000eaef2d062409f699
+Content-Type: text/plain; charset="UTF-8"
+
+Please I need your urgent attention  because I have a big project for you
+which will surely benefit you and your family.
+I await your urgent reply for details of the project.
+Mrs.  Marie  Philips,
+From France.
+
+--000000000000eaef2d062409f699
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Please I need your urgent attention &nbsp;because I have a b=
+ig project for you which will surely benefit you and your family.<br>I awai=
+t your urgent reply for details of the project.<br>Mrs.&nbsp; Marie &nbsp;P=
+hilips,<br>From France.&nbsp;<br></div>
+
+--000000000000eaef2d062409f699--

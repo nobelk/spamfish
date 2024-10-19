@@ -1,0 +1,163 @@
+Received: from BY5PR10MB4291.namprd10.prod.outlook.com (::1) by
+ SJ0PR10MB4464.namprd10.prod.outlook.com with HTTPS; Sun, 13 Oct 2024 15:55:22
+ +0000
+Received: from PH7P220CA0110.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32d::21)
+ by BY5PR10MB4291.namprd10.prod.outlook.com (2603:10b6:a03:207::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.26; Sun, 13 Oct
+ 2024 15:55:22 +0000
+Received: from SJ0PR84MB1894.NAMPRD84.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d:cafe::73) by PH7P220CA0110.outlook.office365.com
+ (2603:10b6:510:32d::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.26 via Frontend
+ Transport; Sun, 13 Oct 2024 15:55:21 +0000
+Received: from SI2PR02CA0023.apcprd02.prod.outlook.com (2603:1096:4:195::11)
+ by SJ0PR84MB1894.NAMPRD84.PROD.OUTLOOK.COM (2603:10b6:a03:434::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8048.26; Sun, 13 Oct
+ 2024 15:55:19 +0000
+Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
+ (2603:1096:4:195:cafe::47) by SI2PR02CA0023.outlook.office365.com
+ (2603:1096:4:195::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7982.34 via Frontend
+ Transport; Sun, 13 Oct 2024 15:55:17 +0000
+Authentication-Results: spf=pass (sender IP is 193.226.188.226)
+ smtp.mailfrom=mcmusic.ro; dkim=pass (signature was verified)
+ header.d=mcmusic.ro;dmarc=pass action=none
+ header.from=mcmusic.ro;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of mcmusic.ro designates
+ 193.226.188.226 as permitted sender) receiver=protection.outlook.com;
+ client-ip=193.226.188.226; helo=cpanel10c.gtstelecom.ro; pr=C
+Received: from cpanel10c.gtstelecom.ro (193.226.188.226) by
+ SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8048.13 via Frontend Transport; Sun, 13 Oct 2024 15:54:58 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:D85479AFA0EE3E2829C8B7625858261989791D7414284BC34DC5A19D45C95842;UpperCasedChecksum:D07F95F60BA491BE6AA61F0CE878ED939CCCF8FEE9C443B9B91F7B7B3CA13C5B;SizeAsReceived:1972;Count:24
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mcmusic.ro;
+	s=default; h=Content-Transfer-Encoding:Content-Type:Message-ID:Reply-To:
+	Subject:To:From:Date:MIME-Version:Sender:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=TNuF5jCAsWq2Kot7uqXh3rykZSzmTf66bSAjaIJdptw=; b=s1zN+1Tcmk7Qk8jVL6LhD74ZAd
+	f+8QXVHvx/6DRwkuNe21HJcaKVR93Xnk7pLBAYbKNk1Ec4pova88s5r9CDKWSpFHftGuAhFL9teKr
+	nFVq818D/K6/Blrxv1SIEinme18xzXzWYQHD54Iq3m3FA/uxG+Z3b9q6TYJzGRawLbwGC4ta1LhLZ
+	/PyY+apS2syUe3PcE/fVb8eq+VLXRyXnbprDp9SnpcOERQA9Dh5wQBRkjqdg6Dg/Pg003kfZ2Pj2f
+	nEbJcVpahEhxbqQRAYuzJHR/K6p8QnoGELfV67sW0Q/8R1RgktU5UVh/UkSvsj+9z8mDHs1RmK856
+	BINkXicQ==;
+Received: from [::1] (port=47302 helo=cpanel10c.gtstelecom.ro)
+	by cpanel10c.gtstelecom.ro with esmtpa (Exim 4.96.2)
+	(envelope-from <iasi@mcmusic.ro>)
+	id 1t00vp-0006Hz-00;
+	Sun, 13 Oct 2024 18:54:57 +0300
+Date: Sun, 13 Oct 2024 18:54:56 +0300
+From: Dir <iasi@mcmusic.ro>
+To: undisclosed-recipients:;
+Subject: Hi
+Reply-To: director@idasupport.co
+Mail-Reply-To: director@idasupport.co
+User-Agent: Roundcube Webmail/1.6.8
+Message-ID: <0e30022750117206ff661b03b7650ffd@mcmusic.ro>
+X-Sender: iasi@mcmusic.ro
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel10c.gtstelecom.ro
+X-AntiAbuse: Original Domain - outlook.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - mcmusic.ro
+X-Get-Message-Sender-Via: cpanel10c.gtstelecom.ro: authenticated_id: iasi@mcmusic.ro
+X-Authenticated-Sender: cpanel10c.gtstelecom.ro: iasi@mcmusic.ro
+X-Source:
+X-Source-Args:
+X-Source-Dir:
+X-IncomingHeaderCount: 24
+Return-Path: iasi@mcmusic.ro
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Oct 2024 15:55:15.7237
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 56aa4f8c-7ac1-4cb9-a48d-08dceb9f6dfa
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SG2PEPF000B66CD:EE_|SJ0PR84MB1894:EE_|BY5PR10MB4291:EE_|SJ0PR10MB4464:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56aa4f8c-7ac1-4cb9-a48d-08dceb9f6dfa
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 193.226.188.226
+X-SID-PRA: IASI@MCMUSIC.RO
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|16110799025|970799054|2700799026|461199028|440099028|3412199025|1370799030|1380799030|1360799030|56899033;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2024 15:54:58.8956
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56aa4f8c-7ac1-4cb9-a48d-08dceb9f6dfa
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SG2PEPF000B66CD.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR84MB1894
+X-MS-Exchange-Organization-AuthSource:
+ SG2PEPF000B66CD.apcprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/13/2024 3:46:20 PM
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:23.9915250
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8048.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9610028)(9560006)(10120022)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?b6z49CS3gyqERmY+vP6uvobUtbUeTxqp+RuSm2Y5QaCOKQgIeVIDV87O/Bey?=
+ =?us-ascii?Q?tR7/rAmP4aDDZXrJlJjJRwAKiBySEYJYpJvr/Od7DdU3IkggNeFeH9tNyCkn?=
+ =?us-ascii?Q?HMfnlSjww+LPvsZPGz/1ay40RHVO/CbXmiJYTyx5PHGxQ3ZsLLD030fGpnfq?=
+ =?us-ascii?Q?MMTKlvSbsK92rgaEpSiIT9yjeuk0mmaGU5xP8mROdVt0s76SgA/xYOjYhf/S?=
+ =?us-ascii?Q?yS1/TciuqZ6bPj9viaK+QS7KhvJ2/+wPa5PWkgdINu5sQU0dRK5URlgr1xws?=
+ =?us-ascii?Q?YnBi34kTlWQOTtAWi0pN7XfiFtqD8x5fpm1oSaKH1sGe8FOzAl5qhMHxNidM?=
+ =?us-ascii?Q?D+Gu5yFwN8YeTNC2Kty5e0naG0dBtceX+WHB+MsEV2ITxDbhOVGxHx+M49dq?=
+ =?us-ascii?Q?TUZHriPJRwLRJCUn/aOcHDFwinliHZ25dTEeEkvwtfjY7zyuMI03OL87crHA?=
+ =?us-ascii?Q?XmubnFqY+5zxohz10+JAbgZvTY2Tp6YMMb/QsdNgmlGbesck8XQkC7CuCBj8?=
+ =?us-ascii?Q?QEYB0onZ1JWziqjXt2GswufId92DoXPWAK8PVmRRgvEYT9Vmdk2QZwpig0/P?=
+ =?us-ascii?Q?jmiVULHUH8KAXZ9EUT2no6i2s8DSMURTUHywihgNoPT54IjTK5yv8XDZ5K8n?=
+ =?us-ascii?Q?lkl2p5gujfqzWLEfTIiTOBRSyHXoqfmzdy9IF5LLp17ykkPThAiPJEQPe+Qo?=
+ =?us-ascii?Q?KsAMU2AgYNS/o75dtJXzqC0H7SWg+D7Sv+yhBBqBzxWirxFs+R8W5MLid0/W?=
+ =?us-ascii?Q?d4P3KpPwNXESgAzJcRwc2W//Gt5mnSNbNyamTS7ebufDZWKK4U56gwBepImw?=
+ =?us-ascii?Q?ZA/ddKuIhcLjxNLQTOAs3cOer0Rax5GRvvJWZYCa0TtyRLMmf6N34fvy8yOY?=
+ =?us-ascii?Q?YI7HeNwuWQ9Fg8F4c/bwSjF1cbzxE50AlPMbj2G/V7EFpcyQJdgd0RotHn6E?=
+ =?us-ascii?Q?u3KeBeyJZkxM/JhdxYdxmRAK9yEPx6rF/XnqgbRXCDLcZzr/6uZ7VNbv4jXl?=
+ =?us-ascii?Q?tXIM8H7sALQr4qnliun5ASPVori8QS+5QRo/PeziIU4YgMovk29j5tIch/4e?=
+ =?us-ascii?Q?hIuFbfc4EGUmma67/wzsO7O0hX1vTWZnYslwNEXcl8frr3tbci0+1B6ns5Il?=
+ =?us-ascii?Q?KYPT+NbXO+1D340kIGmgsit2WvjNSDrXu9LgJ2fKDROxJszl4727xu2yaZdR?=
+ =?us-ascii?Q?djxqNG3mhE0C0ZLyZIAzRWqLB+L2Dkzn9PW6zv6/f3EVqcXMFQJLD1k8gzxq?=
+ =?us-ascii?Q?2cnlfY9QVN10RM4ssDsmShu6cd+aMiOZrUZyzZ7lpOL5hxzGRKQsdHYLdRp3?=
+ =?us-ascii?Q?S7raxXkLu3/aEE9yOwDUglYUYc8fXbqqmpG8SDVIJ/B/UolilzuPLdcF9tsL?=
+ =?us-ascii?Q?9Qkrw0SHkPjP5cE3YwXElQNSAu6WE2DigsousWo3TZACStglPn/z8toAqy1u?=
+ =?us-ascii?Q?8E4WY2GIxQf78t88EmXGBlMemltff9Nf5V3RZh4qmaN5NO55tfZinq6zIIid?=
+ =?us-ascii?Q?zTgGMzDz67NaP22IZBM+gTvdTZMTjOQcT6mWvagPSvgyIbBvAtTYYmQ0hKxv?=
+ =?us-ascii?Q?SkdIYfan8bqBsawW6ZrGvmVBqR2OLIilYYroIEO9/4rLq0FTMrSwyy7WP1ds?=
+ =?us-ascii?Q?4Xl//c/J6W11FhHNet3lzAe6eNiQZyDnirSNxGzl3IAb4496pb2cUIY2K4kb?=
+ =?us-ascii?Q?0tECME2kJ+rSXb1pUlSJWKzgPlFGCfgM6Y/KvJQqWxhfxpDb69YM4EehWpzS?=
+ =?us-ascii?Q?Gusvil8AxukY2y77f1VM+BjDztOVIezk4ZtO4WIp/YAdNvVTb7j/SnebJCp3?=
+ =?us-ascii?Q?jhj009XVtYV+hNwcu5UDUfORrkDCLgdmsaUqGNqGBbZshRxsltfRjOVdC7M5?=
+ =?us-ascii?Q?83f1zDq/9lUHgvpNRy913eybB6dfJMdGD1RTK/Lqv3H80xydMWeyYrFzJeVZ?=
+ =?us-ascii?Q?t41M8WkQuaL3BwUxBzmr8WQd/emaOs14a7j9CZI2tcX1kyhB7uXNQhjfrYPK?=
+ =?us-ascii?Q?dbgX3xMtjvgm0vnwbqoYvqWvT0Ovi1C9hgoqpVCghNRcIVPDyV9jya+5CTT5?=
+ =?us-ascii?Q?Uu/elYEkWK2HWW5a2elhIL5HWjkcWWCpMYWkVkgMG/QSQ29XDipAvpfKxWB5?=
+ =?us-ascii?Q?bt5ObW1T7h6ZiDKmYVJaMM1aVjn4TYoozDh2Kl0n3gKXVZLBBUaGp9lbIjsT?=
+ =?us-ascii?Q?7SUXX1UfhWPgHvOMXbP5l1J3Izf9ah9VEwGlSaWE7oIzxXi4D4bIlVV8Z0h5?=
+ =?us-ascii?Q?jlsl/+yiQsmWj/WR77pp?=
+MIME-Version: 1.0
+
+Sir
+Did you get the offer letter ?
+Pls Confirm!!

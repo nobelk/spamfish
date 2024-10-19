@@ -1,0 +1,188 @@
+Received: from DS0PR10MB6894.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Fri, 4 Oct 2024 08:32:36
+ +0000
+Received: from AM0PR02CA0157.eurprd02.prod.outlook.com (2603:10a6:20b:28d::24)
+ by DS0PR10MB6894.namprd10.prod.outlook.com (2603:10b6:8:134::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8026.16; Fri, 4 Oct
+ 2024 08:32:34 +0000
+Received: from AM4PEPF00027A5D.eurprd04.prod.outlook.com
+ (2603:10a6:20b:28d:cafe::3f) by AM0PR02CA0157.outlook.office365.com
+ (2603:10a6:20b:28d::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8026.18 via Frontend
+ Transport; Fri, 4 Oct 2024 08:32:33 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.221.53)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.221.53 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.221.53; helo=mail-wr1-f53.google.com; pr=C
+Received: from mail-wr1-f53.google.com (209.85.221.53) by
+ AM4PEPF00027A5D.mail.protection.outlook.com (10.167.16.69) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8026.11
+ via Frontend Transport; Fri, 4 Oct 2024 08:32:33 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:C82E2FF7BC53A617179C87422BA7211C96319DD9A66A5A43D9C7FD3187D131FA;UpperCasedChecksum:CFD60C3C340F92DD68BCFA576BFB4115746375CB1C912FDECFAA9B58E9E025FD;SizeAsReceived:2574;Count:16
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-37ccfba5df5so1309776f8f.0
+        for <johndoe@outlook.com>; Fri, 04 Oct 2024 01:32:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728030753; x=1728635553; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=st2k+Fxj9Ddlo+uoPDeElns1ZFE7h8f3ll/y9IHc6RM=;
+        b=PwWM+a1m+WNZzWHolv3UcbhSpvjdHBxvQavSsZ82mxY44lCUuabPo2DZncAp0u377h
+         ghjhbqewU43KgRclKA4meG5DPsT9BKmuRTT2UMy8M8E8ARtffvRsrYHVEmM9vPIvTSKU
+         P78hLaEDr0OH0bP+62ydgFKA1Qgn/JN1fIqfTi4Zod+TPbwqdzVXSDs5d86Sw9Iv19CU
+         r8D3ck58TynCW8E7sw5eNOFN8OVX4XB8FFTCvfGbQSqWIrEr9CjoxWrvlFkZwTSFZ/Y2
+         Gj4MgyEC1kpzlDsaq3u6RVDTLnBTX61EBuY2MOZ0DlEVytr5TUPOkmpdp4D00e3XXLmQ
+         42cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728030753; x=1728635553;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=st2k+Fxj9Ddlo+uoPDeElns1ZFE7h8f3ll/y9IHc6RM=;
+        b=VZFc8fOa1FgGCuhMTAvXtUEfQJRaJrHeVEh7D53VG49ICd5l3RuWa2jHZEq6ttzj/n
+         4WbqVTkWfZ6UK3ByuPyXOoizjF78YZvXDsH554nwE0qYxPup6cNsEYk3dDMmE03D2YtM
+         0i+QXwRKZnUP1FKRt37N2AedmM7c2a/+tf+xL4Jzk/1EtowwOQKRgB9HLf3VixrRb8Kq
+         TrkWu0Kc6w+EMvW42pJxXvWVZSQccIU9fEiEQ7PAC3R5mXk+cdAynE4lWXPbjJkOyR1D
+         A5fIDnNDTamC84cazWtLY9LOFHQknHw199bY1A8IiDXAaSuCyl9rIIsfLfVMO11nL/3e
+         Jgcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ6OGnmVQTILv6Ew7sVQw1t3oWTIQ7EDdxSJtMW6gYGSgUyvLb4HY7VgFvxZuf3k9FE61MNg==@outlook.com
+X-Gm-Message-State: AOJu0YxBg+Lc1B5tBlo4V0lLRN/l+9nib+QX3zAu8NqiSP3kBBodmHI2
+	FIAlUUf+e7hsrq/3g63RnHsqQk+CbdoG7RF74heCwzubqgd5XzvfCAGwUmvtPQf3BckVWh3bD7a
+	RZLsPnNHF3Taiv9pCio4fscCKie8=
+X-Google-Smtp-Source: AGHT+IHRKcjt/luAAw02wFRlLzUR1D4+wlIW+MRbvJRNFYWHBzVONT9BrDAZPFujy6BaPqiA+VWorO8KX0sYE/AJx7M=
+X-Received: by 2002:adf:fac4:0:b0:374:caf6:ca2f with SMTP id
+ ffacd0b85a97d-37d0e7b9cf1mr1312974f8f.45.1728030752410; Fri, 04 Oct 2024
+ 01:32:32 -0700 (PDT)
+Reply-To: sillahbd@gmail.com
+From: Salim Jabar <gc948401@gmail.com>
+Date: Fri, 4 Oct 2024 09:32:33 +0100
+Message-ID: <CA+KDnHbpgR28cVc_Qw2OqB1SJdPVMymFeGnMLSLnnDh-=u5-bg@mail.gmail.com>
+Subject: Mutual Loan
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000028955f0623a283a2"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: gc948401@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Oct 2024 08:32:33.2629
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 64732bf4-d3da-4916-05fd-08dce44f17cd
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM4PEPF00027A5D:EE_|DS0PR10MB6894:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM4PEPF00027A5D.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/4/2024 7:59:58 AM
+X-MS-Office365-Filtering-Correlation-Id: 64732bf4-d3da-4916-05fd-08dce44f17cd
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.221.53
+X-SID-PRA: GC948401@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|2100799027|970799054|9020799016|461199028|1380799030|1370799030|1360799030|3412199025|440099028;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2024 08:32:33.1223
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64732bf4-d3da-4916-05fd-08dce44f17cd
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM4PEPF00027A5D.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6894
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2870741
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8026.016
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?YXdDUENaRG5pQ3RkYXRXdExSWEtRNVN0L0xzc1N1UGRvSlNWNHlMcmJQUHZR?=
+ =?utf-8?B?bTJta1E3TThyUmNpNXVMbFNhWGI5bi84bFdUNGlKWncydERKS2haK25iTjFJ?=
+ =?utf-8?B?RDRTZCtQZTQwWTllNXBUTVpOMlBUNm54bDEyaU5DbzVmTWQxMWxFS2FCSkFU?=
+ =?utf-8?B?QlUxb3l4UmpjU1llbDhpQzl5NnBIak9MYkREMG9XSFh0ci8wdTJ4ZmFiYTFC?=
+ =?utf-8?B?SThLc1ZTZ0UrWEdNUGdTenVIdlVQZGRSb1J0SWlaOTZvelJwNVMvbm9ncHN0?=
+ =?utf-8?B?NUFHY21zeUZmekgxcVdCcnZjZ3hkVFVFdmNSNERka3hnSXZVc3ZzTklBZUlD?=
+ =?utf-8?B?eThqQThLeGd4Vzg2SlBCV3hzS3MveEMvTGtaVmNmc3JTSUl0Mm14WlgrcHYy?=
+ =?utf-8?B?VVE2NHE1TGNQeENXWXRPQW9vVHVjSTd4bWhVTFZLOVdwNFlkNE05U0J2cUFs?=
+ =?utf-8?B?Tyt4dDlzWHlPN3dFY2VIU2EybFZRZ3VITDd5U1FiYTJLQ0dTWTBIckV5Tnkx?=
+ =?utf-8?B?d3hvOXpXaEY5cy9RSCszYnNSNm1MZWk2SDdEaTZkUmxJNEo0Und3cVk5RnF3?=
+ =?utf-8?B?bE9GbEJuL09tZ0xreVhaWjcxWFNmaUkzVm5ETjhEd3FpOTVKNUcxMjIya2x3?=
+ =?utf-8?B?QWFuM1hzUTBmWVVhbkZwUmZYaHdjVlRIVi9GaElpVTFTbCtTOG1pSFRqY3RQ?=
+ =?utf-8?B?RU55NWZlcTVYNlQyNUJNQk5OVS9lRHFxZGlFd3QyTmUyVXRIV0NlRW8rL3FF?=
+ =?utf-8?B?NGRGVG1pSzhhUi9HVGNvNkRaZm1XL0xwUVJpNXlDMDI3STdwS1NoWXlJbVJI?=
+ =?utf-8?B?UXh4SW1PUXZhdnNwWTV6OHltTUNwc2VHOWNTUWlCbzE3SStEN2hnYkMzcEhP?=
+ =?utf-8?B?Qi9ndnNPTDBSaDN5Qkp3Y3VUWnRNbktNai9Gdi9xZG9ZWm5sRVV4ajNrMWwv?=
+ =?utf-8?B?SmJuTzQxS0lrWENrYzJId2dZcEtIY3E2UmJLblVXRkVRQUNKRnpDckJjRkRM?=
+ =?utf-8?B?YjVLZGIyQlRhUHRENCs3aXRmSUNaTWFuL3E4VlFaZkZ6c3VvR0tZNkFTRHVT?=
+ =?utf-8?B?NDlwMG5qaTFxNEJ1cERxbHEyeDBRTmZIYnFESjZsL0dsSUZPc1RwckNoTVRy?=
+ =?utf-8?B?dEwwTnBoN3Z0OTVwU29nLzM3QitSd1cxNU1OUlhtMXJ3OTZLaHBXY0JrMnNZ?=
+ =?utf-8?B?YXhsdnl0OHlKMHZPL1pRdDlkVjBEVy84NTM2WHlmdlVwa3BHQXZUaVZLY3pT?=
+ =?utf-8?B?eURNcE1pb0twbTVaMExSMlpVQ0c3L1phSHA2ZFNQNUE4Uld1YmRZcDRuMk9B?=
+ =?utf-8?B?VkRhV2MwRTVXWDliY0JXQ0w4dUZESXFwSnZRUSs5ZDNWMzQvUGxjQkZRV1hv?=
+ =?utf-8?B?RGZqZXJ3N3JacW02Z25ZTEpHK2dodWJRVkU5UUlLQjVQNmZwajhrZHlBUGxi?=
+ =?utf-8?B?enNjeFFGcVFacXg2dHFBN29lR21pRE5vcWw2OUJDMGRQZWF1LzZVaUNYYVIw?=
+ =?utf-8?B?dHhueHBRbkdYU3dack1LVDBGbHVaWm9BbkNTNGxyd3YvL0lqUzhXMEx3R0ZH?=
+ =?utf-8?B?MkQ3emFkQ0h2N2ZzV1h6dGdOQXNiTCtCUjU1UHdaaTgxeDZTUkYrUWVHVWpY?=
+ =?utf-8?B?OExMK1BtMkJZNENHcGIzRm91UnFQYXMzNFZZbDhHY205bUxiZkI3U0ZOdTdB?=
+ =?utf-8?B?VDRzclh5cHRwUC9mblhEc0JhYllPbEhlZy9tbzAyKzVsZDAva0gxeG0yS3Bh?=
+ =?utf-8?B?Mi9uZzBvVk5qZmZ0ZXZhMGx3YVJpdStSNkxydjZDVkNlcVpZZ203amU4Ympk?=
+ =?utf-8?B?dWxkVHJ4dGdkOFgzdEFVR3ZiazQxM0ZWWFR2aE1uV29tV1NTSjFIeHNyZGJT?=
+ =?utf-8?B?L0srNW5SQmVxTlBhYkloanNYVnliOGkyOWhDVENna2xzUDUrWFVYYjZyTWt4?=
+ =?utf-8?B?VWtBRG5hbHVacnpvWTdqbkxrZkNCRzEzUGRVajlIZGZaaTdNQktNVkxJRjZE?=
+ =?utf-8?B?WUZ2L3AxQ3E3VlhTaWxMaCtTMVY5d09LZ1JJNEdqZURPd0diNHBQQmhkMm1P?=
+ =?utf-8?B?ZzRvVlM5dG5naTZNbWM2d2xDVEFUUFFhNnlZa2dSTEFNQ0pDbkhjVUhnbWNs?=
+ =?utf-8?B?QjdnZFF2U3JkQWJPNXp0V1hMbXRWNys1WjliN2hZbUNDN0NPU3AxTzlITkJ6?=
+ =?utf-8?B?NE1LTEl0Z0t5RFdwcXVCdzdKdE1ZZWZHUk1lUDdkc1AydDZLdEplN2JlRWsz?=
+ =?utf-8?B?VTdvYWp2ak9TSHdaNlZFVEZpRkJTNGc4TTdpUmhRK3lXZ1J0WHovQnJuV1dC?=
+ =?utf-8?B?enRyNVBYdUplQ1d3bS95OFZUYld3KzJ5NGd1Tjh4dm9sUmRyL21Gd2Z4bVlZ?=
+ =?utf-8?B?aVozSndVS3BtMlhhZG81K2JPbkh2ZnNZUHVSZDR6QUZ4QzgxR3dWL0pNRlN4?=
+ =?utf-8?B?RHgyQnU3SXh3QmhoakI5aWhzcHVsaWp6S2FzS3M4cW9HcVo5b3pRcXM2MkFp?=
+ =?utf-8?B?T01xaEFsY2VuOHowbnhHakZYMklSRGRmZ2FuSm93MGdpN1ozY1lBWTVRMjFw?=
+ =?utf-8?B?enNoNmVrK1hzWndwd0dyOE1CMHg2ZzRvTkpaQ2FyTkZIdUJkcG5tNTBWbUNw?=
+ =?utf-8?B?cExZdkd6M2hqQXZwdm0rYUE1MjBSTW9HcjZkQzVnUzlJVHdlMWlmendkWTFK?=
+ =?utf-8?B?UnFOaG51MllnN0R3VGNZRzlKTURRWFZnRGxjZWtPUzV0ZnNSU0RwM1JPRWcz?=
+ =?utf-8?Q?G8=3D?=
+MIME-Version: 1.0
+
+--00000000000028955f0623a283a2
+Content-Type: text/plain; charset="UTF-8"
+
+ Attn: Sir/Madam,
+
+We are a Financial company based in Dubai-UAE, we grant loans to potential
+projects.
+
+Do you have any project/business that needs funding, kindly reach out  to
+us and confirm your project plan summary.
+
+Best Regards.
+Salim Jabar
+Dubai-UAE.
+
+--00000000000028955f0623a283a2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">
+Attn: Sir/Madam,<br><br>We are a Financial company based in Dubai-UAE, we g=
+rant loans to potential projects.<br><br>Do you have any project/business t=
+hat needs funding, kindly reach out &nbsp;to us and confirm your project pl=
+an summary.<br><br>Best Regards.<br>Salim Jabar<br>Dubai-UAE.<br>
+
+</div>
+
+--00000000000028955f0623a283a2--

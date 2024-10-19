@@ -1,0 +1,252 @@
+Received: from PH7PR10MB6673.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Mon, 7 Oct 2024 10:57:18
+ +0000
+Received: from SJ0PR03CA0260.namprd03.prod.outlook.com (2603:10b6:a03:3a0::25)
+ by PH7PR10MB6673.namprd10.prod.outlook.com (2603:10b6:510:20b::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8026.22; Mon, 7 Oct
+ 2024 10:57:17 +0000
+Received: from SJ5PEPF00000206.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::81) by SJ0PR03CA0260.outlook.office365.com
+ (2603:10b6:a03:3a0::25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8026.23 via Frontend
+ Transport; Mon, 7 Oct 2024 10:57:17 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.221.170)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.221.170 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.221.170; helo=mail-vk1-f170.google.com; pr=C
+Received: from mail-vk1-f170.google.com (209.85.221.170) by
+ SJ5PEPF00000206.mail.protection.outlook.com (10.167.244.39) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8048.13
+ via Frontend Transport; Mon, 7 Oct 2024 10:57:17 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:D70210447D93AD6BF2389895E22BBC2A2299210971BDAB5F0E2D910910D0827E;UpperCasedChecksum:BCC69794363E854CCA58DC683EFDC38EAFE501EFB1B312D600215A3D4E74E5E7;SizeAsReceived:2611;Count:16
+Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5078bbc3a0bso1055733e0c.1
+        for <johndoe@outlook.com>; Mon, 07 Oct 2024 03:57:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728298636; x=1728903436; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BOk9A1FfU7cD101JU4pvXJs0u+jENoZBE08GBrJg3b0=;
+        b=dcO9tHq9y35N/qqETVrEWKWnhGK3NQFdiCD7Nx42IMlv9YE1gUl+txFjg5PBFrPvbE
+         GZFpEFuHFziS9DQ6CXRbAPzYSRs6TzLghcLGF+GuaNDOVTlA0+ArnLdVwEx9nwvQmBf1
+         5bfV03yehx/53MISbvIgZN7EdAydMzFqJ0tXl99pnU/Q4tbfm2IuUwLfD6STD0lXLY0R
+         wEllTFHnwJxlYfL9g2ZRk4+UZdqyak27ijhbH5BvPdnvI3azv+f9K3lLS26hnFeZCpEU
+         Es7l1UnRz0zNKQKWB5Xrq5ixI1iQn8w5+5A3TbwCJumtvdyidX19ZZW7dehCsWZG8Yr8
+         RHkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728298636; x=1728903436;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BOk9A1FfU7cD101JU4pvXJs0u+jENoZBE08GBrJg3b0=;
+        b=nsaiSlBebOHGE0jwgKbZR+z+A25Dw5/LopHF1yfyHQ4vvIvBe4V7XusENxGYcs9nlt
+         9XdlKx3dpk+Vyo0jXYLib+7VBFDckBq3dr3wYDa/pLEbQYyydzg9cCSno/TwZGvdHcM9
+         5YeF3St5wh/iTbMcQWoNoLHyvlCsoao/mLlo6MvvwhNh2v1x+ytNVwmaB1qI8G2UeuNR
+         08TURBdTMtM71aTiealf9RGLDTLF77OzDufmoSAOyIE6TWik9CkokkBW0zmytjfW+2Yy
+         LE1FEPDqa0ohaIUHIuGuEEIyDlAbBWKKTqyEogZrl3YwyZXiKWzaUGJMrzSL4OB7+w1Q
+         7kOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVISZ6yz6d8j+h5LUIwaHAo86E5FKq2rgldRGLnEB7iM3WokrDl5790EAVN6i8ZKpT9q8q/TA==@outlook.com
+X-Gm-Message-State: AOJu0Yx/667/9bHt/gLy4b3xx24Eu5qUDIo6Cdi23X9mg10Q6cuAUbqJ
+	56hDfZ5kwUdTRbGhOsmYzBXvlrcBk5TLuFM/yhU9PPurc37KNxxnD0KuT4fRoOvx0UGncMD6CvY
+	4VOV4HtcwXzrw5rotVLLtrwaGiMw=
+X-Google-Smtp-Source: AGHT+IEQUD05zMaPC3dlFS78ht7pV9ltbHYVnmDSAGCxKvbnn6eeswOm9IkzmyBvoou9uj6+H53xaluoL3rBP9ww9go=
+X-Received: by 2002:a05:6122:1e14:b0:50a:bd30:c139 with SMTP id
+ 71dfb90a1353d-50c855b0d97mr6000429e0c.11.1728298635967; Mon, 07 Oct 2024
+ 03:57:15 -0700 (PDT)
+Reply-To: Mrs.mariacrasmaru@saintly.com
+From: "Mrs. Maria Crasmaru." <mariacrasmaru111@gmail.com>
+Date: Mon, 7 Oct 2024 22:57:03 +1200
+Message-ID: <CAPM0ZofZ6=pMAfP11nUvLAsh5iMKzZS3qiq3nKbbkTfGMcdJGg@mail.gmail.com>
+Subject: Hello My Dear,
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000004342b00623e0e29a"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: vanessathomsonyak1@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Oct 2024 10:57:17.0743
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ ef7e42f9-1b6c-4840-bd8c-08dce6becefe
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SJ5PEPF00000206:EE_|PH7PR10MB6673:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SJ5PEPF00000206.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/7/2024 10:17:03 AM
+X-MS-Office365-Filtering-Correlation-Id: ef7e42f9-1b6c-4840-bd8c-08dce6becefe
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.221.170
+X-SID-PRA: MARIACRASMARU111@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|2100799027|6115599003|970799054|461199028|9020799016|1370799030|1380799030|1360799030|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2024 10:57:17.0431
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef7e42f9-1b6c-4840-bd8c-08dce6becefe
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SJ5PEPF00000206.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6673
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.4954171
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8026.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?dVplcWNqMjM2Y0JOWFA1dkxpQmdoblNyUzNxTUhiMTRsdXJXNFN4djhuY2J0?=
+ =?utf-8?B?Tm5SY0pXb2c2YkxsOHhFMVdBRTlUSjFGYldHYUVYVHhTVzZWbWZlVFluVEVL?=
+ =?utf-8?B?Nmkwc2hSMEVPd25mLzFXYVBDcVNGcGZBd0Z5Z1gyOUNLUzMrakJ5Z2p3LzJP?=
+ =?utf-8?B?cW1KZkdoa0xEcktrYVZRR3NTYUNyTnpDYTFLZzIydkdWMTUwRG5xTU05YVRR?=
+ =?utf-8?B?bmxCYThQRXBlSnRRS213bE5jNE9vWkpSSXRza0dFMi91N1hZSm5VYjFEUFBG?=
+ =?utf-8?B?bEt5Z0I0U2F2bS8yZUVDU3lQUklKY3BzUDlnelFBbnkzUjZMMGZrUkFoRzNt?=
+ =?utf-8?B?cFlrZTVMeEQxMUgrckpONlBBZ0swVW5ZK0RQTVBmcXJaVjFyUy9XUHFoSytW?=
+ =?utf-8?B?aExRb3ZYT2FPcnJRT2plWkc2a0c4anJRbnZkWmRTaXN1WldEQ0lpcmhhc0sz?=
+ =?utf-8?B?YTNhakxaNG9tT01ZbXhrYis1R1FHSVBSM0toanNLem5SUHladm1hOWZoRjJ3?=
+ =?utf-8?B?bTlTQWNYeVlINi9xTDFKc2tUZDQzN25GLzVhbnV1OVduNm5YbjlpeEpZQk01?=
+ =?utf-8?B?ZzVjdkdVYzBpTm5xclk5WXJBRFpUbThhWWpIRHVsQ2gwQ0ZpaGUydlZzZGFD?=
+ =?utf-8?B?T0xnRlBzRTBEMXZyV3JzUUcydU1pSEFjMUNDbWZFbnRWeDBCOVFnVVJhUHRm?=
+ =?utf-8?B?bGc0Q2pZaGFCb3hRamQ4RytoTmo3aTZ4TjJWS2pXbFAyb3Iya055eUlsZnpG?=
+ =?utf-8?B?TjFBM3M4U0thZ240UTl0RUczRjFyT1VMa3lEZ29paGJ5M3JTNFpFNnUweFRN?=
+ =?utf-8?B?M212MkllQ2hQcUVQcndOYUkraWhsQVdOZzRYdWVIK0JzR0RjOTRZWjZxWms3?=
+ =?utf-8?B?cmlDTTlwWGtTSUxMYVBGK0Q4RlZDZWhacUhtdnhTd2FWM1JaemRRRTUwS0NS?=
+ =?utf-8?B?SDVORFFXU21MVlBhTWlHRXhhVm83YU8ydVdNTllPcXFRc0dMOXd4MXFrWGdX?=
+ =?utf-8?B?OVFhUlVZMmZYS1dNcTJ5elNxM0FjK1Q5OVQvSWFPUnZJMjNMT0ZwUU13OTJ0?=
+ =?utf-8?B?ZkI1cXRpYjUrbjhJQXpBWjhYZm83c1lOcGJFaStjSEUxY3JzSlowNVR2MmhM?=
+ =?utf-8?B?ejVqMUtpL1VRN3BteFZUSHpxSWFKNjNUODNaUEVYMjlMZG5oVkNFWk5DRjBm?=
+ =?utf-8?B?THlsN2ZQMXFEVndOQXVHcHpMYVhlendMWFFENTVwZzBscW52V1FIbWJta1pU?=
+ =?utf-8?B?MmVZNDdwWitsUTJVWWNOYmYyZFpyeGFoeVc2QlBtYzhLd2hOYmNxeU5pc0dJ?=
+ =?utf-8?B?Y2wzQzVUcmRRTURFT3pCODRhVWFjQ25Pay96cjRnbnZabkxyMzBRV2hkamtG?=
+ =?utf-8?B?TjNwMmZzRUhXQWo5UkplRkNCQmdCS05TWWg1SFF3L0hzeFZxcG1rMEJxb1p6?=
+ =?utf-8?B?NlpyWis0eXJJelJTdXpXbkFuYlZaTldPeXVRUzNKWXFReWMvUDNCWmNLS0Fw?=
+ =?utf-8?B?N01BdkhBUXJvWVZPQkRDcWVhOXFkcGZ6ZGhiZkNxQ3hPWk1hTmxPVnh5N2w4?=
+ =?utf-8?B?VW5nOGNVL1FsMlE1dDMzdEtkSWc4UWdxSjlCaXRVMW9DajNPT3Zta1pwbnRj?=
+ =?utf-8?B?amRDN2hMU0dMZloybWpuWGY4Szc1V3FEWDNLRDY2RFU5MDc0bHZNaERwWGJp?=
+ =?utf-8?B?dDZ6b0xuMEg2QWVoNVo0UHFCR1dpSFJITWZTUlpoa1Y4blk4NVUxWTZUbWVn?=
+ =?utf-8?B?MUZiMmJYWm1zOE5aaEdsL1YrRm9xWkRROWNXZnhsYnE4OWdpMzB3MEMzSTF1?=
+ =?utf-8?B?NlNjb2V4dEtKaU96ai9sQzRGZUhRaURUM01FZ1RQTnNDa1BLN0Z2eWpzWkZ6?=
+ =?utf-8?B?b1ZFV2czYXlPMG05UUhORzNIdVdTT0FSSVlwSytKRlVXbDRKWkY0NDJxL2dk?=
+ =?utf-8?B?NDhnZUkveDYyTldxYU1mNFFQekRCNFEvcFZZcHdTdjMvQlVFS0w3WGI5Y3JY?=
+ =?utf-8?B?cUdSczloQnpheTFpRGdpWFdVaExrU0xPY0h4NDJPOFVHNi9pSG05bWtwMDJT?=
+ =?utf-8?B?Qk5XLzRPT08rWXQvRDVyR1JXMlA5ODNiaGdVQmo0WjhXK1JSNFljU2lHbVpB?=
+ =?utf-8?B?Q0c4NysyOU9PZEk3Rlh5bm9yaFF1SkVINjdnU1VVMzNQMHlxTHhudHNtUlJa?=
+ =?utf-8?B?NWo1OXdnWjJyNHAwMXkwOTFpUUFRelFadS9vOGJIekl0YjRwNUtaREZyZDgz?=
+ =?utf-8?B?RDhFNDkwNG5MMUM1VmtwT053ZkRRWHg1S3FNME9KVmtZeTZMTjBSQ3NJUC9h?=
+ =?utf-8?B?aitJMGtURjM4T0hRZm14dW1qRERyMkJPREg0eWVRNEZJQStSZ29qK2kvUlha?=
+ =?utf-8?B?RjBPbnlLYWZPUFZ6cTlzUTd6YUlxL2tDdWJtUnFoU3JlNW1rdFd5QkpEWlpX?=
+ =?utf-8?B?Q2huU05PZ29vRVlvMytpbE1QeFRXK1B6YW9taHg0cDRnYUVpWVVlUGJLYU85?=
+ =?utf-8?B?M015VVFVSGVIR3AyZGdRZkw2V0JsVWJvWjMydUNlVGVnN2FNRU14bHM3L2pr?=
+ =?utf-8?B?dUltL2xVbkV3TVpiaFhPQ2U4SEM5bFljUnh3bFZWdDg5WmZsa1hEeVhQUGhi?=
+ =?utf-8?B?TTdSdXNMR2RlcEFFNndQSDR5M2ttaFpjY00wbFluZ0lWS2FCZ0ozV1I3NUZt?=
+ =?utf-8?B?NkJVeGJmYXVEd2J4RnA0WC9ibmlxWlpjbURSWXlwZnRLekFMSlBjYk1LN2xG?=
+ =?utf-8?B?a2NKekpmZitXdk1GdjVWeEpseDhUekN3Sk9jeFNOeWRleDMyYysvbHJ3bXlK?=
+ =?utf-8?B?MlRxUEpqeFBRbGg3aFVWd2JxMHkwNklVanRxT2JrSTlNQXZnVXJhdUFlNW1F?=
+ =?utf-8?B?MWRhN2dORmtOVEtqZDJ6WXh5VWVUckgxNHRZdDJuK0dWMk9OR3lRM1JhcG12?=
+ =?utf-8?B?YUhvZlNEbkpWSVh4RjVHazN2TU94ZUVWMnVwZm9SejJubVZ1Smc9PQ==?=
+MIME-Version: 1.0
+
+--0000000000004342b00623e0e29a
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello My Dear,
+
+My Name is Mrs. Maria Crasmaru, from Romania. I know that this message will
+be a surprise to you. Firstly, I am married to Mr. Patrick Crasmaru, A gold
+merchant who owns a small gold Mine in Austria, He died of cardiovascular
+disease in mid-March 2018. During his lifetime he deposited the sum of (=E2=
+=82=AC
+8.500,000 Million Euro) Eight Million, Five Hundred Thousand Euros in a
+bank in Vienna, the capital city of Austria in Europe. The deposited money
+was from the sale of the shares, death benefits payment and entitlements of
+my deceased husband by his company.
+
+I have decided to donate what i have to you for the support of helping
+Motherless babies/Less privileged/Widows because I am dying and diagnosed
+with cancer about 2 years ago, I have been touched by God Almighty to
+donate from what I have inherited from my late husband to you for the good
+work of God Almighty. I have asked Almighty God to forgive me and believe
+he has, because He is a Merciful God, I will be going in for a surgery soon=
+.
+
+I am sending this message to you praying that it will reach you in good
+health, since I am not in good health in which I sleep every night without
+knowing if I may be alive to see the next day. I am suffering from long
+term cancer and presently I am partially suffering from a stroke illness
+which has become almost impossible for me to move around.
+
+I was married to my late husband for over 4 years before he died and
+unfortunately that we don't have a child, my doctor confided in me that i
+have less chance to live. Having known my health condition, I decided to
+contact you to claim the fund since I don't have any relatives, I grew up
+in an orphanage home.
+
+This is the reason I need your services to stand as my next of kin or an
+executor to claim the funds for charity purposes. If this money remains
+unclaimed after my death, the bank executives or the government will take
+the money as unclaimed fund and maybe use it for selfish and worthless
+ventures, I need a very honest person who can claim this money and use it
+for Charity works, for orphanages, widows and also build schools for less
+privilege that will be named after my late husband and my name; I need your
+urgent answer to know if you will be able to execute this project, and I
+will give you more information on how the fund will be transferred to your
+bank account.
+
+Thanks
+Mrs. Maria Crasmaru.
+
+--0000000000004342b00623e0e29a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Hello My Dear,<br><br>My Name is Mrs. Maria Crasmaru, from R=
+omania. I know that this message will be a surprise to you. Firstly, I am m=
+arried to Mr. Patrick Crasmaru, A gold merchant who owns a small gold Mine =
+in Austria, He died of cardiovascular disease in mid-March 2018. During his=
+ lifetime he deposited the sum of (=E2=82=AC 8.500,000 Million Euro) Eight =
+Million, Five Hundred Thousand Euros in a bank in Vienna, the capital city =
+of Austria in Europe. The deposited money was from the sale of the shares, =
+death benefits payment and entitlements of my deceased husband by his compa=
+ny.<br><br>I have decided to donate what i have to you for the support of h=
+elping Motherless babies/Less privileged/Widows because I am dying and diag=
+nosed with cancer about 2 years ago, I have been touched by God Almighty to=
+ donate from what I have inherited from my late husband to you for the good=
+ work of God Almighty. I have asked Almighty God to forgive me and believe =
+he has, because He is a Merciful God, I will be going in for a surgery soon=
+.<br><br>I am sending this message to you praying that it will reach you in=
+ good health, since I am not in good health in which I sleep every night wi=
+thout knowing if I may be alive to see the next day. I am suffering from lo=
+ng term cancer and presently I am partially suffering from a stroke illness=
+ which has become almost impossible for me to move around.<br><br>I was mar=
+ried to my late husband for over 4 years before he died and unfortunately t=
+hat we don't have a child, my doctor confided in me that i have less chance=
+ to live. Having known my health condition, I decided to contact you to cla=
+im the fund since I don't have any relatives, I grew up in an orphanage hom=
+e.<br><br>This is the reason I need your services to stand as my next of ki=
+n or an executor to claim the funds for charity purposes. If this money rem=
+ains unclaimed after my death, the bank executives or the government will t=
+ake the money as unclaimed fund and maybe use it for selfish and worthless =
+ventures, I need a very honest person who can claim this money and use it f=
+or Charity works, for orphanages, widows and also build schools for less pr=
+ivilege that will be named after my late husband and my name; I need your u=
+rgent answer to know if you will be able to execute this project, and I wil=
+l give you more information on how the fund will be transferred to your ban=
+k account.<br><br>Thanks<br>Mrs. Maria Crasmaru.<br></div>
+
+--0000000000004342b00623e0e29a--
