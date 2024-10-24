@@ -1,0 +1,200 @@
+Received: from PH7PR10MB5832.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Thu, 24 Oct 2024 08:10:14
+ +0000
+Received: from MW2PR16CA0008.namprd16.prod.outlook.com (2603:10b6:907::21) by
+ PH7PR10MB5832.namprd10.prod.outlook.com (2603:10b6:510:126::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.28; Thu, 24 Oct
+ 2024 08:10:13 +0000
+Received: from CH2PR12MB4213.namprd12.prod.outlook.com
+ (2603:10b6:907:0:cafe::83) by MW2PR16CA0008.outlook.office365.com
+ (2603:10b6:907::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.17 via Frontend
+ Transport; Thu, 24 Oct 2024 08:10:12 +0000
+Received: from PH7PR17CA0057.namprd17.prod.outlook.com (2603:10b6:510:325::6)
+ by CH2PR12MB4213.namprd12.prod.outlook.com (2603:10b6:610:a4::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.18; Thu, 24 Oct
+ 2024 08:10:11 +0000
+Received: from CY4PEPF0000FCBF.namprd03.prod.outlook.com
+ (2603:10b6:510:325:cafe::e3) by PH7PR17CA0057.outlook.office365.com
+ (2603:10b6:510:325::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.18 via Frontend
+ Transport; Thu, 24 Oct 2024 08:10:11 +0000
+Authentication-Results: spf=permerror (sender IP is 195.245.230.82)
+ smtp.mailfrom=haesol.net; dkim=none (message not signed)
+ header.d=none;dmarc=permerror action=none
+ header.from=haesol.net;compauth=fail reason=001
+Received-SPF: PermError (protection.outlook.com: domain of haesol.net used an
+ invalid SPF mechanism)
+Received: from mail3.bemta32.messagelabs.com (195.245.230.82) by
+ CY4PEPF0000FCBF.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8093.14 via Frontend Transport; Thu, 24 Oct 2024 08:10:09 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:87DAAE7E7BC02B4639CB07A131B3F8C31E712E6C30055EEC7C86AAF419B58857;UpperCasedChecksum:CF532CFC900BE1B272EAF5A59ACBDD78027ABED68426CB2CB89CB979EEAA4626;SizeAsReceived:2818;Count:24
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrEKsWRWlGSWpSXmKPExsVyyG9pl27Of8l
+  0g0tn1SzeLv7JajG39Qy7xeoDB1ktHj2dwmLxecdldovzne+YLZ683slusf3dbDaLr+f2MVls
+  b9vFbLFw+TI2i3/b97BbXD3yms2i+cUtRosTXx6wWkx4/JXVYsbN7awWLx/0sFjM6t7BYnF49
+  Xt2BxGPza9fMHt0XXD3WHbuOnMAcxRrZl5SfkUCa0br83OMBSc5K/o7qxsYf7F3MXJyCAl8ZZ
+  TYOK8Iwt7NKLFlqU0XIwcHs4CmxPpd+iBhXgFBiZMzn7CA2MwC2hLLFr5mhihRk/jaVQISFhZ
+  QkVj74zZYiQRQ+PG93WDTRQSUJe7+u8IGYrMBTbz58QwriM0ioCrRufwcC8RWBYnGx5NZIVb5
+  SqzpfAx1mbxE54WXjBMY+WYhHDQLyUGzkBw0C+GgBYwsqxhNi1OLylKLdI31kooy0zNKchMzc
+  /QSq3QT9VJLdctTi0t0DfUSy4v1UouL9Yorc5NzUvTyUks2MQKjLKWYtWoH49w9jfqHGCU5mJ
+  REeZUsJNOF+JLyUyozEosz4otKc1KLDzHqcXAIXDj78BOjwJUPn5qYpFjy8vNSlSR4d7wBqhY
+  sSk1PrUjLzAEmBZgGCQ4eJRFeyWdAad7igsTc4sx0iNQpxnCO7Tv372Xm+PTxCpCc9R9EPjhw
+  DUhuvwAiV14HkQ23QeTXbV0HmIVY0osSK6XEebf8ARonADIuozQPbhks6V1ilJUS5mVkYGAQ4
+  ilILcrNLEGVf8UozsGoJMyb+RdoCk9mXgncTa+AzmUCOlepWQLk3JJEhJRUA5PBj23rXyVoJ9
+  a8nrzlQY7n9El3w/bfLny/fu5Vjxw1keY7LOrhyjav2Q7MT3m24ifD73MKXu/NS+Y/NIguu9v
+  50ju1do33ts+XpmnUz94w8737E4UzP+6wGbnprQ6/XnYyUKXpptPEfc/2hdfvWMm+NG3Bp8qz
+  l+L9Tz2pFstfduOZ1xWtjPoQr6/XlgSuajGd48yjZ3St5sCh/10uPB67HVnyLtvvOv3N9IvbP
+  ykPW73erwfOcW3kOHJoW4Xb5ScBaw+XREl/XqhwQuOBXyjHPY1vp9+9mzE9Mpvrbu829f2z1q
+  TEXeF41hQdkPs3y+nr714HvyNv77WdmJsSH/e58Ab35MTlC3NvP/14ZMIlBSWW4oxEQy3mouJ
+  EAFye3qH1AwAA
+X-Env-Sender: noreply@haesol.net
+X-Msg-Ref: server-5.tower-585.messagelabs.com!1729757035!8235!4
+X-Originating-IP: [194.78.165.138]
+X-SYMC-ESS-Client-Auth: outbound-route-from=fail
+X-StarScan-Received:
+X-StarScan-Version: 9.114.1; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 23626 invoked from network); 24 Oct 2024 08:03:56 -0000
+Received: from 138.165-78-194.adsl-static.isp.belgacom.be (HELO mail.jean-delcour.be) (194.78.165.138)
+  by server-5.tower-585.messagelabs.com with AES256-GCM-SHA384 encrypted SMTP; 24 Oct 2024 08:03:56 -0000
+Received: from SRV-MAIL-2016.JDC.ATELIERS (192.168.17.20) by
+ SRV-MAIL-2016.JDC.ATELIERS (192.168.17.20) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Thu, 24 Oct 2024 10:03:51 +0200
+Received: from [94.156.177.28] (94.156.177.28) by mail.jean-delcour.be
+ (192.168.17.20) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Thu, 24 Oct 2024 10:03:44 +0200
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+Subject: RE: INVESTMENT PROPOSITION:
+X-ZyXEL-AS-Log: USG310-usg310-Active-1
+To: Recipients <noreply@haesol.net>
+From: Robert Philips <noreply@haesol.net>
+Date: Thu, 24 Oct 2024 01:03:36 -0700
+Reply-To: <rennren054@gmail.com>
+Message-ID: <703825bc-2bdd-4d59-a440-f34b4d36cdd0@SRV-MAIL-2016.JDC.ATELIERS>
+Return-Path: noreply@haesol.net
+X-IncomingHeaderCount: 24
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Oct 2024 08:10:11.0559
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ bd65e6a2-4412-407f-7d0d-08dcf403480b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CY4PEPF0000FCBF:EE_|CH2PR12MB4213:EE_|PH7PR10MB5832:EE_|CO1PR10MB4450:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd65e6a2-4412-407f-7d0d-08dcf403480b
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 195.245.230.82
+X-SID-PRA: NOREPLY@HAESOL.NET
+X-SID-Result: NONE
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|2700799026|970799054|58200799015|9800799012|51300799018|69000799015|87000799015|6115599003|461199028|6022199012|3412199025|440099028|1380799030|1370799030|1360799030|4295299021|56899033|42005299015|1710799026;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2024 08:10:09.7903
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd65e6a2-4412-407f-7d0d-08dcf403480b
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCBF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4213
+X-MS-Exchange-Organization-AuthSource:
+ CY4PEPF0000FCBF.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.4968275
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8093.017
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9610028)(9560006)(10180024)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?YnQzQksrLzUwaG12SVlrUWUrT205RkRtbnpRZ1I4Nzd1V2FLVHpVcmFyMUE3?=
+ =?utf-8?B?dWJ5UE1JZ0M5SkZsWngxQWxLVkRDQVB1QXBqVGFwOFFOVGI1Z2xUeUtOV3Yr?=
+ =?utf-8?B?bHhReXpyQS9mUnFoVWZSNWNFTm5DMFdqMmJWQnRneS9nNU85Mk1kekN0VURX?=
+ =?utf-8?B?bFdDeGs0ZGhXbTFtVE5jdUVhUnczQWdhUVVBRTVHcnU0eDIxQm9uOFU0MjBU?=
+ =?utf-8?B?cGY1UE92L1p5K2s0SXIzUStvQ1RJOHg3ZjQwMG5IbDFWakdPb2ZJR1MzZmM0?=
+ =?utf-8?B?TkRPbEF1UG84bGtwc2M5UW1LcnNXVEt5blo4WnZ0MW1Hb3h3dlJ2YXNCdmUx?=
+ =?utf-8?B?bGlNTzBMUVN1aFlxL05yYm82Z1MwRzdLeExCTysveHZBaSszcjU0enpQeTdK?=
+ =?utf-8?B?UHZEdnZJOEozcHR1OTlMOGM4T3lMV0ZLVStENDltMFNza0xSOW5GRVdpNlhs?=
+ =?utf-8?B?Y2w5elh0ZHRidGpHc2h2eWV5VzgxSit4eVp6czNXMksvMzk1ZFE2YnFiUkhZ?=
+ =?utf-8?B?OFd1S24xUjU3WVFjSGExcm91cHQ2RVhVSUlrTVg0ZEdGTjZQS1cxRk1qOWx0?=
+ =?utf-8?B?NmorY3Y0NW5iSEExME9CdDE3TElNQjI0OGVBNDlsdHY1S0VJMlkrVkh4TXY3?=
+ =?utf-8?B?NTBvcmFPQVMzMVhuVFRreWsyZURmd2xEbC9nUFU3TnJCY05zb3BmeHV2MEJh?=
+ =?utf-8?B?cVdiRmN6WTBRYVNEODIyazJKbXFnL056UENsM1BBODVEK0JrNE9ZNmg5Mktl?=
+ =?utf-8?B?bG9Vc2R0aCtrV1ppa1NPVmlMU0ZwOWxFMG9IZ2FPbVVNdm1ySGhUQ0kwTmdJ?=
+ =?utf-8?B?RnJibnhRbktvb256SkMvVGVlMlBIOFZhQksxT2g3TWhWbTk0ZnA5SEdjNThF?=
+ =?utf-8?B?K3lKY1ZnUEhRaWp0aEZWRldjamt6bDM1NXBLRFlwWUl1N0pXb3ZqZHl3TTlZ?=
+ =?utf-8?B?K2RIbjJkMk1VTy9Ib2JZYnpZYUpycHl6OVRhWkp4ODFQYkpSajRUZHkvSUZv?=
+ =?utf-8?B?MXBkN1BjaGw5K0loR2txQ2hGb2NwZCs1WlBuLzZpZ2VyRFQ0c1ZBN0QwdjBt?=
+ =?utf-8?B?RGJpdkZEUUsySGdMbVlDVUxrSU9UdFNscXc1UWllLzFvMEd4c0JOM3Q3Smlp?=
+ =?utf-8?B?LzVZZGFpdEZ2MmE5cjk2dVFqU3VFV3N6ZlVIRlEzYk1GT1hQb0pHcmkwN1pQ?=
+ =?utf-8?B?WjZtRWJ2ZEt2ZnVmTVR4OWV5K3dpakV3UEtRMzdQSkhGdURLMWtucXN5Rmhh?=
+ =?utf-8?B?UTh1Z0dpS2hvYXMrajU5TUVLVHJpQjU1NEVpdk8wbzNlWXBQQkhTTHZ0WDJt?=
+ =?utf-8?B?citNTzVHdi9mWEczbkY1T1JYOTBMWTY3S05hQzdnYmhCSWpDaG9KNjczNFU2?=
+ =?utf-8?B?TFkyUEcrcTlRdnRCRERkelkweDBrS2ltTjUxSlhGT29Ic2pncHlVSC9wQVZU?=
+ =?utf-8?B?SVdNVTk4UEdvWUh5VWRtdDlINU9jcWU0LzZPYTBDalhja2E0S2Zta2hnVUxP?=
+ =?utf-8?B?blR1Z0U4YU9OdVpIYXNmOGU4aTY0RXIwdUw0K2FvY1p1WkNpNjV1cDB5QlhZ?=
+ =?utf-8?B?b1NNVHI0bTZwRGJpNmRkb0FSSVdVVXBsM3dUV1F3dGhWenFKZ25iZ2ZxVjhv?=
+ =?utf-8?B?K0hQNzh0a2VXMmNSSE5aeThSS25KYS9pYkorV3RKN29ZanR3a2xvV0FBSWZp?=
+ =?utf-8?B?Z0dwc2R3SHlydDk2K3JJWS8va1U4QSt6Y002RWM1R1hLR096NlNIa1hEODJ6?=
+ =?utf-8?B?bWFmTGRPUWhMTXVJMjFnRVVzUFgvbjkxS2NpaFdsekRoZUxSYnpXU3M4ZkxL?=
+ =?utf-8?B?SitRYXV1SVF6c3ZXU3dZRUhpelpWN1Z0M25TdlIzeitKV3dJbXc5ZzZ6OG04?=
+ =?utf-8?B?Nm9VUW8yZzBSYUhiVG9icVhndVEwdTJpdTBmcW9DczQxc3VpTkxOQVNVQnlV?=
+ =?utf-8?B?ZE1ZYmcvclNQNWRZTytWNVBJMWFDZzk3d2VrUEpJekZ4TTdMWnhydGt2QTJh?=
+ =?utf-8?B?aHpZSzRnOWR3aWZ3NHdySGdqTGQzbW1PQkRscWVXYzNIUnNxb0Z4aXZNWm9m?=
+ =?utf-8?B?TlJxOUlHVnprbW0zRFdqZDhCYzYwQ216WGFMYkRJZ05BRXBucFJuUHVLVzBr?=
+ =?utf-8?B?YklZZFdQbjVmKzZ0d1kxZkJJRS9XUlZKbUdoaHd0ZjhVNkZPVUg4eERiSG5m?=
+ =?utf-8?B?bTJIT05ocE9IRnp4bkEzTXhPWmhPTThidUhjVUNoNzF6dDZqQWhMZEl5MDJj?=
+ =?utf-8?B?ZkNlbUxmTlo2TTA4amlNUE5yVGtmQjJZSzNtRVRHd0ZNaklCSEplYm84WDd2?=
+ =?utf-8?B?eVpoRmxvYURtM1BzaTZyVjlkOVc5bkZ4TnlXbzB4TzR1Z3BsNFhaVnpreGNr?=
+ =?utf-8?B?MytnVlQ1NytkVWVCeFNncERhZit4WkY4a1U3NDZmWXdIZXU2OXZ5Q0tLN25S?=
+ =?utf-8?B?OVExQU1USnNxQTVROVdpR0hLRHFaTXNzTkF6bWhVMzdYRi9rVkt1Sk0vWGhZ?=
+ =?utf-8?B?V0haRWRSK2JwY2RMYk1HR0NtUWVuckpJZURqcks5UW93bFR3NEpoT2FUY1h4?=
+ =?utf-8?B?ZElXQWRSWTNHY1QrN3dzZ3FKQTQra25ydW56TnlJS09yWE5qVGEvaFdxb0N4?=
+ =?utf-8?B?TmVpU1grTFJ6OXFLN1E5Y1hhWktGRG5HdmQ0c0NpOUtkRFdJdXdHRzdaYWpU?=
+ =?utf-8?B?QTRUaXhRTTBBbzQ5T0lJVmQ4NG9JYnBsRzV4WDR4cTh5YWU5czVvOXZ6NWZ5?=
+ =?utf-8?B?VUxnaVVkLzlHK1ljMHlKblE5THExL0FaNVJNa0p3VFM2YWkwZ3VmYUp6eUUy?=
+ =?utf-8?B?TTcxeEFCTDljaHlweVdDbUtXS2MxSkdaNlVZaDdGTnZKNERTcFB0cXNqQzlz?=
+ =?utf-8?B?eFdOZTdBeHdMZFY1M3hESEJHL1hpdFVjaFdNWThVdTV4WWZtdzVya2tMQzh0?=
+ =?utf-8?B?bUNnenA5RGVPczN0RjRJL0FUZ0ZSVHVNSndvcDdKaTZYTlgwYUV1MGtuZ29Y?=
+ =?utf-8?B?Tk1YQW9RK05rbGNGNVczTjdsQmN0MmdUL1RvSWgwaWtQRjBDUWxyUUFRRzNN?=
+ =?utf-8?B?ZExaSjVNc0xSRTk5bUNiaGt4UktBSVpFbmFhdmVQNWdRaGh4QVVRUHhITEVs?=
+ =?utf-8?B?aWpDakpJU2NUSDZFMjcrNW1mZWN0NzNmUXp2bVZGYTh4WllMNU85MUFlOGoz?=
+ =?utf-8?B?MUV5WFZEQ1QveWJHWDlyN1J4aTZHaklYZjUzcFhEbG80SWhRb281YlVXOUtL?=
+ =?utf-8?Q?jB2AuiNsS4Qkrpfw6WzbuFEWgI=3D?=
+MIME-Version: 1.0
+
+Attention: Phillip M. Arreguin
+
+My name is Robert Philips. I am a Certified Outsourcing Specialist {COS} ba=
+sed in the United Kingdom. By virtue of my profession, I have my client=E2=
+=80=99s mandate to source for Investment/Fund Manager or Entrepreneur with =
+wealth of experience from any part of the World  that will be willing and r=
+eady to manage my client's  Investment Capital for a long period of 10 year=
+s and above without interference from the ultimate beneficial owner either =
+directly or indirectly.
+
+Furthermore, you shall retain 15% of the Investment Capital as your Gratifi=
+cation, Commission and Investment Management Fees should you find this offe=
+r interesting. In addition, you will at the same time retain 30% Net Profit=
+ from the client's Investment Capital for managing the Investment satisfact=
+orily. The Return on Investment {ROI} payable annually to my client will be=
+ determined by you and finally, If you are eminently qualified to work with=
+ us as specified herein, kindly introduce yourself, your company and what t=
+ype of business you do in order to assess your qualifications. More so, add=
+ your WhatsApp Number for more effective communication.
+
+Truly Yours,
+
+Robert Philips, COS
