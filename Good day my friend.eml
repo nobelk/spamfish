@@ -1,0 +1,223 @@
+Received: from SJ0PR10MB5859.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Mon, 11 Nov 2024 14:37:46
+ +0000
+Received: from PH7PR03CA0007.namprd03.prod.outlook.com (2603:10b6:510:339::9)
+ by SJ0PR10MB5859.namprd10.prod.outlook.com (2603:10b6:a03:3ef::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.27; Mon, 11 Nov
+ 2024 14:37:45 +0000
+Received: from SN1PEPF0002BA4D.namprd03.prod.outlook.com
+ (2603:10b6:510:339:cafe::b2) by PH7PR03CA0007.outlook.office365.com
+ (2603:10b6:510:339::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29 via Frontend
+ Transport; Mon, 11 Nov 2024 14:37:44 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.219.65)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.219.65 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.219.65; helo=mail-qv1-f65.google.com; pr=C
+Received: from mail-qv1-f65.google.com (209.85.219.65) by
+ SN1PEPF0002BA4D.mail.protection.outlook.com (10.167.242.70) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8158.14
+ via Frontend Transport; Mon, 11 Nov 2024 14:37:44 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:D2BDB85B2943FE2473649D5BBBDA6290F84E697D63BFFEA0E6E8E9EED6BD8A6A;UpperCasedChecksum:E18DC6F13E52515F0529F1E3835CA96B730EE5AFBCB59B6817E965EF62399874;SizeAsReceived:2611;Count:16
+Received: by mail-qv1-f65.google.com with SMTP id 6a1803df08f44-6cbe68f787dso30255606d6.2
+        for <johndoe@outlook.com>; Mon, 11 Nov 2024 06:37:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731335864; x=1731940664; darn=outlook.com;
+        h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rgUB6ZDASc4y3IclFR+IaDVGXqET60lZEHyj/MeE1zA=;
+        b=HvhaidJTC40JOEoB2HEfk1aQ50PeaCOKE9oTTT79e7Eog6G7lp26UKWR4tLOTKumv0
+         h0NLXT+Ji5OK2BE33L0v0GGrCFyahuQlmCnQAIInGbZswjwzKxKFkGpuGWHnnssfTmku
+         Ms5nUghBoD3Yg0sZdykzS4AyYDZP0Bdwj7IjWR4c4lRDL8YcMU7a/EYRDX/+DNzYKw6F
+         S/iA4sjE6JvCOG+2rKB8Ai8j4AiIUwCD2aj53EVsqXyb2qxzpQfU+LqxyslfmbUZbBMH
+         wm1hK6G0p6O0koAiXZQpvqCk3E+o+w26p/BM9wK1kPSvwxVwYKIRCwErJWGyvv+/S1J/
+         62Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731335864; x=1731940664;
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rgUB6ZDASc4y3IclFR+IaDVGXqET60lZEHyj/MeE1zA=;
+        b=U5ae7MEXZO+UDcSxTka1pfDZkOQD5AdQwyyxfxLNhOAK9t/2YFlvxa9aE9ExOANWVD
+         5AksMly1XPdNnHFmCEo4L6y1K92nXIYOXyKniIZ6+XLtcX/VlOaIaf3gIJf3m2Ei9fsL
+         MkwccsD9G/3V7aGNcZrudJyT+9Y9rT65wI4Kqj1uDeLD2S33TGvO+yG0hUiXARmqBoUa
+         m3ryzzNSg02Gsx1WMevVdugq4CJ+Y4vvj4sCHUtIpNIbQp/VsRRa2GNYn9PLdjdNXW5h
+         felLd5xA1JRebwkZPheGdV9xPO3kC10e2rqPBfgThnJNLOUJiDuYiVcCOL9Z4ll+tfTO
+         A8vg==
+X-Forwarded-Encrypted: i=1; AJvYcCX+a/C0gIwHSPOSyXIbWRwR3VtKiflrCMXSDaxfdMfZt3x7V59mvoqUu7JCndzBeNXCLYya0A==@outlook.com
+X-Gm-Message-State: AOJu0YznyeyN//JCRgp61v9Fqcwqo+7yLuGq9pIp/C47R0sYhjgvvDLk
+	A1SEyPplogj2bWOPcvwUdn1VHU6lYduRRQiAuEk/q5D7mzuGcJbFyZBsxzL/mHYxuMkpfDk1111
+	wxpxJP+l/5cYSLVN9yZ5TdK1FOmA=
+X-Google-Smtp-Source: AGHT+IFCz33V1IMqJcqPv3LOZdgkngXvRfvg8s049J7VUxg30NINL9RztRA37CxN6kHfscpKxcznhGTXL5NGLVgy3iU=
+X-Received: by 2002:a05:6214:3d8d:b0:6d3:6612:d071 with SMTP id
+ 6a1803df08f44-6d39e1ccf42mr24355756d6.49.1731335863586; Mon, 11 Nov 2024
+ 06:37:43 -0800 (PST)
+Reply-To: dradrewsentance82@gmail.com
+From: Dr Andrew sentance <drandrewsentancez2@gmail.com>
+Date: Mon, 11 Nov 2024 15:37:37 +0100
+Message-ID: <CADBmEsn6M5rC9o4AA20FLZCY-CZbQJ9LTeM_0Tgdt=wHLyqT_g@mail.gmail.com>
+Subject: Good day my friend
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000022d7e20626a40bce"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 16
+Return-Path: drandrewsentancez2@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 11 Nov 2024 14:37:44.5704
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ c0b9f131-c312-4a41-b570-08dd025e67a7
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SN1PEPF0002BA4D:EE_|SJ0PR10MB5859:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SN1PEPF0002BA4D.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/11/2024 2:26:08 PM
+X-MS-Office365-Filtering-Correlation-Id: c0b9f131-c312-4a41-b570-08dd025e67a7
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.219.65
+X-SID-PRA: DRANDREWSENTANCEZ2@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|9020799016|461199028|970799054|6115599003|2100799027|21101999012|440099028|3412199025|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2024 14:37:44.5235
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0b9f131-c312-4a41-b570-08dd025e67a7
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SN1PEPF0002BA4D.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5859
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8926059
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8137.018
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OUJpYmZ3SUtBZUtaN0piMGJRbkdXMU8rYTFoSUE0b1FkRFpmK1lxUjYxdmFw?=
+ =?utf-8?B?NEZxQjVZQ2VxYStlVFAzcmxjd2xQY0hXK2RzaTJ6SmhUaVgwWEJpVTZ3Wk5G?=
+ =?utf-8?B?WHU5K2d6N2VTS1hPV3NNK3AzSGxBVm1sTWozZUZOUlFPQXV2a3FOaTJlRnZU?=
+ =?utf-8?B?Ry9ZL0cwclhZVFVjV05KTnlkOWFqdnYxQlhTWER3ZjlpSlVUWnBud1I3OEkw?=
+ =?utf-8?B?UmlZRDhEMmR3UVZKWThZWkFBSGJuUG1yMHlrM2VTS2ErVTNSWGdKS01tUFFr?=
+ =?utf-8?B?V01BeWFZd3Mva2ZDdFQzVGpIWG5RRmoyQktKK2lpWFJueVh1TWxxbWUvYkZI?=
+ =?utf-8?B?WnVLTWNaSFFaN1h2LzI4VFpVOFVkMmRZaHdYNzBNNFM2S3RBaHZOSkdUQi9m?=
+ =?utf-8?B?Vk5hbDI4QWplMHBrMi9pOFBJQW9LbmxaNUp2OWZXTDdteHNxS3dCWnRMYVNn?=
+ =?utf-8?B?eEkraEZxT3FCbDJsU3ZHSVhGYlFIK3o2V09mb2VxT2haVXBub3lFYU85VGlo?=
+ =?utf-8?B?NS9rZlF5bGkyUE9xWllQNnJIUnFaWkxEQUlmc2lsUEo2bmxLeHpBL2NQejBZ?=
+ =?utf-8?B?bEdWcmY1c0pHRmtFWVV2YlVJbktLQ1BLQkt6MjF3YXp3ek56U2pRSTFRZVE3?=
+ =?utf-8?B?OUVMUDNjTTlzY1k1WEtwTFgvbnZUaVRkd1ZMRjVpY3JhL3FTS3V3Ly9obVFD?=
+ =?utf-8?B?VzFhU1YrZGVNaTFJVGdvamZGV1RkLzVqWnFDRG9PcGI1UGtncTM1T2JyZGVv?=
+ =?utf-8?B?N0Z2bXBjUnZlb0ZmSTF4aDNEY0JlSjVMT3psWW5XZzNVY3hsVVpheFRyRlZF?=
+ =?utf-8?B?WDVaWWREVFRIZ3JHZTl1dThyUkNkY3V5NGJONUV0SFlxdFJhTC9sdDNQNzZY?=
+ =?utf-8?B?eDM2cGJUS0NVY2NjQ0FaS3h0Y0xOcGoyZnVZTWZZN0NZT3lXcnZOYjdyRW5O?=
+ =?utf-8?B?V2tSODJTRHFQN3pkcnQraW11VE1TS205enFSOGg0ckxHZlV6ZWJpcmJ6YjIy?=
+ =?utf-8?B?NjBuT3E4Rm92elRHZGI5ZHFOd044NmgvTDFVSjdqOFV3WW9MUUdFR0xVZFVq?=
+ =?utf-8?B?eGR5NE56dlMvd0hhSEo1RGswQ0ZaRWxKZzVNVVV3cUZBaHZuY29hZXZZcEk3?=
+ =?utf-8?B?Sk9DSFVIa0g2Z0hZczdFL0J1QjNkSXlZTXFqVlhyMG9Oemt6MTJwNGRLamVJ?=
+ =?utf-8?B?TFI0V0tILzRydFpBV3A4TnNJZ1lzdjJOKytRQ0pVdTBpUnB1TEhZOWtqWFd6?=
+ =?utf-8?B?SzRldkI0WldTU21INGVMKzVXTERheGUrUGtsTmNJRDB1K1FGT29KQmY3MlBn?=
+ =?utf-8?B?c0IwSm1LU01NbE5ISnI4UkNrOE85eGJyUHFDNURFWUxCeC84YVRtYlUvV1Bz?=
+ =?utf-8?B?N05SNyt2ZWtDWVZUT2lpRElSNFZoUlhoQUVIMWlCa281Z2IzaHlLdmQ1eDZa?=
+ =?utf-8?B?b2ZDUUJxT2dyakJ5WWN3U3krM05Zc09Fa0FoMHN2Uy92anAwNEpNYmZPY1RL?=
+ =?utf-8?B?SVNtRDZzZHMrdFlhaHBjNnNUUXhxU1dMVE5YckVWMHpUQnhjWEpwR1Q3UThC?=
+ =?utf-8?B?YVFDMUZyekhzUkhQMHRZM01nNEJsbTgyNXFHamNWQ2dtOUFPK29vRVcvbDgr?=
+ =?utf-8?B?ZitTaFM4TnpqQU1JRjVIVUV1RzlRRjB6KzJnSnRlRjJERjhLdU5MbGhHSzVR?=
+ =?utf-8?B?d2oxR0hYbTBSbkhzMkZ5SDhoMThTaHI1LzRSRExQcEZTUmxxY2E3ZldLTnFr?=
+ =?utf-8?B?QlROVWNyWlJVQnBhVmlGd3JCbHp6eERYMWFvelJ5aU9DODZZNkNRME9yckxp?=
+ =?utf-8?B?TGl6RFN3VFF3cFhzcEd6YTlUVjRubmh6cFBXSkZvenFtSXVOZVlzcjB5cmpQ?=
+ =?utf-8?B?QnBENUNYWU10aWIxZzNPQ2hKN25PeURvWmYyMDhzb2xIalAzMnFBc09HYnJa?=
+ =?utf-8?B?UWt4SlZiOElTWVgwZ2pwSTJmT0xNcHE0TmRDbUtLdGk5Z3ZKbk5jZnpCb1Vu?=
+ =?utf-8?B?bnk5QTdRMXdyY0Zwck92eVlNYWE1R0ZNQ0pna05JWXFXeTA1RitEMHNXd096?=
+ =?utf-8?B?cUhZWXIyUmZIQ2l4aTFHYlZVRFNUUFpta0JTUlFPSDVOZG14QWFhMStMbSti?=
+ =?utf-8?B?TTZpR0FLSFhTWC82bzZzNWhpQlZqYmUzRnQ2Sm1xaklxYWlnOWhPYjlRL0dL?=
+ =?utf-8?B?dmZjSE1BeUFaRW1jdzNkRVUxYjNNWUU4TTJ0TjF6MFpBbnVLSU9SVldlV2FY?=
+ =?utf-8?B?NlBlZS9IbU9FdFp5RCtMd0FNWGF0OFdyQU5ORzJPdnM0bkZvUHlQcEo2TDQ2?=
+ =?utf-8?B?bFNOSWpHMUtocFhVYmdnckZZYWlFUWhQM0NwVHc5NEpvS01JYnJ4V0xvZi9v?=
+ =?utf-8?B?RnBpelNPZ0RUcEczOENZR3hkWGFscEc3MC9EZGlueHJqcDBwWmM2RnhrcWhw?=
+ =?utf-8?B?enVrbFVkSkZVT2g0OUgxdHhSOFdKSEhnTkxtaTExc3Bhazh5RjVrWTVudjN5?=
+ =?utf-8?B?cmdCL2xkK05HV1VZMkJ6TzhZMkZKSHh1N2RwWUIvY0h0Y05FZkFLU1NuTFdD?=
+ =?utf-8?B?djNZT0x4VTMvVUtyL0pPMTRoNzRJY0NUVWtsdXJrZzhkdHYrT3dNRzE4Skcw?=
+ =?utf-8?B?cFo4Q3ZPODBrUWZOZXcwQkRzVTRXc09RbjdGcHFxWW1MK1g4clpKZi9saFda?=
+ =?utf-8?B?RFJVMUxxZlZvTjJRa3kwOXMzVHNUZzFKWm9VUkNsSVQ5WGJVZC9xWkNkZUZR?=
+ =?utf-8?B?Mzg4c2JWVURaTmV3MGo3cGhmL3BGZXJ4djZMU2Q3bWR4RnhrWS80L1BYenJy?=
+ =?utf-8?B?eFlaVmFEM3ppc09KV1dQS2dYZmRPemZZZWNEUm5lSWV4dk82NXlaNDY5bzlQ?=
+ =?utf-8?B?K1hYU3ovcDgvR1Z0WGtRRXpqWllnRno0SGFXNkZTWXlBRVUvSDJtMVlJVUdR?=
+ =?utf-8?B?R1l4N1Z4N0JWRDhybGlvbEt0czlrOGNiSkF3dElSTEp3c3Q2eXdNTlFzYy80?=
+ =?utf-8?Q?1DVEkoIw/oaDLg=3D?=
+MIME-Version: 1.0
+
+--00000000000022d7e20626a40bce
+Content-Type: text/plain; charset="UTF-8"
+
+Greetings,
+
+My name is Dr Andrew Sentance, I am a politician from England London and
+also a manager in a financial institution as a Senior Economic Adviser to
+PwC. I came across your profile where I am looking for an old friend and I
+was attracted to you because your profile looks very responsible and
+honest.  Meanwhile, I am searching confidentiality for a reliable and
+experienced honest serious business of any type of project irrespective of
+the location, new and existing project such as into Mining, Agriculture,
+Oil & Gas,Bio and Renewable Energy, Health,
+Companies,Industry,Factories,Real Estate,Import and Export etc that is in
+need of funds. I can give personal support with any amount you need from
+{$10. Million US Dollars to $1. Billion US Dollars} And you will be giving
+me only Interest by monthly or yearly.
+
+Because of scammers in the world now there will be no upfront fee. My plan
+is that you or your company groups with my representative will meet face to
+face in any nearby country to make an agreement and sign in person after
+signing the agreement the fund will be handed over to you there in your
+present.
+
+If you are honestly serious in need of money to expand your business or
+projects kindly write to me on my personal email for more details: (
+dradrewsentance82@gmail.com)
+
+Thanks and God bless you.
+
+Best Regards,
+Dr Andrew Sentance.
+
+--00000000000022d7e20626a40bce
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr">Greetings,<br><br>My name is Dr Andrew Sentance, I am a poli=
+tician from England London and also a manager in a financial institution as=
+ a Senior Economic Adviser to PwC. I came across your profile where I am lo=
+oking for an old friend and I was attracted to you because your profile loo=
+ks very responsible and honest.&nbsp; Meanwhile, I am searching confidentia=
+lity for a reliable and experienced honest serious business of any type of =
+project irrespective of the location, new and existing project such as into=
+ Mining, Agriculture, Oil &amp; Gas,Bio and Renewable Energy, Health, Compa=
+nies,Industry,Factories,Real Estate,Import and Export etc that is in need o=
+f funds. I can give personal support with any amount you need from {$10. Mi=
+llion US Dollars to $1. Billion US Dollars} And you will be giving me only =
+Interest by monthly or yearly.<br><br>Because of scammers in the world now =
+there will be no upfront fee. My plan is that you or your company groups wi=
+th my representative will meet face to face in any nearby country to make a=
+n agreement and sign in person after signing the agreement the fund will be=
+ handed over to you there in your present.<br><br>If you are honestly serio=
+us in need of money to expand your business or projects kindly write to me =
+on my personal email for more details: (<a href=3D"mailto:dradrewsentance82=
+@gmail.com">dradrewsentance82@gmail.com</a>)<br><br>Thanks and God bless yo=
+u.<br><br>Best Regards,<br>Dr Andrew Sentance.<br><br></div>
+
+--00000000000022d7e20626a40bce--

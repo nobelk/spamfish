@@ -1,0 +1,239 @@
+Received: from CH2PR10MB4183.namprd10.prod.outlook.com (::1) by
+ CO1PR10MB4450.namprd10.prod.outlook.com with HTTPS; Sun, 10 Nov 2024 12:52:04
+ +0000
+Received: from AS8PR04CA0197.eurprd04.prod.outlook.com (2603:10a6:20b:2f3::22)
+ by CH2PR10MB4183.namprd10.prod.outlook.com (2603:10b6:610:7e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.27; Sun, 10 Nov
+ 2024 12:52:02 +0000
+Received: from AM2PEPF0001C714.eurprd05.prod.outlook.com
+ (2603:10a6:20b:2f3:cafe::37) by AS8PR04CA0197.outlook.office365.com
+ (2603:10a6:20b:2f3::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.26 via Frontend
+ Transport; Sun, 10 Nov 2024 12:52:02 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.222.65)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.222.65 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.222.65; helo=mail-ua1-f65.google.com; pr=C
+Received: from mail-ua1-f65.google.com (209.85.222.65) by
+ AM2PEPF0001C714.mail.protection.outlook.com (10.167.16.184) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8158.14
+ via Frontend Transport; Sun, 10 Nov 2024 12:52:02 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:39A5C77459CBB7E06CD865819E6AA285412C737BA2CDE9648D38C27C0C4747C5;UpperCasedChecksum:D36F89A0C7D94FA88406930D88A7CD65D4012FD2A9F5471F878DAABF11EA6136;SizeAsReceived:2548;Count:15
+Received: by mail-ua1-f65.google.com with SMTP id a1e0cc1a2514c-84fcb020503so2713185241.0
+        for <johndoe@outlook.com>; Sun, 10 Nov 2024 04:52:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731243121; x=1731847921; darn=outlook.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5z/JSC5i3aqWrSgWFN/WlbVpPXm6t8wS3shHM5ROmyo=;
+        b=d7PEwYPvVSlapeoNnpD1h/tHwg+tQl/82xx5raZR5qUv/I6XujM1SLdTXgyrpEngmf
+         Hb9SMElFJu3InRm7Biq4bHtuxiEET8iRGY6qnFmroF4xbnsXLz+jccmksve6IgUiGIjD
+         tR22Zq1sDKOj3DW1MheeWtPFt8GvFyWudbq27ebUasDSQzryCVYxYuhlA5PcyqXQfY65
+         DZn1l8zTSLq7QnvDAE86K/zxkeL5Lo4ogi3KobOStzKCGBg240K/QnRLkl1LdAmZgumH
+         zSvfRHMO0iqVZx9fFg+e3YnJb7FsBVz7QoW4mluENu9aXD5IYsjmh7FcZywKCaFe5EJu
+         G/Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731243121; x=1731847921;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5z/JSC5i3aqWrSgWFN/WlbVpPXm6t8wS3shHM5ROmyo=;
+        b=QwcF28qnjhRlua3h+o2dlLSCbkYJrgE8sqOYbYgoaAiNt89rNcDhw5qUoOgIorUctx
+         ctCoYz6qBa+qBqMP+/xg2cJpkQtI3LXpI9Q27bienYH5CWwJR0aF++WxOmM34dihzXfP
+         WeI3mFXDeWr1nOf7IKCLPICcM/XIlmki926fgGU0tz6vnacqs2GL8eNu/oW54LZUQNr7
+         jzRM43txLdn3QG6P1NQINIZ7wpGYaedRzyOQPnBeT6RFR5zyyy/PHH8QZItABrHtsngY
+         JyxoEDKeguAWc7X3fviCSHmarbpDkyftRVWrBZfgH8/ad2HTiJdQyldpU6mfHB6CqhCn
+         W9WA==
+X-Forwarded-Encrypted: i=1; AJvYcCUIvK8dkCSVRnkxMezj3iKAw7ciTt9SD5YxymMHNVkuXGduRgrkhhA0QTTMbXjd/mzOl5QNUw==@outlook.com
+X-Gm-Message-State: AOJu0YwVYtJow1PnQ3XACp+I4glYxESIYS6CTrqK9eWjsQXjdxwGJ9Ll
+	JqGmV16CdgOKUM2tUF8edcMOHqXf4tIE6T5hiq0pqtB5oa45x57lVfMSE3A0Nk060pjrbBC8oKa
+	mNXr3zi0bGvRXuhvW39bzVH47wlM=
+X-Google-Smtp-Source: AGHT+IH16TlegLuPZr2PkzQH+nCuHnjyzcBJbxONquc1YZoXDD2kF9RNMEX/u2YlAyST++4nTS3yjLLyB3YXWHE6yMA=
+X-Received: by 2002:a05:6102:548a:b0:4a4:94a8:7e9d with SMTP id
+ ada2fe7eead31-4aadfdcbebdmr9163096137.4.1731243120934; Sun, 10 Nov 2024
+ 04:52:00 -0800 (PST)
+From: Elizabeth Edward <mrselizabethedwards11@gmail.com>
+Date: Sun, 10 Nov 2024 13:51:43 +0100
+Message-ID: <CAEX5iYFecbt4m+WWxa4ZMkuOQTGDeTNhx9HW3tx0SiCDUutELw@mail.gmail.com>
+Subject: Please Reply
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000003e4ac506268e73b9"
+Bcc: johndoe@outlook.com
+X-IncomingHeaderCount: 15
+Return-Path: odogwuyoubam@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 10 Nov 2024 12:52:02.5897
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 4220aece-dde3-4d52-8157-08dd01867920
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM2PEPF0001C714:EE_|CH2PR10MB4183:EE_|CO1PR10MB4450:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM2PEPF0001C714.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/10/2024 12:40:07 PM
+X-MS-Office365-Filtering-Correlation-Id: 4220aece-dde3-4d52-8157-08dd01867920
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.222.65
+X-SID-PRA: MRSELIZABETHEDWARDS11@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|9020799016|970799054|6115599003|2100799027|3412199025|440099028|21002599022;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Nov 2024 12:52:02.4491
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4220aece-dde3-4d52-8157-08dd01867920
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM2PEPF0001C714.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR10MB4183
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.4211237
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8137.018
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?VzVQU1BCd3RxQ2hGNHJDSWRMWVdFNFFUUHBVMzZaK0plcnRoNnY0cHZ6OFJw?=
+ =?utf-8?B?NThLTlBxS1JiOEZuNnBCQXIzeGR5RkVoeEZBU0lPaFFzeVphcExpVmRDc3Yr?=
+ =?utf-8?B?UlhuZ1Bqb0tNdVZKTnZaWFliVnEyeXNsZzNCMkFDOEx5amlad2h0WERVU21D?=
+ =?utf-8?B?VWFudTZvOWZ5V0J3ZW9FVlRndjM3amRTZjlQR1FrTHdyTEo2OEtSQzRuOVRx?=
+ =?utf-8?B?SVNmUGkzOXlQZEI2RktTRzAyVjJvOWI5cHp3Vk1adnEwcWNpTTFZb0JWeE5o?=
+ =?utf-8?B?ODE1VUVWbXVwYmdldXowVXVmT0ZDN2tuc3h0SFVpK1BlZXFtT1NYYjdXZy9K?=
+ =?utf-8?B?YVZPQVoweW1paEpGUFBGcGdoQkRyV0RMa2VDS2hZTkJhckY2ZXRKcHRSdEdG?=
+ =?utf-8?B?NjBHeVhrbGk1RklObVBIaXFIRjMwSjQ5cXNSVXhqdytBbzhJTlVlRm0yVVFk?=
+ =?utf-8?B?NE9VblJ0SjVVNmJsTmxVdU9CaUFLNlRvelRMbEkvMitYcEl2YUxDdXkwRVht?=
+ =?utf-8?B?QkxoTVp6OVU1YnkyM0w5U2FwemxyVXcwOE5CMzJVNnVwUm02dmpLazZoTC9T?=
+ =?utf-8?B?eU5XTTVXQlVDd2pyL3A1ZnlGelFxcWswSTRZSEh6V1gyZ1BrRkhGRUh4b25R?=
+ =?utf-8?B?b0phNElkTGN0SDFjWVhBcmM5MW9kSGFqdkhuaTB6ek9NSDdPcmtXVHRpOEg5?=
+ =?utf-8?B?UEYyMFVZbjFhOFBKcW9FZHdJTGFudFJ6ekplNEgyK1JSV0p6RlZOR253Wlov?=
+ =?utf-8?B?S21sTjFRK0FmeHZOSFgxQjNsZTFwL2pRUzlWbFZVQW5WLzdrYXVEUnlzbG0y?=
+ =?utf-8?B?QXFHVm1kazlXbk5qTGNZM2h1aElEdGxrZTROTk5HenJaMjBtYXZJNEVpTUNT?=
+ =?utf-8?B?U1RjYllDZTJPNVNHNHNaQjBpS1dqckFhZnhHd3NINjRYK3YvVUQwdFVkY3Uz?=
+ =?utf-8?B?d0svOFpnb2ZENFZvTDF5bzdHNzg0MWFTdGliUVNXNVh6YS9uZzBnZlh0Rzgr?=
+ =?utf-8?B?YlFBNXpCU213T1JLRW54SDJIbDE1NXRwN0FiL0hlTmNsYmNEM1NGUDRaYTd6?=
+ =?utf-8?B?NUNsbDlGVC9KWkRqU2l4OXZCTG4vb1FjS3hodVVqQlAyM3dTZFRuSnVHNkJv?=
+ =?utf-8?B?dGRtQzdrZlc3T3k0U284cmJNTnE3bTl4TmdOOEVCbXhLQWw3UHREdUg5bnJN?=
+ =?utf-8?B?Ky9rUW80MnJ2SEtIZ1JHblhxaHdFbGd0QkJvdklsaVJHMU9GRjdjaWFmeWhO?=
+ =?utf-8?B?Ymp0SzdQbnl4amRrcEVDWEJGMGlqWDI2UDNBMmxxMTFtekRUUDVvVDE3Ynpu?=
+ =?utf-8?B?Um9NRzAxRW1Zak9sbG9VOVZqWWlvMDQyWU1YVDFva205bUhCWVVndkU5c2Fx?=
+ =?utf-8?B?TVgzYzBFMG0yT3RHS09mK3N3OVI3dm9KeDA3ZU0zSGI4dkVuRVI4bGUzUmh1?=
+ =?utf-8?B?R0dEWDNzejhKNUZKQ21ISHllUGtPWi9mZWczK29rbk5XTklQVzg2ZnhpdUdx?=
+ =?utf-8?B?T2M1Y3BPVk1Oa0FqTXNISk9oMFNNL2FxZUk2S3N4OUJoeU11Sk5neGp1d3Vn?=
+ =?utf-8?B?YzZvVVQyeWR4dW1TSE5ER1poVStsczhzdU13ZFRqUTlmMzFLdFYyMHlNWWRq?=
+ =?utf-8?B?ejRWK0JWNEpuWWp1Mkl0NnJ6Qy9nZDNXYlh0ajNOWWhJd3oyZGE3ekE2RWF2?=
+ =?utf-8?B?azc2YTM5eUI1WklraW9JZ0M4bjlGYXJEVVRacnhaVFVmNWV4cXJrblEyajJk?=
+ =?utf-8?B?SHNYbGMweThTVEpkclliRG9jRzhLSEF2WkpHSVhCcFFCVlo4YWNJdjdEL05h?=
+ =?utf-8?B?aE9CaEdvKzg4MFhjNytOcUoya2NzN0RQZkdYSi9RUHViaUtqMU0vVVcwekxF?=
+ =?utf-8?B?U2hicG1QUk5ZNW4yTmFleEhBWkp0T1VxUncvMk9tWjBFMTVCTWs1ZU9ySWRI?=
+ =?utf-8?B?VWt6VzVZZVJ2eWNvNHFnSkRWK1QzMnJBdXZSNkllOGQ1NU5kS2Vzc29pMmFz?=
+ =?utf-8?B?enBUeFQrdmV0dnYrS2lMWTE1RDd3cE5WdWZKSWNxcFMyaXE3OC9lNTBUazVN?=
+ =?utf-8?B?TlZWK1Q2bjVQNGhCTWJCNzdTSllONG44UjdiUERSRUoyc2lEdUFqK0FWTGM0?=
+ =?utf-8?B?UXZ2USttUGRzQ3RXaFRDenphblhiaU9kZkxrMmdNTGJEclhaeEZyWnhXTXl0?=
+ =?utf-8?B?MjlKYmFoR0h0L0xjd2o5a2E3VkZaWTV0VkJIKzRHdHhJR3A4ZmQyWkFyNEZD?=
+ =?utf-8?B?TmV1UDNQd0VoaGs4YVlQWnhwVk9Ob2ErLzdVTjBDOHV2S3RtY2xkLzdTMlZX?=
+ =?utf-8?B?d1l2ZDNRSi9JWXpnRVQ1QzFwWnhrUTdXdStHaUdScWZiMDRwUFJhQS90OFA2?=
+ =?utf-8?B?cmltM2ZvZUZWNHBOMXRxOXRBakoxbEorVkYzR1NDYUtOL24wMkYxVE0zRENH?=
+ =?utf-8?B?UGs1TG9QblhtcklxUDZyQVo0ZjZMWkpIL2swdDRpSFo1L1dwNWx6T090SUM1?=
+ =?utf-8?B?bndTNDlmOUUxWjF2T0ZacXp1bkZSTmhqTlJ1eUFwc2k5KzlkOUcxb3pJYW5k?=
+ =?utf-8?B?dDJpZkxqZW5ic1Z5SkorRUFjb0hRYXBkRWZzQk5ieklCQTRUOW5IcVJGT2NV?=
+ =?utf-8?B?WGFhNmlXQlJoWUxjZGtPWWMvbTVmaldSVlV6bzJ3VGNOQW1TYnl5bURpeTJR?=
+ =?utf-8?B?Y1RVK0tMZlY2ZndPcUdlVWRhZWNQTVFNdlVhN2hSS2x0T0p5UUFWZTRPUGU0?=
+ =?utf-8?B?KzVjOTZMZCtBL2d3VHpYZW4vZVR5d29ObEtYc0srTFJCWlNuQ0l6dWgycFBk?=
+ =?utf-8?B?amc4TjRWNnBQaDhYaU1HWEg2M3NBVnlycExFcVdUN2JJQUJsSTBVOVFnZEY1?=
+ =?utf-8?B?bVBJZjJHNUxkNGE2NGx6bnpUK2RxZDIyOVUvamdvZERHWkkwa3B6QVZxWkVj?=
+ =?utf-8?B?b0NQOWt5Y2cwQllxL2tqSzdscWlyTTZqd09laUtGaUVTRzN5bnc9PQ==?=
+MIME-Version: 1.0
+
+--0000000000003e4ac506268e73b9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Please forgive me for stressing you with my predicaments as I know that
+this letter may come to you as a big surprise Meanwhile, I am Madam
+Elizabeth Edward, 73 years, am from USA, childless.
+
+I am suffering from adenocarcinoma Cancer of the lungs for the past 8 years
+and from all indication my condition is really deteriorating as my doctors
+have confirmed and courageously advised me that I may not live beyond 4
+weeks from now for the reason that the tumor has reached a critical stage
+which has defiled all forms of medical treatment Since my days are
+numbered, I=E2=80=99ve decided willingly to fulfill my long-time vow to don=
+ate to
+the less privileged in at least 5 countries around the world, the sum of
+($18.5M).
+
+I have tried to handle this project by myself when I get better but I have
+seen that my health could not allow me to do so anymore, If you are
+interested in running a charity project for the interest of the poor I will
+like you to introduce yourself to me and your project opinion.
+
+Best Regards
+
+Elizabeth Edward.
+
+--0000000000003e4ac506268e73b9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><p class=3D"MsoNormal" style=3D"text-align:justify;line-heig=
+ht:normal;margin:0in 0in 10pt;font-size:11pt;font-family:Cambria,&quot;seri=
+f&quot;"><span style=3D"font-size:10pt;font-family:Centaur,&quot;serif&quot=
+;">Please forgive me for
+stressing you with my predicaments as I know that this letter may come to y=
+ou
+as a big surprise Meanwhile, I am Madam Elizabeth Edward, 73 years, am from
+USA, childless.</span></p>
+
+<p class=3D"MsoNormal" style=3D"text-align:justify;line-height:normal;margi=
+n:0in 0in 10pt;font-size:11pt;font-family:Cambria,&quot;serif&quot;"><span =
+style=3D"font-size:10pt;font-family:Centaur,&quot;serif&quot;">I am sufferi=
+ng from
+adenocarcinoma Cancer of the lungs for the past 8 years and from all indica=
+tion
+my condition is really deteriorating as my doctors have confirmed and
+courageously advised me that I may not live beyond 4 weeks from now for the
+reason that the tumor has reached a critical stage which has defiled all fo=
+rms
+of medical treatment Since my days are numbered, I=E2=80=99ve decided willi=
+ngly to
+fulfill my long-time vow to donate to the less privileged in at least 5
+countries around the world, the sum of ($18.5M).</span></p>
+
+<p class=3D"MsoNormal" style=3D"text-align:justify;line-height:normal;margi=
+n:0in 0in 10pt;font-size:11pt;font-family:Cambria,&quot;serif&quot;"><span =
+style=3D"font-size:10pt;font-family:Centaur,&quot;serif&quot;">I have tried=
+ to handle
+this project by myself when I get better but I have seen that my health cou=
+ld
+not allow me to do so anymore, If you are interested in running a charity
+project for the interest of the poor I will like you to introduce yourself =
+to
+me and your project opinion.</span></p>
+
+<p class=3D"MsoNormal" style=3D"text-align:justify;line-height:normal;margi=
+n:0in 0in 10pt;font-size:11pt;font-family:Cambria,&quot;serif&quot;"><span =
+style=3D"font-size:10pt;font-family:Centaur,&quot;serif&quot;">Best Regards=
+</span></p>
+
+<p class=3D"MsoNormal" style=3D"text-align:justify;line-height:normal;margi=
+n:0in 0in 10pt;font-size:11pt;font-family:Cambria,&quot;serif&quot;"><span =
+style=3D"font-size:10pt;font-family:Centaur,&quot;serif&quot;">Elizabeth Ed=
+ward.</span></p></div>
+
+--0000000000003e4ac506268e73b9--

@@ -24,7 +24,7 @@ Received: from mail-oo1-f66.google.com (209.85.161.66) by
 X-IncomingTopHeaderMarker:
  OriginalChecksum:0D13B846F2ACD41FF960FA2E9C120E9C360B8C9D35ADDA8B7EA66B8A2B4D2393;UpperCasedChecksum:D84BA8D78B9A33E9D483A88FA6D363E013EDE1ECAC67E3F3BF9BE10F9C55693D;SizeAsReceived:2605;Count:16
 Received: by mail-oo1-f66.google.com with SMTP id 006d021491bc7-5e7ae4c504fso2263080eaf.1
-        for <nobel@outlook.com>; Tue, 15 Oct 2024 03:50:55 -0700 (PDT)
+        for <johndoe@outlook.com>; Tue, 15 Oct 2024 03:50:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1728989454; x=1729594254; darn=outlook.com;
         h=to:subject:message-id:date:from:reply-to:mime-version:from:to:cc
@@ -62,7 +62,7 @@ Message-ID: <CAK7FwDTV+C-Gtp6zPtMpiqMW_0Pc8pFDvA25nsbQ-whD-ffvpA@mail.gmail.com>
 Subject: INQUIRY FOR INVESTMENT
 To: undisclosed-recipients:;
 Content-Type: multipart/alternative; boundary="0000000000003934bf062481baf6"
-Bcc: nobel@outlook.com
+Bcc: johndoe@outlook.com
 X-IncomingHeaderCount: 16
 Return-Path: chedin572@gmail.com
 X-MS-Exchange-Organization-ExpirationStartTime: 15 Oct 2024 10:50:56.2221
